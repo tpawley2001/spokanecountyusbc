@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tournament Sign Up | Spokane County USBC</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="index.html">🎳 <span>Spokane County</span> USBC</a>
+    <button class="nav-toggle" aria-label="Toggle menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="tournaments.html">Tournaments</a></li>
+      <li><a href="signup.html" class="active">Sign Up</a></li>
+      <li><a href="averages.html">Averages</a></li>
+      <li><a href="forms.html">Forms &amp; Rules</a></li>
+      <li><a href="honor.html">Honor Scores</a></li>
+      <li><a href="board.html">Board</a></li>
+      <li><a href="youth.html">Youth</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="page">
+  <div class="page-header">
+    <h1>Tournament Sign Up</h1>
+    <div class="divider"></div>
+    <p>Register and pay for upcoming SCUSBC tournaments online or by mail.</p>
+  </div>
+
+  <section class="section" style="border-top:none;padding-top:0;">
+    <h2>Pay Online</h2>
+    <div class="divider"></div>
+    <p class="section-meta">Fastest option — pay your entry fee instantly via Venmo or PayPal.</p>
+    <div class="cards" style="grid-template-columns:repeat(auto-fill,minmax(220px,1fr));">
+      <div class="card" style="text-align:center;">
+        <div class="card-icon">💙</div>
+        <h3>Venmo</h3>
+        <p>Scan the QR code or click below to pay via Venmo.</p>
+        <a href="https://venmo.com" target="_blank" rel="noopener" class="btn btn-navy" style="margin-top:0.5rem;display:inline-flex;">Pay with Venmo</a>
+      </div>
+      <div class="card" style="text-align:center;">
+        <div class="card-icon">💛</div>
+        <h3>PayPal</h3>
+        <p>Scan the QR code or click below to pay via PayPal.</p>
+        <a href="https://paypal.com" target="_blank" rel="noopener" class="btn btn-navy" style="margin-top:0.5rem;display:inline-flex;">Pay with PayPal</a>
+      </div>
+    </div>
+    <div class="info-box" style="margin-top:1rem;">
+      <h4>📝 Include in your payment note:</h4>
+      <ul>
+        <li>Your full name</li>
+        <li>Tournament name</li>
+        <li>Team or partner name (if applicable)</li>
+        <li>Division or category</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Pay by Mail</h2>
+    <div class="divider"></div>
+    <p class="section-meta">Mail a check with your completed entry form to:</p>
+    <div class="info-box">
+      <h4>Spokane County USBC</h4>
+      <p>P.O. Box 112</p>
+      <p>Deer Park, WA 99006</p>
+    </div>
+    <p style="color:var(--muted);margin-top:1rem;font-size:0.95rem;">Make checks payable to <strong>Spokane County USBC</strong>. Download entry forms from the <a href="forms.html">Forms &amp; Rules</a> page.</p>
+  </section>
+
+  <section class="section">
+    <h2>Questions?</h2>
+    <div class="divider"></div>
+    <p>Contact Association Manager Tina Blough:</p>
+    <div style="margin-top:1rem;display:flex;gap:0.75rem;flex-wrap:wrap;">
+      <a href="tel:5097951845" class="btn btn-navy">📞 509-795-1845</a>
+      <a href="mailto:spokaneusbc.assoc.manager@gmail.com" class="btn btn-outline" style="border-color:var(--navy);color:var(--navy);">✉️ Email</a>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <h4>🎳 Spokane County USBC</h4>
+        <p style="font-size:0.85rem;color:rgba(255,255,255,0.55);margin-top:0.5rem;">Serving Spokane area bowlers.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="tournaments.html">Tournaments</a></li>
+          <li><a href="signup.html">Tournament Sign Up</a></li>
+          <li><a href="averages.html">Bowler Averages</a></li>
+          <li><a href="forms.html">Forms &amp; Rules</a></li>
+          <li><a href="honor.html">Honor Scores</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Association</h4>
+        <ul>
+          <li><a href="board.html">Board of Directors</a></li>
+          <li><a href="youth.html">Youth Page</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="https://www.bowl.com" target="_blank" rel="noopener">Bowl.com</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:5097951845">509-795-1845</a></li>
+          <li><a href="mailto:spokaneusbc.assoc.manager@gmail.com">Email Us</a></li>
+          <li><a>P.O. Box 112, Deer Park, WA 99006</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Spokane County USBC. All rights reserved.</span>
+      <span>Member of <a href="https://www.bowl.com" target="_blank" rel="noopener" style="color:var(--gold);">USBC — United States Bowling Congress</a></span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
