@@ -1,0 +1,51 @@
+{
+  "season": "2025–2026",
+  "announcement": {
+    "visible": true,
+    "text": "Renew your USBC membership online at",
+    "link": "https://www.bowl.com",
+    "link_text": "Bowl.com"
+  },
+  "contact": {
+    "manager_name": "Tina Blough",
+    "manager_role": "Association Manager",
+    "email": "spokaneusbc.assoc.manager@gmail.com",
+    "phone": "509-795-1845",
+    "phone_digits": "5097951845",
+    "address_line1": "P.O. Box 112",
+    "address_line2": "Deer Park, WA 99006",
+    "facebook_url": "https://www.facebook.com"
+  },
+  "board": {
+    "members": [
+      { "role": "President", "name": "Russ Blough", "email": "blough300@gmail.com", "phone": "" },
+      { "role": "Association Manager", "name": "Tina Blough", "email": "spokaneusbc.assoc.manager@gmail.com", "phone": "509-795-1845" },
+      { "role": "Vice President", "name": "Rob Winchell", "email": "robbie.winchell@gmail.com", "phone": "" },
+      { "role": "USBC Director", "name": "Tyson Pawley", "email": "tyson.usbc@gmail.com", "phone": "" },
+      { "role": "USBC Director", "name": "Robert Frank", "email": "rjchief@gmail.com", "phone": "" },
+      { "role": "USBC Director", "name": "Mark McBeth", "email": "mmmcbeth1816@yahoo.com", "phone": "" },
+      { "role": "USBC Director", "name": "Jacob McBeth", "email": "jacobmcbeth9@gmail.com", "phone": "" },
+      { "role": "USBC Director", "name": "Terry Werner", "email": "terrywerner@msn.com", "phone": "" },
+      { "role": "USBC Director", "name": "Luke Ankenman", "email": "lukeanks@yahoo.com", "phone": "" },
+      { "role": "USBC Director", "name": "Troy Cleaver", "email": "trycleav@yahoo.com", "phone": "" }
+    ]
+  },
+  "tournaments": [
+    { "name": "BVL Veterans Doubles", "date": "November 8, 2025", "type": "Doubles", "type_color": "blue", "status": "Open", "status_color": "green" },
+    { "name": "500 Club Women's", "date": "TBD", "type": "Women's", "type_color": "gold", "status": "TBD", "status_color": "gold" },
+    { "name": "Scratch Tournament", "date": "TBD", "type": "Scratch", "type_color": "green", "status": "TBD", "status_color": "gold" },
+    { "name": "Handicap Tournament", "date": "TBD", "type": "Handicap", "type_color": "blue", "status": "TBD", "status_color": "gold" },
+    { "name": "Youth Tournament", "date": "TBD", "type": "Youth", "type_color": "gold", "status": "TBD", "status_color": "gold" }
+  ],
+  "honor_scores": [],
+  "jbt_schedule": [
+    { "date": "October 15", "location": "Players & Spectators", "format": "Singles" },
+    { "date": "November 19", "location": "North Bowl", "format": "Singles" },
+    { "date": "December 10", "location": "Valley Bowl", "format": "Doubles" },
+    { "date": "January 14", "location": "Lilac Lanes", "format": "TBD" }
+  ],
+  "payment": {
+    "venmo_url": "https://venmo.com",
+    "paypal_url": "https://paypal.com"
+  }
+}

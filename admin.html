@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin — Spokane County USBC</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0f1117; --surface: #1a1d27; --surface2: #222536; --border: #2e3249;
+      --accent: #4f6ef7; --accent-h: #3d5ce6; --danger: #e74c3c; --danger-h: #c0392b;
+      --success: #2ecc71; --success-h: #27ae60; --text: #e8eaf6; --muted: #6b7280;
+      --gold: #f5c842; --radius: 12px; --sidebar: 220px;
+    }
+    body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+
+    /* ── Login ── */
+    #login { display:flex; align-items:center; justify-content:center; min-height:100vh; padding:1rem; }
+    .login-box { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:2.5rem 2rem; width:100%; max-width:380px; text-align:center; }
+    .login-box .logo { font-size:2.5rem; margin-bottom:.5rem; }
+    .login-box h1 { font-size:1.2rem; font-weight:700; margin-bottom:.25rem; }
+    .login-box p { color:var(--muted); font-size:.875rem; margin-bottom:1.5rem; }
+    .login-box .err { color:var(--danger); font-size:.8rem; min-height:1.2rem; margin-bottom:.5rem; }
+
+    /* ── Shell ── */
+    #app { display:none; height:100vh; display:none; flex-direction:column; }
+
+    /* topbar */
+    .topbar { background:var(--surface); border-bottom:1px solid var(--border); height:56px; display:flex; align-items:center; justify-content:space-between; padding:0 1.25rem; flex-shrink:0; }
+    .topbar-brand { font-weight:700; font-size:.975rem; display:flex; align-items:center; gap:.5rem; }
+    .topbar-brand span { color:var(--gold); }
+    .topbar-right { display:flex; gap:.5rem; align-items:center; }
+
+    /* layout */
+    .shell { display:flex; flex:1; overflow:hidden; }
+
+    /* sidebar */
+    .sidebar { width:var(--sidebar); background:var(--surface); border-right:1px solid var(--border); display:flex; flex-direction:column; overflow-y:auto; flex-shrink:0; }
+    .nav-item { display:flex; align-items:center; gap:.6rem; padding:.7rem 1.1rem; font-size:.875rem; color:var(--muted); cursor:pointer; border-left:3px solid transparent; transition:all .15s; user-select:none; }
+    .nav-item:hover { background:var(--surface2); color:var(--text); }
+    .nav-item.active { color:var(--accent); border-left-color:var(--accent); background:rgba(79,110,247,.08); font-weight:600; }
+    .nav-item .icon { font-size:1rem; width:1.25rem; text-align:center; }
+    .nav-section { padding:.75rem 1.1rem .25rem; font-size:.68rem; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:var(--muted); }
+
+    /* main */
+    .main { flex:1; overflow-y:auto; padding:1.75rem 1.5rem 5rem; }
+    .section-panel { display:none; }
+    .section-panel.active { display:block; }
+
+    .page-title { font-size:1.3rem; font-weight:700; margin-bottom:.25rem; }
+    .page-sub { color:var(--muted); font-size:.85rem; margin-bottom:1.5rem; }
+
+    /* cards / lists */
+    .item-list { display:flex; flex-direction:column; gap:.6rem; margin-bottom:1rem; }
+    .item-card { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:.875rem 1rem; display:flex; align-items:center; gap:.875rem; transition:border-color .2s; cursor:grab; }
+    .item-card:active { cursor:grabbing; }
+    .item-card.drag-over { border-color:var(--accent); }
+    .item-card.dragging { opacity:.35; }
+    .drag-handle { color:var(--muted); font-size:1rem; user-select:none; flex-shrink:0; }
+    .item-info { flex:1; min-width:0; }
+    .item-label { font-weight:600; font-size:.9rem; }
+    .item-sub { font-size:.77rem; color:var(--muted); margin-top:.1rem; }
+    .item-badge { font-size:.68rem; font-weight:700; padding:.15rem .45rem; border-radius:4px; }
+    .item-actions { display:flex; gap:.375rem; flex-shrink:0; }
+
+    /* form */
+    .form-row { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1rem; }
+    .form-row.single { grid-template-columns:1fr; }
+    .form-row.triple { grid-template-columns:1fr 1fr 1fr; }
+    .form-group { margin-bottom:1rem; }
+    .form-group label { display:block; font-size:.75rem; font-weight:600; text-transform:uppercase; letter-spacing:.05em; color:var(--muted); margin-bottom:.375rem; }
+    .form-group input, .form-group select, .form-group textarea {
+      width:100%; padding:.6rem .875rem; border-radius:8px; border:1px solid var(--border);
+      background:var(--bg); color:var(--text); font-size:.875rem; outline:none; transition:border-color .2s; font-family:inherit;
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color:var(--accent); }
+    .form-group textarea { resize:vertical; min-height:80px; }
+
+    /* toggle */
+    .toggle-row { display:flex; align-items:center; gap:.75rem; margin-bottom:1rem; }
+    .toggle { position:relative; width:42px; height:24px; flex-shrink:0; }
+    .toggle input { opacity:0; width:0; height:0; }
+    .toggle-slider { position:absolute; inset:0; background:var(--border); border-radius:24px; cursor:pointer; transition:.2s; }
+    .toggle-slider::before { content:''; position:absolute; width:18px; height:18px; left:3px; top:3px; background:#fff; border-radius:50%; transition:.2s; }
+    .toggle input:checked + .toggle-slider { background:var(--accent); }
+    .toggle input:checked + .toggle-slider::before { transform:translateX(18px); }
+    .toggle-label { font-size:.9rem; }
+
+    /* buttons */
+    .btn { display:inline-flex; align-items:center; gap:.375rem; padding:.5rem .9rem; border-radius:8px; border:none; font-size:.85rem; font-weight:600; cursor:pointer; transition:background .15s; white-space:nowrap; font-family:inherit; }
+    .btn:disabled { opacity:.5; cursor:not-allowed; }
+    .btn-primary { background:var(--accent); color:#fff; }
+    .btn-primary:hover:not(:disabled) { background:var(--accent-h); }
+    .btn-success { background:var(--success); color:#fff; }
+    .btn-success:hover:not(:disabled) { background:var(--success-h); }
+    .btn-ghost { background:transparent; color:var(--muted); border:1px solid var(--border); }
+    .btn-ghost:hover:not(:disabled) { background:var(--surface2); color:var(--text); }
+    .btn-danger-sm { background:transparent; color:var(--danger); border:none; padding:.4rem; border-radius:6px; font-size:.95rem; cursor:pointer; }
+    .btn-danger-sm:hover { background:rgba(231,76,60,.12); }
+    .btn-edit-sm { background:transparent; color:var(--muted); border:none; padding:.4rem; border-radius:6px; font-size:.95rem; cursor:pointer; }
+    .btn-edit-sm:hover { background:var(--surface2); color:var(--text); }
+    .btn-sm { padding:.375rem .7rem; font-size:.78rem; }
+    .btn-add { border:2px dashed var(--border); border-radius:var(--radius); padding:.875rem; width:100%; text-align:center; color:var(--muted); font-size:.875rem; cursor:pointer; background:none; font-family:inherit; transition:all .15s; }
+    .btn-add:hover { border-color:var(--accent); color:var(--accent); }
+
+    /* modal */
+    .overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,.65); z-index:200; align-items:center; justify-content:center; padding:1rem; }
+    .overlay.open { display:flex; }
+    .modal { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:1.75rem; width:100%; max-width:460px; max-height:90vh; overflow-y:auto; }
+    .modal h2 { font-size:1.05rem; font-weight:700; margin-bottom:1.25rem; }
+    .modal-footer { display:flex; gap:.75rem; justify-content:flex-end; margin-top:1.5rem; }
+
+    /* save bar */
+    .save-bar { position:fixed; bottom:0; left:0; right:0; background:var(--surface); border-top:1px solid var(--border); padding:.75rem 1.5rem; display:flex; align-items:center; justify-content:space-between; gap:1rem; z-index:100; }
+    .save-bar-hint { font-size:.8rem; color:var(--muted); }
+    .save-bar-hint.dirty { color:var(--gold); }
+
+    /* badge colors */
+    .badge-blue { background:#1e3a5f; color:#93c5fd; }
+    .badge-green { background:#064e3b; color:#6ee7b7; }
+    .badge-gold { background:#78350f; color:#fcd34d; }
+    .badge-red { background:#7f1d1d; color:#fca5a5; }
+
+    /* info box */
+    .info-box { background:var(--surface2); border:1px solid var(--border); border-radius:8px; padding:.875rem 1rem; font-size:.875rem; color:var(--muted); }
+
+    /* divider */
+    hr { border:none; border-top:1px solid var(--border); margin:1.5rem 0; }
+
+    /* toast */
+    #toast { position:fixed; bottom:4.5rem; left:50%; transform:translateX(-50%) translateY(60px); background:var(--surface2); border:1px solid var(--border); color:var(--text); padding:.65rem 1.1rem; border-radius:8px; font-size:.85rem; font-weight:500; box-shadow:0 6px 20px rgba(0,0,0,.4); transition:transform .3s; z-index:999; white-space:nowrap; }
+    #toast.show { transform:translateX(-50%) translateY(0); }
+    #toast.ok { border-color:var(--success); color:var(--success); }
+    #toast.err { border-color:var(--danger); color:var(--danger); }
+
+    @media(max-width:640px) {
+      .sidebar { width:60px; }
+      .nav-item span, .nav-section { display:none; }
+      .nav-item { justify-content:center; padding:.7rem; }
+      .form-row { grid-template-columns:1fr; }
+      .form-row.triple { grid-template-columns:1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Login -->
+<div id="login">
+  <div class="login-box">
+    <div class="logo">🎳</div>
+    <h1>Spokane County USBC</h1>
+    <p>Admin Panel</p>
+    <div class="err" id="login-err"></div>
+    <div class="form-group"><input type="password" id="pw" placeholder="Password" autocomplete="current-password"></div>
+    <button class="btn btn-primary" style="width:100%;justify-content:center" onclick="doLogin()">Sign In</button>
+  </div>
+</div>
+
+<!-- App -->
+<div id="app">
+  <div class="topbar">
+    <div class="topbar-brand">🎳 <span>Spokane County</span> USBC &mdash; Admin</div>
+    <div class="topbar-right">
+      <a href="index.html" target="_blank" class="btn btn-ghost btn-sm">View Site ↗</a>
+      <button class="btn btn-ghost btn-sm" onclick="doLogout()">Sign Out</button>
+    </div>
+  </div>
+
+  <div class="shell">
+    <!-- Sidebar -->
+    <nav class="sidebar">
+      <div class="nav-section">Content</div>
+      <div class="nav-item active" data-section="home" onclick="switchSection('home', this)">
+        <span class="icon">🏠</span><span>Home</span>
+      </div>
+      <div class="nav-item" data-section="tournaments" onclick="switchSection('tournaments', this)">
+        <span class="icon">📅</span><span>Tournaments</span>
+      </div>
+      <div class="nav-item" data-section="board" onclick="switchSection('board', this)">
+        <span class="icon">👥</span><span>Board</span>
+      </div>
+      <div class="nav-item" data-section="honor" onclick="switchSection('honor', this)">
+        <span class="icon">🌟</span><span>Honor Scores</span>
+      </div>
+      <div class="nav-item" data-section="jbt" onclick="switchSection('jbt', this)">
+        <span class="icon">🎳</span><span>JBT Schedule</span>
+      </div>
+      <div class="nav-section">Settings</div>
+      <div class="nav-item" data-section="contact" onclick="switchSection('contact', this)">
+        <span class="icon">📞</span><span>Contact Info</span>
+      </div>
+    </nav>
+
+    <!-- Main -->
+    <div class="main">
+
+      <!-- HOME -->
+      <div class="section-panel active" id="s-home">
+        <div class="page-title">🏠 Home Page</div>
+        <p class="page-sub">Edit the announcement banner shown at the top of the home page.</p>
+        <div class="toggle-row">
+          <label class="toggle"><input type="checkbox" id="ann-visible"><span class="toggle-slider"></span></label>
+          <span class="toggle-label">Show announcement banner</span>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Announcement Text</label>
+            <input type="text" id="ann-text" placeholder="Renew your USBC membership online at">
+          </div>
+          <div class="form-group">
+            <label>Link Text</label>
+            <input type="text" id="ann-link-text" placeholder="Bowl.com">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Link URL</label>
+          <input type="url" id="ann-link" placeholder="https://www.bowl.com">
+        </div>
+        <button class="btn btn-success" onclick="saveSection('announcement')">💾 Publish</button>
+      </div>
+
+      <!-- TOURNAMENTS -->
+      <div class="section-panel" id="s-tournaments">
+        <div class="page-title">📅 Tournaments</div>
+        <p class="page-sub">Manage the tournament schedule. Drag to reorder. Changes update both the Tournaments page and the home page preview.</p>
+        <div class="item-list" id="t-list"></div>
+        <button class="btn-add" onclick="openModal('tournament')">+ Add Tournament</button>
+      </div>
+
+      <!-- BOARD -->
+      <div class="section-panel" id="s-board">
+        <div class="page-title">👥 Board of Directors</div>
+        <p class="page-sub">Drag to reorder. Click ✏️ to edit, 🗑 to remove.</p>
+        <div class="item-list" id="b-list"></div>
+        <button class="btn-add" onclick="openModal('board')">+ Add Board Member</button>
+      </div>
+
+      <!-- HONOR SCORES -->
+      <div class="section-panel" id="s-honor">
+        <div class="page-title">🌟 Honor Scores</div>
+        <p class="page-sub">300 games, 800 series, and other certified achievements. Adding entries replaces the contact-only message with a full table.</p>
+        <div class="item-list" id="h-list"></div>
+        <button class="btn-add" onclick="openModal('honor')">+ Add Honor Score</button>
+      </div>
+
+      <!-- JBT -->
+      <div class="section-panel" id="s-jbt">
+        <div class="page-title">🎳 JBT Schedule</div>
+        <p class="page-sub">Junior Bowlers Tour schedule shown on the Youth page.</p>
+        <div class="item-list" id="j-list"></div>
+        <button class="btn-add" onclick="openModal('jbt')">+ Add Event</button>
+      </div>
+
+      <!-- CONTACT -->
+      <div class="section-panel" id="s-contact">
+        <div class="page-title">📞 Contact Info</div>
+        <p class="page-sub">Updating this publishes changes to <strong>every page</strong> on the site — footer, contact page, and home page.</p>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Manager Name</label>
+            <input type="text" id="c-name" placeholder="Tina Blough">
+          </div>
+          <div class="form-group">
+            <label>Manager Role / Title</label>
+            <input type="text" id="c-role" placeholder="Association Manager">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" id="c-email" placeholder="spokaneusbc.assoc.manager@gmail.com">
+          </div>
+          <div class="form-group">
+            <label>Phone</label>
+            <input type="tel" id="c-phone" placeholder="509-795-1845">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Address Line 1</label>
+            <input type="text" id="c-addr1" placeholder="P.O. Box 112">
+          </div>
+          <div class="form-group">
+            <label>Address Line 2</label>
+            <input type="text" id="c-addr2" placeholder="Deer Park, WA 99006">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Facebook URL</label>
+          <input type="url" id="c-fb" placeholder="https://www.facebook.com/...">
+        </div>
+        <button class="btn btn-success" onclick="saveSection('contact')">💾 Publish to All Pages</button>
+      </div>
+
+    </div><!-- /main -->
+  </div><!-- /shell -->
+</div><!-- /app -->
+
+<!-- Board modal -->
+<div class="overlay" id="modal-board">
+  <div class="modal">
+    <h2 id="modal-board-title">Add Board Member</h2>
+    <div class="form-group">
+      <label>Role</label>
+      <select id="mf-role">
+        <option>President</option><option>Vice President</option>
+        <option>Association Manager</option><option>Secretary</option>
+        <option>Treasurer</option><option>USBC Director</option>
+        <option>Youth Director</option><option>Tournament Director</option><option>Other</option>
+      </select>
+    </div>
+    <div class="form-row">
+      <div class="form-group"><label>Full Name</label><input type="text" id="mf-name" placeholder="First Last"></div>
+      <div class="form-group"><label>Email</label><input type="email" id="mf-email" placeholder="email@example.com"></div>
+    </div>
+    <div class="form-group"><label>Phone <small style="font-weight:400;text-transform:none">(optional)</small></label><input type="tel" id="mf-phone" placeholder="509-000-0000"></div>
+    <div class="modal-footer">
+      <button class="btn btn-ghost" onclick="closeModal('board')">Cancel</button>
+      <button class="btn btn-primary" onclick="saveModal('board')">Save Member</button>
+    </div>
+  </div>
+</div>
+
+<!-- Tournament modal -->
+<div class="overlay" id="modal-tournament">
+  <div class="modal">
+    <h2 id="modal-t-title">Add Tournament</h2>
+    <div class="form-group"><label>Tournament Name</label><input type="text" id="tf-name" placeholder="e.g. BVL Veterans Doubles"></div>
+    <div class="form-row">
+      <div class="form-group"><label>Date</label><input type="text" id="tf-date" placeholder="November 8, 2025 or TBD"></div>
+      <div class="form-group">
+        <label>Type</label>
+        <select id="tf-type">
+          <option>Doubles</option><option>Singles</option><option>Trios</option>
+          <option>Team</option><option>Scratch</option><option>Handicap</option>
+          <option>Women's</option><option>Youth</option><option>Mixed</option><option>All-Events</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Type Color</label>
+        <select id="tf-type-color">
+          <option value="blue">Blue</option><option value="green">Green</option>
+          <option value="gold">Gold</option><option value="red">Red</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Status</label>
+        <select id="tf-status">
+          <option>Open</option><option>TBD</option><option>Full</option>
+          <option>Closed</option><option>Completed</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Status Color</label>
+      <select id="tf-status-color">
+        <option value="green">Green (Open)</option><option value="gold">Gold (TBD)</option>
+        <option value="red">Red (Full/Closed)</option><option value="blue">Blue</option>
+      </select>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-ghost" onclick="closeModal('tournament')">Cancel</button>
+      <button class="btn btn-primary" onclick="saveModal('tournament')">Save Tournament</button>
+    </div>
+  </div>
+</div>
+
+<!-- Honor Score modal -->
+<div class="overlay" id="modal-honor">
+  <div class="modal">
+    <h2 id="modal-h-title">Add Honor Score</h2>
+    <div class="form-row">
+      <div class="form-group"><label>Bowler Name</label><input type="text" id="hf-bowler" placeholder="First Last"></div>
+      <div class="form-group"><label>Score</label><input type="text" id="hf-score" placeholder="300 or 826"></div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Type</label>
+        <select id="hf-type">
+          <option>300 Game</option><option>800 Series</option><option>850 Series</option>
+          <option>900 Series</option><option>11 Consecutive Strikes</option><option>Other</option>
+        </select>
+      </div>
+      <div class="form-group"><label>League</label><input type="text" id="hf-league" placeholder="League name"></div>
+    </div>
+    <div class="form-group"><label>Date</label><input type="text" id="hf-date" placeholder="May 2026"></div>
+    <div class="modal-footer">
+      <button class="btn btn-ghost" onclick="closeModal('honor')">Cancel</button>
+      <button class="btn btn-primary" onclick="saveModal('honor')">Save Score</button>
+    </div>
+  </div>
+</div>
+
+<!-- JBT modal -->
+<div class="overlay" id="modal-jbt">
+  <div class="modal">
+    <h2 id="modal-j-title">Add JBT Event</h2>
+    <div class="form-row">
+      <div class="form-group"><label>Date</label><input type="text" id="jf-date" placeholder="October 15"></div>
+      <div class="form-group"><label>Location</label><input type="text" id="jf-location" placeholder="Players & Spectators"></div>
+    </div>
+    <div class="form-group">
+      <label>Format</label>
+      <select id="jf-format"><option>Singles</option><option>Doubles</option><option>Trios</option><option>Team</option><option>TBD</option></select>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-ghost" onclick="closeModal('jbt')">Cancel</button>
+      <button class="btn btn-primary" onclick="saveModal('jbt')">Save Event</button>
+    </div>
+  </div>
+</div>
+
+<div id="toast"></div>
+
+<script>
+  let token = '';
+  let siteData = {};
+  let editCtx = {}; // { type, index }
+
+  // ── Auth ──────────────────────────────────────────────────────
+  document.getElementById('pw').onkeydown = e => { if(e.key==='Enter') doLogin(); };
+
+  async function doLogin() {
+    const pw = document.getElementById('pw').value;
+    const err = document.getElementById('login-err');
+    err.textContent = '';
+    try {
+      const res = await fetch('/api/login', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({password:pw}) });
+      if (!res.ok) { err.textContent='Incorrect password.'; return; }
+      const d = await res.json();
+      token = d.token;
+      sessionStorage.setItem('tok', token);
+      await showApp();
+    } catch { err.textContent='Cannot connect to server.'; }
+  }
+
+  function doLogout() {
+    sessionStorage.removeItem('tok');
+    token = '';
+    document.getElementById('app').style.display = 'none';
+    document.getElementById('login').style.display = 'flex';
+    document.getElementById('pw').value = '';
+  }
+
+  async function showApp() {
+    document.getElementById('login').style.display = 'none';
+    document.getElementById('app').style.display = 'flex';
+    const res = await fetch('/api/site', { headers:{'x-admin-token':token} });
+    siteData = await res.json();
+    populateAll();
+  }
+
+  // ── Section switching ─────────────────────────────────────────
+  function switchSection(id, el) {
+    document.querySelectorAll('.section-panel').forEach(p=>p.classList.remove('active'));
+    document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
+    document.getElementById('s-'+id).classList.add('active');
+    el.classList.add('active');
+  }
+
+  // ── Populate all sections from siteData ───────────────────────
+  function populateAll() {
+    // Home
+    const ann = siteData.announcement || {};
+    document.getElementById('ann-visible').checked = !!ann.visible;
+    document.getElementById('ann-text').value = ann.text || '';
+    document.getElementById('ann-link-text').value = ann.link_text || '';
+    document.getElementById('ann-link').value = ann.link || '';
+
+    // Contact
+    const c = siteData.contact || {};
+    document.getElementById('c-name').value = c.manager_name || '';
+    document.getElementById('c-role').value = c.manager_role || '';
+    document.getElementById('c-email').value = c.email || '';
+    document.getElementById('c-phone').value = c.phone || '';
+    document.getElementById('c-addr1').value = c.address_line1 || '';
+    document.getElementById('c-addr2').value = c.address_line2 || '';
+    document.getElementById('c-fb').value = c.facebook_url || '';
+
+    // Lists
+    renderBoardList();
+    renderTournamentList();
+    renderHonorList();
+    renderJbtList();
+  }
+
+  // ── Board ─────────────────────────────────────────────────────
+  function renderBoardList() {
+    const members = siteData.board?.members || [];
+    const list = document.getElementById('b-list');
+    list.innerHTML = '';
+    members.forEach((m, i) => {
+      const card = mkCard(
+        '⠿',
+        `<div class="item-label">${esc(m.name)}</div><div class="item-sub">${esc(m.role)}${m.email ? ' · ' + esc(m.email) : ''}</div>`,
+        `<button class="btn-edit-sm" onclick="openModal('board',${i})">✏️</button>
+         <button class="btn-danger-sm" onclick="removeItem('board',${i})">🗑</button>`
+      );
+      card.dataset.index = i;
+      addDrag(card, 'board', members);
+      list.appendChild(card);
+    });
+  }
+
+  // ── Tournaments ───────────────────────────────────────────────
+  const TYPE_COLORS = { Doubles:'blue', Singles:'blue', Trios:'blue', Team:'blue', Scratch:'green', Handicap:'blue', "Women's":'gold', Youth:'gold', Mixed:'gold', 'All-Events':'green' };
+  const STATUS_COLORS = { Open:'green', TBD:'gold', Full:'red', Closed:'red', Completed:'blue' };
+
+  function renderTournamentList() {
+    const list = document.getElementById('t-list');
+    list.innerHTML = '';
+    const items = siteData.tournaments || [];
+    items.forEach((t, i) => {
+      const card = mkCard(
+        '⠿',
+        `<div class="item-label">${esc(t.name)}</div>
+         <div class="item-sub" style="display:flex;gap:.4rem;margin-top:.2rem;">
+           <span class="item-badge badge-${t.type_color}">${esc(t.type)}</span>
+           <span class="item-badge badge-${t.status_color}">${esc(t.status)}</span>
+           <span style="color:var(--muted)">${esc(t.date)}</span>
+         </div>`,
+        `<button class="btn-edit-sm" onclick="openModal('tournament',${i})">✏️</button>
+         <button class="btn-danger-sm" onclick="removeItem('tournament',${i})">🗑</button>`
+      );
+      card.dataset.index = i;
+      addDrag(card, 'tournament', siteData.tournaments);
+      list.appendChild(card);
+    });
+  }
+
+  // ── Honor Scores ──────────────────────────────────────────────
+  function renderHonorList() {
+    const list = document.getElementById('h-list');
+    list.innerHTML = '';
+    const items = siteData.honor_scores || [];
+    if (items.length === 0) {
+      list.innerHTML = '<div class="info-box">No honor scores yet. Add one to replace the contact-only message with a full table on the Honor Scores page.</div>';
+      return;
+    }
+    items.forEach((h, i) => {
+      const card = mkCard(
+        '⠿',
+        `<div class="item-label">${esc(h.bowler)} — ${esc(h.score)}</div>
+         <div class="item-sub">${esc(h.type)} · ${esc(h.league)} · ${esc(h.date)}</div>`,
+        `<button class="btn-edit-sm" onclick="openModal('honor',${i})">✏️</button>
+         <button class="btn-danger-sm" onclick="removeItem('honor',${i})">🗑</button>`
+      );
+      card.dataset.index = i;
+      addDrag(card, 'honor', siteData.honor_scores);
+      list.appendChild(card);
+    });
+  }
+
+  // ── JBT ──────────────────────────────────────────────────────
+  function renderJbtList() {
+    const list = document.getElementById('j-list');
+    list.innerHTML = '';
+    const items = siteData.jbt_schedule || [];
+    items.forEach((j, i) => {
+      const card = mkCard(
+        '⠿',
+        `<div class="item-label">${esc(j.date)} — ${esc(j.location)}</div><div class="item-sub">${esc(j.format)}</div>`,
+        `<button class="btn-edit-sm" onclick="openModal('jbt',${i})">✏️</button>
+         <button class="btn-danger-sm" onclick="removeItem('jbt',${i})">🗑</button>`
+      );
+      card.dataset.index = i;
+      addDrag(card, 'jbt', siteData.jbt_schedule);
+      list.appendChild(card);
+    });
+  }
+
+  // ── Card helper ───────────────────────────────────────────────
+  function mkCard(handle, info, actions) {
+    const card = document.createElement('div');
+    card.className = 'item-card';
+    card.draggable = true;
+    card.innerHTML = `<span class="drag-handle">${handle}</span><div class="item-info">${info}</div><div class="item-actions">${actions}</div>`;
+    return card;
+  }
+
+  // ── Drag & drop ───────────────────────────────────────────────
+  let dragSrc = null;
+  function addDrag(card, type, arr) {
+    card.addEventListener('dragstart', () => { dragSrc=card; setTimeout(()=>card.classList.add('dragging'),0); });
+    card.addEventListener('dragend', () => { card.classList.remove('dragging'); document.querySelectorAll('.item-card').forEach(c=>c.classList.remove('drag-over')); });
+    card.addEventListener('dragover', e => { e.preventDefault(); if(card!==dragSrc){document.querySelectorAll('.item-card').forEach(c=>c.classList.remove('drag-over')); card.classList.add('drag-over'); } });
+    card.addEventListener('drop', e => {
+      e.preventDefault();
+      if(dragSrc && dragSrc!==card) {
+        const from=parseInt(dragSrc.dataset.index), to=parseInt(card.dataset.index);
+        const [moved]=arr.splice(from,1);
+        arr.splice(to,0,moved);
+        saveSection(type==='board'?'board':type==='tournament'?'tournaments':type==='honor'?'honor':'jbt', true);
+        refreshRender(type);
+      }
+    });
+  }
+
+  function refreshRender(type) {
+    if(type==='board') renderBoardList();
+    else if(type==='tournament') renderTournamentList();
+    else if(type==='honor') renderHonorList();
+    else if(type==='jbt') renderJbtList();
+  }
+
+  // ── Modal ─────────────────────────────────────────────────────
+  function openModal(type, index=null) {
+    editCtx = { type, index };
+    const isEdit = index !== null;
+
+    if(type==='board') {
+      const m = isEdit ? siteData.board.members[index] : {role:'USBC Director',name:'',email:'',phone:''};
+      document.getElementById('modal-board-title').textContent = isEdit ? 'Edit Board Member' : 'Add Board Member';
+      document.getElementById('mf-role').value = m.role;
+      document.getElementById('mf-name').value = m.name;
+      document.getElementById('mf-email').value = m.email||'';
+      document.getElementById('mf-phone').value = m.phone||'';
+      openOverlay('modal-board');
+      setTimeout(()=>document.getElementById('mf-name').focus(),50);
+
+    } else if(type==='tournament') {
+      const t = isEdit ? siteData.tournaments[index] : {name:'',date:'TBD',type:'Doubles',type_color:'blue',status:'TBD',status_color:'gold'};
+      document.getElementById('modal-t-title').textContent = isEdit ? 'Edit Tournament' : 'Add Tournament';
+      document.getElementById('tf-name').value = t.name;
+      document.getElementById('tf-date').value = t.date;
+      document.getElementById('tf-type').value = t.type;
+      document.getElementById('tf-type-color').value = t.type_color;
+      document.getElementById('tf-status').value = t.status;
+      document.getElementById('tf-status-color').value = t.status_color;
+      openOverlay('modal-tournament');
+      setTimeout(()=>document.getElementById('tf-name').focus(),50);
+
+    } else if(type==='honor') {
+      const h = isEdit ? siteData.honor_scores[index] : {bowler:'',score:'',type:'300 Game',league:'',date:''};
+      document.getElementById('modal-h-title').textContent = isEdit ? 'Edit Honor Score' : 'Add Honor Score';
+      document.getElementById('hf-bowler').value = h.bowler;
+      document.getElementById('hf-score').value = h.score;
+      document.getElementById('hf-type').value = h.type;
+      document.getElementById('hf-league').value = h.league;
+      document.getElementById('hf-date').value = h.date;
+      openOverlay('modal-honor');
+      setTimeout(()=>document.getElementById('hf-bowler').focus(),50);
+
+    } else if(type==='jbt') {
+      const j = isEdit ? siteData.jbt_schedule[index] : {date:'',location:'',format:'Singles'};
+      document.getElementById('modal-j-title').textContent = isEdit ? 'Edit JBT Event' : 'Add JBT Event';
+      document.getElementById('jf-date').value = j.date;
+      document.getElementById('jf-location').value = j.location;
+      document.getElementById('jf-format').value = j.format;
+      openOverlay('modal-jbt');
+      setTimeout(()=>document.getElementById('jf-date').focus(),50);
+    }
+  }
+
+  function openOverlay(id) { document.getElementById(id).classList.add('open'); }
+  function closeModal(type) {
+    const ids = {board:'modal-board', tournament:'modal-tournament', honor:'modal-honor', jbt:'modal-jbt'};
+    document.getElementById(ids[type]).classList.remove('open');
+  }
+
+  function saveModal(type) {
+    const { index } = editCtx;
+    const isEdit = index !== null;
+
+    if(type==='board') {
+      const name = document.getElementById('mf-name').value.trim();
+      if(!name) { document.getElementById('mf-name').focus(); return; }
+      const m = { role:document.getElementById('mf-role').value, name, email:document.getElementById('mf-email').value.trim(), phone:document.getElementById('mf-phone').value.trim() };
+      if(!siteData.board) siteData.board = {members:[]};
+      if(isEdit) siteData.board.members[index]=m; else siteData.board.members.push(m);
+      closeModal('board');
+      renderBoardList();
+      saveSection('board', true);
+
+    } else if(type==='tournament') {
+      const name = document.getElementById('tf-name').value.trim();
+      if(!name) { document.getElementById('tf-name').focus(); return; }
+      const t = { name, date:document.getElementById('tf-date').value.trim(), type:document.getElementById('tf-type').value, type_color:document.getElementById('tf-type-color').value, status:document.getElementById('tf-status').value, status_color:document.getElementById('tf-status-color').value };
+      if(!siteData.tournaments) siteData.tournaments=[];
+      if(isEdit) siteData.tournaments[index]=t; else siteData.tournaments.push(t);
+      closeModal('tournament');
+      renderTournamentList();
+      saveSection('tournaments', true);
+
+    } else if(type==='honor') {
+      const bowler = document.getElementById('hf-bowler').value.trim();
+      if(!bowler) { document.getElementById('hf-bowler').focus(); return; }
+      const h = { bowler, score:document.getElementById('hf-score').value.trim(), type:document.getElementById('hf-type').value, league:document.getElementById('hf-league').value.trim(), date:document.getElementById('hf-date').value.trim() };
+      if(!siteData.honor_scores) siteData.honor_scores=[];
+      if(isEdit) siteData.honor_scores[index]=h; else siteData.honor_scores.push(h);
+      closeModal('honor');
+      renderHonorList();
+      saveSection('honor', true);
+
+    } else if(type==='jbt') {
+      const date = document.getElementById('jf-date').value.trim();
+      if(!date) { document.getElementById('jf-date').focus(); return; }
+      const j = { date, location:document.getElementById('jf-location').value.trim(), format:document.getElementById('jf-format').value };
+      if(!siteData.jbt_schedule) siteData.jbt_schedule=[];
+      if(isEdit) siteData.jbt_schedule[index]=j; else siteData.jbt_schedule.push(j);
+      closeModal('jbt');
+      renderJbtList();
+      saveSection('jbt', true);
+    }
+  }
+
+  function removeItem(type, index) {
+    const names = {board:'board member',tournament:'tournament',honor:'honor score',jbt:'event'};
+    if(!confirm(`Remove this ${names[type]}?`)) return;
+    if(type==='board') siteData.board.members.splice(index,1);
+    else if(type==='tournament') siteData.tournaments.splice(index,1);
+    else if(type==='honor') siteData.honor_scores.splice(index,1);
+    else if(type==='jbt') siteData.jbt_schedule.splice(index,1);
+    refreshRender(type);
+    saveSection(type==='board'?'board':type==='tournament'?'tournaments':type==='honor'?'honor':'jbt', true);
+  }
+
+  // ── Save sections ─────────────────────────────────────────────
+  async function saveSection(section, silent=false) {
+    const endpoints = {
+      announcement: { url:'/api/announcement', body:siteData.announcement },
+      board: { url:'/api/board', body:{members: siteData.board?.members||[]} },
+      tournaments: { url:'/api/tournaments', body:{tournaments: siteData.tournaments||[]} },
+      honor: { url:'/api/honor', body:{honor_scores: siteData.honor_scores||[]} },
+      jbt: { url:'/api/jbt', body:{jbt_schedule: siteData.jbt_schedule||[]} },
+      contact: { url:'/api/contact', body: buildContact() },
+    };
+
+    // For announcement, build from form first
+    if(section==='announcement') {
+      siteData.announcement = {
+        visible: document.getElementById('ann-visible').checked,
+        text: document.getElementById('ann-text').value.trim(),
+        link_text: document.getElementById('ann-link-text').value.trim(),
+        link: document.getElementById('ann-link').value.trim()
+      };
+      endpoints.announcement.body = siteData.announcement;
+    }
+
+    const { url, body } = endpoints[section];
+    try {
+      const res = await fetch(url, { method:'POST', headers:{'Content-Type':'application/json','x-admin-token':token}, body:JSON.stringify(body) });
+      if(!res.ok) throw new Error();
+      if(!silent) toast('Published ✓', 'ok');
+    } catch {
+      toast('Save failed', 'err');
+    }
+  }
+
+  function buildContact() {
+    return {
+      manager_name: document.getElementById('c-name').value.trim(),
+      manager_role: document.getElementById('c-role').value.trim(),
+      email: document.getElementById('c-email').value.trim(),
+      phone: document.getElementById('c-phone').value.trim(),
+      address_line1: document.getElementById('c-addr1').value.trim(),
+      address_line2: document.getElementById('c-addr2').value.trim(),
+      facebook_url: document.getElementById('c-fb').value.trim(),
+    };
+  }
+
+  // ── Toast ─────────────────────────────────────────────────────
+  let toastTimer;
+  function toast(msg, type='') {
+    const el=document.getElementById('toast');
+    el.textContent=msg; el.className=`show ${type}`;
+    clearTimeout(toastTimer);
+    toastTimer=setTimeout(()=>el.classList.remove('show'),3000);
+  }
+
+  // ── Escape html ───────────────────────────────────────────────
+  function esc(s) {
+    return String(s??'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
+
+  // ── Keyboard / overlay close ──────────────────────────────────
+  document.querySelectorAll('.overlay').forEach(ov => {
+    ov.addEventListener('click', e => { if(e.target===ov) ov.classList.remove('open'); });
+  });
+  document.addEventListener('keydown', e => {
+    if(e.key==='Escape') document.querySelectorAll('.overlay.open').forEach(ov=>ov.classList.remove('open'));
+  });
+
+  // ── Auto-login ────────────────────────────────────────────────
+  const saved = sessionStorage.getItem('tok');
+  if(saved) { token=saved; showApp(); }
+</script>
+</body>
+</html>
