@@ -1,5 +1,5 @@
 {
-  "season": "2025–2026",
+  "season": "2026–2027",
   "announcement": {
     "visible": true,
     "text": "Renew your USBC membership online at",
@@ -32,15 +32,15 @@
     ]
   },
   "tournaments": [
-    { "name": "BVL Veterans Tournament", "date": "November 14, 2025", "center": "Valley Bowl", "type": "Veterans", "type_color": "blue", "status": "TBD", "status_color": "gold" },
-    { "name": "Holiday Smash", "date": "December 20, 2025", "center": "Lilac Lanes", "type": "Mixed", "type_color": "gold", "status": "TBD", "status_color": "gold" },
-    { "name": "Spokane County Queens Tournament", "date": "February 7, 2026", "center": "Lilac Lanes", "type": "Queens", "type_color": "gold", "status": "TBD", "status_color": "gold" },
-    { "name": "SCUSBC Youth Championships", "date": "February 21, 2026", "center": "TBD", "type": "Youth", "type_color": "gold", "status": "TBD", "status_color": "gold" },
-    { "name": "SCUSBC Senior Championships", "date": "January 10, 2026", "center": "TBD", "type": "Senior", "type_color": "blue", "status": "TBD", "status_color": "gold" },
-    { "name": "SCUSBC Open Championships (Team Event)", "date": "March 13, 2026", "center": "TBD", "type": "Team", "type_color": "blue", "status": "TBD", "status_color": "gold" },
-    { "name": "SCUSBC Open Championships (Doubles & Singles Only)", "date": "March 14, 2026", "center": "TBD", "type": "All-Events", "type_color": "green", "status": "TBD", "status_color": "gold" },
-    { "name": "SCUSBC Women's Championships", "date": "April 11, 2026", "center": "TBD", "type": "Women's", "type_color": "gold", "status": "TBD", "status_color": "gold" },
-    { "name": "SCUSBC Kings Tournament (formerly Masters)", "date": "May 1–2, 2026", "center": "Lilac Lanes", "type": "Kings", "type_color": "blue", "status": "TBD", "status_color": "gold" }
+    { "name": "BVL Veterans Tournament", "date": "November 14, 2026", "center": "Valley Bowl", "type": "Veterans", "type_color": "blue", "status": "TBD", "status_color": "gold" },
+    { "name": "Holiday Smash", "date": "December 20, 2026", "center": "Lilac Lanes", "type": "Mixed", "type_color": "gold", "status": "TBD", "status_color": "gold" },
+    { "name": "Spokane County Queens Tournament", "date": "February 7, 2027", "center": "Lilac Lanes", "type": "Queens", "type_color": "gold", "status": "TBD", "status_color": "gold" },
+    { "name": "SCUSBC Youth Championships", "date": "February 21, 2027", "center": "TBD", "type": "Youth", "type_color": "gold", "status": "TBD", "status_color": "gold" },
+    { "name": "SCUSBC Senior Championships", "date": "January 10, 2027", "center": "TBD", "type": "Senior", "type_color": "blue", "status": "TBD", "status_color": "gold" },
+    { "name": "SCUSBC Open Championships (Team Event)", "date": "March 13, 2027", "center": "TBD", "type": "Team", "type_color": "blue", "status": "TBD", "status_color": "gold" },
+    { "name": "SCUSBC Open Championships (Doubles & Singles Only)", "date": "March 14, 2027", "center": "TBD", "type": "All-Events", "type_color": "green", "status": "TBD", "status_color": "gold" },
+    { "name": "SCUSBC Women's Championships", "date": "April 11, 2027", "center": "TBD", "type": "Women's", "type_color": "gold", "status": "TBD", "status_color": "gold" },
+    { "name": "SCUSBC Kings Tournament (formerly Masters)", "date": "May 1–2, 2027", "center": "Lilac Lanes", "type": "Kings", "type_color": "blue", "status": "TBD", "status_color": "gold" }
   ],
   "honor_scores": [],
   "jbt_schedule": [
