@@ -96,7 +96,7 @@ function tournamentRow(t, showStatus) {
     ? `\n            <td><span class="badge badge-${esc(t.status_color)}">${esc(t.status)}</span></td>` : '';
   return `          <tr>
             <td><strong>${esc(t.name)}</strong></td>
-            <td>${esc(t.date)}</td>
+            <td>${esc(t.date)}${t.date === 'TBD' ? '' : '*'}</td>
             <td>${esc(t.center || 'TBD')}</td>
             <td><span class="badge badge-${esc(t.type_color)}">${esc(t.type)}</span></td>${statusCol}
             <td><a href="signup.html" class="btn btn-red" style="padding:0.3rem 0.8rem;font-size:0.82rem;">Sign Up</a></td>
