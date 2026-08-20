@@ -328,12 +328,16 @@
     <div class="form-group"><label>Tournament Name</label><input type="text" id="tf-name" placeholder="e.g. BVL Veterans Doubles"></div>
     <div class="form-row">
       <div class="form-group"><label>Date</label><input type="text" id="tf-date" placeholder="November 8, 2025 or TBD"></div>
+      <div class="form-group"><label>Center</label><input type="text" id="tf-center" placeholder="Lilac Lanes or TBD"></div>
+    </div>
+    <div class="form-row">
       <div class="form-group">
         <label>Type</label>
         <select id="tf-type">
           <option>Doubles</option><option>Singles</option><option>Trios</option>
           <option>Team</option><option>Scratch</option><option>Handicap</option>
           <option>Women's</option><option>Youth</option><option>Mixed</option><option>All-Events</option>
+          <option>Veterans</option><option>Senior</option><option>Queens</option><option>Kings</option>
         </select>
       </div>
     </div>
@@ -505,7 +509,7 @@
   }
 
   // ── Tournaments ───────────────────────────────────────────────
-  const TYPE_COLORS = { Doubles:'blue', Singles:'blue', Trios:'blue', Team:'blue', Scratch:'green', Handicap:'blue', "Women's":'gold', Youth:'gold', Mixed:'gold', 'All-Events':'green' };
+  const TYPE_COLORS = { Doubles:'blue', Singles:'blue', Trios:'blue', Team:'blue', Scratch:'green', Handicap:'blue', "Women's":'gold', Youth:'gold', Mixed:'gold', 'All-Events':'green', Veterans:'blue', Senior:'blue', Queens:'gold', Kings:'blue' };
   const STATUS_COLORS = { Open:'green', TBD:'gold', Full:'red', Closed:'red', Completed:'blue' };
 
   function renderTournamentList() {
@@ -519,7 +523,7 @@
          <div class="item-sub" style="display:flex;gap:.4rem;margin-top:.2rem;">
            <span class="item-badge badge-${t.type_color}">${esc(t.type)}</span>
            <span class="item-badge badge-${t.status_color}">${esc(t.status)}</span>
-           <span style="color:var(--muted)">${esc(t.date)}</span>
+           <span style="color:var(--muted)">${esc(t.date)} · ${esc(t.center || 'TBD')}</span>
          </div>`,
         `<button class="btn-edit-sm" onclick="openModal('tournament',${i})">✏️</button>
          <button class="btn-danger-sm" onclick="removeItem('tournament',${i})">🗑</button>`
@@ -621,10 +625,11 @@
       setTimeout(()=>document.getElementById('mf-name').focus(),50);
 
     } else if(type==='tournament') {
-      const t = isEdit ? siteData.tournaments[index] : {name:'',date:'TBD',type:'Doubles',type_color:'blue',status:'TBD',status_color:'gold'};
+      const t = isEdit ? siteData.tournaments[index] : {name:'',date:'TBD',center:'TBD',type:'Doubles',type_color:'blue',status:'TBD',status_color:'gold'};
       document.getElementById('modal-t-title').textContent = isEdit ? 'Edit Tournament' : 'Add Tournament';
       document.getElementById('tf-name').value = t.name;
       document.getElementById('tf-date').value = t.date;
+      document.getElementById('tf-center').value = t.center || 'TBD';
       document.getElementById('tf-type').value = t.type;
       document.getElementById('tf-type-color').value = t.type_color;
       document.getElementById('tf-status').value = t.status;
@@ -677,7 +682,7 @@
     } else if(type==='tournament') {
       const name = document.getElementById('tf-name').value.trim();
       if(!name) { document.getElementById('tf-name').focus(); return; }
-      const t = { name, date:document.getElementById('tf-date').value.trim(), type:document.getElementById('tf-type').value, type_color:document.getElementById('tf-type-color').value, status:document.getElementById('tf-status').value, status_color:document.getElementById('tf-status-color').value };
+      const t = { name, date:document.getElementById('tf-date').value.trim(), center:document.getElementById('tf-center').value.trim() || 'TBD', type:document.getElementById('tf-type').value, type_color:document.getElementById('tf-type-color').value, status:document.getElementById('tf-status').value, status_color:document.getElementById('tf-status-color').value };
       if(!siteData.tournaments) siteData.tournaments=[];
       if(isEdit) siteData.tournaments[index]=t; else siteData.tournaments.push(t);
       closeModal('tournament');
