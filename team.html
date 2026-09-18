@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Team Results | Spokane County USBC</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="index.html">🎳 <span>Spokane County</span> USBC</a>
+    <button class="nav-toggle" aria-label="Toggle menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="tournaments.html">Tournaments</a></li>
+      <li><a href="signup.html">Sign Up</a></li>
+      <li><a href="averages.html">Averages</a></li>
+      <li><a href="leagues.html" class="active">Leagues</a></li>
+      <li><a href="forms.html">Forms &amp; Rules</a></li>
+      <li><a href="honor.html">Honor Scores</a></li>
+      <li><a href="board.html">Board</a></li>
+      <li><a href="youth.html">Youth</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="page">
+  <div class="page-header">
+    <p class="section-meta" style="margin-bottom:0.5rem;"><a href="leagues.html">← Back to Leagues</a></p>
+    <h1 id="team-name">Team Results</h1>
+    <div class="divider"></div>
+    <p id="team-subtitle">Loading…</p>
+  </div>
+
+  <section class="section" style="border-top:none;padding-top:0;" id="team-content">
+  </section>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <h4>🎳 Spokane County USBC</h4>
+        <p style="font-size:0.85rem;color:rgba(255,255,255,0.55);margin-top:0.5rem;">Serving Spokane area bowlers.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="tournaments.html">Tournaments</a></li>
+          <li><a href="signup.html">Tournament Sign Up</a></li>
+          <li><a href="averages.html">Bowler Averages</a></li>
+          <li><a href="leagues.html">Leagues</a></li>
+          <li><a href="forms.html">Forms &amp; Rules</a></li>
+          <li><a href="honor.html">Honor Scores</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Association</h4>
+        <ul>
+          <li><a href="board.html">Board of Directors</a></li>
+          <li><a href="youth.html">Youth Page</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="https://www.bowl.com" target="_blank" rel="noopener">Bowl.com</a></li>
+        </ul>
+      </div>
+      <!-- FOOTER-CONTACT-START -->
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:5097951845">509-795-1845</a></li>
+          <li><a href="mailto:spokaneusbc.assoc.manager@gmail.com">Email Us</a></li>
+          <li><a>P.O. Box 112, Deer Park, WA 99006</a></li>
+        </ul>
+      </div>
+      <!-- FOOTER-CONTACT-END -->
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Spokane County USBC. All rights reserved.</span>
+      <span>Member of <a href="https://www.bowl.com" target="_blank" rel="noopener" style="color:var(--gold);">USBC — United States Bowling Congress</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="leagues.js"></script>
+<script>
+(async function () {
+  const params = new URLSearchParams(window.location.search);
+  const teamId = parseInt(params.get('id'), 10);
+  const content = document.getElementById('team-content');
+
+  if (!teamId) {
+    document.getElementById('team-subtitle').textContent = 'No team selected.';
+    content.innerHTML = '<p>Go back to <a href="leagues.html">Leagues</a> and pick a team from the standings table.</p>';
+    return;
+  }
+
+  try {
+    const data = await loadLeagueData();
+    const team = data.teams.find(t => t.team_id === teamId);
+
+    if (!team) {
+      document.getElementById('team-subtitle').textContent = 'Team not found.';
+      content.innerHTML = '<p>That team isn\'t in the current data set. Go back to <a href="leagues.html">Leagues</a>.</p>';
+      return;
+    }
+
+    document.getElementById('team-name').textContent = team.team_name;
+    document.getElementById('team-subtitle').textContent =
+      `${data.league.name} — Lilac Lanes — week-by-week results`;
+
+    const weekNums = Object.keys(team.weeks).map(Number).sort((a, b) => b - a);
+
+    content.innerHTML = weekNums.map(wk => {
+      const week = team.weeks[wk];
+      const numGames = Math.max(...week.bowlers.map(b => b.games.length), 1);
+      const gameHeaders = Array.from({ length: numGames }, (_, i) => `<th>Game ${i + 1}</th>`).join('');
+
+      const rows = week.bowlers.map(b => {
+        const gameCells = Array.from({ length: numGames }, (_, i) => `<td>${escapeHtml(b.games[i] ?? '')}</td>`).join('');
+        return `<tr><td>${escapeHtml(b.name)}</td><td>${escapeHtml(b.average)}</td>${gameCells}<td>${escapeHtml(b.total)}</td><td>${escapeHtml(b.handicap_total)}</td></tr>`;
+      }).join('');
+
+      return `
+        <h3 style="color:var(--navy);margin-top:2rem;margin-bottom:0.5rem;">Week ${wk}</h3>
+        <p class="section-meta">Lane ${week.lane_bowled_on ?? '?'} · ${pointsBadge(week.points_won)}</p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Bowler</th><th>Avg</th>${gameHeaders}<th>Series</th><th>Hdcp Series</th></tr>
+            </thead>
+            <tbody>${rows}</tbody>
+          </table>
+        </div>
+      `;
+    }).join('');
+  } catch (err) {
+    document.getElementById('team-subtitle').textContent = 'Error loading data.';
+    content.innerHTML = `<p>Could not load league data: ${escapeHtml(err.message)}</p>`;
+  }
+})();
+</script>
+
+</body>
+</html>

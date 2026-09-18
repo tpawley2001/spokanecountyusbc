@@ -146,7 +146,7 @@ ${indent}<!-- FOOTER-CONTACT-END -->`;
   };
 
   const allPages = ['index.html','board.html','contact.html','forms.html',
-    'honor.html','signup.html','tournaments.html','youth.html','averages.html','leagues.html'];
+    'honor.html','signup.html','tournaments.html','youth.html','averages.html','leagues.html','team.html'];
   allPages.forEach(footerBlock);
 
   // contact.html main section

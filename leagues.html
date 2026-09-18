@@ -62,181 +62,87 @@
     <div class="divider"></div>
     <p class="section-meta">Lilac Lanes, Spokane WA — an example of a certified league with live results synced from League Secretary.</p>
 
-    <div class="info-box">
+    <div class="info-box" id="league-info">
       <h4>League Info</h4>
-      <p>10 teams · Fall 2026 season · League Secretary ID 59869 · Bowls weekly at Lilac Lanes.</p>
+      <p>Loading league info…</p>
     </div>
 
-    <h3 style="color:var(--navy);margin-top:2rem;margin-bottom:0.75rem;">Lane Assignments — Week 2</h3>
+    <h3 style="color:var(--navy);margin-top:2rem;margin-bottom:0.75rem;" id="lane-assignments-heading">Lane Assignments</h3>
     <div class="table-wrap">
       <table>
         <thead>
           <tr><th>Lane</th><th>Team</th></tr>
         </thead>
-        <tbody>
-          <tr><td>1</td><td>Quality Hardwood</td></tr>
-          <tr><td>2</td><td>Pocket Pounders</td></tr>
-          <tr><td>3</td><td>Top K Kids</td></tr>
-          <tr><td>4</td><td>Alpaca Bowl</td></tr>
-          <tr><td>5</td><td>Glory Bowls</td></tr>
-          <tr><td>6</td><td>Dean&#x27;s Team</td></tr>
-          <tr><td>7</td><td>Outlaw BBQ</td></tr>
-          <tr><td>8</td><td>Crap Sack</td></tr>
-          <tr><td>9</td><td>Splitz &amp; Giggles</td></tr>
-          <tr><td>10</td><td>Bowling Stones</td></tr>
+        <tbody id="lane-assignments-body">
+          <tr><td colspan="2">Loading…</td></tr>
         </tbody>
       </table>
     </div>
 
-    <h3 style="color:var(--navy);margin-top:2.5rem;margin-bottom:0.75rem;">Team Standings — Week 1 Results</h3>
+    <h3 style="color:var(--navy);margin-top:2.5rem;margin-bottom:0.75rem;" id="standings-heading">Team Standings</h3>
+    <p class="section-meta">Click a team to see its full week-by-week, bowler-by-bowler results.</p>
     <div class="table-wrap">
       <table>
         <thead>
           <tr><th>Team</th><th>Lane Bowled On</th><th>Points Won</th><th>Team Scratch Series</th></tr>
         </thead>
-        <tbody>
-          <tr><td><strong>Glory Bowls</strong></td><td>2</td><td><span class="badge badge-green">4 pts</span></td><td>4884</td></tr>
-          <tr><td><strong>Alpaca Bowl</strong></td><td>6</td><td><span class="badge badge-green">4 pts</span></td><td>4342</td></tr>
-          <tr><td><strong>Pocket Pounders</strong></td><td>3</td><td><span class="badge badge-green">3 pts</span></td><td>5270</td></tr>
-          <tr><td><strong>Crap Sack</strong></td><td>10</td><td><span class="badge badge-green">3 pts</span></td><td>4642</td></tr>
-          <tr><td><strong>Splitz &amp; Giggles</strong></td><td>8</td><td><span class="badge badge-green">3 pts</span></td><td>4488</td></tr>
-          <tr><td><strong>Dean&#x27;s Team</strong></td><td>9</td><td><span class="badge badge-gold">2 pts</span></td><td>5710</td></tr>
-          <tr><td><strong>Quality Hardwood</strong></td><td>7</td><td><span class="badge badge-gold">2 pts</span></td><td>4702</td></tr>
-          <tr><td><strong>Bowling Stones</strong></td><td>4</td><td><span class="badge badge-gold">2 pts</span></td><td>4382</td></tr>
-          <tr><td><strong>Top K Kids</strong></td><td>1</td><td><span class="badge badge-red">1 pts</span></td><td>5100</td></tr>
-          <tr><td><strong>Outlaw BBQ</strong></td><td>5</td><td><span class="badge badge-red">1 pts</span></td><td>4738</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <h3 style="color:var(--navy);margin-top:2.5rem;margin-bottom:0.75rem;">Full Recap — Week 1</h3>
-    <p class="section-meta">Every bowler's game-by-game score for the week, grouped by team.</p>
-    <div class="table-wrap" style="max-height:520px;overflow-y:auto;">
-      <table>
-        <thead>
-          <tr><th>Bowler</th><th>Avg</th><th>Game 1</th><th>Game 2</th><th>Game 3</th><th>Series</th><th>Hdcp Series</th></tr>
-        </thead>
-        <tbody>
-          <tr class="recap-team-row"><td colspan="7"><strong>Alpaca Bowl</strong></td></tr>
-          <tr><td style="padding-left:1.5rem;">Grissom, Nate</td><td>156</td><td>178</td><td>160</td><td>183</td><td>521</td><td>719</td></tr>
-          <tr><td style="padding-left:1.5rem;">Parker, Justin</td><td>151</td><td>142</td><td>201</td><td>137</td><td>480</td><td>693</td></tr>
-          <tr><td style="padding-left:1.5rem;">Vacant</td><td>130</td><td>130</td><td>130</td><td>130</td><td>390</td><td>660</td></tr>
-          <tr><td style="padding-left:1.5rem;">Vacant</td><td>130</td><td>130</td><td>130</td><td>130</td><td>390</td><td>660</td></tr>
-          <tr><td style="padding-left:1.5rem;">Vacant</td><td>130</td><td>130</td><td>130</td><td>130</td><td>390</td><td>660</td></tr>
-          <tr><td style="padding-left:1.5rem;">Grissom, Nate</td><td>156</td><td>178</td><td>160</td><td>183</td><td>521</td><td>719</td></tr>
-          <tr><td style="padding-left:1.5rem;">Parker, Justin</td><td>151</td><td>142</td><td>201</td><td>137</td><td>480</td><td>693</td></tr>
-          <tr><td style="padding-left:1.5rem;">Vacant</td><td>130</td><td>130</td><td>130</td><td>130</td><td>390</td><td>660</td></tr>
-          <tr><td style="padding-left:1.5rem;">Vacant</td><td>130</td><td>130</td><td>130</td><td>130</td><td>390</td><td>660</td></tr>
-          <tr><td style="padding-left:1.5rem;">Vacant</td><td>130</td><td>130</td><td>130</td><td>130</td><td>390</td><td>660</td></tr>
-          <tr class="recap-team-row"><td colspan="7"><strong>Pocket Pounders</strong></td></tr>
-          <tr><td style="padding-left:1.5rem;">Avila, Leo</td><td>182</td><td>183</td><td>160</td><td>160</td><td>503</td><td>632</td></tr>
-          <tr><td style="padding-left:1.5rem;">Rouns, Adam</td><td>132</td><td>138</td><td>137</td><td>123</td><td>398</td><td>662</td></tr>
-          <tr><td style="padding-left:1.5rem;">Mcmanus, Calvin</td><td>165</td><td>192</td><td>159</td><td>172</td><td>523</td><td>697</td></tr>
-          <tr><td style="padding-left:1.5rem;">Mcginn, Andrew</td><td>185</td><td>194</td><td>156</td><td>151</td><td>501</td><td>621</td></tr>
-          <tr><td style="padding-left:1.5rem;">Pierpont, Travis</td><td>208</td><td>259</td><td>224</td><td>227</td><td>710</td><td>767</td></tr>
-          <tr><td style="padding-left:1.5rem;">Avila, Leo</td><td>182</td><td>183</td><td>160</td><td>160</td><td>503</td><td>632</td></tr>
-          <tr><td style="padding-left:1.5rem;">Rouns, Adam</td><td>132</td><td>138</td><td>137</td><td>123</td><td>398</td><td>662</td></tr>
-          <tr><td style="padding-left:1.5rem;">Mcmanus, Calvin</td><td>165</td><td>192</td><td>159</td><td>172</td><td>523</td><td>697</td></tr>
-          <tr><td style="padding-left:1.5rem;">Mcginn, Andrew</td><td>185</td><td>194</td><td>156</td><td>151</td><td>501</td><td>621</td></tr>
-          <tr><td style="padding-left:1.5rem;">Pierpont, Travis</td><td>208</td><td>259</td><td>224</td><td>227</td><td>710</td><td>767</td></tr>
-          <tr class="recap-team-row"><td colspan="7"><strong>Splitz &amp; Giggles</strong></td></tr>
-          <tr><td style="padding-left:1.5rem;">Knechtges, Zach</td><td>183</td><td>153</td><td>202</td><td>208</td><td>563</td><td>689</td></tr>
-          <tr><td style="padding-left:1.5rem;">Martindale, Tyler</td><td>182</td><td>162</td><td>160</td><td>249</td><td>571</td><td>700</td></tr>
-          <tr><td style="padding-left:1.5rem;">Schroeder, Patrick</td><td>110</td><td>112</td><td>86</td><td>132</td><td>330</td><td>654</td></tr>
-          <tr><td style="padding-left:1.5rem;">Vacant</td><td>130</td><td>130</td><td>130</td><td>130</td><td>390</td><td>660</td></tr>
-          <tr><td style="padding-left:1.5rem;">Vacant</td><td>130</td><td>130</td><td>130</td><td>130</td><td>390</td><td>660</td></tr>
-          <tr><td style="padding-left:1.5rem;">Knechtges, Zach</td><td>183</td><td>153</td><td>202</td><td>208</td><td>563</td><td>689</td></tr>
-          <tr><td style="padding-left:1.5rem;">Martindale, Tyler</td><td>182</td><td>162</td><td>160</td><td>249</td><td>571</td><td>700</td></tr>
-          <tr><td style="padding-left:1.5rem;">Schroeder, Patrick</td><td>110</td><td>112</td><td>86</td><td>132</td><td>330</td><td>654</td></tr>
-          <tr><td style="padding-left:1.5rem;">Vacant</td><td>130</td><td>130</td><td>130</td><td>130</td><td>390</td><td>660</td></tr>
-          <tr><td style="padding-left:1.5rem;">Vacant</td><td>130</td><td>130</td><td>130</td><td>130</td><td>390</td><td>660</td></tr>
-          <tr class="recap-team-row"><td colspan="7"><strong>Quality Hardwood</strong></td></tr>
-          <tr><td style="padding-left:1.5rem;">Vacant</td><td>130</td><td>130</td><td>130</td><td>130</td><td>390</td><td>660</td></tr>
-          <tr><td style="padding-left:1.5rem;">Beckley, Brandon</td><td>161</td><td>147</td><td>148</td><td>155</td><td>450</td><td>636</td></tr>
-          <tr><td style="padding-left:1.5rem;">Vacant</td><td>130</td><td>130</td><td>130</td><td>130</td><td>390</td><td>660</td></tr>
-          <tr><td style="padding-left:1.5rem;">Michels, Paul</td><td>182</td><td>137</td><td>174</td><td>145</td><td>456</td><td>585</td></tr>
-          <tr><td style="padding-left:1.5rem;">Kleinknecht, Redneck</td><td>181</td><td>202</td><td>221</td><td>242</td><td>665</td><td>797</td></tr>
-          <tr><td style="padding-left:1.5rem;">Vacant</td><td>130</td><td>130</td><td>130</td><td>130</td><td>390</td><td>660</td></tr>
-          <tr><td style="padding-left:1.5rem;">Beckley, Brandon</td><td>161</td><td>147</td><td>148</td><td>155</td><td>450</td><td>636</td></tr>
-          <tr><td style="padding-left:1.5rem;">Vacant</td><td>130</td><td>130</td><td>130</td><td>130</td><td>390</td><td>660</td></tr>
-          <tr><td style="padding-left:1.5rem;">Michels, Paul</td><td>182</td><td>137</td><td>174</td><td>145</td><td>456</td><td>585</td></tr>
-          <tr><td style="padding-left:1.5rem;">Kleinknecht, Redneck</td><td>181</td><td>202</td><td>221</td><td>242</td><td>665</td><td>797</td></tr>
-          <tr class="recap-team-row"><td colspan="7"><strong>Outlaw BBQ</strong></td></tr>
-          <tr><td style="padding-left:1.5rem;">Erickson, Dave</td><td>177</td><td>172</td><td>196</td><td>172</td><td>540</td><td>681</td></tr>
-          <tr><td style="padding-left:1.5rem;">Hughes, Brian</td><td>145</td><td>150</td><td>169</td><td>154</td><td>473</td><td>701</td></tr>
-          <tr><td style="padding-left:1.5rem;">Blair, Dave</td><td>133</td><td>136</td><td>116</td><td>152</td><td>404</td><td>665</td></tr>
-          <tr><td style="padding-left:1.5rem;">Marshall, Daniel</td><td>139</td><td>144</td><td>166</td><td>143</td><td>453</td><td>696</td></tr>
-          <tr><td style="padding-left:1.5rem;">Erickson, Trevor</td><td>197</td><td>140</td><td>170</td><td>189</td><td>499</td><td>586</td></tr>
-          <tr><td style="padding-left:1.5rem;">Erickson, Dave</td><td>177</td><td>172</td><td>196</td><td>172</td><td>540</td><td>681</td></tr>
-          <tr><td style="padding-left:1.5rem;">Hughes, Brian</td><td>145</td><td>150</td><td>169</td><td>154</td><td>473</td><td>701</td></tr>
-          <tr><td style="padding-left:1.5rem;">Blair, Dave</td><td>133</td><td>136</td><td>116</td><td>152</td><td>404</td><td>665</td></tr>
-          <tr><td style="padding-left:1.5rem;">Marshall, Daniel</td><td>139</td><td>144</td><td>166</td><td>143</td><td>453</td><td>696</td></tr>
-          <tr><td style="padding-left:1.5rem;">Erickson, Trevor</td><td>197</td><td>140</td><td>170</td><td>189</td><td>499</td><td>586</td></tr>
-          <tr class="recap-team-row"><td colspan="7"><strong>Top K Kids</strong></td></tr>
-          <tr><td style="padding-left:1.5rem;">Kleinknecht, Top K</td><td>152</td><td>114</td><td>192</td><td>139</td><td>445</td><td>655</td></tr>
-          <tr><td style="padding-left:1.5rem;">Vacant</td><td>130</td><td>130</td><td>130</td><td>130</td><td>390</td><td>660</td></tr>
-          <tr><td style="padding-left:1.5rem;">Lilly, Pappa Smurf</td><td>180</td><td>158</td><td>165</td><td>163</td><td>486</td><td>621</td></tr>
-          <tr><td style="padding-left:1.5rem;">Ankenman, Fat Bastard</td><td>194</td><td>212</td><td>205</td><td>218</td><td>635</td><td>731</td></tr>
-          <tr><td style="padding-left:1.5rem;">Kleinknecht, Gilligan</td><td>208</td><td>197</td><td>204</td><td>193</td><td>594</td><td>651</td></tr>
-          <tr><td style="padding-left:1.5rem;">Kleinknecht, Top K</td><td>152</td><td>114</td><td>192</td><td>139</td><td>445</td><td>655</td></tr>
-          <tr><td style="padding-left:1.5rem;">Vacant</td><td>130</td><td>130</td><td>130</td><td>130</td><td>390</td><td>660</td></tr>
-          <tr><td style="padding-left:1.5rem;">Lilly, Pappa Smurf</td><td>180</td><td>158</td><td>165</td><td>163</td><td>486</td><td>621</td></tr>
-          <tr><td style="padding-left:1.5rem;">Ankenman, Fat Bastard</td><td>194</td><td>212</td><td>205</td><td>218</td><td>635</td><td>731</td></tr>
-          <tr><td style="padding-left:1.5rem;">Kleinknecht, Gilligan</td><td>208</td><td>197</td><td>204</td><td>193</td><td>594</td><td>651</td></tr>
-          <tr class="recap-team-row"><td colspan="7"><strong>Bowling Stones</strong></td></tr>
-          <tr><td style="padding-left:1.5rem;">Vacant</td><td>130</td><td>130</td><td>130</td><td>130</td><td>390</td><td>660</td></tr>
-          <tr><td style="padding-left:1.5rem;">House, Rick</td><td>144</td><td>150</td><td>134</td><td>149</td><td>433</td><td>664</td></tr>
-          <tr><td style="padding-left:1.5rem;">Reed, Victor</td><td>186</td><td>129</td><td>170</td><td>168</td><td>467</td><td>584</td></tr>
-          <tr><td style="padding-left:1.5rem;">Cook, Alan</td><td>168</td><td>140</td><td>188</td><td>183</td><td>511</td><td>676</td></tr>
-          <tr><td style="padding-left:1.5rem;">Vacant</td><td>130</td><td>130</td><td>130</td><td>130</td><td>390</td><td>660</td></tr>
-          <tr><td style="padding-left:1.5rem;">Vacant</td><td>130</td><td>130</td><td>130</td><td>130</td><td>390</td><td>660</td></tr>
-          <tr><td style="padding-left:1.5rem;">House, Rick</td><td>144</td><td>150</td><td>134</td><td>149</td><td>433</td><td>664</td></tr>
-          <tr><td style="padding-left:1.5rem;">Reed, Victor</td><td>186</td><td>129</td><td>170</td><td>168</td><td>467</td><td>584</td></tr>
-          <tr><td style="padding-left:1.5rem;">Cook, Alan</td><td>168</td><td>140</td><td>188</td><td>183</td><td>511</td><td>676</td></tr>
-          <tr><td style="padding-left:1.5rem;">Vacant</td><td>130</td><td>130</td><td>130</td><td>130</td><td>390</td><td>660</td></tr>
-          <tr class="recap-team-row"><td colspan="7"><strong>Dean&#x27;s Team</strong></td></tr>
-          <tr><td style="padding-left:1.5rem;">Mccabe, Jerry</td><td>189</td><td>179</td><td>221</td><td>176</td><td>576</td><td>684</td></tr>
-          <tr><td style="padding-left:1.5rem;">Mitchell, Cameron</td><td>201</td><td>171</td><td>170</td><td>262</td><td>603</td><td>681</td></tr>
-          <tr><td style="padding-left:1.5rem;">Mitchell, Chad</td><td>188</td><td>158</td><td>155</td><td>162</td><td>475</td><td>586</td></tr>
-          <tr><td style="padding-left:1.5rem;">Kerr, Jeffrey</td><td>199</td><td>210</td><td>194</td><td>201</td><td>605</td><td>686</td></tr>
-          <tr><td style="padding-left:1.5rem;">Swanson, Ryan</td><td>214</td><td>171</td><td>277</td><td>148</td><td>596</td><td>638</td></tr>
-          <tr><td style="padding-left:1.5rem;">Mccabe, Jerry</td><td>189</td><td>179</td><td>221</td><td>176</td><td>576</td><td>684</td></tr>
-          <tr><td style="padding-left:1.5rem;">Mitchell, Cameron</td><td>201</td><td>171</td><td>170</td><td>262</td><td>603</td><td>681</td></tr>
-          <tr><td style="padding-left:1.5rem;">Mitchell, Chad</td><td>188</td><td>158</td><td>155</td><td>162</td><td>475</td><td>586</td></tr>
-          <tr><td style="padding-left:1.5rem;">Kerr, Jeffrey</td><td>199</td><td>210</td><td>194</td><td>201</td><td>605</td><td>686</td></tr>
-          <tr><td style="padding-left:1.5rem;">Swanson, Ryan</td><td>214</td><td>171</td><td>277</td><td>148</td><td>596</td><td>638</td></tr>
-          <tr class="recap-team-row"><td colspan="7"><strong>Glory Bowls</strong></td></tr>
-          <tr><td style="padding-left:1.5rem;">Powell, Lil D</td><td>172</td><td>228</td><td>213</td><td>179</td><td>620</td><td>776</td></tr>
-          <tr><td style="padding-left:1.5rem;">Williams, Sweatpants</td><td>201</td><td>182</td><td>173</td><td>215</td><td>570</td><td>648</td></tr>
-          <tr><td style="padding-left:1.5rem;">Pawley, Fetus</td><td>176</td><td>133</td><td>195</td><td>144</td><td>472</td><td>616</td></tr>
-          <tr><td style="padding-left:1.5rem;">Vacant</td><td>130</td><td>130</td><td>130</td><td>130</td><td>390</td><td>660</td></tr>
-          <tr><td style="padding-left:1.5rem;">Vacant</td><td>130</td><td>130</td><td>130</td><td>130</td><td>390</td><td>660</td></tr>
-          <tr><td style="padding-left:1.5rem;">Powell, Lil D</td><td>172</td><td>228</td><td>213</td><td>179</td><td>620</td><td>776</td></tr>
-          <tr><td style="padding-left:1.5rem;">Williams, Sweatpants</td><td>201</td><td>182</td><td>173</td><td>215</td><td>570</td><td>648</td></tr>
-          <tr><td style="padding-left:1.5rem;">Pawley, Fetus</td><td>176</td><td>133</td><td>195</td><td>144</td><td>472</td><td>616</td></tr>
-          <tr><td style="padding-left:1.5rem;">Vacant</td><td>130</td><td>130</td><td>130</td><td>130</td><td>390</td><td>660</td></tr>
-          <tr><td style="padding-left:1.5rem;">Vacant</td><td>130</td><td>130</td><td>130</td><td>130</td><td>390</td><td>660</td></tr>
-          <tr class="recap-team-row"><td colspan="7"><strong>Crap Sack</strong></td></tr>
-          <tr><td style="padding-left:1.5rem;">Winslow, Dave</td><td>151</td><td>189</td><td>145</td><td>141</td><td>475</td><td>688</td></tr>
-          <tr><td style="padding-left:1.5rem;">Bean, Micah</td><td>225</td><td>204</td><td>269</td><td>203</td><td>676</td><td>688</td></tr>
-          <tr><td style="padding-left:1.5rem;">Vacant</td><td>130</td><td>130</td><td>130</td><td>130</td><td>390</td><td>660</td></tr>
-          <tr><td style="padding-left:1.5rem;">Vacant</td><td>130</td><td>130</td><td>130</td><td>130</td><td>390</td><td>660</td></tr>
-          <tr><td style="padding-left:1.5rem;">Vacant</td><td>130</td><td>130</td><td>130</td><td>130</td><td>390</td><td>660</td></tr>
-          <tr><td style="padding-left:1.5rem;">Winslow, Dave</td><td>151</td><td>189</td><td>145</td><td>141</td><td>475</td><td>688</td></tr>
-          <tr><td style="padding-left:1.5rem;">Bean, Micah</td><td>225</td><td>204</td><td>269</td><td>203</td><td>676</td><td>688</td></tr>
-          <tr><td style="padding-left:1.5rem;">Vacant</td><td>130</td><td>130</td><td>130</td><td>130</td><td>390</td><td>660</td></tr>
-          <tr><td style="padding-left:1.5rem;">Vacant</td><td>130</td><td>130</td><td>130</td><td>130</td><td>390</td><td>660</td></tr>
-          <tr><td style="padding-left:1.5rem;">Vacant</td><td>130</td><td>130</td><td>130</td><td>130</td><td>390</td><td>660</td></tr>
+        <tbody id="standings-body">
+          <tr><td colspan="4">Loading…</td></tr>
         </tbody>
       </table>
     </div>
 
     <div class="alert" style="margin-top:1.5rem;">
-      <strong>Mockup note:</strong> this section demonstrates an automated sync from League Secretary and is a snapshot, not a live feed. Data shown is real but will not update on this page automatically.
+      <strong>Mockup note:</strong> this section demonstrates an automated sync from League Secretary. It reads <code>leagues-data.json</code>, which is regenerated from the bracket-system database each time new weeks are pulled in.
     </div>
   </section>
   <!-- LEAGUE-SPOTLIGHT-END -->
 </div>
+
+<script src="leagues.js"></script>
+<script>
+(async function () {
+  try {
+    const data = await loadLeagueData();
+    const { lane_assignments, teams, league } = data;
+
+    document.getElementById('league-info').innerHTML = `
+      <h4>League Info</h4>
+      <p>${teams.length} teams · Fall ${lane_assignments.year || ''} season · League Secretary ID ${league.id} · Bowls weekly at ${escapeHtml(league.center)}.</p>
+    `;
+
+    document.getElementById('lane-assignments-heading').textContent =
+      `Lane Assignments — Week ${lane_assignments.week_num ?? '?'}`;
+
+    const laneBody = document.getElementById('lane-assignments-body');
+    laneBody.innerHTML = (lane_assignments.lanes || [])
+      .map(l => `<tr><td>${l.lane_number}</td><td>${escapeHtml(l.team_name)}</td></tr>`)
+      .join('');
+
+    const standings = teams.map(team => {
+      const wk = latestWeekNum(team);
+      const week = team.weeks[wk];
+      return { team, wk, week, series: teamSeriesTotal(week) };
+    }).sort((a, b) => (b.week.points_won - a.week.points_won) || (b.series - a.series));
+
+    if (standings.length) {
+      document.getElementById('standings-heading').textContent = `Team Standings — Week ${standings[0].wk} Results`;
+    }
+
+    document.getElementById('standings-body').innerHTML = standings.map(({ team, wk, week, series }) => `
+      <tr>
+        <td><a href="team.html?id=${team.team_id}"><strong>${escapeHtml(team.team_name)}</strong></a></td>
+        <td>${week.lane_bowled_on ?? ''}</td>
+        <td>${pointsBadge(week.points_won)}</td>
+        <td>${series}</td>
+      </tr>
+    `).join('');
+  } catch (err) {
+    document.getElementById('standings-body').innerHTML =
+      `<tr><td colspan="4">Could not load league data: ${escapeHtml(err.message)}</td></tr>`;
+  }
+})();
+</script>
 
 <footer>
   <div class="footer-inner">
