@@ -116,7 +116,7 @@
 
     const laneBody = document.getElementById('lane-assignments-body');
     laneBody.innerHTML = (lane_assignments.lanes || [])
-      .map(l => `<tr><td>${l.lane_number}</td><td>${escapeHtml(l.team_name)}</td></tr>`)
+      .map(l => `<tr><td>${l.lane_number}</td><td><a href="team.html?id=${l.team_id}">${escapeHtml(l.team_name)}</a></td></tr>`)
       .join('');
 
     const standings = teams.map(team => {
