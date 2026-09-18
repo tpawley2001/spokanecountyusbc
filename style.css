@@ -190,17 +190,18 @@ tr:nth-child(even) td { background: var(--light-bg); }
 .badge-red   { background: #f8d7da; color: #721c24; }
 
 /* ── Board grid ── */
-.board-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1rem; }
+.board-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1rem; }
 .board-card {
   background: var(--white);
   border: 1px solid var(--border);
   border-radius: 10px;
   padding: 1.25rem 1.5rem;
   box-shadow: var(--shadow);
+  min-width: 0;
 }
 .board-card .role { font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--red); margin-bottom: 0.35rem; }
 .board-card .name { font-size: 1.05rem; font-weight: 700; color: var(--navy); margin-bottom: 0.3rem; }
-.board-card a { color: var(--muted); font-size: 0.85rem; text-decoration: none; }
+.board-card a { display: block; color: var(--muted); font-size: 0.85rem; text-decoration: none; overflow-wrap: anywhere; }
 .board-card a:hover { color: var(--red); }
 
 /* ── Info box ── */
