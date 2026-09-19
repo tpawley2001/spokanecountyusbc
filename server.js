@@ -69,14 +69,27 @@ app.post('/api/board', auth, (req, res) => {
 function boardCard(m) {
   const email = m.email ? `\n      <a href="mailto:${esc(m.email)}">${esc(m.email)}</a>` : '';
   const phone = m.phone ? `\n      <a href="tel:${m.phone.replace(/\D/g,'')}" style="margin-top:0.25rem;">${esc(m.phone)}</a>` : '';
+  const initials = String(m.name || '').split(/\s+/).filter(Boolean).map(w => w[0]).slice(0, 2).join('').toUpperCase();
+  const photo = m.photo
+    ? `<img src="${esc(m.photo)}" alt="${esc(m.name)}" loading="lazy">`
+    : `<span class="initials">${esc(initials)}</span>`;
   return `    <div class="board-card">
+      <div class="photo">${photo}</div>
+      <div class="info">
       <div class="role">${esc(m.role)}</div>
       <div class="name">${esc(m.name)}</div>${email}${phone}
+      </div>
     </div>`;
 }
 
+// Officers (any role other than plain "USBC Director") get their own row above the directors.
 function regenerateBoard(members) {
-  const inner = `  <!-- BOARD-START -->\n  <div class="board-grid">\n${members.map(boardCard).join('\n')}\n  </div>\n  <!-- BOARD-END -->`;
+  const officers = members.filter(m => m.role !== 'USBC Director');
+  const directors = members.filter(m => m.role === 'USBC Director');
+  const group = (title, list) => list.length
+    ? `  <h2 class="board-heading">${title}</h2>\n  <div class="board-grid">\n${list.map(boardCard).join('\n')}\n  </div>\n`
+    : '';
+  const inner = `  <!-- BOARD-START -->\n${group('Officers', officers)}${group('Directors', directors)}  <!-- BOARD-END -->`;
   replaceSection('board.html', '<!-- BOARD-START -->', '<!-- BOARD-END -->', inner);
 }
 

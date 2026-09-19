@@ -314,6 +314,7 @@
       <div class="form-group"><label>Email</label><input type="email" id="mf-email" placeholder="email@example.com"></div>
     </div>
     <div class="form-group"><label>Phone <small style="font-weight:400;text-transform:none">(optional)</small></label><input type="tel" id="mf-phone" placeholder="509-000-0000"></div>
+    <div class="form-group"><label>Photo <small style="font-weight:400;text-transform:none">(optional — path to an image on the site, blank shows initials)</small></label><input type="text" id="mf-photo" placeholder="images/board/first-last.jpg"></div>
     <div class="modal-footer">
       <button class="btn btn-ghost" onclick="closeModal('board')">Cancel</button>
       <button class="btn btn-primary" onclick="saveModal('board')">Save Member</button>
@@ -615,12 +616,13 @@
     const isEdit = index !== null;
 
     if(type==='board') {
-      const m = isEdit ? siteData.board.members[index] : {role:'USBC Director',name:'',email:'',phone:''};
+      const m = isEdit ? siteData.board.members[index] : {role:'USBC Director',name:'',email:'',phone:'',photo:''};
       document.getElementById('modal-board-title').textContent = isEdit ? 'Edit Board Member' : 'Add Board Member';
       document.getElementById('mf-role').value = m.role;
       document.getElementById('mf-name').value = m.name;
       document.getElementById('mf-email').value = m.email||'';
       document.getElementById('mf-phone').value = m.phone||'';
+      document.getElementById('mf-photo').value = m.photo||'';
       openOverlay('modal-board');
       setTimeout(()=>document.getElementById('mf-name').focus(),50);
 
@@ -672,7 +674,7 @@
     if(type==='board') {
       const name = document.getElementById('mf-name').value.trim();
       if(!name) { document.getElementById('mf-name').focus(); return; }
-      const m = { role:document.getElementById('mf-role').value, name, email:document.getElementById('mf-email').value.trim(), phone:document.getElementById('mf-phone').value.trim() };
+      const m = { role:document.getElementById('mf-role').value, name, email:document.getElementById('mf-email').value.trim(), phone:document.getElementById('mf-phone').value.trim(), photo:document.getElementById('mf-photo').value.trim() };
       if(!siteData.board) siteData.board = {members:[]};
       if(isEdit) siteData.board.members[index]=m; else siteData.board.members.push(m);
       closeModal('board');

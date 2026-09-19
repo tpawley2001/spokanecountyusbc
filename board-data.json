@@ -1,16 +1,95 @@
 {
   "members": [
-    { "role": "President", "name": "Russ Blough", "email": "blough300@gmail.com", "phone": "" },
-    { "role": "Association Manager", "name": "Tina Blough", "email": "spokaneusbc.assoc.manager@gmail.com", "phone": "509-795-1845" },
-    { "role": "Vice President", "name": "Rob Winchell", "email": "robbie.winchell@gmail.com", "phone": "" },
-    { "role": "USBC Director", "name": "Tyson Pawley", "email": "tyson.usbc@gmail.com", "phone": "" },
-    { "role": "USBC Director", "name": "Robert Frank", "email": "rjchief@gmail.com", "phone": "" },
-    { "role": "USBC Director", "name": "Mark McBeth", "email": "mmmcbeth1816@yahoo.com", "phone": "" },
-    { "role": "USBC Director", "name": "Jacob McBeth", "email": "jacobmcbeth9@gmail.com", "phone": "" },
-    { "role": "USBC Director", "name": "Terry Werner", "email": "terrywerner@msn.com", "phone": "" },
-    { "role": "USBC Director", "name": "Troy Cleaver", "email": "trycleav@yahoo.com", "phone": "" },
-    { "role": "USBC Director", "name": "Rob White", "email": "rwhite8873@gmail.com", "phone": "" },
-    { "role": "USBC Director", "name": "Justine Betts", "email": "jebe126@gmail.com", "phone": "" },
-    { "role": "USBC Director", "name": "Grant Phillips", "email": "gphill33@hotmail.com", "phone": "" }
+    {
+      "role": "President",
+      "name": "Russ Blough",
+      "email": "blough300@gmail.com",
+      "phone": "",
+      "photo": "images/board/russ-blough.jpg"
+    },
+    {
+      "role": "Vice President",
+      "name": "Rob Winchell",
+      "email": "robbie.winchell@gmail.com",
+      "phone": "",
+      "photo": ""
+    },
+    {
+      "role": "Association Manager",
+      "name": "Tina Blough",
+      "email": "spokaneusbc.assoc.manager@gmail.com",
+      "phone": "509-795-1845",
+      "photo": "images/board/tina-blough.jpg"
+    },
+    {
+      "role": "USBC Director",
+      "name": "Justine Betts",
+      "email": "jebe126@gmail.com",
+      "phone": "",
+      "photo": "images/board/justine-betts.jpg"
+    },
+    {
+      "role": "USBC Director",
+      "name": "Troy Cleaver",
+      "email": "trycleav@yahoo.com",
+      "phone": "",
+      "photo": ""
+    },
+    {
+      "role": "USBC Director",
+      "name": "Robert Frank",
+      "email": "rjchief@gmail.com",
+      "phone": "",
+      "photo": "images/board/robert-frank.jpg"
+    },
+    {
+      "role": "USBC Director",
+      "name": "Mike Holliman",
+      "email": "mholliman1986@gmail.com",
+      "phone": "",
+      "photo": "images/board/mike-holliman.jpg"
+    },
+    {
+      "role": "USBC Director",
+      "name": "Jacob McBeth",
+      "email": "jacobmcbeth9@gmail.com",
+      "phone": "",
+      "photo": "images/board/jacob-mcbeth.jpg"
+    },
+    {
+      "role": "USBC Director",
+      "name": "Mark McBeth",
+      "email": "mmmcbeth1816@yahoo.com",
+      "phone": "",
+      "photo": "images/board/mark-mcbeth.jpg"
+    },
+    {
+      "role": "USBC Director",
+      "name": "Tyson Pawley",
+      "email": "tyson.usbc@gmail.com",
+      "phone": "",
+      "photo": "images/board/tyson-pawley.jpg"
+    },
+    {
+      "role": "USBC Director",
+      "name": "Grant Phillips",
+      "email": "gphill33@hotmail.com",
+      "phone": "",
+      "photo": "images/board/grant-phillips.jpg"
+    },
+    {
+      "role": "USBC Director",
+      "name": "Terry Werner",
+      "email": "terrywerner@msn.com",
+      "phone": "",
+      "photo": "images/board/terry-werner.jpg"
+    },
+    {
+      "role": "USBC Director",
+      "name": "Rob White",
+      "email": "rwhite8873@gmail.com",
+      "phone": "",
+      "photo": "images/board/rob-white.jpg"
+    }
   ]
 }
