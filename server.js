@@ -52,7 +52,7 @@ function replaceSection(filename, startTag, endTag, newContent) {
   const filepath = path.join(__dirname, filename);
   let html = fs.readFileSync(filepath, 'utf-8');
   const re = new RegExp(`[ \\t]*${startTag}[\\s\\S]*?${endTag}`, 'm');
-  html = html.replace(re, newContent);
+  html = html.replace(re, () => newContent);  // function form: no $-pattern expansion
   fs.writeFileSync(filepath, html);
 }
 
@@ -60,6 +60,12 @@ function esc(str) {
   return String(str ?? '')
     .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;');
+}
+
+// Escaped URL for href/src; anything but http(s), mailto, tel or a relative path becomes '#'
+function safeUrl(url) {
+  const u = String(url ?? '').trim();
+  return /^(?:https?:|mailto:|tel:|\/(?!\/)|[\w.-]+(?:\/|$|\?|#)|#)/i.test(u) ? esc(u) : '#';
 }
 
 // ── Auth ──────────────────────────────────────────────────────────
@@ -115,7 +121,7 @@ function boardCard(m) {
   const phone = m.phone ? `\n      <a href="tel:${m.phone.replace(/\D/g,'')}" style="margin-top:0.25rem;">${esc(m.phone)}</a>` : '';
   const initials = String(m.name || '').split(/\s+/).filter(Boolean).map(w => w[0]).slice(0, 2).join('').toUpperCase();
   const photo = m.photo
-    ? `<img src="${esc(m.photo)}" alt="${esc(m.name)}" loading="lazy">`
+    ? `<img src="${safeUrl(m.photo)}" alt="${esc(m.name)}" loading="lazy">`
     : `<span class="initials">${esc(initials)}</span>`;
   return `    <div class="board-card">
       <div class="photo">${photo}</div>
@@ -229,7 +235,7 @@ ${indent}<!-- FOOTER-CONTACT-END -->`;
       </div>
       <div class="contact-block">
         <h4>Online Resources</h4>
-        <a href="${esc(c.facebook_url)}" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.5rem;">
+        <a href="${safeUrl(c.facebook_url)}" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.5rem;">
           📘 Find us on Facebook
         </a>
         <a href="https://www.bowl.com" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:0.5rem;">
@@ -256,7 +262,7 @@ function regenerateAnnouncement(ann) {
   if (ann.visible) {
     block = `  <!-- ANNOUNCEMENT-START -->
   <div class="alert">
-    <strong>📢 Reminder:</strong> ${esc(ann.text)} <a href="${esc(ann.link)}" target="_blank" rel="noopener">${esc(ann.link_text)}</a>!
+    <strong>📢 Reminder:</strong> ${esc(ann.text)} <a href="${safeUrl(ann.link)}" target="_blank" rel="noopener">${esc(ann.link_text)}</a>!
   </div>
   <!-- ANNOUNCEMENT-END -->`;
   } else {
