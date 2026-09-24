@@ -7,7 +7,19 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || '';
 const DATA_FILE = path.join(__dirname, 'site-data.json');
-const SESSION_TOKEN = crypto.randomBytes(24).toString('hex');
+// Admin session token: HMAC of the password with a secret kept on disk, so a login
+// survives server restarts/deploys and only changes when the password (or the secret
+// file) changes. Delete .session-secret to sign everyone out.
+const SECRET_FILE = path.join(__dirname, '.session-secret');
+function sessionSecret() {
+  try { return fs.readFileSync(SECRET_FILE, 'utf-8').trim(); } catch {}
+  const secret = crypto.randomBytes(32).toString('hex');
+  try { fs.writeFileSync(SECRET_FILE, secret + '\n', { mode: 0o600 }); } catch {}
+  return secret;
+}
+const SESSION_TOKEN = ADMIN_PASSWORD
+  ? crypto.createHmac('sha256', sessionSecret()).update(ADMIN_PASSWORD).digest('hex')
+  : crypto.randomBytes(24).toString('hex');
 
 if (!ADMIN_PASSWORD) console.warn('ADMIN_PASSWORD is not set — admin login is disabled');
 

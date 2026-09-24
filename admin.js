@@ -12,7 +12,11 @@
     err.textContent = '';
     try {
       const res = await fetch('/api/login', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({password:pw}) });
-      if (!res.ok) { err.textContent='Incorrect password.'; return; }
+      if (!res.ok) {
+        const d = await res.json().catch(() => ({}));
+        err.textContent = res.status === 429 ? (d.error || 'Too many attempts — try again later.') : 'Incorrect password.';
+        return;
+      }
       const d = await res.json();
       token = d.token;
       sessionStorage.setItem('tok', token);
@@ -20,19 +24,22 @@
     } catch { err.textContent='Cannot connect to server.'; }
   }
 
-  function doLogout() {
+  function doLogout(message) {
     sessionStorage.removeItem('tok');
     token = '';
     document.getElementById('app').style.display = 'none';
     document.getElementById('login').style.display = 'flex';
     document.getElementById('pw').value = '';
+    document.getElementById('login-err').textContent = typeof message === 'string' ? message : '';
   }
+  const SESSION_EXPIRED = 'Your session expired — please sign in again. Nothing was saved.';
 
   async function showApp() {
+    const res = await fetch('/api/site', { headers:{'x-admin-token':token} });
+    if (res.status === 401) { doLogout(SESSION_EXPIRED); return; }   // never show empty forms
+    siteData = await res.json();
     document.getElementById('login').style.display = 'none';
     document.getElementById('app').style.display = 'flex';
-    const res = await fetch('/api/site', { headers:{'x-admin-token':token} });
-    siteData = await res.json();
     populateAll();
   }
 
@@ -333,10 +340,11 @@
     const { url, body } = endpoints[section];
     try {
       const res = await fetch(url, { method:'POST', headers:{'Content-Type':'application/json','x-admin-token':token}, body:JSON.stringify(body) });
-      if(!res.ok) throw new Error();
+      if (res.status === 401) { doLogout(SESSION_EXPIRED); return; }
+      if (!res.ok) throw new Error(`server said ${res.status}`);
       if(!silent) toast('Published ✓', 'ok');
-    } catch {
-      toast('Save failed', 'err');
+    } catch (e) {
+      toast(`Save failed (${e.message || 'no connection'})`, 'err');
     }
   }
 
