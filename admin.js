@@ -52,6 +52,9 @@
     document.getElementById('ann-text').value = ann.text || '';
     document.getElementById('ann-link-text').value = ann.link_text || '';
     document.getElementById('ann-link').value = ann.link || '';
+    document.getElementById('ann-type').value = BANNER_TYPES[ann.type] ? ann.type : 'reminder';
+    document.getElementById('ann-label').value = ann.label || '';
+    renderAnnouncementPreview();
 
     // Contact
     const c = siteData.contact || {};
@@ -320,7 +323,9 @@
         visible: document.getElementById('ann-visible').checked,
         text: document.getElementById('ann-text').value.trim(),
         link_text: document.getElementById('ann-link-text').value.trim(),
-        link: document.getElementById('ann-link').value.trim()
+        link: document.getElementById('ann-link').value.trim(),
+        type: document.getElementById('ann-type').value,
+        label: document.getElementById('ann-label').value.trim()
       };
       endpoints.announcement.body = siteData.announcement;
     }
@@ -382,3 +387,28 @@
     if ('self' in el.dataset) args.push(el);
     ACTIONS[el.dataset.action](...args);
   });
+
+  // Home page banner types - keep in sync with BANNER_TYPES in server.js
+  const BANNER_TYPES = {
+    reminder:     { icon: '📢', label: 'Reminder' },
+    announcement: { icon: '📣', label: 'Announcement' },
+    important:    { icon: '⚠️', label: 'Important' },
+    event:        { icon: '📅', label: 'Upcoming Event' },
+    congrats:     { icon: '🎉', label: 'Congratulations' },
+    info:         { icon: 'ℹ️', label: 'Info' },
+  };
+
+  function renderAnnouncementPreview() {
+    const typeKey = document.getElementById('ann-type').value;
+    const type = BANNER_TYPES[typeKey] || BANNER_TYPES.reminder;
+    const heading = document.getElementById('ann-label').value.trim() || type.label;
+    const text = document.getElementById('ann-text').value.trim();
+    const linkText = document.getElementById('ann-link-text').value.trim();
+    const link = document.getElementById('ann-link').value.trim();
+    const preview = document.getElementById('ann-preview');
+    preview.className = `ann-preview alert alert-${typeKey}`;
+    preview.innerHTML = `<strong>${type.icon} ${esc(heading)}:</strong> ${esc(text)}` +
+      (link && linkText ? ` <a href="#">${esc(linkText)}</a>!` : '');
+  }
+  ['ann-type', 'ann-label', 'ann-text', 'ann-link-text', 'ann-link'].forEach(id =>
+    document.getElementById(id).addEventListener('input', renderAnnouncementPreview));

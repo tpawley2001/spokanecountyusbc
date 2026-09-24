@@ -244,6 +244,13 @@ tr:nth-child(even) td { background: var(--light-bg); }
   color: #664d03;
 }
 .alert strong { font-weight: 700; }
+/* Banner types chosen in the admin panel (.alert alone = reminder) */
+.alert-announcement { background: #e7f1ff; border-color: #0d6efd; color: #084298; }
+.alert-important    { background: #f8d7da; border-color: #dc3545; color: #842029; }
+.alert-event        { background: #d1e7dd; border-color: #198754; color: #0f5132; }
+.alert-congrats     { background: #f3e8ff; border-color: #8b5cf6; color: #4c1d95; }
+.alert-info         { background: #eef2f6; border-color: #6c7a89; color: #2f3b48; }
+.alert a { color: inherit; font-weight: 600; }
 
 /* ── Contact ── */
 .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; margin-top: 1.5rem; }

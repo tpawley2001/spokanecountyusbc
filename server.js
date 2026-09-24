@@ -263,12 +263,28 @@ app.post('/api/announcement', auth, (req, res) => {
   res.json({ success: true });
 });
 
+// Home page banner styles (admin.js has the same list for its live preview)
+const BANNER_TYPES = {
+  reminder:     { icon: '📢', label: 'Reminder' },
+  announcement: { icon: '📣', label: 'Announcement' },
+  important:    { icon: '⚠️', label: 'Important' },
+  event:        { icon: '📅', label: 'Upcoming Event' },
+  congrats:     { icon: '🎉', label: 'Congratulations' },
+  info:         { icon: 'ℹ️', label: 'Info' },
+};
+
 function regenerateAnnouncement(ann) {
   let block;
   if (ann.visible) {
+    const typeKey = BANNER_TYPES[ann.type] ? ann.type : 'reminder';
+    const type = BANNER_TYPES[typeKey];
+    const heading = String(ann.label || '').trim() || type.label;
+    const link = ann.link && ann.link_text
+      ? ` <a href="${safeUrl(ann.link)}" target="_blank" rel="noopener">${esc(ann.link_text)}</a>!`
+      : '';
     block = `  <!-- ANNOUNCEMENT-START -->
-  <div class="alert">
-    <strong>📢 Reminder:</strong> ${esc(ann.text)} <a href="${safeUrl(ann.link)}" target="_blank" rel="noopener">${esc(ann.link_text)}</a>!
+  <div class="alert alert-${typeKey}">
+    <strong>${type.icon} ${esc(heading)}:</strong> ${esc(ann.text)}${link}
   </div>
   <!-- ANNOUNCEMENT-END -->`;
   } else {
