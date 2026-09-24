@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-24T22:42:26.236066+00:00",
+  "generated_at": "2026-09-24T22:42:59.986531+00:00",
   "league": {
     "slug": "pepsi-scratch",
     "name": "Pepsi Scratch League (SCHSTSL)",
@@ -1030,19 +1030,6 @@
               "handicap_total": ""
             },
             {
-              "name": "Troy Allison",
-              "average": "201",
-              "handicap": "",
-              "games": [
-                "",
-                "",
-                "",
-                ""
-              ],
-              "total": "0",
-              "handicap_total": ""
-            },
-            {
               "name": "John Hilden",
               "average": "208",
               "handicap": "",
@@ -1313,19 +1300,6 @@
                 "197"
               ],
               "total": "788",
-              "handicap_total": ""
-            },
-            {
-              "name": "Alex Santos-Cucalon",
-              "average": "207",
-              "handicap": "",
-              "games": [
-                "",
-                "",
-                "",
-                ""
-              ],
-              "total": "0",
               "handicap_total": ""
             },
             {
