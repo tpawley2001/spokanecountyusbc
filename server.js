@@ -98,8 +98,30 @@ function passwordMatches(given) {
   return crypto.timingSafeEqual(a, b);
 }
 
+// Per-IP limit on login attempts (Cloudflare's free plan only allows one rate-limit
+// rule, used by the site-wide flood guard). Real client IP comes from Cloudflare.
+const LOGIN_WINDOW_MS = 60 * 1000;
+const LOGIN_MAX_PER_IP = 5;
+const loginAttempts = new Map();   // ip -> [timestamps]
+
+function clientIp(req) {
+  return req.headers['cf-connecting-ip'] || req.socket.remoteAddress || 'unknown';
+}
+
 app.post('/api/login', (req, res) => {
   const now = Date.now();
+  const ip = clientIp(req);
+  for (const [k, ts] of loginAttempts) {          // keep the map small
+    const recent = ts.filter(t => now - t < LOGIN_WINDOW_MS);
+    if (recent.length) loginAttempts.set(k, recent); else loginAttempts.delete(k);
+  }
+  const mine = loginAttempts.get(ip) || [];
+  if (mine.length >= LOGIN_MAX_PER_IP) {
+    res.set('Retry-After', '60');
+    return res.status(429).json({ error: 'Too many sign-in attempts — wait a minute and try again' });
+  }
+  loginAttempts.set(ip, [...mine, now]);
+
   failedLogins = failedLogins.filter(t => now - t < LOCKOUT_MS);
   if (failedLogins.length >= 10) {
     return res.status(429).json({ error: 'Too many failed logins — try again in 15 minutes' });
