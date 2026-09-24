@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-24T22:57:24.992067+00:00",
+  "generated_at": "2026-09-24T23:51:40.131021+00:00",
   "league": {
     "id": 59869,
     "name": "Mens Northwest League",
@@ -1517,5 +1517,101 @@
         }
       }
     }
-  ]
+  ],
+  "standings": [
+    {
+      "place": 1,
+      "team_id": 10,
+      "team_name": "Glory Bowls",
+      "points_won": 9.0,
+      "points_lost": 1.0,
+      "pct_won": 90.0,
+      "scratch_pins": 4792
+    },
+    {
+      "place": 2,
+      "team_id": 2,
+      "team_name": "Pocket Pounders",
+      "points_won": 8.0,
+      "points_lost": 2.0,
+      "pct_won": 80.0,
+      "scratch_pins": 5529
+    },
+    {
+      "place": 3,
+      "team_id": 11,
+      "team_name": "Crap Sack",
+      "points_won": 7.0,
+      "points_lost": 3.0,
+      "pct_won": 70.0,
+      "scratch_pins": 5050
+    },
+    {
+      "place": 4,
+      "team_id": 7,
+      "team_name": "Top K Kids",
+      "points_won": 6.0,
+      "points_lost": 4.0,
+      "pct_won": 60.0,
+      "scratch_pins": 5283
+    },
+    {
+      "place": 5,
+      "team_id": 8,
+      "team_name": "Bowling Stones",
+      "points_won": 6.0,
+      "points_lost": 4.0,
+      "pct_won": 60.0,
+      "scratch_pins": 4951
+    },
+    {
+      "place": 6,
+      "team_id": 3,
+      "team_name": "Splitz & Giggles",
+      "points_won": 4.0,
+      "points_lost": 6.0,
+      "pct_won": 40.0,
+      "scratch_pins": 4844
+    },
+    {
+      "place": 7,
+      "team_id": 1,
+      "team_name": "Alpaca Bowl",
+      "points_won": 4.0,
+      "points_lost": 6.0,
+      "pct_won": 40.0,
+      "scratch_pins": 4373
+    },
+    {
+      "place": 8,
+      "team_id": 9,
+      "team_name": "Dean's Team",
+      "points_won": 2.0,
+      "points_lost": 8.0,
+      "pct_won": 20.0,
+      "scratch_pins": 5555
+    },
+    {
+      "place": 9,
+      "team_id": 6,
+      "team_name": "Outlaw BBQ",
+      "points_won": 2.0,
+      "points_lost": 8.0,
+      "pct_won": 20.0,
+      "scratch_pins": 4908
+    },
+    {
+      "place": 10,
+      "team_id": 4,
+      "team_name": "Quality Hardwood",
+      "points_won": 2.0,
+      "points_lost": 8.0,
+      "pct_won": 20.0,
+      "scratch_pins": 4843
+    }
+  ],
+  "as_of": {
+    "week": 2,
+    "date": null
+  }
 }

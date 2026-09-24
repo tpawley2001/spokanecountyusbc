@@ -14,7 +14,8 @@
     document.getElementById('spotlight-meta').textContent =
       [league.center, league.day_time, league.lanes ? `Lanes ${league.lanes}` : null].filter(Boolean).join(' · ');
 
-    const asOf = data.as_of ? ` · Standings through week ${data.as_of.week} (${escapeHtml(data.as_of.date)})` : '';
+    const asOf = data.as_of && data.as_of.week
+      ? ` · Standings through week ${data.as_of.week}${data.as_of.date ? ' (' + escapeHtml(data.as_of.date) + ')' : ''}` : '';
     document.getElementById('league-info').innerHTML = `
       <h4>League Info</h4>
       <p>${teams.length} teams${league.total_weeks ? ` · ${league.total_weeks}-week season` : ''}${league.scoring === 'scratch' ? ' · Scratch' : ''}${asOf}. Results come from the league's weekly ${escapeHtml(league.source || 'recap sheets')}.</p>

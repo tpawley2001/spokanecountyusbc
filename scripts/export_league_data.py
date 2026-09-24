@@ -80,8 +80,10 @@ def main():
 
     # ── Multi-league files: leagues/index.json + leagues/<slug>.json ──
     LEAGUES_OUT.mkdir(exist_ok=True)
+    standings, through_week = mnw_standings(cur)
     mnw = {**data, "league": {**LEAGUE_INFO, "slug": "mens-northwest", "day_time": "Thursday 6:00 pm",
-                              "scoring": "handicap", "source": "League Secretary / BLS recap sheets"}}
+                              "scoring": "handicap", "source": "League Secretary / BLS recap sheets"},
+           "standings": standings, "as_of": {"week": through_week, "date": None}}
     index = [{"slug": "mens-northwest", "name": LEAGUE_INFO["name"], "center": LEAGUE_INFO["center"],
               "day_time": "Thursday 6:00 pm"}]
     (LEAGUES_OUT / "mens-northwest.json").write_text(json.dumps(mnw, indent=2))
@@ -91,6 +93,33 @@ def main():
         print(f"Wrote leagues/{league['league']['slug']}.json — {len(league['teams'])} teams, "
               f"through week {league['as_of']['week']}")
     (LEAGUES_OUT / "index.json").write_text(json.dumps({"generated_at": data["generated_at"], "leagues": index}, indent=2))
+
+
+def mnw_standings(cur):
+    """Season standings from the weekly recaps: points won (sum of each week's team points),
+    points lost (the lane-pair opponent's points), scratch pins; ranked by points won, ties
+    broken by scratch pins - matches the BLS standings sheet exactly (checked on week 2)."""
+    rows = cur.execute("""
+        WITH team_week AS (
+          SELECT week_num, team_id, team_name, lane_bowled_on,
+                 MAX(team_points_won) AS pts, SUM(CAST(total AS INT)) AS pins
+          FROM weekly_recaps GROUP BY week_num, team_id),
+        opp AS (
+          SELECT a.week_num, a.team_id, b.pts AS opp_pts FROM team_week a JOIN team_week b
+            ON a.week_num = b.week_num AND a.team_id <> b.team_id
+           AND (a.lane_bowled_on + 1) / 2 = (b.lane_bowled_on + 1) / 2)
+        SELECT tw.team_id, tw.team_name, SUM(tw.pts) AS won, SUM(o.opp_pts) AS lost,
+               SUM(tw.pins) AS pins, MAX(tw.week_num) AS thru
+        FROM team_week tw JOIN opp o ON o.week_num = tw.week_num AND o.team_id = tw.team_id
+        GROUP BY tw.team_id ORDER BY won DESC, pins DESC""").fetchall()
+    standings = []
+    for place, r in enumerate(rows, 1):
+        won, lost = r["won"] or 0, r["lost"] or 0
+        standings.append({"place": place, "team_id": r["team_id"], "team_name": r["team_name"],
+                          "points_won": won, "points_lost": lost,
+                          "pct_won": round(100 * won / (won + lost), 1) if won + lost else None,
+                          "scratch_pins": r["pins"]})
+    return standings, max((r["thru"] for r in rows), default=None)
 
 
 def photo_leagues():
