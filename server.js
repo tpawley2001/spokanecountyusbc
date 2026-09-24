@@ -15,10 +15,13 @@ app.disable('x-powered-by');
 app.use(express.json());
 
 // ── Security headers ──────────────────────────────────────────────
+// The per-request nonce isn't used by our own pages (all scripts are external files);
+// Cloudflare copies it onto the Bot Fight Mode detection script it injects.
 app.use((req, res, next) => {
+  const nonce = crypto.randomBytes(16).toString('base64');
   res.set({
     'Strict-Transport-Security': 'max-age=31536000',
-    'Content-Security-Policy': "default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; " +
+    'Content-Security-Policy': `default-src 'self'; script-src 'self' 'nonce-${nonce}' https://static.cloudflareinsights.com; ` +
       "style-src 'self' 'unsafe-inline'; img-src 'self' data:; object-src 'none'; " +
       "base-uri 'self'; form-action 'self'; frame-ancestors 'none'; " +
       "connect-src 'self' https://cloudflareinsights.com",
