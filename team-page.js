@@ -2,29 +2,32 @@
 (async function () {
   const params = new URLSearchParams(window.location.search);
   const teamId = parseInt(params.get('id'), 10);
+  const slug = currentLeagueSlug();
   const content = document.getElementById('team-content');
+  const back = `leagues.html?league=${encodeURIComponent(slug)}#spotlight`;
 
   if (!teamId) {
     document.getElementById('team-subtitle').textContent = 'No team selected.';
-    content.innerHTML = '<p>Go back to <a href="leagues.html">Leagues</a> and pick a team from the standings table.</p>';
+    content.innerHTML = `<p>Go back to <a href="${back}">Leagues</a> and pick a team from the standings table.</p>`;
     return;
   }
 
   try {
-    const data = await loadLeagueData();
+    const data = await loadLeagueData(slug);
     const team = data.teams.find(t => t.team_id === teamId);
 
     if (!team) {
       document.getElementById('team-subtitle').textContent = 'Team not found.';
-      content.innerHTML = '<p>That team isn\'t in the current data set. Go back to <a href="leagues.html">Leagues</a>.</p>';
+      content.innerHTML = `<p>That team isn't in the current data set. Go back to <a href="${back}">Leagues</a>.</p>`;
       return;
     }
 
     document.getElementById('team-name').textContent = team.team_name;
     document.getElementById('team-subtitle').textContent =
-      `${data.league.name} — Lilac Lanes — week-by-week results`;
+      [data.league.name, data.league.center].filter(Boolean).join(' — ') + ' — week-by-week results';
 
     const weekNums = Object.keys(team.weeks).map(Number).sort((a, b) => b - a);
+    const scratch = data.league.scoring === 'scratch';
 
     content.innerHTML = weekNums.map(wk => {
       const week = team.weeks[wk];
@@ -33,7 +36,8 @@
 
       const rows = week.bowlers.map(b => {
         const gameCells = Array.from({ length: numGames }, (_, i) => `<td>${escapeHtml(b.games[i] ?? '')}</td>`).join('');
-        return `<tr><td>${escapeHtml(b.name)}</td><td>${escapeHtml(b.average)}</td>${gameCells}<td>${escapeHtml(b.total)}</td><td>${escapeHtml(b.handicap_total)}</td></tr>`;
+        const hdcpCell = scratch ? '' : `<td>${escapeHtml(b.handicap_total)}</td>`;
+        return `<tr><td>${escapeHtml(b.name)}</td><td>${escapeHtml(b.average)}</td>${gameCells}<td>${escapeHtml(b.total)}</td>${hdcpCell}</tr>`;
       }).join('');
 
       return `
@@ -42,7 +46,7 @@
         <div class="table-wrap">
           <table>
             <thead>
-              <tr><th>Bowler</th><th>Avg</th>${gameHeaders}<th>Series</th><th>Hdcp Series</th></tr>
+              <tr><th>Bowler</th><th>Avg</th>${gameHeaders}<th>Series</th>${scratch ? '' : '<th>Hdcp Series</th>'}</tr>
             </thead>
             <tbody>${rows}</tbody>
           </table>
