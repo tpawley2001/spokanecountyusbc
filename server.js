@@ -347,6 +347,9 @@ ${rows}
 }
 
 // ── Start ─────────────────────────────────────────────────────────
+// Own 404 so the security headers above aren't replaced by Express's default
+app.use((req, res) => res.status(404).type('text').send('Not found'));
+
 app.listen(PORT, () => {
   console.log(`\n🎳 Spokane County USBC — http://localhost:${PORT}`);
   console.log(`🔐 Admin panel: http://localhost:${PORT}/admin.html\n`);
