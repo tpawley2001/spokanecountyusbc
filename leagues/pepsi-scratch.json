@@ -1,0 +1,1674 @@
+{
+  "generated_at": "2026-09-24T22:42:26.236066+00:00",
+  "league": {
+    "slug": "pepsi-scratch",
+    "name": "Pepsi Scratch League (SCHSTSL)",
+    "short_name": "SCHSTSL",
+    "center": null,
+    "day_time": "Wednesday 6:00 pm",
+    "lanes": "3 - 22",
+    "total_weeks": 30,
+    "scoring": "scratch",
+    "source": "BLS recap sheet photos"
+  },
+  "as_of": {
+    "week": 2,
+    "date": "9/16/2026"
+  },
+  "standings": [
+    {
+      "place": 1,
+      "team_id": 10,
+      "team_name": "Team 10",
+      "pct_won": 85.0,
+      "points_won": 59.5,
+      "points_lost": 10.5,
+      "games_won": 7,
+      "scratch_pins": 6827,
+      "total_pins": 6827
+    },
+    {
+      "place": 2,
+      "team_id": 12,
+      "team_name": "Team 12",
+      "pct_won": 75.0,
+      "points_won": 52.5,
+      "points_lost": 17.5,
+      "games_won": 6,
+      "scratch_pins": 6772,
+      "total_pins": 6772
+    },
+    {
+      "place": 3,
+      "team_id": 14,
+      "team_name": "Team 14 - One Ball That's All",
+      "pct_won": 72.9,
+      "points_won": 51.0,
+      "points_lost": 19.0,
+      "games_won": 6,
+      "scratch_pins": 6502,
+      "total_pins": 6502
+    },
+    {
+      "place": 4,
+      "team_id": 7,
+      "team_name": "Team 7",
+      "pct_won": 71.4,
+      "points_won": 50.0,
+      "points_lost": 20.0,
+      "games_won": 7,
+      "scratch_pins": 6794,
+      "total_pins": 6794
+    },
+    {
+      "place": 5,
+      "team_id": 19,
+      "team_name": "Team 19",
+      "pct_won": 68.6,
+      "points_won": 48.0,
+      "points_lost": 22.0,
+      "games_won": 7,
+      "scratch_pins": 6780,
+      "total_pins": 6780
+    },
+    {
+      "place": 6,
+      "team_id": 11,
+      "team_name": "Team 11",
+      "pct_won": 63.6,
+      "points_won": 44.5,
+      "points_lost": 25.5,
+      "games_won": 5,
+      "scratch_pins": 6860,
+      "total_pins": 6860
+    },
+    {
+      "place": 7,
+      "team_id": 1,
+      "team_name": "Team 1",
+      "pct_won": 61.4,
+      "points_won": 43.0,
+      "points_lost": 27.0,
+      "games_won": 5,
+      "scratch_pins": 6629,
+      "total_pins": 6629
+    },
+    {
+      "place": 8,
+      "team_id": 5,
+      "team_name": "Team 5",
+      "pct_won": 58.6,
+      "points_won": 41.0,
+      "points_lost": 29.0,
+      "games_won": 4,
+      "scratch_pins": 6478,
+      "total_pins": 6478
+    },
+    {
+      "place": 9,
+      "team_id": 9,
+      "team_name": "Team 9- Fred the Babysitter",
+      "pct_won": 50.7,
+      "points_won": 35.5,
+      "points_lost": 34.5,
+      "games_won": 5,
+      "scratch_pins": 6417,
+      "total_pins": 6417
+    },
+    {
+      "place": 10,
+      "team_id": 2,
+      "team_name": "Team 2",
+      "pct_won": 48.6,
+      "points_won": 34.0,
+      "points_lost": 36.0,
+      "games_won": 5,
+      "scratch_pins": 6149,
+      "total_pins": 6149
+    },
+    {
+      "place": 11,
+      "team_id": 4,
+      "team_name": "Team 4",
+      "pct_won": 42.9,
+      "points_won": 30.0,
+      "points_lost": 40.0,
+      "games_won": 3,
+      "scratch_pins": 6409,
+      "total_pins": 6409
+    },
+    {
+      "place": 12,
+      "team_id": 6,
+      "team_name": "Team 6",
+      "pct_won": 41.4,
+      "points_won": 29.0,
+      "points_lost": 41.0,
+      "games_won": 3,
+      "scratch_pins": 6399,
+      "total_pins": 6399
+    },
+    {
+      "place": 13,
+      "team_id": 16,
+      "team_name": "Team 16",
+      "pct_won": 41.4,
+      "points_won": 29.0,
+      "points_lost": 41.0,
+      "games_won": 3,
+      "scratch_pins": 6356,
+      "total_pins": 6356
+    },
+    {
+      "place": 14,
+      "team_id": 15,
+      "team_name": "Team 15- Stuck-n-Chuck",
+      "pct_won": 38.6,
+      "points_won": 27.0,
+      "points_lost": 43.0,
+      "games_won": 4,
+      "scratch_pins": 6302,
+      "total_pins": 6302
+    },
+    {
+      "place": 15,
+      "team_id": 8,
+      "team_name": "Team 8",
+      "pct_won": 37.1,
+      "points_won": 26.0,
+      "points_lost": 44.0,
+      "games_won": 2,
+      "scratch_pins": 6636,
+      "total_pins": 6636
+    },
+    {
+      "place": 16,
+      "team_id": 17,
+      "team_name": "Team 17",
+      "pct_won": 35.7,
+      "points_won": 25.0,
+      "points_lost": 45.0,
+      "games_won": 3,
+      "scratch_pins": 6122,
+      "total_pins": 6122
+    },
+    {
+      "place": 17,
+      "team_id": 18,
+      "team_name": "Team 18",
+      "pct_won": 31.4,
+      "points_won": 22.0,
+      "points_lost": 48.0,
+      "games_won": 2,
+      "scratch_pins": 5881,
+      "total_pins": 5881
+    },
+    {
+      "place": 18,
+      "team_id": 3,
+      "team_name": "Team 3",
+      "pct_won": 30.0,
+      "points_won": 21.0,
+      "points_lost": 49.0,
+      "games_won": 2,
+      "scratch_pins": 6229,
+      "total_pins": 6229
+    },
+    {
+      "place": 19,
+      "team_id": 13,
+      "team_name": "Team 13-10 Back Pro Shop",
+      "pct_won": 28.6,
+      "points_won": 20.0,
+      "points_lost": 50.0,
+      "games_won": 1,
+      "scratch_pins": 6073,
+      "total_pins": 6073
+    },
+    {
+      "place": 20,
+      "team_id": 20,
+      "team_name": "Team 20",
+      "pct_won": 17.1,
+      "points_won": 12.0,
+      "points_lost": 58.0,
+      "games_won": null,
+      "scratch_pins": 6356,
+      "total_pins": 6356
+    }
+  ],
+  "lane_assignments": {
+    "week_num": 3,
+    "date": "09/23",
+    "lanes": [
+      {
+        "lane_number": 3,
+        "team_id": 8,
+        "team_name": "Team 8"
+      },
+      {
+        "lane_number": 4,
+        "team_id": 13,
+        "team_name": "Team 13-10 Back Pro Shop"
+      },
+      {
+        "lane_number": 5,
+        "team_id": 11,
+        "team_name": "Team 11"
+      },
+      {
+        "lane_number": 6,
+        "team_id": 19,
+        "team_name": "Team 19"
+      },
+      {
+        "lane_number": 7,
+        "team_id": 15,
+        "team_name": "Team 15- Stuck-n-Chuck"
+      },
+      {
+        "lane_number": 8,
+        "team_id": 7,
+        "team_name": "Team 7"
+      },
+      {
+        "lane_number": 9,
+        "team_id": 10,
+        "team_name": "Team 10"
+      },
+      {
+        "lane_number": 10,
+        "team_id": 6,
+        "team_name": "Team 6"
+      },
+      {
+        "lane_number": 11,
+        "team_id": 20,
+        "team_name": "Team 20"
+      },
+      {
+        "lane_number": 12,
+        "team_id": 18,
+        "team_name": "Team 18"
+      },
+      {
+        "lane_number": 13,
+        "team_id": 3,
+        "team_name": "Team 3"
+      },
+      {
+        "lane_number": 14,
+        "team_id": 17,
+        "team_name": "Team 17"
+      },
+      {
+        "lane_number": 15,
+        "team_id": 2,
+        "team_name": "Team 2"
+      },
+      {
+        "lane_number": 16,
+        "team_id": 16,
+        "team_name": "Team 16"
+      },
+      {
+        "lane_number": 17,
+        "team_id": 14,
+        "team_name": "Team 14 - One Ball That's All"
+      },
+      {
+        "lane_number": 18,
+        "team_id": 5,
+        "team_name": "Team 5"
+      },
+      {
+        "lane_number": 19,
+        "team_id": 9,
+        "team_name": "Team 9- Fred the Babysitter"
+      },
+      {
+        "lane_number": 20,
+        "team_id": 12,
+        "team_name": "Team 12"
+      },
+      {
+        "lane_number": 21,
+        "team_id": 1,
+        "team_name": "Team 1"
+      },
+      {
+        "lane_number": 22,
+        "team_id": 4,
+        "team_name": "Team 4"
+      }
+    ]
+  },
+  "teams": [
+    {
+      "team_id": 1,
+      "team_name": "Team 1",
+      "weeks": {
+        "2": {
+          "week_num": 2,
+          "lane_bowled_on": 14,
+          "points_won": 16.0,
+          "bowlers": [
+            {
+              "name": "Dan Green",
+              "average": "204",
+              "handicap": "",
+              "games": [
+                "247",
+                "266",
+                "203",
+                "200"
+              ],
+              "total": "916",
+              "handicap_total": ""
+            },
+            {
+              "name": "Kelson Ramelow",
+              "average": "210",
+              "handicap": "",
+              "games": [
+                "186",
+                "221",
+                "148",
+                "246"
+              ],
+              "total": "801",
+              "handicap_total": ""
+            },
+            {
+              "name": "Jacob Sjolie",
+              "average": "212",
+              "handicap": "",
+              "games": [
+                "236",
+                "235",
+                "232",
+                "180"
+              ],
+              "total": "883",
+              "handicap_total": ""
+            },
+            {
+              "name": "Bobby Ramelow",
+              "average": "214",
+              "handicap": "",
+              "games": [
+                "183",
+                "201",
+                "213",
+                "166"
+              ],
+              "total": "763",
+              "handicap_total": ""
+            }
+          ]
+        }
+      }
+    },
+    {
+      "team_id": 2,
+      "team_name": "Team 2",
+      "weeks": {
+        "2": {
+          "week_num": 2,
+          "lane_bowled_on": 5,
+          "points_won": 26.0,
+          "bowlers": [
+            {
+              "name": "Dave Daul",
+              "average": "192",
+              "handicap": "",
+              "games": [
+                "194",
+                "223",
+                "209",
+                "167"
+              ],
+              "total": "793",
+              "handicap_total": ""
+            },
+            {
+              "name": "Dylan Allison",
+              "average": "205",
+              "handicap": "",
+              "games": [
+                "249",
+                "209",
+                "201",
+                "166"
+              ],
+              "total": "825",
+              "handicap_total": ""
+            },
+            {
+              "name": "Mike Wayne",
+              "average": "213",
+              "handicap": "",
+              "games": [
+                "169",
+                "201",
+                "211",
+                "235"
+              ],
+              "total": "816",
+              "handicap_total": ""
+            },
+            {
+              "name": "Rodney Milward",
+              "average": "214",
+              "handicap": "",
+              "games": [
+                "183",
+                "211",
+                "169",
+                "192"
+              ],
+              "total": "755",
+              "handicap_total": ""
+            }
+          ]
+        }
+      }
+    },
+    {
+      "team_id": 3,
+      "team_name": "Team 3",
+      "weeks": {
+        "2": {
+          "week_num": 2,
+          "lane_bowled_on": 3,
+          "points_won": 2.0,
+          "bowlers": [
+            {
+              "name": "Brandy Au",
+              "average": "192",
+              "handicap": "",
+              "games": [
+                "193",
+                "152",
+                "148",
+                "123"
+              ],
+              "total": "616",
+              "handicap_total": ""
+            },
+            {
+              "name": "Noah Green",
+              "average": "210",
+              "handicap": "",
+              "games": [
+                "223",
+                "139",
+                "191",
+                "211"
+              ],
+              "total": "764",
+              "handicap_total": ""
+            },
+            {
+              "name": "Carrie Schuldt",
+              "average": "216",
+              "handicap": "",
+              "games": [
+                "192",
+                "161",
+                "199",
+                "171"
+              ],
+              "total": "723",
+              "handicap_total": ""
+            },
+            {
+              "name": "Ken Huck Jr",
+              "average": "219",
+              "handicap": "",
+              "games": [
+                "200",
+                "287",
+                "227",
+                "187"
+              ],
+              "total": "901",
+              "handicap_total": ""
+            }
+          ]
+        }
+      }
+    },
+    {
+      "team_id": 4,
+      "team_name": "Team 4",
+      "weeks": {
+        "2": {
+          "week_num": 2,
+          "lane_bowled_on": 15,
+          "points_won": 14.0,
+          "bowlers": [
+            {
+              "name": "Justin Johnson",
+              "average": "197",
+              "handicap": "",
+              "games": [
+                "165",
+                "192",
+                "224",
+                "192"
+              ],
+              "total": "773",
+              "handicap_total": ""
+            },
+            {
+              "name": "Luke Ankenman",
+              "average": "203",
+              "handicap": "",
+              "games": [
+                "201",
+                "183",
+                "202",
+                "135"
+              ],
+              "total": "721",
+              "handicap_total": ""
+            },
+            {
+              "name": "Bobby Kleinknecht",
+              "average": "208",
+              "handicap": "",
+              "games": [
+                "228",
+                "205",
+                "174",
+                "237"
+              ],
+              "total": "844",
+              "handicap_total": ""
+            },
+            {
+              "name": "Russ Blough",
+              "average": "229",
+              "handicap": "",
+              "games": [
+                "251",
+                "246",
+                "214",
+                "189"
+              ],
+              "total": "900",
+              "handicap_total": ""
+            }
+          ]
+        }
+      }
+    },
+    {
+      "team_id": 5,
+      "team_name": "Team 5",
+      "weeks": {
+        "2": {
+          "week_num": 2,
+          "lane_bowled_on": 11,
+          "points_won": 22.0,
+          "bowlers": [
+            {
+              "name": "Sami Birge",
+              "average": "184",
+              "handicap": "",
+              "games": [
+                "199",
+                "131",
+                "187",
+                "171"
+              ],
+              "total": "688",
+              "handicap_total": ""
+            },
+            {
+              "name": "Spencer Au",
+              "average": "204",
+              "handicap": "",
+              "games": [
+                "219",
+                "195",
+                "252",
+                "195"
+              ],
+              "total": "861",
+              "handicap_total": ""
+            },
+            {
+              "name": "Annie Silvers",
+              "average": "222",
+              "handicap": "",
+              "games": [
+                "279",
+                "233",
+                "234",
+                "181"
+              ],
+              "total": "927",
+              "handicap_total": ""
+            },
+            {
+              "name": "Gregory Au",
+              "average": "227",
+              "handicap": "",
+              "games": [
+                "258",
+                "204",
+                "195",
+                "194"
+              ],
+              "total": "851",
+              "handicap_total": ""
+            }
+          ]
+        }
+      }
+    },
+    {
+      "team_id": 6,
+      "team_name": "Team 6",
+      "weeks": {
+        "2": {
+          "week_num": 2,
+          "lane_bowled_on": 20,
+          "points_won": 13.0,
+          "bowlers": [
+            {
+              "name": "Anne West",
+              "average": "181",
+              "handicap": "",
+              "games": [
+                "203",
+                "194",
+                "155",
+                "169"
+              ],
+              "total": "721",
+              "handicap_total": ""
+            },
+            {
+              "name": "Dave Smith",
+              "average": "207",
+              "handicap": "",
+              "games": [
+                "197",
+                "197",
+                "197",
+                "197"
+              ],
+              "total": "788",
+              "handicap_total": ""
+            },
+            {
+              "name": "David Strom",
+              "average": "221",
+              "handicap": "",
+              "games": [
+                "192",
+                "244",
+                "248",
+                "166"
+              ],
+              "total": "850",
+              "handicap_total": ""
+            },
+            {
+              "name": "Adam Silverthorn",
+              "average": "227",
+              "handicap": "",
+              "games": [
+                "236",
+                "181",
+                "221",
+                "267"
+              ],
+              "total": "905",
+              "handicap_total": ""
+            }
+          ]
+        }
+      }
+    },
+    {
+      "team_id": 7,
+      "team_name": "Team 7",
+      "weeks": {
+        "2": {
+          "week_num": 2,
+          "lane_bowled_on": 19,
+          "points_won": 22.0,
+          "bowlers": [
+            {
+              "name": "Ryan Carlton",
+              "average": "188",
+              "handicap": "",
+              "games": [
+                "175",
+                "192",
+                "190",
+                "257"
+              ],
+              "total": "814",
+              "handicap_total": ""
+            },
+            {
+              "name": "Shane Daniels",
+              "average": "197",
+              "handicap": "",
+              "games": [
+                "195",
+                "194",
+                "198",
+                "213"
+              ],
+              "total": "800",
+              "handicap_total": ""
+            },
+            {
+              "name": "Tom Blackmon",
+              "average": "215",
+              "handicap": "",
+              "games": [
+                "187",
+                "225",
+                "210",
+                "192"
+              ],
+              "total": "814",
+              "handicap_total": ""
+            },
+            {
+              "name": "Nik Gosselin",
+              "average": "237",
+              "handicap": "",
+              "games": [
+                "180",
+                "258",
+                "247",
+                "247"
+              ],
+              "total": "932",
+              "handicap_total": ""
+            }
+          ]
+        }
+      }
+    },
+    {
+      "team_id": 8,
+      "team_name": "Team 8",
+      "weeks": {
+        "2": {
+          "week_num": 2,
+          "lane_bowled_on": 13,
+          "points_won": 19.0,
+          "bowlers": [
+            {
+              "name": "Erin Sackmann",
+              "average": "191",
+              "handicap": "",
+              "games": [
+                "181",
+                "181",
+                "181",
+                "181"
+              ],
+              "total": "724",
+              "handicap_total": ""
+            },
+            {
+              "name": "Kristi LaCroix",
+              "average": "202",
+              "handicap": "",
+              "games": [
+                "235",
+                "200",
+                "263",
+                "190"
+              ],
+              "total": "888",
+              "handicap_total": ""
+            },
+            {
+              "name": "Justin Suhl",
+              "average": "214",
+              "handicap": "",
+              "games": [
+                "227",
+                "159",
+                "259",
+                "189"
+              ],
+              "total": "834",
+              "handicap_total": ""
+            },
+            {
+              "name": "Matt Olsen",
+              "average": "230",
+              "handicap": "",
+              "games": [
+                "210",
+                "223",
+                "276",
+                "216"
+              ],
+              "total": "925",
+              "handicap_total": ""
+            }
+          ]
+        }
+      }
+    },
+    {
+      "team_id": 9,
+      "team_name": "Team 9- Fred the Babysitter",
+      "weeks": {
+        "2": {
+          "week_num": 2,
+          "lane_bowled_on": 7,
+          "points_won": 29.0,
+          "bowlers": [
+            {
+              "name": "Kiersten Hines",
+              "average": "187",
+              "handicap": "",
+              "games": [
+                "140",
+                "196",
+                "164",
+                "153"
+              ],
+              "total": "653",
+              "handicap_total": ""
+            },
+            {
+              "name": "Denny Pham",
+              "average": "210",
+              "handicap": "",
+              "games": [
+                "207",
+                "264",
+                "183",
+                "210"
+              ],
+              "total": "864",
+              "handicap_total": ""
+            },
+            {
+              "name": "Fred Hines",
+              "average": "213",
+              "handicap": "",
+              "games": [
+                "229",
+                "181",
+                "267",
+                "174"
+              ],
+              "total": "851",
+              "handicap_total": ""
+            },
+            {
+              "name": "Micah Bean",
+              "average": "220",
+              "handicap": "",
+              "games": [
+                "258",
+                "218",
+                "268",
+                "223"
+              ],
+              "total": "967",
+              "handicap_total": ""
+            }
+          ]
+        }
+      }
+    },
+    {
+      "team_id": 10,
+      "team_name": "Team 10",
+      "weeks": {
+        "2": {
+          "week_num": 2,
+          "lane_bowled_on": 18,
+          "points_won": 31.0,
+          "bowlers": [
+            {
+              "name": "Melissa Williams",
+              "average": "182",
+              "handicap": "",
+              "games": [
+                "173",
+                "168",
+                "189",
+                "195"
+              ],
+              "total": "725",
+              "handicap_total": ""
+            },
+            {
+              "name": "Brandon Covington",
+              "average": "211",
+              "handicap": "",
+              "games": [
+                "215",
+                "216",
+                "217",
+                "246"
+              ],
+              "total": "894",
+              "handicap_total": ""
+            },
+            {
+              "name": "Eric Kurimura",
+              "average": "211",
+              "handicap": "",
+              "games": [
+                "164",
+                "203",
+                "237",
+                "256"
+              ],
+              "total": "860",
+              "handicap_total": ""
+            },
+            {
+              "name": "Michael Johnson",
+              "average": "226",
+              "handicap": "",
+              "games": [
+                "258",
+                "256",
+                "255",
+                "183"
+              ],
+              "total": "952",
+              "handicap_total": ""
+            }
+          ]
+        }
+      }
+    },
+    {
+      "team_id": 11,
+      "team_name": "Team 11",
+      "weeks": {
+        "2": {
+          "week_num": 2,
+          "lane_bowled_on": 4,
+          "points_won": 33.0,
+          "bowlers": [
+            {
+              "name": "Grace Courville",
+              "average": "194",
+              "handicap": "",
+              "games": [
+                "242",
+                "210",
+                "176",
+                "171"
+              ],
+              "total": "799",
+              "handicap_total": ""
+            },
+            {
+              "name": "Gregg Chapman",
+              "average": "199",
+              "handicap": "",
+              "games": [
+                "216",
+                "245",
+                "194",
+                "220"
+              ],
+              "total": "875",
+              "handicap_total": ""
+            },
+            {
+              "name": "Troy Allison",
+              "average": "201",
+              "handicap": "",
+              "games": [
+                "",
+                "",
+                "",
+                ""
+              ],
+              "total": "0",
+              "handicap_total": ""
+            },
+            {
+              "name": "John Hilden",
+              "average": "208",
+              "handicap": "",
+              "games": [
+                "201",
+                "234",
+                "226",
+                "238"
+              ],
+              "total": "899",
+              "handicap_total": ""
+            },
+            {
+              "name": "Bob Sommer",
+              "average": "222",
+              "handicap": "",
+              "games": [
+                "268",
+                "300",
+                "181",
+                "213"
+              ],
+              "total": "962",
+              "handicap_total": ""
+            }
+          ]
+        }
+      }
+    },
+    {
+      "team_id": 12,
+      "team_name": "Team 12",
+      "weeks": {
+        "2": {
+          "week_num": 2,
+          "lane_bowled_on": 10,
+          "points_won": 29.0,
+          "bowlers": [
+            {
+              "name": "Doug Scott",
+              "average": "192",
+              "handicap": "",
+              "games": [
+                "182",
+                "182",
+                "182",
+                "182"
+              ],
+              "total": "728",
+              "handicap_total": ""
+            },
+            {
+              "name": "Rusty Olsen",
+              "average": "196",
+              "handicap": "",
+              "games": [
+                "199",
+                "226",
+                "198",
+                "184"
+              ],
+              "total": "807",
+              "handicap_total": ""
+            },
+            {
+              "name": "Mike Nelson",
+              "average": "219",
+              "handicap": "",
+              "games": [
+                "208",
+                "203",
+                "247",
+                "196"
+              ],
+              "total": "854",
+              "handicap_total": ""
+            },
+            {
+              "name": "Eddie Williams",
+              "average": "220",
+              "handicap": "",
+              "games": [
+                "220",
+                "206",
+                "244",
+                "212"
+              ],
+              "total": "882",
+              "handicap_total": ""
+            }
+          ]
+        }
+      }
+    },
+    {
+      "team_id": 13,
+      "team_name": "Team 13-10 Back Pro Shop",
+      "weeks": {
+        "2": {
+          "week_num": 2,
+          "lane_bowled_on": 6,
+          "points_won": 9.0,
+          "bowlers": [
+            {
+              "name": "Christina Hines",
+              "average": "175",
+              "handicap": "",
+              "games": [
+                "183",
+                "163",
+                "136",
+                "191"
+              ],
+              "total": "673",
+              "handicap_total": ""
+            },
+            {
+              "name": "Kristie Schultz",
+              "average": "202",
+              "handicap": "",
+              "games": [
+                "192",
+                "192",
+                "192",
+                "192"
+              ],
+              "total": "768",
+              "handicap_total": ""
+            },
+            {
+              "name": "Brandee Seifert",
+              "average": "223",
+              "handicap": "",
+              "games": [
+                "170",
+                "233",
+                "202",
+                "168"
+              ],
+              "total": "773",
+              "handicap_total": ""
+            },
+            {
+              "name": "Daniel Seifert",
+              "average": "228",
+              "handicap": "",
+              "games": [
+                "188",
+                "237",
+                "223",
+                "196"
+              ],
+              "total": "844",
+              "handicap_total": ""
+            }
+          ]
+        }
+      }
+    },
+    {
+      "team_id": 14,
+      "team_name": "Team 14 - One Ball That's All",
+      "weeks": {
+        "2": {
+          "week_num": 2,
+          "lane_bowled_on": 22,
+          "points_won": 27.0,
+          "bowlers": [
+            {
+              "name": "Tom Cook",
+              "average": "183",
+              "handicap": "",
+              "games": [
+                "168",
+                "159",
+                "213",
+                "164"
+              ],
+              "total": "704",
+              "handicap_total": ""
+            },
+            {
+              "name": "Michael Holliman",
+              "average": "199",
+              "handicap": "",
+              "games": [
+                "141",
+                "184",
+                "209",
+                "213"
+              ],
+              "total": "747",
+              "handicap_total": ""
+            },
+            {
+              "name": "Colin Miethe",
+              "average": "216",
+              "handicap": "",
+              "games": [
+                "195",
+                "196",
+                "231",
+                "255"
+              ],
+              "total": "877",
+              "handicap_total": ""
+            },
+            {
+              "name": "John Lough Sr",
+              "average": "226",
+              "handicap": "",
+              "games": [
+                "226",
+                "219",
+                "244",
+                "265"
+              ],
+              "total": "954",
+              "handicap_total": ""
+            }
+          ]
+        }
+      }
+    },
+    {
+      "team_id": 15,
+      "team_name": "Team 15- Stuck-n-Chuck",
+      "weeks": {
+        "2": {
+          "week_num": 2,
+          "lane_bowled_on": 12,
+          "points_won": 13.0,
+          "bowlers": [
+            {
+              "name": "Lance Yarnell",
+              "average": "200",
+              "handicap": "",
+              "games": [
+                "159",
+                "175",
+                "152",
+                "211"
+              ],
+              "total": "697",
+              "handicap_total": ""
+            },
+            {
+              "name": "Dylan White",
+              "average": "202",
+              "handicap": "",
+              "games": [
+                "241",
+                "191",
+                "246",
+                "146"
+              ],
+              "total": "824",
+              "handicap_total": ""
+            },
+            {
+              "name": "Terry Auckerman",
+              "average": "207",
+              "handicap": "",
+              "games": [
+                "197",
+                "197",
+                "197",
+                "197"
+              ],
+              "total": "788",
+              "handicap_total": ""
+            },
+            {
+              "name": "Alex Santos-Cucalon",
+              "average": "207",
+              "handicap": "",
+              "games": [
+                "",
+                "",
+                "",
+                ""
+              ],
+              "total": "0",
+              "handicap_total": ""
+            },
+            {
+              "name": "Rich Broderhausen",
+              "average": "214",
+              "handicap": "",
+              "games": [
+                "239",
+                "213",
+                "180",
+                "204"
+              ],
+              "total": "836",
+              "handicap_total": ""
+            }
+          ]
+        }
+      }
+    },
+    {
+      "team_id": 16,
+      "team_name": "Team 16",
+      "weeks": {
+        "2": {
+          "week_num": 2,
+          "lane_bowled_on": 21,
+          "points_won": 8.0,
+          "bowlers": [
+            {
+              "name": "Josh Greenland",
+              "average": "198",
+              "handicap": "",
+              "games": [
+                "173",
+                "268",
+                "192",
+                "177"
+              ],
+              "total": "810",
+              "handicap_total": ""
+            },
+            {
+              "name": "Levi Martinez",
+              "average": "201",
+              "handicap": "",
+              "games": [
+                "167",
+                "213",
+                "151",
+                "161"
+              ],
+              "total": "692",
+              "handicap_total": ""
+            },
+            {
+              "name": "Jeremy Graves",
+              "average": "206",
+              "handicap": "",
+              "games": [
+                "185",
+                "237",
+                "221",
+                "226"
+              ],
+              "total": "869",
+              "handicap_total": ""
+            },
+            {
+              "name": "Rob Campbell",
+              "average": "211",
+              "handicap": "",
+              "games": [
+                "201",
+                "201",
+                "201",
+                "201"
+              ],
+              "total": "804",
+              "handicap_total": ""
+            }
+          ]
+        }
+      }
+    },
+    {
+      "team_id": 17,
+      "team_name": "Team 17",
+      "weeks": {
+        "2": {
+          "week_num": 2,
+          "lane_bowled_on": 9,
+          "points_won": 6.0,
+          "bowlers": [
+            {
+              "name": "Phil Moses",
+              "average": "173",
+              "handicap": "",
+              "games": [
+                "163",
+                "163",
+                "163",
+                "163"
+              ],
+              "total": "652",
+              "handicap_total": ""
+            },
+            {
+              "name": "Gus Knudsvig",
+              "average": "199",
+              "handicap": "",
+              "games": [
+                "264",
+                "166",
+                "182",
+                "156"
+              ],
+              "total": "768",
+              "handicap_total": ""
+            },
+            {
+              "name": "Trey Clugston",
+              "average": "206",
+              "handicap": "",
+              "games": [
+                "199",
+                "167",
+                "234",
+                "179"
+              ],
+              "total": "779",
+              "handicap_total": ""
+            },
+            {
+              "name": "Connor Knudsvig",
+              "average": "218",
+              "handicap": "",
+              "games": [
+                "256",
+                "183",
+                "193",
+                "172"
+              ],
+              "total": "804",
+              "handicap_total": ""
+            }
+          ]
+        }
+      }
+    },
+    {
+      "team_id": 18,
+      "team_name": "Team 18",
+      "weeks": {
+        "2": {
+          "week_num": 2,
+          "lane_bowled_on": 8,
+          "points_won": 6.0,
+          "bowlers": [
+            {
+              "name": "Hunter Gotchy",
+              "average": "181",
+              "handicap": "",
+              "games": [
+                "169",
+                "217",
+                "190",
+                "135"
+              ],
+              "total": "711",
+              "handicap_total": ""
+            },
+            {
+              "name": "Don West",
+              "average": "191",
+              "handicap": "",
+              "games": [
+                "175",
+                "192",
+                "142",
+                "203"
+              ],
+              "total": "712",
+              "handicap_total": ""
+            },
+            {
+              "name": "Brad Darrah",
+              "average": "193",
+              "handicap": "",
+              "games": [
+                "203",
+                "188",
+                "189",
+                "188"
+              ],
+              "total": "768",
+              "handicap_total": ""
+            },
+            {
+              "name": "Donovyn Gray",
+              "average": "193",
+              "handicap": "",
+              "games": [
+                "244",
+                "156",
+                "158",
+                "134"
+              ],
+              "total": "692",
+              "handicap_total": ""
+            }
+          ]
+        }
+      }
+    },
+    {
+      "team_id": 19,
+      "team_name": "Team 19",
+      "weeks": {
+        "2": {
+          "week_num": 2,
+          "lane_bowled_on": 16,
+          "points_won": 21.0,
+          "bowlers": [
+            {
+              "name": "Kelly Dirks",
+              "average": "185",
+              "handicap": "",
+              "games": [
+                "255",
+                "188",
+                "182",
+                "179"
+              ],
+              "total": "804",
+              "handicap_total": ""
+            },
+            {
+              "name": "Matt House",
+              "average": "199",
+              "handicap": "",
+              "games": [
+                "173",
+                "150",
+                "196",
+                "265"
+              ],
+              "total": "784",
+              "handicap_total": ""
+            },
+            {
+              "name": "Joe Henson",
+              "average": "208",
+              "handicap": "",
+              "games": [
+                "194",
+                "191",
+                "222",
+                "211"
+              ],
+              "total": "818",
+              "handicap_total": ""
+            },
+            {
+              "name": "Ben Walace",
+              "average": "214",
+              "handicap": "",
+              "games": [
+                "248",
+                "278",
+                "234",
+                "245"
+              ],
+              "total": "1005",
+              "handicap_total": ""
+            }
+          ]
+        }
+      }
+    },
+    {
+      "team_id": 20,
+      "team_name": "Team 20",
+      "weeks": {
+        "2": {
+          "week_num": 2,
+          "lane_bowled_on": 17,
+          "points_won": 4.0,
+          "bowlers": [
+            {
+              "name": "Vacant",
+              "average": "120",
+              "handicap": "",
+              "games": [
+                "225",
+                "225",
+                "225",
+                "225"
+              ],
+              "total": "900",
+              "handicap_total": ""
+            },
+            {
+              "name": "Matt Larsen",
+              "average": "180",
+              "handicap": "",
+              "games": [
+                "167",
+                "169",
+                "170",
+                "180"
+              ],
+              "total": "686",
+              "handicap_total": ""
+            },
+            {
+              "name": "Kellan Liswig",
+              "average": "199",
+              "handicap": "",
+              "games": [
+                "201",
+                "176",
+                "165",
+                "196"
+              ],
+              "total": "738",
+              "handicap_total": ""
+            },
+            {
+              "name": "Kolette Larsen",
+              "average": "206",
+              "handicap": "",
+              "games": [
+                "197",
+                "210",
+                "216",
+                "228"
+              ],
+              "total": "851",
+              "handicap_total": ""
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

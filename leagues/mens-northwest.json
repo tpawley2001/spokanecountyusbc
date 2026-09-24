@@ -3,7 +3,11 @@
   "league": {
     "id": 59869,
     "name": "Mens Northwest League",
-    "center": "Lilac Lanes"
+    "center": "Lilac Lanes",
+    "slug": "mens-northwest",
+    "day_time": "Thursday 6:00 pm",
+    "scoring": "handicap",
+    "source": "League Secretary / BLS recap sheets"
   },
   "lane_assignments": {
     "year": 2026,
