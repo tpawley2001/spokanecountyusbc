@@ -4,7 +4,9 @@
     "visible": true,
     "text": "If you want your league information to appear in the league section of this site, please contact tyson.usbc@gmail.com.",
     "link_text": "tyson.usbc@gmail.com",
-    "link": "mailto:tyson.usbc@gmail.com"
+    "link": "mailto:tyson.usbc@gmail.com",
+    "type": "announcement",
+    "label": ""
   },
   "contact": {
     "manager_name": "Tina Blough",
