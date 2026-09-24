@@ -18,9 +18,10 @@ app.use(express.json());
 app.use((req, res, next) => {
   res.set({
     'Strict-Transport-Security': 'max-age=31536000',
-    'Content-Security-Policy': "default-src 'self'; script-src 'self'; " +
+    'Content-Security-Policy': "default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; " +
       "style-src 'self' 'unsafe-inline'; img-src 'self' data:; object-src 'none'; " +
-      "base-uri 'self'; form-action 'self'; frame-ancestors 'none'",
+      "base-uri 'self'; form-action 'self'; frame-ancestors 'none'; " +
+      "connect-src 'self' https://cloudflareinsights.com",
     'X-Frame-Options': 'DENY',
     'X-Content-Type-Options': 'nosniff',
     'Referrer-Policy': 'strict-origin-when-cross-origin',
