@@ -5,12 +5,39 @@ const crypto = require('crypto');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'spokaneusbc2025';
+const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || '';
 const DATA_FILE = path.join(__dirname, 'site-data.json');
 const SESSION_TOKEN = crypto.randomBytes(24).toString('hex');
 
+if (!ADMIN_PASSWORD) console.warn('ADMIN_PASSWORD is not set — admin login is disabled');
+
+app.disable('x-powered-by');
 app.use(express.json());
-app.use(express.static(__dirname));
+
+// ── Security headers ──────────────────────────────────────────────
+app.use((req, res, next) => {
+  res.set({
+    'Strict-Transport-Security': 'max-age=31536000',
+    'Content-Security-Policy': "default-src 'self'; script-src 'self' 'unsafe-inline'; " +
+      "style-src 'self' 'unsafe-inline'; img-src 'self' data:; object-src 'none'; " +
+      "base-uri 'self'; form-action 'self'; frame-ancestors 'none'",
+    'X-Frame-Options': 'DENY',
+    'X-Content-Type-Options': 'nosniff',
+    'Referrer-Policy': 'strict-origin-when-cross-origin',
+    'Permissions-Policy': 'camera=(), microphone=(), geolocation=()',
+  });
+  next();
+});
+
+// ── Static files: public site files only (the app dir also holds
+//    .git, server.js, CMS data and scripts, which must not be served)
+const PUBLIC_FILE = /^\/(?:|[\w-]+\.html|style\.css|leagues\.js|leagues-data\.json|images\/[\w\/-]+\.(?:jpe?g|png|gif|webp|svg|ico))$/;
+const serveStatic = express.static(__dirname, { dotfiles: 'deny' });
+app.use((req, res, next) => {
+  if (req.path.startsWith('/api/')) return next();
+  if (PUBLIC_FILE.test(req.path)) return serveStatic(req, res, next);
+  next();
+});
 
 // ── Helpers ───────────────────────────────────────────────────────
 function readData() {
@@ -36,10 +63,27 @@ function esc(str) {
 }
 
 // ── Auth ──────────────────────────────────────────────────────────
+// Lock out logins for 15 min after 10 failures (admin is also behind Cloudflare Access)
+const LOCKOUT_MS = 15 * 60 * 1000;
+let failedLogins = [];
+
+function passwordMatches(given) {
+  if (!ADMIN_PASSWORD || typeof given !== 'string') return false;
+  const a = crypto.createHash('sha256').update(given).digest();
+  const b = crypto.createHash('sha256').update(ADMIN_PASSWORD).digest();
+  return crypto.timingSafeEqual(a, b);
+}
+
 app.post('/api/login', (req, res) => {
-  if (req.body.password === ADMIN_PASSWORD) {
+  const now = Date.now();
+  failedLogins = failedLogins.filter(t => now - t < LOCKOUT_MS);
+  if (failedLogins.length >= 10) {
+    return res.status(429).json({ error: 'Too many failed logins — try again in 15 minutes' });
+  }
+  if (passwordMatches(req.body.password)) {
     res.json({ token: SESSION_TOKEN });
   } else {
+    failedLogins.push(now);
     res.status(401).json({ error: 'Invalid password' });
   }
 });
@@ -305,6 +349,5 @@ ${rows}
 // ── Start ─────────────────────────────────────────────────────────
 app.listen(PORT, () => {
   console.log(`\n🎳 Spokane County USBC — http://localhost:${PORT}`);
-  console.log(`🔐 Admin panel: http://localhost:${PORT}/admin.html`);
-  console.log(`   Password: ${ADMIN_PASSWORD}\n`);
+  console.log(`🔐 Admin panel: http://localhost:${PORT}/admin.html\n`);
 });
