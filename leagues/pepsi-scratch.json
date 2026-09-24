@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-09-24T22:42:59.986531+00:00",
+  "generated_at": "2026-09-24T22:57:24.994463+00:00",
   "league": {
     "slug": "pepsi-scratch",
     "name": "Pepsi Scratch League (SCHSTSL)",
     "short_name": "SCHSTSL",
-    "center": null,
+    "center": "Lilac Lanes",
     "day_time": "Wednesday 6:00 pm",
     "lanes": "3 - 22",
     "total_weeks": 30,

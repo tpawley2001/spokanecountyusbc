@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-24T22:42:59.984103+00:00",
+  "generated_at": "2026-09-24T22:57:24.992067+00:00",
   "leagues": [
     {
       "slug": "mens-northwest",
@@ -10,7 +10,7 @@
     {
       "slug": "pepsi-scratch",
       "name": "Pepsi Scratch League (SCHSTSL)",
-      "center": null,
+      "center": "Lilac Lanes",
       "day_time": "Wednesday 6:00 pm"
     }
   ]
