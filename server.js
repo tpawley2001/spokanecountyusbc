@@ -18,7 +18,7 @@ app.use(express.json());
 app.use((req, res, next) => {
   res.set({
     'Strict-Transport-Security': 'max-age=31536000',
-    'Content-Security-Policy': "default-src 'self'; script-src 'self' 'unsafe-inline'; " +
+    'Content-Security-Policy': "default-src 'self'; script-src 'self'; " +
       "style-src 'self' 'unsafe-inline'; img-src 'self' data:; object-src 'none'; " +
       "base-uri 'self'; form-action 'self'; frame-ancestors 'none'",
     'X-Frame-Options': 'DENY',
@@ -33,7 +33,7 @@ app.use((req, res, next) => {
 
 // ── Static files: public site files only (the app dir also holds
 //    .git, server.js, CMS data and scripts, which must not be served)
-const PUBLIC_FILE = /^\/(?:|[\w-]+\.html|style\.css|leagues\.js|leagues-data\.json|images\/[\w\/-]+\.(?:jpe?g|png|gif|webp|svg|ico))$/;
+const PUBLIC_FILE = /^\/(?:|[\w-]+\.html|style\.css|(?:site|leagues|leagues-page|team-page|admin)\.js|leagues-data\.json|images\/[\w\/-]+\.(?:jpe?g|png|gif|webp|svg|ico)|forms\/[\w-]+\.pdf)$/;
 const serveStatic = express.static(__dirname, { dotfiles: 'deny' });
 app.use((req, res, next) => {
   if (req.path.startsWith('/api/')) return next();
