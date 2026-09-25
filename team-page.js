@@ -37,7 +37,8 @@
       const rows = week.bowlers.map(b => {
         const gameCells = Array.from({ length: numGames }, (_, i) => `<td>${escapeHtml(b.games[i] ?? '')}</td>`).join('');
         const hdcpCell = scratch ? '' : `<td>${escapeHtml(b.handicap_total)}</td>`;
-        return `<tr><td>${escapeHtml(b.name)}</td><td>${escapeHtml(b.average)}</td>${gameCells}<td>${escapeHtml(b.total)}</td>${hdcpCell}</tr>`;
+        const bowlerLink = `bowler.html?league=${encodeURIComponent(slug)}&name=${encodeURIComponent(b.name)}`;
+        return `<tr><td><a href="${bowlerLink}">${escapeHtml(b.name)}</a></td><td>${escapeHtml(b.average)}</td>${gameCells}<td>${escapeHtml(b.total)}</td>${hdcpCell}</tr>`;
       }).join('');
 
       return `
