@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-25T03:24:23.199097+00:00",
+  "generated_at": "2026-09-25T13:01:39.062255+00:00",
   "league": {
     "id": 59869,
     "name": "Mens Northwest League",
@@ -8,67 +8,67 @@
   "lane_assignments": {
     "year": 2026,
     "season": "f",
-    "week_num": 3,
+    "week_num": 4,
     "lanes": [
       {
         "lane_number": 1,
-        "team_id": 8,
-        "team_name": "Bowling Stones",
-        "team_num": 4
-      },
-      {
-        "lane_number": 2,
-        "team_id": 6,
-        "team_name": "Outlaw BBQ",
-        "team_num": 5
-      },
-      {
-        "lane_number": 3,
         "team_id": 9,
         "team_name": "Dean's Team",
         "team_num": 9
       },
       {
-        "lane_number": 4,
-        "team_id": 3,
-        "team_name": "Splitz & Giggles",
-        "team_num": 8
-      },
-      {
-        "lane_number": 5,
-        "team_id": 11,
-        "team_name": "Crap Sack",
-        "team_num": 10
-      },
-      {
-        "lane_number": 6,
+        "lane_number": 2,
         "team_id": 7,
         "team_name": "Top K Kids",
         "team_num": 1
       },
       {
-        "lane_number": 7,
+        "lane_number": 3,
+        "team_id": 6,
+        "team_name": "Outlaw BBQ",
+        "team_num": 5
+      },
+      {
+        "lane_number": 4,
         "team_id": 2,
         "team_name": "Pocket Pounders",
         "team_num": 3
       },
       {
-        "lane_number": 8,
-        "team_id": 10,
-        "team_name": "Glory Bowls",
-        "team_num": 2
+        "lane_number": 5,
+        "team_id": 8,
+        "team_name": "Bowling Stones",
+        "team_num": 4
       },
       {
-        "lane_number": 9,
+        "lane_number": 6,
+        "team_id": 4,
+        "team_name": "Quality Hardwood",
+        "team_num": 7
+      },
+      {
+        "lane_number": 7,
+        "team_id": 3,
+        "team_name": "Splitz & Giggles",
+        "team_num": 8
+      },
+      {
+        "lane_number": 8,
         "team_id": 1,
         "team_name": "Alpaca Bowl",
         "team_num": 6
       },
       {
+        "lane_number": 9,
+        "team_id": 11,
+        "team_name": "Crap Sack",
+        "team_num": 10
+      },
+      {
         "lane_number": 10,
-        "team_id": 4,
-        "team_name": "Quality Hardwood",
-        "team_num": 7
+        "team_id": 10,
+        "team_name": "Glory Bowls",
+        "team_num": 2
       }
     ]
   },
