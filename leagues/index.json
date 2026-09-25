@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-24T23:51:40.131021+00:00",
+  "generated_at": "2026-09-25T03:24:23.199097+00:00",
   "leagues": [
     {
       "slug": "mens-northwest",
@@ -12,6 +12,24 @@
       "name": "Pepsi Scratch League (SCHSTSL)",
       "center": "Lilac Lanes",
       "day_time": "Wednesday 6:00 pm"
+    },
+    {
+      "slug": "lilac-wednesday-seniors",
+      "name": "Lilac Wednesday Seniors 26",
+      "center": "Lilac Lanes",
+      "day_time": "Wednesday 10:30 am"
+    },
+    {
+      "slug": "thursday-night-mens",
+      "name": "Thursday Night Mens 26/27",
+      "center": "Players & Spectators",
+      "day_time": "Thursday 6:15 pm"
+    },
+    {
+      "slug": "weekend-rollers",
+      "name": "Weekend Rollers 26/27",
+      "center": "Valley Bowl",
+      "day_time": "Sunday 1:45 pm"
     }
   ]
 }

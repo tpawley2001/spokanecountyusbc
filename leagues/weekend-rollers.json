@@ -1,0 +1,1528 @@
+{
+  "generated_at": "2026-09-25T03:24:23.202767+00:00",
+  "league": {
+    "slug": "weekend-rollers",
+    "name": "Weekend Rollers 26/27",
+    "short_name": "WR",
+    "center": "Valley Bowl",
+    "day_time": "Sunday 1:45 pm",
+    "lanes": null,
+    "total_weeks": null,
+    "scoring": "handicap",
+    "source": "League Secretary interactive reports"
+  },
+  "as_of": {
+    "week": 1,
+    "date": null
+  },
+  "standings": [
+    {
+      "place": 1,
+      "team_id": 1,
+      "team_name": "Give It The Biznas",
+      "pct_won": 100.0,
+      "points_won": 4.0,
+      "points_lost": 0.0,
+      "scratch_pins": 2437
+    },
+    {
+      "place": 2,
+      "team_id": 11,
+      "team_name": "Bowl Job",
+      "pct_won": 100.0,
+      "points_won": 4.0,
+      "points_lost": 0.0,
+      "scratch_pins": 1597
+    },
+    {
+      "place": 3,
+      "team_id": 8,
+      "team_name": "CBGT",
+      "pct_won": 75.0,
+      "points_won": 3.0,
+      "points_lost": 1.0,
+      "scratch_pins": 2123
+    },
+    {
+      "place": 4,
+      "team_id": 17,
+      "team_name": "Team SLOM",
+      "pct_won": 75.0,
+      "points_won": 3.0,
+      "points_lost": 1.0,
+      "scratch_pins": 2088
+    },
+    {
+      "place": 5,
+      "team_id": 13,
+      "team_name": "Hurtin Mo Fos",
+      "pct_won": 75.0,
+      "points_won": 3.0,
+      "points_lost": 1.0,
+      "scratch_pins": 1995
+    },
+    {
+      "place": 6,
+      "team_id": 15,
+      "team_name": "Stay In Your Lane",
+      "pct_won": 75.0,
+      "points_won": 3.0,
+      "points_lost": 1.0,
+      "scratch_pins": 1690
+    },
+    {
+      "place": 7,
+      "team_id": 3,
+      "team_name": "Border Patrol",
+      "pct_won": 50.0,
+      "points_won": 2.0,
+      "points_lost": 2.0,
+      "scratch_pins": 2134
+    },
+    {
+      "place": 8,
+      "team_id": 4,
+      "team_name": "Team  MMKD",
+      "pct_won": 50.0,
+      "points_won": 2.0,
+      "points_lost": 2.0,
+      "scratch_pins": 2004
+    },
+    {
+      "place": 9,
+      "team_id": 10,
+      "team_name": "JMUDI",
+      "pct_won": 50.0,
+      "points_won": 2.0,
+      "points_lost": 2.0,
+      "scratch_pins": 1738
+    },
+    {
+      "place": 10,
+      "team_id": 5,
+      "team_name": "Schweddy Balls",
+      "pct_won": 50.0,
+      "points_won": 2.0,
+      "points_lost": 2.0,
+      "scratch_pins": 1813
+    },
+    {
+      "place": 11,
+      "team_id": 20,
+      "team_name": "Spare Me",
+      "pct_won": 50.0,
+      "points_won": 2.0,
+      "points_lost": 2.0,
+      "scratch_pins": 1591
+    },
+    {
+      "place": 12,
+      "team_id": 9,
+      "team_name": "Gutter Done",
+      "pct_won": 50.0,
+      "points_won": 2.0,
+      "points_lost": 2.0,
+      "scratch_pins": 1756
+    },
+    {
+      "place": 13,
+      "team_id": 6,
+      "team_name": "Bowl Movement",
+      "pct_won": 50.0,
+      "points_won": 2.0,
+      "points_lost": 2.0,
+      "scratch_pins": 1770
+    },
+    {
+      "place": 14,
+      "team_id": 19,
+      "team_name": "Tucking Fenpins",
+      "pct_won": 50.0,
+      "points_won": 2.0,
+      "points_lost": 2.0,
+      "scratch_pins": 1705
+    },
+    {
+      "place": 15,
+      "team_id": 7,
+      "team_name": "SchittsHappens",
+      "pct_won": 25.0,
+      "points_won": 1.0,
+      "points_lost": 3.0,
+      "scratch_pins": 1834
+    },
+    {
+      "place": 16,
+      "team_id": 14,
+      "team_name": "Guys & Dolls",
+      "pct_won": 25.0,
+      "points_won": 1.0,
+      "points_lost": 3.0,
+      "scratch_pins": 1500
+    },
+    {
+      "place": 17,
+      "team_id": 16,
+      "team_name": "Bawls DP",
+      "pct_won": 25.0,
+      "points_won": 1.0,
+      "points_lost": 3.0,
+      "scratch_pins": 1869
+    },
+    {
+      "place": 18,
+      "team_id": 18,
+      "team_name": "TEAM CATV",
+      "pct_won": 25.0,
+      "points_won": 1.0,
+      "points_lost": 3.0,
+      "scratch_pins": 1404
+    },
+    {
+      "place": 19,
+      "team_id": 2,
+      "team_name": "2 Hs 2 Ts 3 Ss",
+      "pct_won": 0.0,
+      "points_won": 0.0,
+      "points_lost": 4.0,
+      "scratch_pins": 1940
+    },
+    {
+      "place": 20,
+      "team_id": 12,
+      "team_name": "Gutter Gang",
+      "pct_won": 0.0,
+      "points_won": 0.0,
+      "points_lost": 4.0,
+      "scratch_pins": 1779
+    }
+  ],
+  "lane_assignments": {
+    "week_num": 2,
+    "date": null,
+    "lanes": [
+      {
+        "lane_number": 1,
+        "team_id": 3,
+        "team_name": "Border Patrol"
+      },
+      {
+        "lane_number": 2,
+        "team_id": 11,
+        "team_name": "Bowl Job"
+      },
+      {
+        "lane_number": 3,
+        "team_id": 2,
+        "team_name": "2 Hs 2 Ts 3 Ss"
+      },
+      {
+        "lane_number": 4,
+        "team_id": 13,
+        "team_name": "Hurtin Mo Fos"
+      },
+      {
+        "lane_number": 5,
+        "team_id": 9,
+        "team_name": "Gutter Done"
+      },
+      {
+        "lane_number": 6,
+        "team_id": 18,
+        "team_name": "TEAM CATV"
+      },
+      {
+        "lane_number": 7,
+        "team_id": 17,
+        "team_name": "Team SLOM"
+      },
+      {
+        "lane_number": 8,
+        "team_id": 12,
+        "team_name": "Gutter Gang"
+      },
+      {
+        "lane_number": 9,
+        "team_id": 5,
+        "team_name": "Schweddy Balls"
+      },
+      {
+        "lane_number": 10,
+        "team_id": 15,
+        "team_name": "Stay In Your Lane"
+      },
+      {
+        "lane_number": 11,
+        "team_id": 8,
+        "team_name": "CBGT"
+      },
+      {
+        "lane_number": 12,
+        "team_id": 1,
+        "team_name": "Give It The Biznas"
+      },
+      {
+        "lane_number": 13,
+        "team_id": 4,
+        "team_name": "Team  MMKD"
+      },
+      {
+        "lane_number": 14,
+        "team_id": 19,
+        "team_name": "Tucking Fenpins"
+      },
+      {
+        "lane_number": 15,
+        "team_id": 20,
+        "team_name": "Spare Me"
+      },
+      {
+        "lane_number": 16,
+        "team_id": 10,
+        "team_name": "JMUDI"
+      },
+      {
+        "lane_number": 17,
+        "team_id": 7,
+        "team_name": "SchittsHappens"
+      },
+      {
+        "lane_number": 18,
+        "team_id": 6,
+        "team_name": "Bowl Movement"
+      },
+      {
+        "lane_number": 19,
+        "team_id": 16,
+        "team_name": "Bawls DP"
+      },
+      {
+        "lane_number": 20,
+        "team_id": 14,
+        "team_name": "Guys & Dolls"
+      }
+    ]
+  },
+  "teams": [
+    {
+      "team_id": 1,
+      "team_name": "Give It The Biznas",
+      "weeks": {
+        "1": {
+          "week_num": 1,
+          "lane_bowled_on": 1,
+          "points_won": 4,
+          "bowlers": [
+            {
+              "name": "Schuldt, Brad",
+              "average": "187",
+              "handicap": "26",
+              "games": [
+                "191",
+                "191",
+                "190"
+              ],
+              "total": "572",
+              "handicap_total": "650"
+            },
+            {
+              "name": "Schuldt, Brian",
+              "average": "180",
+              "handicap": "32",
+              "games": [
+                "241",
+                "160",
+                "176"
+              ],
+              "total": "577",
+              "handicap_total": "673"
+            },
+            {
+              "name": "Schuldt, Carrie",
+              "average": "211",
+              "handicap": "7",
+              "games": [
+                "226",
+                "226",
+                "225"
+              ],
+              "total": "677",
+              "handicap_total": "698"
+            },
+            {
+              "name": "Wurmnest, Reeve",
+              "average": "197",
+              "handicap": "18",
+              "games": [
+                "232",
+                "179",
+                "200"
+              ],
+              "total": "611",
+              "handicap_total": "665"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "team_id": 2,
+      "team_name": "2 Hs 2 Ts 3 Ss",
+      "weeks": {
+        "1": {
+          "week_num": 1,
+          "lane_bowled_on": 2,
+          "points_won": 0,
+          "bowlers": [
+            {
+              "name": "Sullivan, Jason",
+              "average": "192",
+              "handicap": "22",
+              "games": [
+                "182",
+                "179",
+                "186"
+              ],
+              "total": "547",
+              "handicap_total": "613"
+            },
+            {
+              "name": "Thompson, David",
+              "average": "198",
+              "handicap": "17",
+              "games": [
+                "184",
+                "195",
+                "186"
+              ],
+              "total": "565",
+              "handicap_total": "616"
+            },
+            {
+              "name": "Herndon, James",
+              "average": "178",
+              "handicap": "33",
+              "games": [
+                "174",
+                "147",
+                "159"
+              ],
+              "total": "480",
+              "handicap_total": "579"
+            },
+            {
+              "name": "Thompson, Tanicia",
+              "average": "125",
+              "handicap": "76",
+              "games": [
+                "135",
+                "109",
+                "104"
+              ],
+              "total": "348",
+              "handicap_total": "576"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "team_id": 3,
+      "team_name": "Border Patrol",
+      "weeks": {
+        "1": {
+          "week_num": 1,
+          "lane_bowled_on": 3,
+          "points_won": 2,
+          "bowlers": [
+            {
+              "name": "Boykin, Jamie",
+              "average": "162",
+              "handicap": "46",
+              "games": [
+                "122",
+                "160",
+                "194"
+              ],
+              "total": "476",
+              "handicap_total": "614"
+            },
+            {
+              "name": "Windhorst, Crystal",
+              "average": "144",
+              "handicap": "60",
+              "games": [
+                "158",
+                "92",
+                "189"
+              ],
+              "total": "439",
+              "handicap_total": "619"
+            },
+            {
+              "name": "Windhorst, Tim",
+              "average": "171",
+              "handicap": "39",
+              "games": [
+                "166",
+                "174",
+                "199"
+              ],
+              "total": "539",
+              "handicap_total": "656"
+            },
+            {
+              "name": "Boykin, Bryan",
+              "average": "224",
+              "handicap": "0",
+              "games": [
+                "215",
+                "222",
+                "243"
+              ],
+              "total": "680",
+              "handicap_total": "680"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "team_id": 4,
+      "team_name": "Team  MMKD",
+      "weeks": {
+        "1": {
+          "week_num": 1,
+          "lane_bowled_on": 4,
+          "points_won": 2,
+          "bowlers": [
+            {
+              "name": "Wolk, Mitch",
+              "average": "150",
+              "handicap": "56",
+              "games": [
+                "158",
+                "136",
+                "156"
+              ],
+              "total": "450",
+              "handicap_total": "618"
+            },
+            {
+              "name": "Sandoval, Melvyn",
+              "average": "194",
+              "handicap": "20",
+              "games": [
+                "212",
+                "174",
+                "198"
+              ],
+              "total": "584",
+              "handicap_total": "644"
+            },
+            {
+              "name": "Johnson, Kim",
+              "average": "147",
+              "handicap": "58",
+              "games": [
+                "159",
+                "138",
+                "145"
+              ],
+              "total": "442",
+              "handicap_total": "616"
+            },
+            {
+              "name": "Donais, Donnie",
+              "average": "176",
+              "handicap": "35",
+              "games": [
+                "195",
+                "182",
+                "151"
+              ],
+              "total": "528",
+              "handicap_total": "633"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "team_id": 5,
+      "team_name": "Schweddy Balls",
+      "weeks": {
+        "1": {
+          "week_num": 1,
+          "lane_bowled_on": 5,
+          "points_won": 2,
+          "bowlers": [
+            {
+              "name": "Reed, Pete",
+              "average": "136",
+              "handicap": "67",
+              "games": [
+                "169",
+                "142",
+                "109"
+              ],
+              "total": "420",
+              "handicap_total": "621"
+            },
+            {
+              "name": "Reed, Willow",
+              "average": "121",
+              "handicap": "79",
+              "games": [
+                "105",
+                "94",
+                "112"
+              ],
+              "total": "311",
+              "handicap_total": "548"
+            },
+            {
+              "name": "Sampilo, Ray",
+              "average": "175",
+              "handicap": "36",
+              "games": [
+                "179",
+                "171",
+                "168"
+              ],
+              "total": "518",
+              "handicap_total": "626"
+            },
+            {
+              "name": "Sampilo, Michelle",
+              "average": "182",
+              "handicap": "30",
+              "games": [
+                "171",
+                "210",
+                "183"
+              ],
+              "total": "564",
+              "handicap_total": "654"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "team_id": 6,
+      "team_name": "Bowl Movement",
+      "weeks": {
+        "1": {
+          "week_num": 1,
+          "lane_bowled_on": 6,
+          "points_won": 2,
+          "bowlers": [
+            {
+              "name": "Kearney, Jamie",
+              "average": "117",
+              "handicap": "82",
+              "games": [
+                "127",
+                "128",
+                "124"
+              ],
+              "total": "379",
+              "handicap_total": "625"
+            },
+            {
+              "name": "Thulon, Keith",
+              "average": "145",
+              "handicap": "60",
+              "games": [
+                "141",
+                "137",
+                "148"
+              ],
+              "total": "426",
+              "handicap_total": "606"
+            },
+            {
+              "name": "Hammersley, Patrick",
+              "average": "153",
+              "handicap": "53",
+              "games": [
+                "105",
+                "205",
+                "154"
+              ],
+              "total": "464",
+              "handicap_total": "623"
+            },
+            {
+              "name": "Moore, Jordan",
+              "average": "189",
+              "handicap": "24",
+              "games": [
+                "154",
+                "146",
+                "201"
+              ],
+              "total": "501",
+              "handicap_total": "573"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "team_id": 7,
+      "team_name": "SchittsHappens",
+      "weeks": {
+        "1": {
+          "week_num": 1,
+          "lane_bowled_on": 7,
+          "points_won": 1,
+          "bowlers": [
+            {
+              "name": "Vacant",
+              "average": "120",
+              "handicap": "80",
+              "games": [
+                "120",
+                "120",
+                "120"
+              ],
+              "total": "360",
+              "handicap_total": "960"
+            },
+            {
+              "name": "Oens, Barb",
+              "average": "170",
+              "handicap": "40",
+              "games": [
+                "157",
+                "159",
+                "171"
+              ],
+              "total": "487",
+              "handicap_total": "607"
+            },
+            {
+              "name": "Crowder, Gerald",
+              "average": "176",
+              "handicap": "35",
+              "games": [
+                "183",
+                "123",
+                "156"
+              ],
+              "total": "462",
+              "handicap_total": "567"
+            },
+            {
+              "name": "Flowers, Heather",
+              "average": "146",
+              "handicap": "59",
+              "games": [
+                "227",
+                "161",
+                "137"
+              ],
+              "total": "525",
+              "handicap_total": "702"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "team_id": 8,
+      "team_name": "CBGT",
+      "weeks": {
+        "1": {
+          "week_num": 1,
+          "lane_bowled_on": 8,
+          "points_won": 3,
+          "bowlers": [
+            {
+              "name": "Werner, Cathy",
+              "average": "168",
+              "handicap": "41",
+              "games": [
+                "205",
+                "180",
+                "176"
+              ],
+              "total": "561",
+              "handicap_total": "684"
+            },
+            {
+              "name": "Rippee, Brenda",
+              "average": "162",
+              "handicap": "46",
+              "games": [
+                "156",
+                "153",
+                "142"
+              ],
+              "total": "451",
+              "handicap_total": "589"
+            },
+            {
+              "name": "Rippee, Gary",
+              "average": "172",
+              "handicap": "38",
+              "games": [
+                "158",
+                "182",
+                "186"
+              ],
+              "total": "526",
+              "handicap_total": "640"
+            },
+            {
+              "name": "Werner, Terry",
+              "average": "195",
+              "handicap": "20",
+              "games": [
+                "142",
+                "210",
+                "233"
+              ],
+              "total": "585",
+              "handicap_total": "645"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "team_id": 9,
+      "team_name": "Gutter Done",
+      "weeks": {
+        "1": {
+          "week_num": 1,
+          "lane_bowled_on": 9,
+          "points_won": 2,
+          "bowlers": [
+            {
+              "name": "Schutz, Cary",
+              "average": "161",
+              "handicap": "47",
+              "games": [
+                "137",
+                "145",
+                "187"
+              ],
+              "total": "469",
+              "handicap_total": "610"
+            },
+            {
+              "name": "Yount, Tammy",
+              "average": "132",
+              "handicap": "70",
+              "games": [
+                "145",
+                "104",
+                "125"
+              ],
+              "total": "374",
+              "handicap_total": "584"
+            },
+            {
+              "name": "Vacant",
+              "average": "120",
+              "handicap": "80",
+              "games": [
+                "120",
+                "120",
+                "120"
+              ],
+              "total": "360",
+              "handicap_total": "960"
+            },
+            {
+              "name": "Scott, John",
+              "average": "186",
+              "handicap": "27",
+              "games": [
+                "203",
+                "177",
+                "173"
+              ],
+              "total": "553",
+              "handicap_total": "634"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "team_id": 10,
+      "team_name": "JMUDI",
+      "weeks": {
+        "1": {
+          "week_num": 1,
+          "lane_bowled_on": 10,
+          "points_won": 2,
+          "bowlers": [
+            {
+              "name": "Jones, Pat",
+              "average": "173",
+              "handicap": "37",
+              "games": [
+                "171",
+                "161",
+                "180"
+              ],
+              "total": "512",
+              "handicap_total": "623"
+            },
+            {
+              "name": "Patshkowski, Richard",
+              "average": "166",
+              "handicap": "43",
+              "games": [
+                "151",
+                "181",
+                "161"
+              ],
+              "total": "493",
+              "handicap_total": "622"
+            },
+            {
+              "name": "Grant, Lesley",
+              "average": "118",
+              "handicap": "81",
+              "games": [
+                "117",
+                "127",
+                "129"
+              ],
+              "total": "373",
+              "handicap_total": "616"
+            },
+            {
+              "name": "Grant, Tyler",
+              "average": "120",
+              "handicap": "80",
+              "games": [
+                "135",
+                "135",
+                "90"
+              ],
+              "total": "360",
+              "handicap_total": "600"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "team_id": 11,
+      "team_name": "Bowl Job",
+      "weeks": {
+        "1": {
+          "week_num": 1,
+          "lane_bowled_on": 11,
+          "points_won": 4,
+          "bowlers": [
+            {
+              "name": "Wagermann, Ashley",
+              "average": "127",
+              "handicap": "74",
+              "games": [
+                "103",
+                "141",
+                "138"
+              ],
+              "total": "382",
+              "handicap_total": "604"
+            },
+            {
+              "name": "Baker, Becky",
+              "average": "104",
+              "handicap": "92",
+              "games": [
+                "142",
+                "143",
+                "114"
+              ],
+              "total": "399",
+              "handicap_total": "675"
+            },
+            {
+              "name": "Wilkinson, Aaron",
+              "average": "149",
+              "handicap": "56",
+              "games": [
+                "164",
+                "142",
+                "176"
+              ],
+              "total": "482",
+              "handicap_total": "650"
+            },
+            {
+              "name": "Wilkinson, Maddie",
+              "average": "98",
+              "handicap": "97",
+              "games": [
+                "82",
+                "125",
+                "127"
+              ],
+              "total": "334",
+              "handicap_total": "625"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "team_id": 12,
+      "team_name": "Gutter Gang",
+      "weeks": {
+        "1": {
+          "week_num": 1,
+          "lane_bowled_on": 12,
+          "points_won": 0,
+          "bowlers": [
+            {
+              "name": "Kubas, Nikki",
+              "average": "148",
+              "handicap": "57",
+              "games": [
+                "131",
+                "143",
+                "123"
+              ],
+              "total": "397",
+              "handicap_total": "568"
+            },
+            {
+              "name": "Lake, Kayla",
+              "average": "110",
+              "handicap": "88",
+              "games": [
+                "97",
+                "99",
+                "110"
+              ],
+              "total": "306",
+              "handicap_total": "570"
+            },
+            {
+              "name": "Baker, Russ",
+              "average": "190",
+              "handicap": "24",
+              "games": [
+                "171",
+                "172",
+                "213"
+              ],
+              "total": "556",
+              "handicap_total": "628"
+            },
+            {
+              "name": "Kubas, Zack",
+              "average": "202",
+              "handicap": "14",
+              "games": [
+                "170",
+                "169",
+                "181"
+              ],
+              "total": "520",
+              "handicap_total": "562"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "team_id": 13,
+      "team_name": "Hurtin Mo Fos",
+      "weeks": {
+        "1": {
+          "week_num": 1,
+          "lane_bowled_on": 13,
+          "points_won": 3,
+          "bowlers": [
+            {
+              "name": "Vacant",
+              "average": "120",
+              "handicap": "80",
+              "games": [
+                "120",
+                "120",
+                "120"
+              ],
+              "total": "360",
+              "handicap_total": "960"
+            },
+            {
+              "name": "Hynes, Mike",
+              "average": "190",
+              "handicap": "24",
+              "games": [
+                "170",
+                "149",
+                "215"
+              ],
+              "total": "534",
+              "handicap_total": "606"
+            },
+            {
+              "name": "Johnston, Chris",
+              "average": "175",
+              "handicap": "36",
+              "games": [
+                "148",
+                "206",
+                "200"
+              ],
+              "total": "554",
+              "handicap_total": "662"
+            },
+            {
+              "name": "Hornbeck, Dwayne",
+              "average": "178",
+              "handicap": "33",
+              "games": [
+                "176",
+                "215",
+                "156"
+              ],
+              "total": "547",
+              "handicap_total": "646"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "team_id": 14,
+      "team_name": "Guys & Dolls",
+      "weeks": {
+        "1": {
+          "week_num": 1,
+          "lane_bowled_on": 14,
+          "points_won": 1,
+          "bowlers": [
+            {
+              "name": "Scherette, Beverly",
+              "average": "113",
+              "handicap": "85",
+              "games": [
+                "160",
+                "127",
+                "106"
+              ],
+              "total": "393",
+              "handicap_total": "648"
+            },
+            {
+              "name": "Vacant",
+              "average": "120",
+              "handicap": "80",
+              "games": [
+                "120",
+                "120",
+                "120"
+              ],
+              "total": "360",
+              "handicap_total": "960"
+            },
+            {
+              "name": "Layson, Melissa",
+              "average": "138",
+              "handicap": "65",
+              "games": [
+                "138",
+                "129",
+                "135"
+              ],
+              "total": "402",
+              "handicap_total": "597"
+            },
+            {
+              "name": "Bartelson, Dave",
+              "average": "123",
+              "handicap": "77",
+              "games": [
+                "79",
+                "146",
+                "120"
+              ],
+              "total": "345",
+              "handicap_total": "576"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "team_id": 15,
+      "team_name": "Stay In Your Lane",
+      "weeks": {
+        "1": {
+          "week_num": 1,
+          "lane_bowled_on": 15,
+          "points_won": 3,
+          "bowlers": [
+            {
+              "name": "Soske, Sandy",
+              "average": "119",
+              "handicap": "80",
+              "games": [
+                "130",
+                "120",
+                "127"
+              ],
+              "total": "377",
+              "handicap_total": "617"
+            },
+            {
+              "name": "Eberly, Lynda",
+              "average": "156",
+              "handicap": "51",
+              "games": [
+                "168",
+                "140",
+                "160"
+              ],
+              "total": "468",
+              "handicap_total": "621"
+            },
+            {
+              "name": "Soske, Kelly",
+              "average": "144",
+              "handicap": "60",
+              "games": [
+                "158",
+                "135",
+                "150"
+              ],
+              "total": "443",
+              "handicap_total": "623"
+            },
+            {
+              "name": "Guthrie, Lisa",
+              "average": "121",
+              "handicap": "79",
+              "games": [
+                "95",
+                "149",
+                "158"
+              ],
+              "total": "402",
+              "handicap_total": "639"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "team_id": 16,
+      "team_name": "Bawls DP",
+      "weeks": {
+        "1": {
+          "week_num": 1,
+          "lane_bowled_on": 16,
+          "points_won": 1,
+          "bowlers": [
+            {
+              "name": "Eck Crispin, Jayce",
+              "average": "114",
+              "handicap": "84",
+              "games": [
+                "112",
+                "129",
+                "102"
+              ],
+              "total": "343",
+              "handicap_total": "595"
+            },
+            {
+              "name": "Koschney, Doug",
+              "average": "207",
+              "handicap": "10",
+              "games": [
+                "197",
+                "178",
+                "171"
+              ],
+              "total": "546",
+              "handicap_total": "576"
+            },
+            {
+              "name": "Crispin, Eric",
+              "average": "194",
+              "handicap": "20",
+              "games": [
+                "160",
+                "204",
+                "195"
+              ],
+              "total": "559",
+              "handicap_total": "619"
+            },
+            {
+              "name": "Koschney, Tammy",
+              "average": "141",
+              "handicap": "63",
+              "games": [
+                "130",
+                "155",
+                "136"
+              ],
+              "total": "421",
+              "handicap_total": "610"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "team_id": 17,
+      "team_name": "Team SLOM",
+      "weeks": {
+        "1": {
+          "week_num": 1,
+          "lane_bowled_on": 17,
+          "points_won": 3,
+          "bowlers": [
+            {
+              "name": "Mcguire, Airyn",
+              "average": "163",
+              "handicap": "45",
+              "games": [
+                "125",
+                "173",
+                "193"
+              ],
+              "total": "491",
+              "handicap_total": "626"
+            },
+            {
+              "name": "Seech, Danielle",
+              "average": "151",
+              "handicap": "55",
+              "games": [
+                "137",
+                "186",
+                "132"
+              ],
+              "total": "455",
+              "handicap_total": "620"
+            },
+            {
+              "name": "Olson, Mike",
+              "average": "153",
+              "handicap": "53",
+              "games": [
+                "148",
+                "183",
+                "128"
+              ],
+              "total": "459",
+              "handicap_total": "618"
+            },
+            {
+              "name": "Lewis, Paul",
+              "average": "227",
+              "handicap": "0",
+              "games": [
+                "243",
+                "216",
+                "224"
+              ],
+              "total": "683",
+              "handicap_total": "683"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "team_id": 18,
+      "team_name": "TEAM CATV",
+      "weeks": {
+        "1": {
+          "week_num": 1,
+          "lane_bowled_on": 18,
+          "points_won": 1,
+          "bowlers": [
+            {
+              "name": "Moscinski, Charity",
+              "average": "107",
+              "handicap": "90",
+              "games": [
+                "121",
+                "100",
+                "102"
+              ],
+              "total": "323",
+              "handicap_total": "593"
+            },
+            {
+              "name": "Moscinski, Elijah",
+              "average": "136",
+              "handicap": "67",
+              "games": [
+                "130",
+                "161",
+                "119"
+              ],
+              "total": "410",
+              "handicap_total": "611"
+            },
+            {
+              "name": "Morgan, Carl",
+              "average": "133",
+              "handicap": "69",
+              "games": [
+                "126",
+                "123",
+                "151"
+              ],
+              "total": "400",
+              "handicap_total": "607"
+            },
+            {
+              "name": "Mick, Becca",
+              "average": "90",
+              "handicap": "104",
+              "games": [
+                "114",
+                "58",
+                "99"
+              ],
+              "total": "271",
+              "handicap_total": "583"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "team_id": 19,
+      "team_name": "Tucking Fenpins",
+      "weeks": {
+        "1": {
+          "week_num": 1,
+          "lane_bowled_on": 19,
+          "points_won": 2,
+          "bowlers": [
+            {
+              "name": "Geaudreau, Mike",
+              "average": "155",
+              "handicap": "52",
+              "games": [
+                "161",
+                "193",
+                "152"
+              ],
+              "total": "506",
+              "handicap_total": "662"
+            },
+            {
+              "name": "Vacant",
+              "average": "120",
+              "handicap": "80",
+              "games": [
+                "120",
+                "120",
+                "120"
+              ],
+              "total": "360",
+              "handicap_total": "960"
+            },
+            {
+              "name": "Vacant",
+              "average": "120",
+              "handicap": "80",
+              "games": [
+                "120",
+                "120",
+                "120"
+              ],
+              "total": "360",
+              "handicap_total": "960"
+            },
+            {
+              "name": "Silvers, Doug",
+              "average": "185",
+              "handicap": "28",
+              "games": [
+                "173",
+                "186",
+                "120"
+              ],
+              "total": "479",
+              "handicap_total": "563"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "team_id": 20,
+      "team_name": "Spare Me",
+      "weeks": {
+        "1": {
+          "week_num": 1,
+          "lane_bowled_on": 20,
+          "points_won": 2,
+          "bowlers": [
+            {
+              "name": "Preble, Jennifer",
+              "average": "85",
+              "handicap": "108",
+              "games": [
+                "98",
+                "75",
+                "118"
+              ],
+              "total": "291",
+              "handicap_total": "615"
+            },
+            {
+              "name": "Furumasu, Stace",
+              "average": "174",
+              "handicap": "36",
+              "games": [
+                "167",
+                "163",
+                "179"
+              ],
+              "total": "509",
+              "handicap_total": "617"
+            },
+            {
+              "name": "Manos, Pattie",
+              "average": "123",
+              "handicap": "77",
+              "games": [
+                "127",
+                "94",
+                "132"
+              ],
+              "total": "353",
+              "handicap_total": "584"
+            },
+            {
+              "name": "Schack, Taylor",
+              "average": "146",
+              "handicap": "59",
+              "games": [
+                "134",
+                "149",
+                "155"
+              ],
+              "total": "438",
+              "handicap_total": "615"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

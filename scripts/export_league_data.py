@@ -123,7 +123,8 @@ def mnw_standings(cur):
 
 
 def photo_leagues():
-    """Leagues read from recap-sheet photos (bracket-system/data/leagues/<slug>/week-NN.json)."""
+    """Leagues in the file-based multi-league format (bracket-system/data/leagues/<slug>/week-NN.json),
+    written either by the recap-sheet photo reader or sync_league_secretary_leagues.py."""
     cfg_path = PHOTO_LEAGUES_DIR / "leagues.json"
     if not cfg_path.exists():
         return []
@@ -148,7 +149,7 @@ def photo_leagues():
             "league": {"slug": cfg["slug"], "name": cfg["name"], "short_name": short, "center": cfg.get("center"),
                        "day_time": latest.get("day_time"), "lanes": latest.get("lanes"),
                        "total_weeks": latest.get("total_weeks"), "scoring": cfg.get("scoring", "scratch"),
-                       "source": "BLS recap sheet photos"},
+                       "source": cfg.get("source", "BLS recap sheet photos")},
             "as_of": {"week": latest["week"], "date": latest["date"]},
             "standings": latest["standings"],
             "lane_assignments": {"week_num": upcoming, "date": la.get("date"),
