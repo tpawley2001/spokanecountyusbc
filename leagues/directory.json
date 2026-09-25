@@ -1,0 +1,52 @@
+{
+  "generated_at": "2026-09-24T00:00:00+00:00",
+  "centers": [
+    {
+      "name": "Lilac Lanes",
+      "address": "1112 E. Magnesium Rd., Spokane, WA 99207",
+      "leagues": [
+        {
+          "name": "Lilac Wednesday Seniors 26",
+          "day_time": "Wednesday 10:30 AM",
+          "season": "Fall",
+          "type": "Handicap Adult Mixed",
+          "url": "https://www.leaguesecretary.com/bowling-centers/lilac-lanes/bowling-leagues/lilac-wednesday-seniors-26/dashboard/128614"
+        },
+        {
+          "name": "Mens Northwest League",
+          "day_time": "Thursday 6:00 PM",
+          "season": "Fall",
+          "type": "Handicap Mens",
+          "url": "https://www.leaguesecretary.com/bowling-centers/lilac-lanes/bowling-leagues/mens-northwest-league/dashboard/59869",
+          "results_slug": "mens-northwest"
+        }
+      ]
+    },
+    {
+      "name": "Players & Spectators",
+      "address": "12828 E. Sprague Ave, Spokane Valley, WA 99216",
+      "leagues": [
+        {
+          "name": "Thursday Night Mens 26/27",
+          "day_time": "Thursday 6:15 PM",
+          "season": "Winter",
+          "type": "Handicap Mens",
+          "url": "https://www.leaguesecretary.com/bowling-centers/players-spectators-8801/bowling-leagues/thursday-night-mens-2627/dashboard/134452"
+        }
+      ]
+    },
+    {
+      "name": "Valley Bowl",
+      "address": "8005 E. Sprague Ave, Spokane, WA 99216",
+      "leagues": [
+        {
+          "name": "Weekend Rollers 26/27",
+          "day_time": "Sunday 1:45 PM",
+          "season": "Winter",
+          "type": "Handicap Adult Mixed",
+          "url": "https://www.leaguesecretary.com/bowling-centers/valley-bowl/bowling-leagues/weekend-rollers-2627/dashboard/136133"
+        }
+      ]
+    }
+  ]
+}

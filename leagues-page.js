@@ -1,5 +1,35 @@
 // leagues.html page script (uses helpers from leagues.js)
 (async function () {
+  try {
+    const dir = await fetchJson('leagues/directory.json');
+    document.getElementById('league-directory').innerHTML = dir.centers.map(center => `
+      <h3 style="color:var(--navy);margin-top:1.5rem;margin-bottom:0.25rem;">${escapeHtml(center.name)}</h3>
+      <p class="section-meta" style="margin-bottom:0.5rem;">${escapeHtml(center.address)}</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>League</th><th>Day &amp; Time</th><th>Season</th><th>Type</th><th></th></tr></thead>
+          <tbody>
+            ${center.leagues.map(l => `
+              <tr>
+                <td>${escapeHtml(l.name)}</td>
+                <td>${escapeHtml(l.day_time)}</td>
+                <td>${escapeHtml(l.season)}</td>
+                <td>${escapeHtml(l.type)}</td>
+                <td>${l.results_slug
+                  ? `<a href="leagues.html?league=${encodeURIComponent(l.results_slug)}#spotlight">Full results ↓</a>`
+                  : `<a href="${escapeHtml(l.url)}" target="_blank" rel="noopener">League Secretary ↗</a>`}</td>
+              </tr>`).join('')}
+          </tbody>
+        </table>
+      </div>
+    `).join('');
+  } catch (err) {
+    document.getElementById('league-directory').innerHTML =
+      `<p class="section-meta">Could not load league directory: ${escapeHtml(err.message)}</p>`;
+  }
+})();
+
+(async function () {
   const slug = currentLeagueSlug();
   try {
     const [index, data] = await Promise.all([loadLeagueIndex(), loadLeagueData(slug)]);
