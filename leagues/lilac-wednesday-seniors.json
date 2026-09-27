@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-27T21:06:21.593741+00:00",
+  "generated_at": "2026-09-27T21:21:49.573729+00:00",
   "league": {
     "slug": "lilac-wednesday-seniors",
     "name": "Lilac Wednesday Seniors 26",
@@ -9,7 +9,32 @@
     "lanes": null,
     "total_weeks": null,
     "scoring": "handicap",
-    "source": "League Secretary interactive reports"
+    "source": "League Secretary interactive reports",
+    "header": {
+      "week": 3,
+      "date": "9/23/2026",
+      "messages": [],
+      "usbc_certification": null,
+      "lane_certification": null,
+      "officers": [
+        {
+          "role": "President",
+          "name": "Kevin Yates"
+        },
+        {
+          "role": "Vice President",
+          "name": "David Lovell"
+        },
+        {
+          "role": "Secretary/Treasurer",
+          "name": "Mouse Martin"
+        },
+        {
+          "role": "Sergeant at Arms",
+          "name": "Roger Prang"
+        }
+      ]
+    }
   },
   "as_of": {
     "week": 3,

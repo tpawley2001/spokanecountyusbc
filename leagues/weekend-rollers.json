@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-27T21:06:21.595095+00:00",
+  "generated_at": "2026-09-27T21:21:49.574627+00:00",
   "league": {
     "slug": "weekend-rollers",
     "name": "Weekend Rollers 26/27",
@@ -9,7 +9,36 @@
     "lanes": null,
     "total_weeks": null,
     "scoring": "handicap",
-    "source": "League Secretary interactive reports"
+    "source": "League Secretary interactive reports",
+    "header": {
+      "week": 1,
+      "date": "9/13/2026",
+      "messages": [],
+      "usbc_certification": "797245",
+      "lane_certification": "7356",
+      "officers": [
+        {
+          "role": "President",
+          "name": "Rob Matherly"
+        },
+        {
+          "role": "Vice President",
+          "name": "Bryan Boykin"
+        },
+        {
+          "role": "Secretary",
+          "name": "John Scott"
+        },
+        {
+          "role": "Treasurer",
+          "name": "John Scott"
+        },
+        {
+          "role": "Sergeant at Arms",
+          "name": "Reeve Wurmnest"
+        }
+      ]
+    }
   },
   "as_of": {
     "week": 1,

@@ -46,9 +46,19 @@
 
     const asOf = data.as_of && data.as_of.week
       ? ` · Standings through week ${data.as_of.week}${data.as_of.date ? ' (' + escapeHtml(data.as_of.date) + ')' : ''}` : '';
+    // Mirrors the notice block at the top of the league's latest standing sheet
+    const h = league.header;
+    const certs = h ? [h.usbc_certification ? `USBC Certification: ${escapeHtml(h.usbc_certification)}` : null,
+                       h.lane_certification ? `Lane Certification: ${escapeHtml(h.lane_certification)}` : null].filter(Boolean) : [];
     document.getElementById('league-info').innerHTML = `
       <h4>League Info</h4>
-      <p>${teams.length} teams${league.total_weeks ? ` · ${league.total_weeks}-week season` : ''}${league.scoring === 'scratch' ? ' · Scratch' : ''}${asOf}. Results come from the league's weekly ${escapeHtml(league.source || 'recap sheets')}.</p>
+      ${h && h.messages && h.messages.length ? `
+        <p style="color:var(--navy);font-weight:600;">${h.messages.map(escapeHtml).join('<br>')}</p>
+        <p style="font-size:0.8rem;margin-bottom:0.5rem;">From the week ${h.week} recap sheet${h.date ? ' (' + escapeHtml(h.date) + ')' : ''}</p>` : ''}
+      ${certs.length ? `<p>${certs.join(' · ')}</p>` : ''}
+      ${h && h.officers && h.officers.length ? `
+        <ul>${h.officers.map(o => `<li><strong>${escapeHtml(o.role)}:</strong> ${escapeHtml(o.name)}</li>`).join('')}</ul>` : ''}
+      <p style="margin-top:0.5rem;">${teams.length} teams${league.total_weeks ? ` · ${league.total_weeks}-week season` : ''}${league.scoring === 'scratch' ? ' · Scratch' : ''}${asOf}. Results come from the league's weekly ${escapeHtml(league.source || 'recap sheets')}.</p>
     `;
 
     document.getElementById('lane-assignments-heading').textContent =

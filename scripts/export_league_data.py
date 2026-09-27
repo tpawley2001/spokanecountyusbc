@@ -16,6 +16,8 @@ DB_PATH = "/home/tyson/bracket-system/data/brackets.db"
 OUT_PATH = Path(__file__).resolve().parent.parent / "leagues-data.json"
 LEAGUES_OUT = Path(__file__).resolve().parent.parent / "leagues"
 PHOTO_LEAGUES_DIR = Path("/home/tyson/bracket-system/data/leagues")
+# Notice block from the top of each league's standing sheet (sync_league_headers.py)
+HEADERS_PATH = PHOTO_LEAGUES_DIR / "headers.json"
 
 LEAGUE_INFO = {"id": 59869, "name": "Mens Northwest League", "center": "Lilac Lanes"}
 
@@ -82,7 +84,8 @@ def main():
     LEAGUES_OUT.mkdir(exist_ok=True)
     standings, through_week = mnw_standings(cur)
     mnw = {**data, "league": {**LEAGUE_INFO, "slug": "mens-northwest", "day_time": "Thursday 6:00 pm",
-                              "scoring": "handicap", "source": "League Secretary / BLS recap sheets"},
+                              "scoring": "handicap", "source": "League Secretary / BLS recap sheets",
+                              "header": sheet_header("mens-northwest")},
            "standings": standings, "as_of": {"week": through_week, "date": None}}
     index = [{"slug": "mens-northwest", "name": LEAGUE_INFO["name"], "center": LEAGUE_INFO["center"],
               "day_time": "Thursday 6:00 pm"}]
@@ -93,6 +96,17 @@ def main():
         print(f"Wrote leagues/{league['league']['slug']}.json — {len(league['teams'])} teams, "
               f"through week {league['as_of']['week']}")
     (LEAGUES_OUT / "index.json").write_text(json.dumps({"generated_at": data["generated_at"], "leagues": index}, indent=2))
+
+
+def sheet_header(slug):
+    """Public part of the standing-sheet header: message, certification numbers, officer names/roles."""
+    try:
+        h = json.loads(HEADERS_PATH.read_text()).get(slug)
+    except (OSError, ValueError):
+        return None
+    if not h:
+        return None
+    return {k: h.get(k) for k in ("week", "date", "messages", "usbc_certification", "lane_certification", "officers")}
 
 
 def mnw_standings(cur):
@@ -149,7 +163,8 @@ def photo_leagues():
             "league": {"slug": cfg["slug"], "name": cfg["name"], "short_name": short, "center": cfg.get("center"),
                        "day_time": latest.get("day_time"), "lanes": latest.get("lanes"),
                        "total_weeks": latest.get("total_weeks"), "scoring": cfg.get("scoring", "scratch"),
-                       "source": cfg.get("source", "BLS recap sheet photos")},
+                       "source": cfg.get("source", "BLS recap sheet photos"),
+                       "header": sheet_header(cfg["slug"])},
             "as_of": {"week": latest["week"], "date": latest["date"]},
             "standings": latest["standings"],
             "lane_assignments": {"week_num": upcoming, "date": la.get("date"),

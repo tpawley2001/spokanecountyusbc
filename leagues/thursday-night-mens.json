@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-27T21:06:21.594601+00:00",
+  "generated_at": "2026-09-27T21:21:49.574303+00:00",
   "league": {
     "slug": "thursday-night-mens",
     "name": "Thursday Night Mens 26/27",
@@ -9,7 +9,32 @@
     "lanes": null,
     "total_weeks": null,
     "scoring": "handicap",
-    "source": "League Secretary interactive reports"
+    "source": "League Secretary interactive reports",
+    "header": {
+      "week": 3,
+      "date": "9/24/2026",
+      "messages": [],
+      "usbc_certification": "797250",
+      "lane_certification": "8801",
+      "officers": [
+        {
+          "role": "President",
+          "name": "Pat Jones"
+        },
+        {
+          "role": "Vice President",
+          "name": "Paul Lewis"
+        },
+        {
+          "role": "Secretary/Treasurer",
+          "name": "John Scott"
+        },
+        {
+          "role": "Sergeant at Arms",
+          "name": "Reeve Wurmnest"
+        }
+      ]
+    }
   },
   "as_of": {
     "week": 3,

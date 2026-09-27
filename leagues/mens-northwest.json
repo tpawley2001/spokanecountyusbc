@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-27T21:06:21.589193+00:00",
+  "generated_at": "2026-09-27T21:21:49.571187+00:00",
   "league": {
     "id": 59869,
     "name": "Mens Northwest League",
@@ -7,7 +7,34 @@
     "slug": "mens-northwest",
     "day_time": "Thursday 6:00 pm",
     "scoring": "handicap",
-    "source": "League Secretary / BLS recap sheets"
+    "source": "League Secretary / BLS recap sheets",
+    "header": {
+      "week": 3,
+      "date": "9/24/2026",
+      "messages": [
+        "Brackets now available see Luke on lane 2 for more details"
+      ],
+      "usbc_certification": "797234",
+      "lane_certification": "3833",
+      "officers": [
+        {
+          "role": "President",
+          "name": "Zach Knechtges"
+        },
+        {
+          "role": "Vice President",
+          "name": "Redneck Kleinknecht"
+        },
+        {
+          "role": "Secretary/Treasurer",
+          "name": "Travis Pierpont"
+        },
+        {
+          "role": "Sergeant at Arms",
+          "name": "Cameron Mitchell"
+        }
+      ]
+    }
   },
   "lane_assignments": {
     "year": 2026,
