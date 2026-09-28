@@ -409,6 +409,57 @@ ${rows}
 }
 
 // ── Start ─────────────────────────────────────────────────────────
+// ── SEO: sitemap.xml + robots.txt ─────────────────────────────────
+// Built per request so <lastmod> follows admin-panel edits and the weekly
+// league auto-deploy without anyone regenerating a file. team.html and
+// bowler.html only render with a query string, and admin.html is private,
+// so they're left out.
+const SITE_URL = process.env.SITE_URL || 'https://spokanecountyusbc.org';
+const SITEMAP_PAGES = [
+  { file: 'index.html', loc: '/', priority: '1.0' },
+  { file: 'leagues.html', data: 'leagues-data.json', priority: '0.9' },
+  { file: 'tournaments.html', priority: '0.9' },
+  { file: 'averages.html', priority: '0.8' },
+  { file: 'signup.html', priority: '0.8' },
+  { file: 'honor.html', priority: '0.7' },
+  { file: 'forms.html', priority: '0.6' },
+  { file: 'youth.html', priority: '0.6' },
+  { file: 'board.html', priority: '0.5' },
+  { file: 'contact.html', priority: '0.5' },
+];
+
+function lastModified(...files) {
+  const times = files.filter(Boolean).map(f => {
+    try { return fs.statSync(path.join(__dirname, f)).mtime; } catch { return null; }
+  }).filter(Boolean);
+  return times.length ? new Date(Math.max(...times)).toISOString().slice(0, 10) : null;
+}
+
+app.get('/sitemap.xml', (req, res) => {
+  const urls = SITEMAP_PAGES.map(p => {
+    const mod = lastModified(p.file, p.data);
+    return '  <url>\n' +
+      `    <loc>${SITE_URL}${p.loc || '/' + p.file}</loc>\n` +
+      (mod ? `    <lastmod>${mod}</lastmod>\n` : '') +
+      `    <priority>${p.priority}</priority>\n` +
+      '  </url>';
+  });
+  res.type('application/xml').send(
+    '<?xml version="1.0" encoding="UTF-8"?>\n' +
+    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
+    urls.join('\n') + '\n</urlset>\n');
+});
+
+// Cloudflare's managed robots.txt prepends its content-signal comments to this.
+app.get('/robots.txt', (req, res) => {
+  res.type('text/plain').send(
+    'User-agent: *\n' +
+    'Disallow: /admin.html\n' +
+    'Disallow: /api/\n' +
+    '\n' +
+    `Sitemap: ${SITE_URL}/sitemap.xml\n`);
+});
+
 // Own 404 so the security headers above aren't replaced by Express's default
 app.use((req, res) => res.status(404).type('text').send('Not found'));
 
