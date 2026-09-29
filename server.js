@@ -196,17 +196,16 @@ app.post('/api/tournaments', auth, (req, res) => {
 
 function tournamentRow(t, showForm) {
   const online = /^[a-z0-9-]{1,60}$/.test(t.online_form || '') ? `entry.html?form=${t.online_form}` : '';
-  const links = [];
-  if (online) links.push(`<a href="${online}">📝 Enter Online</a>`);
-  if (t.entry_form) links.push(`<a href="${safeUrl(t.entry_form)}" target="_blank" rel="noopener">📄 PDF</a>`);
-  const formCell = links.length ? links.join(' &nbsp;·&nbsp; ') : `<span style="color:var(--muted,#888);">Coming soon</span>`;
+  const formCell = t.entry_form
+    ? `<a href="${safeUrl(t.entry_form)}" target="_blank" rel="noopener" style="white-space:nowrap;">📄 Download PDF</a>`
+    : `<span style="color:var(--muted,#888);white-space:nowrap;">Coming soon</span>`;
   const formCol = showForm ? `\n            <td>${formCell}</td>` : '';
   return `          <tr>
             <td><strong>${esc(t.name)}</strong></td>
             <td>${esc(t.date)}${t.date === 'TBD' ? '' : '*'}</td>
             <td>${esc(t.center || 'TBD')}</td>
             <td><span class="badge badge-${esc(t.type_color)}">${esc(t.type)}</span></td>${formCol}
-            <td><a href="${online || 'signup.html'}" class="btn btn-red" style="padding:0.3rem 0.8rem;font-size:0.82rem;">Sign Up</a></td>
+            <td><a href="${online || 'signup.html'}" class="btn btn-red" style="padding:0.3rem 0.8rem;font-size:0.82rem;white-space:nowrap;">${online ? 'Enter Online' : 'Sign Up'}</a></td>
           </tr>`;
 }
 
