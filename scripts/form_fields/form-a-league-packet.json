@@ -1,0 +1,2859 @@
+{
+ "source": "form-a-league-packet.pdf",
+ "fields": [
+  {
+   "page": 1,
+   "name": "mv_membership_fees",
+   "label": "Membership fees collected ($)",
+   "type": "text",
+   "rect": [
+    209.8,
+    221.4,
+    282.9,
+    233.9
+   ]
+  },
+  {
+   "page": 1,
+   "name": "mv_additional_membership_fees",
+   "label": "Additional membership fees collected ($)",
+   "type": "text",
+   "rect": [
+    253.4,
+    261.9,
+    314.4,
+    274.4
+   ]
+  },
+  {
+   "page": 1,
+   "name": "mv_prize_fund_other_fees",
+   "label": "1. Prize fund + other fees, paid weekly by bowler",
+   "type": "text",
+   "rect": [
+    68.9,
+    341.4,
+    152.4,
+    353.9
+   ]
+  },
+  {
+   "page": 1,
+   "name": "mv_num_bowlers",
+   "label": "1. # of bowlers",
+   "type": "text",
+   "rect": [
+    210.4,
+    341.4,
+    291.9,
+    353.9
+   ]
+  },
+  {
+   "page": 1,
+   "name": "mv_one_week_deposit",
+   "label": "1 week deposit",
+   "type": "text",
+   "rect": [
+    343.4,
+    341.4,
+    566.4,
+    353.9
+   ]
+  },
+  {
+   "page": 1,
+   "name": "mv_one_week_deposit_2",
+   "label": "2. 1 week deposit (from item 1)",
+   "type": "text",
+   "rect": [
+    68.9,
+    389.4,
+    152.4,
+    401.9
+   ]
+  },
+  {
+   "page": 1,
+   "name": "mv_weeks_bowled",
+   "label": "2. # weeks bowled to date",
+   "type": "text",
+   "rect": [
+    210.4,
+    389.4,
+    291.9,
+    401.9
+   ]
+  },
+  {
+   "page": 1,
+   "name": "mv_total_regular_fees",
+   "label": "Total regular league fees to date",
+   "type": "text",
+   "rect": [
+    337.4,
+    389.4,
+    566.4,
+    401.9
+   ]
+  },
+  {
+   "page": 1,
+   "name": "mv_team_sponsor_money",
+   "label": "Team sponsor money required per league rules",
+   "type": "text",
+   "rect": [
+    277.4,
+    497.4,
+    363.9,
+    509.9
+   ]
+  },
+  {
+   "page": 1,
+   "name": "mv_team_sponsor_desc",
+   "label": "Team sponsor money: description",
+   "type": "text",
+   "rect": [
+    426.4,
+    497.4,
+    543.9,
+    509.9
+   ]
+  },
+  {
+   "page": 1,
+   "name": "mv_league_sponsor_money",
+   "label": "League sponsor money",
+   "type": "text",
+   "rect": [
+    277.4,
+    515.4,
+    363.9,
+    527.9
+   ]
+  },
+  {
+   "page": 1,
+   "name": "mv_league_sponsor_desc",
+   "label": "League sponsor money: description",
+   "type": "text",
+   "rect": [
+    426.4,
+    515.4,
+    543.9,
+    527.9
+   ]
+  },
+  {
+   "page": 1,
+   "name": "mv_prepayment",
+   "label": "Prepayment required per league rules",
+   "type": "text",
+   "rect": [
+    277.4,
+    533.4,
+    363.9,
+    545.9
+   ]
+  },
+  {
+   "page": 1,
+   "name": "mv_prepayment_desc",
+   "label": "Prepayment: description",
+   "type": "text",
+   "rect": [
+    426.4,
+    533.4,
+    543.9,
+    545.9
+   ]
+  },
+  {
+   "page": 1,
+   "name": "mv_fundraisers",
+   "label": "50/50 or other fundraisers",
+   "type": "text",
+   "rect": [
+    277.4,
+    551.4,
+    363.9,
+    563.9
+   ]
+  },
+  {
+   "page": 1,
+   "name": "mv_fundraisers_desc",
+   "label": "Fundraisers: description",
+   "type": "text",
+   "rect": [
+    426.5,
+    551.4,
+    544.0,
+    563.9
+   ]
+  },
+  {
+   "page": 1,
+   "name": "mv_other_fees",
+   "label": "Other fees (fines, salaries, etc.)",
+   "type": "text",
+   "rect": [
+    277.5,
+    569.4,
+    364.0,
+    581.9
+   ]
+  },
+  {
+   "page": 1,
+   "name": "mv_other_fees_desc",
+   "label": "Other fees: description",
+   "type": "text",
+   "rect": [
+    426.5,
+    569.4,
+    544.0,
+    581.9
+   ]
+  },
+  {
+   "page": 1,
+   "name": "mv_total_additional_income",
+   "label": "3. Total additional income",
+   "type": "text",
+   "rect": [
+    277.5,
+    587.6,
+    364.0,
+    600.1
+   ]
+  },
+  {
+   "page": 1,
+   "name": "mv_total_regular_fees_2",
+   "label": "Total regular league fees to date (from item 2)",
+   "type": "text",
+   "rect": [
+    44.4,
+    635.4,
+    134.4,
+    647.9
+   ]
+  },
+  {
+   "page": 1,
+   "name": "mv_total_additional_income_2",
+   "label": "Total additional income (from item 3)",
+   "type": "text",
+   "rect": [
+    160.4,
+    635.4,
+    251.4,
+    647.9
+   ]
+  },
+  {
+   "page": 1,
+   "name": "mv_total_income",
+   "label": "Total income to date (should equal bank balance)",
+   "type": "text",
+   "rect": [
+    282.4,
+    635.4,
+    566.4,
+    647.9
+   ]
+  },
+  {
+   "page": 4,
+   "name": "bowling_center_name",
+   "label": "1. Bowling center name",
+   "type": "text",
+   "rect": [
+    109.0,
+    54.0,
+    318.5,
+    66.5
+   ]
+  },
+  {
+   "page": 4,
+   "name": "bowling_center_city",
+   "label": "Bowling center city",
+   "type": "text",
+   "rect": [
+    358.0,
+    54.0,
+    513.0,
+    66.5
+   ]
+  },
+  {
+   "page": 4,
+   "name": "bowling_center_state",
+   "label": "Bowling center state",
+   "type": "text",
+   "rect": [
+    519.0,
+    54.0,
+    571.0,
+    66.5
+   ]
+  },
+  {
+   "page": 4,
+   "name": "league_name",
+   "label": "2. League name",
+   "type": "text",
+   "rect": [
+    109.0,
+    77.4,
+    251.0,
+    89.9
+   ]
+  },
+  {
+   "page": 4,
+   "name": "association_adult",
+   "label": "3. Association name: adult merged or BA",
+   "type": "text",
+   "rect": [
+    343.9,
+    77.4,
+    453.5,
+    89.9
+   ]
+  },
+  {
+   "page": 4,
+   "name": "association_youth",
+   "label": "3. Association name: youth or WBA",
+   "type": "text",
+   "rect": [
+    469.0,
+    77.4,
+    575.0,
+    89.9
+   ]
+  },
+  {
+   "page": 4,
+   "name": "scholarship_smart_number",
+   "label": "Scholarship SMART #",
+   "type": "text",
+   "rect": [
+    246.6,
+    162.8,
+    316.6,
+    175.3
+   ]
+  },
+  {
+   "page": 4,
+   "name": "number_of_teams",
+   "label": "6. Number of teams",
+   "type": "text",
+   "rect": [
+    145.0,
+    205.5,
+    197.0,
+    218.0
+   ]
+  },
+  {
+   "page": 4,
+   "name": "players_per_team",
+   "label": "Number of players per team",
+   "type": "text",
+   "rect": [
+    322.2,
+    205.5,
+    368.0,
+    218.0
+   ]
+  },
+  {
+   "page": 4,
+   "name": "date_schedule_begins",
+   "label": "7. Date schedule begins (MM/DD/YYYY)",
+   "type": "text",
+   "rect": [
+    39.0,
+    243.0,
+    116.0,
+    255.5
+   ]
+  },
+  {
+   "page": 4,
+   "name": "date_schedule_ends",
+   "label": "Date schedule ends (MM/DD/YYYY)",
+   "type": "text",
+   "rect": [
+    161.0,
+    243.0,
+    228.5,
+    255.5
+   ]
+  },
+  {
+   "page": 4,
+   "name": "weeks_league_bowls",
+   "label": "# weeks league bowls",
+   "type": "text",
+   "rect": [
+    289.0,
+    243.0,
+    368.0,
+    255.5
+   ]
+  },
+  {
+   "page": 4,
+   "name": "day_of_week_bowled",
+   "label": "Day of week bowled",
+   "type": "text",
+   "rect": [
+    399.0,
+    243.0,
+    471.5,
+    255.5
+   ]
+  },
+  {
+   "page": 4,
+   "name": "time_bowled",
+   "label": "Time bowled",
+   "type": "text",
+   "rect": [
+    507.0,
+    243.0,
+    575.0,
+    255.5
+   ]
+  },
+  {
+   "page": 4,
+   "name": "sec_id_part1",
+   "label": "9. Secretary ID# (first part)",
+   "type": "text",
+   "rect": [
+    221.5,
+    302.4,
+    323.0,
+    314.9
+   ]
+  },
+  {
+   "page": 4,
+   "name": "sec_id_part2",
+   "label": "9. Secretary ID# (second part)",
+   "type": "text",
+   "rect": [
+    343.0,
+    302.4,
+    444.5,
+    314.9
+   ]
+  },
+  {
+   "page": 4,
+   "name": "sec_first_name",
+   "label": "Secretary first name",
+   "type": "text",
+   "rect": [
+    46.0,
+    316.6,
+    186.0,
+    329.1
+   ]
+  },
+  {
+   "page": 4,
+   "name": "sec_middle_initial",
+   "label": "Secretary middle initial",
+   "type": "text",
+   "rect": [
+    192.0,
+    316.6,
+    308.0,
+    329.1
+   ]
+  },
+  {
+   "page": 4,
+   "name": "sec_last_name",
+   "label": "Secretary last name",
+   "type": "text",
+   "rect": [
+    314.0,
+    316.6,
+    440.5,
+    329.1
+   ]
+  },
+  {
+   "page": 4,
+   "name": "sec_suffix",
+   "label": "Secretary Jr./Sr./III",
+   "type": "text",
+   "rect": [
+    484.0,
+    316.6,
+    516.5,
+    329.1
+   ]
+  },
+  {
+   "page": 4,
+   "name": "sec_street",
+   "label": "Secretary street address",
+   "type": "text",
+   "rect": [
+    46.0,
+    339.9,
+    308.0,
+    352.4
+   ]
+  },
+  {
+   "page": 4,
+   "name": "sec_apt",
+   "label": "Secretary apt #",
+   "type": "text",
+   "rect": [
+    314.0,
+    339.9,
+    440.5,
+    352.4
+   ]
+  },
+  {
+   "page": 4,
+   "name": "sec_night_phone",
+   "label": "Secretary night phone",
+   "type": "text",
+   "rect": [
+    484.0,
+    339.9,
+    579.5,
+    352.4
+   ]
+  },
+  {
+   "page": 4,
+   "name": "sec_city",
+   "label": "Secretary city",
+   "type": "text",
+   "rect": [
+    38.0,
+    363.2,
+    304.6,
+    375.7
+   ]
+  },
+  {
+   "page": 4,
+   "name": "sec_state",
+   "label": "Secretary state",
+   "type": "text",
+   "rect": [
+    310.6,
+    363.2,
+    380.0,
+    375.7
+   ]
+  },
+  {
+   "page": 4,
+   "name": "sec_zip",
+   "label": "Secretary zip code",
+   "type": "text",
+   "rect": [
+    386.0,
+    363.2,
+    440.5,
+    375.7
+   ]
+  },
+  {
+   "page": 4,
+   "name": "sec_day_phone",
+   "label": "Secretary day phone",
+   "type": "text",
+   "rect": [
+    484.0,
+    363.2,
+    579.5,
+    375.7
+   ]
+  },
+  {
+   "page": 4,
+   "name": "sec_email",
+   "label": "Secretary e-mail",
+   "type": "text",
+   "rect": [
+    37.0,
+    386.6,
+    444.5,
+    399.1
+   ]
+  },
+  {
+   "page": 4,
+   "name": "pres_id_part1",
+   "label": "10. President ID# (first part)",
+   "type": "text",
+   "rect": [
+    197.7,
+    412.9,
+    323.0,
+    425.4
+   ]
+  },
+  {
+   "page": 4,
+   "name": "pres_id_part2",
+   "label": "10. President ID# (second part)",
+   "type": "text",
+   "rect": [
+    343.0,
+    412.9,
+    444.5,
+    425.4
+   ]
+  },
+  {
+   "page": 4,
+   "name": "pres_first_name",
+   "label": "President first name",
+   "type": "text",
+   "rect": [
+    46.0,
+    427.0,
+    186.0,
+    439.5
+   ]
+  },
+  {
+   "page": 4,
+   "name": "pres_middle_initial",
+   "label": "President middle initial",
+   "type": "text",
+   "rect": [
+    192.0,
+    427.0,
+    308.0,
+    439.5
+   ]
+  },
+  {
+   "page": 4,
+   "name": "pres_last_name",
+   "label": "President last name",
+   "type": "text",
+   "rect": [
+    314.0,
+    427.0,
+    440.5,
+    439.5
+   ]
+  },
+  {
+   "page": 4,
+   "name": "pres_suffix",
+   "label": "President Jr./Sr./III",
+   "type": "text",
+   "rect": [
+    484.0,
+    427.0,
+    516.5,
+    439.5
+   ]
+  },
+  {
+   "page": 4,
+   "name": "pres_street",
+   "label": "President street address",
+   "type": "text",
+   "rect": [
+    46.0,
+    450.4,
+    308.0,
+    462.9
+   ]
+  },
+  {
+   "page": 4,
+   "name": "pres_apt",
+   "label": "President apt #",
+   "type": "text",
+   "rect": [
+    314.0,
+    450.4,
+    440.5,
+    462.9
+   ]
+  },
+  {
+   "page": 4,
+   "name": "pres_night_phone",
+   "label": "President night phone",
+   "type": "text",
+   "rect": [
+    484.0,
+    450.4,
+    579.5,
+    462.9
+   ]
+  },
+  {
+   "page": 4,
+   "name": "pres_city",
+   "label": "President city",
+   "type": "text",
+   "rect": [
+    37.0,
+    473.7,
+    304.6,
+    486.2
+   ]
+  },
+  {
+   "page": 4,
+   "name": "pres_state",
+   "label": "President state",
+   "type": "text",
+   "rect": [
+    310.6,
+    473.7,
+    380.0,
+    486.2
+   ]
+  },
+  {
+   "page": 4,
+   "name": "pres_zip",
+   "label": "President zip code",
+   "type": "text",
+   "rect": [
+    386.0,
+    473.7,
+    440.5,
+    486.2
+   ]
+  },
+  {
+   "page": 4,
+   "name": "pres_day_phone",
+   "label": "President day phone",
+   "type": "text",
+   "rect": [
+    484.0,
+    473.7,
+    579.5,
+    486.2
+   ]
+  },
+  {
+   "page": 4,
+   "name": "pres_email",
+   "label": "President e-mail",
+   "type": "text",
+   "rect": [
+    37.0,
+    497.0,
+    440.5,
+    509.5
+   ]
+  },
+  {
+   "page": 4,
+   "name": "treas_night_phone",
+   "label": "Treasurer night phone",
+   "type": "text",
+   "rect": [
+    46.0,
+    537.5,
+    152.0,
+    550.0
+   ]
+  },
+  {
+   "page": 4,
+   "name": "treas_day_phone",
+   "label": "Treasurer day phone",
+   "type": "text",
+   "rect": [
+    173.0,
+    537.5,
+    287.0,
+    550.0
+   ]
+  },
+  {
+   "page": 4,
+   "name": "treas_name",
+   "label": "Treasurer first name, initial, last name, Jr./Sr./III",
+   "type": "text",
+   "rect": [
+    46.0,
+    560.8,
+    287.0,
+    573.3
+   ]
+  },
+  {
+   "page": 4,
+   "name": "treas_street",
+   "label": "Treasurer street address",
+   "type": "text",
+   "rect": [
+    46.0,
+    584.1,
+    287.0,
+    596.6
+   ]
+  },
+  {
+   "page": 4,
+   "name": "treas_city",
+   "label": "Treasurer city",
+   "type": "text",
+   "rect": [
+    46.0,
+    607.4,
+    181.0,
+    619.9
+   ]
+  },
+  {
+   "page": 4,
+   "name": "treas_state",
+   "label": "Treasurer state",
+   "type": "text",
+   "rect": [
+    187.0,
+    607.4,
+    234.0,
+    619.9
+   ]
+  },
+  {
+   "page": 4,
+   "name": "treas_zip",
+   "label": "Treasurer zip code",
+   "type": "text",
+   "rect": [
+    240.0,
+    607.4,
+    283.0,
+    619.9
+   ]
+  },
+  {
+   "page": 4,
+   "name": "treas_email",
+   "label": "Treasurer e-mail",
+   "type": "text",
+   "rect": [
+    46.0,
+    633.8,
+    152.0,
+    646.3
+   ]
+  },
+  {
+   "page": 4,
+   "name": "treas_id",
+   "label": "Treasurer ID#",
+   "type": "text",
+   "rect": [
+    169.2,
+    633.8,
+    287.0,
+    646.3
+   ]
+  },
+  {
+   "page": 4,
+   "name": "yrep_night_phone",
+   "label": "Youth rep night phone",
+   "type": "text",
+   "rect": [
+    343.0,
+    543.9,
+    449.0,
+    556.4
+   ]
+  },
+  {
+   "page": 4,
+   "name": "yrep_day_phone",
+   "label": "Youth rep day phone",
+   "type": "text",
+   "rect": [
+    470.0,
+    543.9,
+    584.0,
+    556.4
+   ]
+  },
+  {
+   "page": 4,
+   "name": "yrep_name",
+   "label": "Youth rep first name, initial, last name, Jr./Sr./III",
+   "type": "text",
+   "rect": [
+    343.0,
+    567.2,
+    584.0,
+    579.7
+   ]
+  },
+  {
+   "page": 4,
+   "name": "yrep_street",
+   "label": "Youth rep street address",
+   "type": "text",
+   "rect": [
+    343.0,
+    590.5,
+    584.0,
+    603.0
+   ]
+  },
+  {
+   "page": 4,
+   "name": "yrep_city",
+   "label": "Youth rep city",
+   "type": "text",
+   "rect": [
+    343.0,
+    613.8,
+    478.0,
+    626.3
+   ]
+  },
+  {
+   "page": 4,
+   "name": "yrep_state",
+   "label": "Youth rep state",
+   "type": "text",
+   "rect": [
+    484.0,
+    613.8,
+    531.0,
+    626.3
+   ]
+  },
+  {
+   "page": 4,
+   "name": "yrep_zip",
+   "label": "Youth rep zip code",
+   "type": "text",
+   "rect": [
+    537.0,
+    613.8,
+    580.0,
+    626.3
+   ]
+  },
+  {
+   "page": 4,
+   "name": "yrep_email",
+   "label": "Youth rep e-mail",
+   "type": "text",
+   "rect": [
+    343.0,
+    637.2,
+    467.0,
+    649.7
+   ]
+  },
+  {
+   "page": 4,
+   "name": "yrep_id",
+   "label": "Youth rep ID#",
+   "type": "text",
+   "rect": [
+    485.2,
+    637.2,
+    584.0,
+    649.7
+   ]
+  },
+  {
+   "page": 4,
+   "name": "estimated_league_funds",
+   "label": "12. Estimated total league funds, not including lineage fees ($)",
+   "type": "text",
+   "rect": [
+    179.5,
+    678.2,
+    287.0,
+    690.7
+   ]
+  },
+  {
+   "page": 4,
+   "name": "president_signature",
+   "label": "Signature of league president",
+   "type": "text",
+   "rect": [
+    46.0,
+    722.7,
+    210.5,
+    735.2
+   ]
+  },
+  {
+   "page": 4,
+   "name": "president_signature_date",
+   "label": "Date",
+   "type": "text",
+   "rect": [
+    229.0,
+    722.7,
+    287.0,
+    735.2
+   ]
+  },
+  {
+   "page": 4,
+   "name": "cb_type_adult_mixed",
+   "label": "Adult Mixed",
+   "type": "checkbox",
+   "rect": [
+    39.0,
+    123.5,
+    45.1,
+    129.6
+   ]
+  },
+  {
+   "page": 4,
+   "name": "cb_type_adult_women",
+   "label": "Adult Women",
+   "type": "checkbox",
+   "rect": [
+    39.0,
+    133.5,
+    45.1,
+    139.6
+   ]
+  },
+  {
+   "page": 4,
+   "name": "cb_type_adult_men",
+   "label": "Adult Men",
+   "type": "checkbox",
+   "rect": [
+    39.0,
+    145.7,
+    45.1,
+    151.8
+   ]
+  },
+  {
+   "page": 4,
+   "name": "cb_type_youth_standard",
+   "label": "Youth Standard",
+   "type": "checkbox",
+   "rect": [
+    39.0,
+    157.9,
+    45.1,
+    163.9
+   ]
+  },
+  {
+   "page": 4,
+   "name": "cb_type_youth_basic",
+   "label": "Youth Basic",
+   "type": "checkbox",
+   "rect": [
+    39.0,
+    170.0,
+    45.1,
+    176.1
+   ]
+  },
+  {
+   "page": 4,
+   "name": "cb_type_roll_n_grow",
+   "label": "USBC Roll n Grow",
+   "type": "checkbox",
+   "rect": [
+    39.0,
+    182.2,
+    45.1,
+    188.2
+   ]
+  },
+  {
+   "page": 4,
+   "name": "cb_type_adult_youth_mixed",
+   "label": "Adult/Youth Mixed",
+   "type": "checkbox",
+   "rect": [
+    39.0,
+    194.3,
+    45.1,
+    200.4
+   ]
+  },
+  {
+   "page": 4,
+   "name": "cb_senior_league",
+   "label": "Senior League",
+   "type": "checkbox",
+   "rect": [
+    172.0,
+    123.5,
+    178.1,
+    129.6
+   ]
+  },
+  {
+   "page": 4,
+   "name": "cb_travel_league",
+   "label": "Travel League",
+   "type": "checkbox",
+   "rect": [
+    172.0,
+    133.5,
+    178.1,
+    139.6
+   ]
+  },
+  {
+   "page": 4,
+   "name": "cb_uses_computer",
+   "label": "League uses a computer for record keeping",
+   "type": "checkbox",
+   "rect": [
+    172.0,
+    145.7,
+    178.1,
+    151.8
+   ]
+  },
+  {
+   "page": 4,
+   "name": "cb_managed_league",
+   "label": "This is a managed league",
+   "type": "checkbox",
+   "rect": [
+    172.0,
+    157.9,
+    178.1,
+    163.9
+   ]
+  },
+  {
+   "page": 4,
+   "name": "cb_scholarship_smart",
+   "label": "Scholarship SMART",
+   "type": "checkbox",
+   "rect": [
+    172.0,
+    170.0,
+    178.1,
+    176.1
+   ]
+  },
+  {
+   "page": 4,
+   "name": "cb_format_standard",
+   "label": "Standard American Tenpin",
+   "type": "checkbox",
+   "rect": [
+    358.0,
+    133.5,
+    364.1,
+    139.6
+   ]
+  },
+  {
+   "page": 4,
+   "name": "cb_format_baker_scotch",
+   "label": "Baker/Scotch Doubles",
+   "type": "checkbox",
+   "rect": [
+    358.0,
+    145.7,
+    364.1,
+    151.8
+   ]
+  },
+  {
+   "page": 4,
+   "name": "cb_format_no_tap",
+   "label": "No Tap/3-6-9/Best Ball",
+   "type": "checkbox",
+   "rect": [
+    358.0,
+    157.9,
+    364.1,
+    163.9
+   ]
+  },
+  {
+   "page": 4,
+   "name": "cb_format_bumper",
+   "label": "Bumper",
+   "type": "checkbox",
+   "rect": [
+    358.0,
+    170.0,
+    364.1,
+    176.1
+   ]
+  },
+  {
+   "page": 4,
+   "name": "cb_lane_sport",
+   "label": "Sport",
+   "type": "checkbox",
+   "rect": [
+    521.0,
+    133.5,
+    527.1,
+    139.6
+   ]
+  },
+  {
+   "page": 4,
+   "name": "cb_lane_blue",
+   "label": "Blue",
+   "type": "checkbox",
+   "rect": [
+    521.0,
+    145.7,
+    527.1,
+    151.8
+   ]
+  },
+  {
+   "page": 4,
+   "name": "cb_lane_white",
+   "label": "White",
+   "type": "checkbox",
+   "rect": [
+    521.0,
+    157.9,
+    527.1,
+    163.9
+   ]
+  },
+  {
+   "page": 4,
+   "name": "cb_lane_red",
+   "label": "Red",
+   "type": "checkbox",
+   "rect": [
+    521.0,
+    170.0,
+    527.1,
+    176.1
+   ]
+  },
+  {
+   "page": 4,
+   "name": "cb_sec_male",
+   "label": "Secretary: male",
+   "type": "checkbox",
+   "rect": [
+    485.2,
+    308.7,
+    492.0,
+    315.5
+   ]
+  },
+  {
+   "page": 4,
+   "name": "cb_sec_female",
+   "label": "Secretary: female",
+   "type": "checkbox",
+   "rect": [
+    531.0,
+    308.7,
+    537.8,
+    315.5
+   ]
+  },
+  {
+   "page": 4,
+   "name": "cb_pres_male",
+   "label": "President: male",
+   "type": "checkbox",
+   "rect": [
+    485.2,
+    419.1,
+    492.0,
+    426.0
+   ]
+  },
+  {
+   "page": 4,
+   "name": "cb_pres_female",
+   "label": "President: female",
+   "type": "checkbox",
+   "rect": [
+    531.0,
+    419.1,
+    537.8,
+    426.0
+   ]
+  },
+  {
+   "page": 4,
+   "name": "cb_secretary_is_treasurer",
+   "label": "League secretary is also the treasurer",
+   "type": "checkbox",
+   "rect": [
+    44.0,
+    529.6,
+    50.8,
+    536.4
+   ]
+  },
+  {
+   "page": 5,
+   "name": "s1_league_application_no",
+   "label": "League application #",
+   "type": "text",
+   "rect": [
+    102.3,
+    145.0,
+    182.9,
+    157.5
+   ]
+  },
+  {
+   "page": 5,
+   "name": "s1_league_name",
+   "label": "League name",
+   "type": "text",
+   "rect": [
+    239.5,
+    145.0,
+    374.8,
+    157.5
+   ]
+  },
+  {
+   "page": 5,
+   "name": "s1_center_name",
+   "label": "Bowling center name",
+   "type": "text",
+   "rect": [
+    83.6,
+    163.6,
+    242.9,
+    176.1
+   ]
+  },
+  {
+   "page": 5,
+   "name": "s1_center_city",
+   "label": "Bowling center city",
+   "type": "text",
+   "rect": [
+    248.9,
+    163.6,
+    336.7,
+    176.1
+   ]
+  },
+  {
+   "page": 5,
+   "name": "s1_center_state",
+   "label": "Bowling center state",
+   "type": "text",
+   "rect": [
+    342.7,
+    163.6,
+    370.8,
+    176.1
+   ]
+  },
+  {
+   "page": 5,
+   "name": "s1_association_name",
+   "label": "Association name",
+   "type": "text",
+   "rect": [
+    97.0,
+    192.1,
+    374.8,
+    204.6
+   ]
+  },
+  {
+   "page": 6,
+   "name": "s2_league_application_no",
+   "label": "League application #",
+   "type": "text",
+   "rect": [
+    102.3,
+    145.0,
+    182.9,
+    157.5
+   ]
+  },
+  {
+   "page": 6,
+   "name": "s2_league_name",
+   "label": "League name",
+   "type": "text",
+   "rect": [
+    239.5,
+    145.0,
+    378.8,
+    157.5
+   ]
+  },
+  {
+   "page": 6,
+   "name": "s2_center_name",
+   "label": "Bowling center name",
+   "type": "text",
+   "rect": [
+    83.6,
+    163.7,
+    242.9,
+    176.2
+   ]
+  },
+  {
+   "page": 6,
+   "name": "s2_center_city",
+   "label": "Bowling center city",
+   "type": "text",
+   "rect": [
+    248.9,
+    163.7,
+    336.7,
+    176.2
+   ]
+  },
+  {
+   "page": 6,
+   "name": "s2_center_state",
+   "label": "Bowling center state",
+   "type": "text",
+   "rect": [
+    342.7,
+    163.7,
+    374.8,
+    176.2
+   ]
+  },
+  {
+   "page": 6,
+   "name": "s2_association_name",
+   "label": "Association name",
+   "type": "text",
+   "rect": [
+    97.0,
+    192.1,
+    378.8,
+    204.6
+   ]
+  },
+  {
+   "page": 4,
+   "name": "league_application_no",
+   "label": "League application #",
+   "type": "text",
+   "rect": [
+    537,
+    20,
+    590,
+    38
+   ]
+  },
+  {
+   "page": 5,
+   "name": "s1_line1_count",
+   "label": "Line 1 Standard: #",
+   "type": "text",
+   "rect": [
+    193.15632820129395,
+    234.708740234375,
+    235.61243438720703,
+    246.1836954752604
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 5,
+   "name": "s1_line1_cost",
+   "label": "Line 1 Standard: cost for one",
+   "type": "text",
+   "rect": [
+    258.513427734375,
+    234.708740234375,
+    288.3646545410156,
+    246.1836954752604
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 5,
+   "name": "s1_line1_total",
+   "label": "Line 1 Standard: total cost",
+   "type": "text",
+   "rect": [
+    317.43341064453125,
+    234.708740234375,
+    372.6314392089844,
+    246.1836954752604
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 5,
+   "name": "s1_line2_count",
+   "label": "Line 2 Sport: #",
+   "type": "text",
+   "rect": [
+    193.15632820129395,
+    248.1836954752604,
+    235.61243438720703,
+    259.625
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 5,
+   "name": "s1_line2_cost",
+   "label": "Line 2 Sport: cost for one",
+   "type": "text",
+   "rect": [
+    258.513427734375,
+    248.1836954752604,
+    288.3646545410156,
+    259.625
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 5,
+   "name": "s1_line2_total",
+   "label": "Line 2 Sport: total cost",
+   "type": "text",
+   "rect": [
+    317.43341064453125,
+    248.1836954752604,
+    372.6314392089844,
+    259.625
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 5,
+   "name": "s1_line3_count",
+   "label": "Line 3 Upgrade to Sport: #",
+   "type": "text",
+   "rect": [
+    193.15632820129395,
+    261.625,
+    235.61243438720703,
+    273.1041666666667
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 5,
+   "name": "s1_line3_cost",
+   "label": "Line 3 Upgrade to Sport: cost for one",
+   "type": "text",
+   "rect": [
+    258.513427734375,
+    261.625,
+    288.3646545410156,
+    273.1041666666667
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 5,
+   "name": "s1_line3_total",
+   "label": "Line 3 Upgrade to Sport: total cost",
+   "type": "text",
+   "rect": [
+    317.43341064453125,
+    261.625,
+    372.6314392089844,
+    273.1041666666667
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 5,
+   "name": "s1_line4_count",
+   "label": "Line 4 Local only: #",
+   "type": "text",
+   "rect": [
+    193.15632820129395,
+    275.1041666666667,
+    235.61243438720703,
+    286.44232177734375
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 5,
+   "name": "s1_line4_cost",
+   "label": "Line 4 Local only: cost for one",
+   "type": "text",
+   "rect": [
+    258.513427734375,
+    275.1041666666667,
+    288.3646545410156,
+    286.44232177734375
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 5,
+   "name": "s1_line4_total",
+   "label": "Line 4 Local only: total cost",
+   "type": "text",
+   "rect": [
+    317.43341064453125,
+    275.1041666666667,
+    372.6314392089844,
+    286.44232177734375
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 5,
+   "name": "s1_line5_count",
+   "label": "Line 5 State & Local only: #",
+   "type": "text",
+   "rect": [
+    193.15632820129395,
+    288.44232177734375,
+    235.61243438720703,
+    299.8845926920573
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 5,
+   "name": "s1_line5_cost",
+   "label": "Line 5 State & Local only: cost for one",
+   "type": "text",
+   "rect": [
+    258.513427734375,
+    288.44232177734375,
+    288.3646545410156,
+    299.8845926920573
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 5,
+   "name": "s1_line5_total",
+   "label": "Line 5 State & Local only: total cost",
+   "type": "text",
+   "rect": [
+    317.43341064453125,
+    288.44232177734375,
+    372.6314392089844,
+    299.8845926920573
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 5,
+   "name": "s1_line6_count",
+   "label": "Line 6 Other: #",
+   "type": "text",
+   "rect": [
+    193.15632820129395,
+    301.8845926920573,
+    235.61243438720703,
+    313.2016296386719
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 5,
+   "name": "s1_line6_cost",
+   "label": "Line 6 Other: cost for one",
+   "type": "text",
+   "rect": [
+    258.513427734375,
+    301.8845926920573,
+    288.3646545410156,
+    313.2016296386719
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 5,
+   "name": "s1_line6_total",
+   "label": "Line 6 Other: total cost",
+   "type": "text",
+   "rect": [
+    317.43341064453125,
+    301.8845926920573,
+    372.6314392089844,
+    313.2016296386719
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 5,
+   "name": "s1_line7_count",
+   "label": "Line 7 Total members paying dues (Add 1-6): #",
+   "type": "text",
+   "rect": [
+    193.15632820129395,
+    315.2016296386719,
+    235.61243438720703,
+    326.59619140625
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 5,
+   "name": "s1_line7_total",
+   "label": "Line 7 Total members paying dues (Add 1-6): total cost",
+   "type": "text",
+   "rect": [
+    317.4316101074219,
+    315.2016296386719,
+    372.6314392089844,
+    326.59619140625
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 5,
+   "name": "s1_line8_count",
+   "label": "Line 8 Purchased in another league: #",
+   "type": "text",
+   "rect": [
+    193.15632820129395,
+    328.59619140625,
+    235.61243438720703,
+    340.1031036376953
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 5,
+   "name": "s1_line9_count",
+   "label": "Line 9 Total members in this league (Add 7-8): #",
+   "type": "text",
+   "rect": [
+    193.15632820129395,
+    342.1031036376953,
+    235.61243438720703,
+    353.6323750813802
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 5,
+   "name": "s1_line12_count",
+   "label": "Line 12 Standard (inc. BA state dues): #",
+   "type": "text",
+   "rect": [
+    193.15632820129395,
+    382.3800506591797,
+    235.61243438720703,
+    393.5910339355469
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 5,
+   "name": "s1_line12_cost",
+   "label": "Line 12 Standard (inc. BA state dues): cost for one",
+   "type": "text",
+   "rect": [
+    258.513427734375,
+    382.3800506591797,
+    288.3646545410156,
+    393.5910339355469
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 5,
+   "name": "s1_line12_total",
+   "label": "Line 12 Standard (inc. BA state dues): total cost",
+   "type": "text",
+   "rect": [
+    317.43341064453125,
+    382.3800506591797,
+    372.6314392089844,
+    393.5910339355469
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 5,
+   "name": "s1_line13_count",
+   "label": "Line 13 Standard (inc. WBA state dues): #",
+   "type": "text",
+   "rect": [
+    193.15632820129395,
+    395.5910339355469,
+    235.61243438720703,
+    406.79490152994794
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 5,
+   "name": "s1_line13_cost",
+   "label": "Line 13 Standard (inc. WBA state dues): cost for one",
+   "type": "text",
+   "rect": [
+    258.513427734375,
+    395.5910339355469,
+    288.3646545410156,
+    406.79490152994794
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 5,
+   "name": "s1_line13_total",
+   "label": "Line 13 Standard (inc. WBA state dues): total cost",
+   "type": "text",
+   "rect": [
+    317.43341064453125,
+    395.5910339355469,
+    372.6314392089844,
+    406.79490152994794
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 5,
+   "name": "s1_line14_count",
+   "label": "Line 14 Standard (inc. both state dues): #",
+   "type": "text",
+   "rect": [
+    193.15632820129395,
+    408.79490152994794,
+    235.61243438720703,
+    422.24998982747394
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 5,
+   "name": "s1_line14_cost",
+   "label": "Line 14 Standard (inc. both state dues): cost for one",
+   "type": "text",
+   "rect": [
+    258.513427734375,
+    408.79490152994794,
+    288.3646545410156,
+    422.24998982747394
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 5,
+   "name": "s1_line14_total",
+   "label": "Line 14 Standard (inc. both state dues): total cost",
+   "type": "text",
+   "rect": [
+    317.43341064453125,
+    408.79490152994794,
+    372.6314392089844,
+    422.24998982747394
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 5,
+   "name": "s1_line15_count",
+   "label": "Line 15 Sport (inc. BA state dues): #",
+   "type": "text",
+   "rect": [
+    193.15632820129395,
+    424.24998982747394,
+    235.61243438720703,
+    437.1346130371094
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 5,
+   "name": "s1_line15_cost",
+   "label": "Line 15 Sport (inc. BA state dues): cost for one",
+   "type": "text",
+   "rect": [
+    258.513427734375,
+    424.24998982747394,
+    288.3646545410156,
+    437.1346130371094
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 5,
+   "name": "s1_line15_total",
+   "label": "Line 15 Sport (inc. BA state dues): total cost",
+   "type": "text",
+   "rect": [
+    317.43341064453125,
+    424.24998982747394,
+    372.6314392089844,
+    437.1346130371094
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 5,
+   "name": "s1_line16_count",
+   "label": "Line 16 Sport (inc. WBA state dues): #",
+   "type": "text",
+   "rect": [
+    193.15632820129395,
+    439.1346130371094,
+    235.61243438720703,
+    452.1923014322917
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 5,
+   "name": "s1_line16_cost",
+   "label": "Line 16 Sport (inc. WBA state dues): cost for one",
+   "type": "text",
+   "rect": [
+    258.513427734375,
+    439.1346130371094,
+    288.3646545410156,
+    452.1923014322917
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 5,
+   "name": "s1_line16_total",
+   "label": "Line 16 Sport (inc. WBA state dues): total cost",
+   "type": "text",
+   "rect": [
+    317.43341064453125,
+    439.1346130371094,
+    372.6314392089844,
+    452.1923014322917
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 5,
+   "name": "s1_line17_count",
+   "label": "Line 17 Sport (inc. both state dues): #",
+   "type": "text",
+   "rect": [
+    193.15632820129395,
+    454.1923014322917,
+    235.61243438720703,
+    467.53847249348956
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 5,
+   "name": "s1_line17_cost",
+   "label": "Line 17 Sport (inc. both state dues): cost for one",
+   "type": "text",
+   "rect": [
+    258.513427734375,
+    454.1923014322917,
+    288.3646545410156,
+    467.53847249348956
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 5,
+   "name": "s1_line17_total",
+   "label": "Line 17 Sport (inc. both state dues): total cost",
+   "type": "text",
+   "rect": [
+    317.43341064453125,
+    454.1923014322917,
+    372.6314392089844,
+    467.53847249348956
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 5,
+   "name": "s1_line18_count",
+   "label": "Line 18 Upgrade to Sport: #",
+   "type": "text",
+   "rect": [
+    193.15632820129395,
+    469.53847249348956,
+    235.61243438720703,
+    482.4936116536458
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 5,
+   "name": "s1_line18_cost",
+   "label": "Line 18 Upgrade to Sport: cost for one",
+   "type": "text",
+   "rect": [
+    258.513427734375,
+    469.53847249348956,
+    288.3646545410156,
+    482.4936116536458
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 5,
+   "name": "s1_line18_total",
+   "label": "Line 18 Upgrade to Sport: total cost",
+   "type": "text",
+   "rect": [
+    317.43341064453125,
+    469.53847249348956,
+    372.6314392089844,
+    482.4936116536458
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 5,
+   "name": "s1_line19_count",
+   "label": "Line 19 Local only: #",
+   "type": "text",
+   "rect": [
+    193.15632820129395,
+    484.4936116536458,
+    235.61243438720703,
+    497.5
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 5,
+   "name": "s1_line19_cost",
+   "label": "Line 19 Local only: cost for one",
+   "type": "text",
+   "rect": [
+    258.513427734375,
+    484.4936116536458,
+    288.3646545410156,
+    497.5
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 5,
+   "name": "s1_line19_total",
+   "label": "Line 19 Local only: total cost",
+   "type": "text",
+   "rect": [
+    317.43341064453125,
+    484.4936116536458,
+    372.6314392089844,
+    497.5
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 5,
+   "name": "s1_line20_count",
+   "label": "Line 20 Local and BA state only: #",
+   "type": "text",
+   "rect": [
+    193.15632820129395,
+    499.5,
+    235.61243438720703,
+    512.6538289388021
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 5,
+   "name": "s1_line20_cost",
+   "label": "Line 20 Local and BA state only: cost for one",
+   "type": "text",
+   "rect": [
+    258.513427734375,
+    499.5,
+    288.3646545410156,
+    512.6538289388021
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 5,
+   "name": "s1_line20_total",
+   "label": "Line 20 Local and BA state only: total cost",
+   "type": "text",
+   "rect": [
+    317.43341064453125,
+    499.5,
+    372.6314392089844,
+    512.6538289388021
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 5,
+   "name": "s1_line21_count",
+   "label": "Line 21 Local and WBA state only: #",
+   "type": "text",
+   "rect": [
+    193.15632820129395,
+    514.6538289388021,
+    235.61243438720703,
+    527.875
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 5,
+   "name": "s1_line21_cost",
+   "label": "Line 21 Local and WBA state only: cost for one",
+   "type": "text",
+   "rect": [
+    258.513427734375,
+    514.6538289388021,
+    288.3646545410156,
+    527.875
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 5,
+   "name": "s1_line21_total",
+   "label": "Line 21 Local and WBA state only: total cost",
+   "type": "text",
+   "rect": [
+    317.43341064453125,
+    514.6538289388021,
+    372.6314392089844,
+    527.875
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 5,
+   "name": "s1_line22_count",
+   "label": "Line 22 Other: #",
+   "type": "text",
+   "rect": [
+    193.15632820129395,
+    529.875,
+    235.61243438720703,
+    542.875
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 5,
+   "name": "s1_line22_cost",
+   "label": "Line 22 Other: cost for one",
+   "type": "text",
+   "rect": [
+    258.513427734375,
+    529.875,
+    288.3646545410156,
+    542.875
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 5,
+   "name": "s1_line22_total",
+   "label": "Line 22 Other: total cost",
+   "type": "text",
+   "rect": [
+    317.43341064453125,
+    529.875,
+    372.6314392089844,
+    542.875
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 5,
+   "name": "s1_line23_count",
+   "label": "Line 23 Total members paying dues (Add 12-22): #",
+   "type": "text",
+   "rect": [
+    193.15632820129395,
+    544.875,
+    235.61243438720703,
+    558.173095703125
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 5,
+   "name": "s1_line23_total",
+   "label": "Line 23 Total members paying dues (Add 12-22): total cost",
+   "type": "text",
+   "rect": [
+    317.4316101074219,
+    544.875,
+    372.6314392089844,
+    558.173095703125
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 5,
+   "name": "s1_line24_count",
+   "label": "Line 24 Purchased in another league: #",
+   "type": "text",
+   "rect": [
+    193.15632820129395,
+    560.173095703125,
+    235.61243438720703,
+    573.31689453125
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 5,
+   "name": "s1_line25_count",
+   "label": "Line 25 Total members in this league (Add 23-24): #",
+   "type": "text",
+   "rect": [
+    193.15632820129395,
+    575.31689453125,
+    235.61243438720703,
+    587.9201253255209
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 6,
+   "name": "s2_line1_count",
+   "label": "Line 1 Standard: #",
+   "type": "text",
+   "rect": [
+    198.00366020202637,
+    233.70494079589844,
+    238.84681447347006,
+    245.18013509114584
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 6,
+   "name": "s2_line1_cost",
+   "label": "Line 1 Standard: cost for one",
+   "type": "text",
+   "rect": [
+    262.9378356933594,
+    233.70494079589844,
+    294.49462890625,
+    245.18013509114584
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 6,
+   "name": "s2_line1_total",
+   "label": "Line 1 Standard: total cost",
+   "type": "text",
+   "rect": [
+    321.8578186035156,
+    233.70494079589844,
+    377.5383656819661,
+    245.18013509114584
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 6,
+   "name": "s2_line2_count",
+   "label": "Line 2 Sport: #",
+   "type": "text",
+   "rect": [
+    198.00366020202637,
+    247.18013509114584,
+    238.84681447347006,
+    258.62139892578125
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 6,
+   "name": "s2_line2_cost",
+   "label": "Line 2 Sport: cost for one",
+   "type": "text",
+   "rect": [
+    262.9378356933594,
+    247.18013509114584,
+    294.49462890625,
+    258.62139892578125
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 6,
+   "name": "s2_line2_total",
+   "label": "Line 2 Sport: total cost",
+   "type": "text",
+   "rect": [
+    321.8578186035156,
+    247.18013509114584,
+    377.5383656819661,
+    258.62139892578125
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 6,
+   "name": "s2_line3_count",
+   "label": "Line 3 Upgrade to Sport: #",
+   "type": "text",
+   "rect": [
+    198.00366020202637,
+    260.62139892578125,
+    238.84681447347006,
+    272.10056559244794
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 6,
+   "name": "s2_line3_cost",
+   "label": "Line 3 Upgrade to Sport: cost for one",
+   "type": "text",
+   "rect": [
+    262.9378356933594,
+    260.62139892578125,
+    294.49462890625,
+    272.10056559244794
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 6,
+   "name": "s2_line3_total",
+   "label": "Line 3 Upgrade to Sport: total cost",
+   "type": "text",
+   "rect": [
+    321.8578186035156,
+    260.62139892578125,
+    377.5383656819661,
+    272.10056559244794
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 6,
+   "name": "s2_line4_count",
+   "label": "Line 4 Local only: #",
+   "type": "text",
+   "rect": [
+    198.00366020202637,
+    274.10056559244794,
+    238.84681447347006,
+    285.438720703125
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 6,
+   "name": "s2_line4_cost",
+   "label": "Line 4 Local only: cost for one",
+   "type": "text",
+   "rect": [
+    262.9378356933594,
+    274.10056559244794,
+    294.49462890625,
+    285.438720703125
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 6,
+   "name": "s2_line4_total",
+   "label": "Line 4 Local only: total cost",
+   "type": "text",
+   "rect": [
+    321.8578186035156,
+    274.10056559244794,
+    377.5383656819661,
+    285.438720703125
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 6,
+   "name": "s2_line5_count",
+   "label": "Line 5 State & Local only: #",
+   "type": "text",
+   "rect": [
+    198.00366020202637,
+    287.438720703125,
+    238.84681447347006,
+    298.8810526529948
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 6,
+   "name": "s2_line5_cost",
+   "label": "Line 5 State & Local only: cost for one",
+   "type": "text",
+   "rect": [
+    262.9378356933594,
+    287.438720703125,
+    294.49462890625,
+    298.8810526529948
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 6,
+   "name": "s2_line5_total",
+   "label": "Line 5 State & Local only: total cost",
+   "type": "text",
+   "rect": [
+    321.8578186035156,
+    287.438720703125,
+    377.5383656819661,
+    298.8810526529948
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 6,
+   "name": "s2_line6_count",
+   "label": "Line 6 Other: #",
+   "type": "text",
+   "rect": [
+    198.00366020202637,
+    300.8810526529948,
+    238.84681447347006,
+    312.1980692545573
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 6,
+   "name": "s2_line6_cost",
+   "label": "Line 6 Other: cost for one",
+   "type": "text",
+   "rect": [
+    262.9378356933594,
+    300.8810526529948,
+    294.49462890625,
+    312.1980692545573
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 6,
+   "name": "s2_line6_total",
+   "label": "Line 6 Other: total cost",
+   "type": "text",
+   "rect": [
+    321.8578186035156,
+    300.8810526529948,
+    377.5383656819661,
+    312.1980692545573
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 6,
+   "name": "s2_line7_count",
+   "label": "Line 7 Total members paying dues (Add 1-6): #",
+   "type": "text",
+   "rect": [
+    198.00366020202637,
+    314.1980692545573,
+    238.84681447347006,
+    325.59259033203125
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 6,
+   "name": "s2_line7_total",
+   "label": "Line 7 Total members paying dues (Add 1-6): total cost",
+   "type": "text",
+   "rect": [
+    321.85601806640625,
+    314.1980692545573,
+    377.5383656819661,
+    325.59259033203125
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 6,
+   "name": "s2_line8_count",
+   "label": "Line 8 Purchased in another league: #",
+   "type": "text",
+   "rect": [
+    198.00366020202637,
+    327.59259033203125,
+    238.84681447347006,
+    339.0207977294922
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 6,
+   "name": "s2_line9_count",
+   "label": "Line 9 Total members in this league (Add 7-8): #",
+   "type": "text",
+   "rect": [
+    198.00366020202637,
+    341.0207977294922,
+    238.84681447347006,
+    352.57630411783856
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 6,
+   "name": "s2_line12_count",
+   "label": "Line 12 Youth Basic (current league only): #",
+   "type": "text",
+   "rect": [
+    198.00366020202637,
+    381.3768005371094,
+    238.84681447347006,
+    392.5875244140625
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 6,
+   "name": "s2_line12_total",
+   "label": "Line 12 Youth Basic (current league only): total cost",
+   "type": "text",
+   "rect": [
+    321.8578186035156,
+    381.3768005371094,
+    377.5383656819661,
+    392.5875244140625
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 6,
+   "name": "s2_line13_count",
+   "label": "Line 13 High School Basic: #",
+   "type": "text",
+   "rect": [
+    198.00366020202637,
+    394.5875244140625,
+    238.84681447347006,
+    405.76507568359375
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 6,
+   "name": "s2_line13_total",
+   "label": "Line 13 High School Basic: total cost",
+   "type": "text",
+   "rect": [
+    320.7585144042969,
+    394.5875244140625,
+    377.5383656819661,
+    405.76507568359375
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 6,
+   "name": "s2_line14_count",
+   "label": "Line 14 USBC Roll \u2019n Grow: #",
+   "type": "text",
+   "rect": [
+    198.00366020202637,
+    407.76507568359375,
+    238.84681447347006,
+    421.2463887532552
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 6,
+   "name": "s2_line14_total",
+   "label": "Line 14 USBC Roll \u2019n Grow: total cost",
+   "type": "text",
+   "rect": [
+    321.8578186035156,
+    407.76507568359375,
+    377.5383656819661,
+    421.2463887532552
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 6,
+   "name": "s2_line15_count",
+   "label": "Line 15 Standard (inc. state dues): #",
+   "type": "text",
+   "rect": [
+    198.00366020202637,
+    423.2463887532552,
+    238.84681447347006,
+    436.13108317057294
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 6,
+   "name": "s2_line15_total",
+   "label": "Line 15 Standard (inc. state dues): total cost",
+   "type": "text",
+   "rect": [
+    321.8578186035156,
+    423.2463887532552,
+    377.5383656819661,
+    436.13108317057294
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 6,
+   "name": "s2_line16_count",
+   "label": "Line 16 Sport (inc. state dues): #",
+   "type": "text",
+   "rect": [
+    198.00366020202637,
+    438.13108317057294,
+    238.84681447347006,
+    451.18873087565106
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 6,
+   "name": "s2_line16_total",
+   "label": "Line 16 Sport (inc. state dues): total cost",
+   "type": "text",
+   "rect": [
+    321.8578186035156,
+    438.13108317057294,
+    377.5383656819661,
+    451.18873087565106
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 6,
+   "name": "s2_line17_count",
+   "label": "Line 17 Upgrade to Sport: #",
+   "type": "text",
+   "rect": [
+    198.00366020202637,
+    453.18873087565106,
+    238.84681447347006,
+    466.53490193684894
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 6,
+   "name": "s2_line17_total",
+   "label": "Line 17 Upgrade to Sport: total cost",
+   "type": "text",
+   "rect": [
+    321.8578186035156,
+    453.18873087565106,
+    377.5383656819661,
+    466.53490193684894
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 6,
+   "name": "s2_line18_count",
+   "label": "Line 18 Upgrade to Sport plus processing fee: #",
+   "type": "text",
+   "rect": [
+    198.00366020202637,
+    468.53490193684894,
+    238.84681447347006,
+    481.49001057942706
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 6,
+   "name": "s2_line18_total",
+   "label": "Line 18 Upgrade to Sport plus processing fee: total cost",
+   "type": "text",
+   "rect": [
+    321.8578186035156,
+    468.53490193684894,
+    377.5383656819661,
+    481.49001057942706
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 6,
+   "name": "s2_line19_count",
+   "label": "Line 19 Processing fee only: #",
+   "type": "text",
+   "rect": [
+    198.00366020202637,
+    483.49001057942706,
+    238.84681447347006,
+    496.49639892578125
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 6,
+   "name": "s2_line19_total",
+   "label": "Line 19 Processing fee only: total cost",
+   "type": "text",
+   "rect": [
+    321.8578186035156,
+    483.49001057942706,
+    377.5383656819661,
+    496.49639892578125
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 6,
+   "name": "s2_line20_count",
+   "label": "Line 20 Processing fee plus state only: #",
+   "type": "text",
+   "rect": [
+    198.00366020202637,
+    498.49639892578125,
+    238.84681447347006,
+    510.5033671061198
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 6,
+   "name": "s2_line20_total",
+   "label": "Line 20 Processing fee plus state only: total cost",
+   "type": "text",
+   "rect": [
+    321.8578186035156,
+    498.49639892578125,
+    377.5383656819661,
+    510.5033671061198
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 6,
+   "name": "s2_line21_count",
+   "label": "Line 21 Other: #",
+   "type": "text",
+   "rect": [
+    198.00366020202637,
+    512.5033671061199,
+    238.84681447347006,
+    524.1870727539062
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 6,
+   "name": "s2_line21_cost",
+   "label": "Line 21 Other: cost for one",
+   "type": "text",
+   "rect": [
+    262.9378356933594,
+    512.5033671061199,
+    294.49462890625,
+    524.1870727539062
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 6,
+   "name": "s2_line21_total",
+   "label": "Line 21 Other: total cost",
+   "type": "text",
+   "rect": [
+    321.8578186035156,
+    512.5033671061199,
+    377.5383656819661,
+    524.1870727539062
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 6,
+   "name": "s2_line22_count",
+   "label": "Line 22 Total members paying dues (Add 12-21): #",
+   "type": "text",
+   "rect": [
+    198.00366020202637,
+    526.1870727539062,
+    238.84681447347006,
+    539.6011657714844
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 6,
+   "name": "s2_line22_total",
+   "label": "Line 22 Total members paying dues (Add 12-21): total cost",
+   "type": "text",
+   "rect": [
+    321.85601806640625,
+    526.1870727539062,
+    377.5383656819661,
+    539.6011657714844
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 6,
+   "name": "s2_line23_count",
+   "label": "Line 23 in another league (Standard/Sport): #",
+   "type": "text",
+   "rect": [
+    198.00366020202637,
+    541.6011657714844,
+    238.84681447347006,
+    555.3290405273438
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 6,
+   "name": "s2_line24_count",
+   "label": "Line 24 Total members in this league (Add 22-23): #",
+   "type": "text",
+   "rect": [
+    198.00366020202637,
+    557.3290405273438,
+    238.84681447347006,
+    572.6091512044271
+   ],
+   "fontsize": 9
+  }
+ ]
+}

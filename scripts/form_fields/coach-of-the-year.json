@@ -1,0 +1,139 @@
+{
+ "source": "coach-of-the-year.pdf",
+ "fields": [
+  {
+   "page": 0,
+   "name": "nominee_name",
+   "label": "Nominee last name, first",
+   "type": "text",
+   "rect": [
+    58.7,
+    154.6,
+    270.3,
+    167.1
+   ]
+  },
+  {
+   "page": 0,
+   "name": "date_of_nomination",
+   "label": "Date of nomination",
+   "type": "text",
+   "rect": [
+    326.9,
+    156.1,
+    538.5,
+    168.6
+   ]
+  },
+  {
+   "page": 0,
+   "name": "name",
+   "label": "Name",
+   "type": "text",
+   "rect": [
+    124.7,
+    241.5,
+    290.0,
+    254.0
+   ]
+  },
+  {
+   "page": 0,
+   "name": "usbc_card",
+   "label": "USBC card # (if applicable)",
+   "type": "text",
+   "rect": [
+    371.4,
+    241.5,
+    445.0,
+    254.0
+   ]
+  },
+  {
+   "page": 0,
+   "name": "address",
+   "label": "Address",
+   "type": "text",
+   "rect": [
+    152.0,
+    266.4,
+    390.0,
+    305.9
+   ],
+   "multiline": true
+  },
+  {
+   "page": 0,
+   "name": "phone",
+   "label": "Phone",
+   "type": "text",
+   "rect": [
+    145.0,
+    323.0,
+    293.0,
+    335.5
+   ]
+  },
+  {
+   "page": 0,
+   "name": "bowling_centers",
+   "label": "Bowling center(s)",
+   "type": "text",
+   "rect": [
+    203.3,
+    363.3,
+    531.3,
+    375.8
+   ]
+  },
+  {
+   "page": 0,
+   "name": "about_nominee",
+   "label": "Tell us something about the nominee",
+   "type": "text",
+   "rect": [
+    80.7,
+    414.8,
+    546.2,
+    514.1
+   ],
+   "multiline": true
+  },
+  {
+   "page": 0,
+   "name": "nominated_by",
+   "label": "Nominated by",
+   "type": "text",
+   "rect": [
+    179.6,
+    540.4,
+    327.4,
+    552.9
+   ]
+  },
+  {
+   "page": 0,
+   "name": "cb_proprietor_of_the_year",
+   "label": "Proprietor of the Year",
+   "type": "checkbox",
+   "rect": [
+    496.1,
+    199.4,
+    508.6,
+    211.8
+   ]
+  },
+  {
+   "page": 0,
+   "name": "cb_coach_of_the_year",
+   "label": "Coach of the Year",
+   "type": "checkbox",
+   "rect": [
+    496.1,
+    214.2,
+    508.6,
+    226.7
+   ]
+  }
+ ]
+}

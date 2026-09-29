@@ -1,0 +1,116 @@
+{
+ "source": "bvl-veterans-doubles-entry.pdf",
+ "fields": [
+  {
+   "page": 0,
+   "name": "team_name",
+   "label": "Team name",
+   "type": "text",
+   "rect": [
+    230.5,
+    426,
+    429.1,
+    439.8
+   ]
+  },
+  {
+   "page": 0,
+   "name": "bowler1_name",
+   "label": "Bowler 1 name",
+   "type": "text",
+   "rect": [
+    51.4,
+    464.5,
+    327.2,
+    478.3
+   ]
+  },
+  {
+   "page": 0,
+   "name": "bowler1_avg",
+   "label": "Bowler 1 2025-26 average",
+   "type": "text",
+   "rect": [
+    430,
+    464.5,
+    512.9,
+    478.3
+   ],
+   "maxlen": 3
+  },
+  {
+   "page": 0,
+   "name": "bowler2_name",
+   "label": "Bowler 2 name",
+   "type": "text",
+   "rect": [
+    51.4,
+    503,
+    327.2,
+    516.9
+   ]
+  },
+  {
+   "page": 0,
+   "name": "bowler2_avg",
+   "label": "Bowler 2 2025-26 average",
+   "type": "text",
+   "rect": [
+    430,
+    503,
+    512.9,
+    516.9
+   ],
+   "maxlen": 3
+  },
+  {
+   "page": 0,
+   "name": "contact_name",
+   "label": "Contact name",
+   "type": "text",
+   "rect": [
+    94.6,
+    574.5,
+    315.5,
+    588.2
+   ]
+  },
+  {
+   "page": 0,
+   "name": "contact_phone",
+   "label": "Contact phone",
+   "type": "text",
+   "rect": [
+    376.1,
+    574.5,
+    517.4,
+    588.2
+   ]
+  },
+  {
+   "page": 0,
+   "name": "contact_email",
+   "label": "Contact email",
+   "type": "text",
+   "rect": [
+    85.6,
+    614,
+    354.2,
+    627.9
+   ]
+  },
+  {
+   "page": 0,
+   "name": "total_paid",
+   "label": "Total amount paid ($)",
+   "type": "text",
+   "rect": [
+    302.3,
+    644,
+    365.1,
+    659.8
+   ],
+   "maxlen": 6
+  }
+ ]
+}

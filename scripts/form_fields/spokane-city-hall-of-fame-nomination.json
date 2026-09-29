@@ -1,0 +1,760 @@
+{
+ "source": "spokane-city-hall-of-fame-nomination.pdf",
+ "fields": [
+  {
+   "page": 1,
+   "name": "date_of_nomination",
+   "label": "Date of nomination",
+   "type": "text",
+   "rect": [
+    73,
+    158.4,
+    203,
+    170.3
+   ]
+  },
+  {
+   "page": 1,
+   "name": "nominee_name",
+   "label": "Nominee last name, first",
+   "type": "text",
+   "rect": [
+    322,
+    158.4,
+    486,
+    170.3
+   ]
+  },
+  {
+   "page": 1,
+   "name": "cb_superior_performance",
+   "label": "Superior Performance",
+   "type": "checkbox",
+   "rect": [
+    77,
+    218.8,
+    89,
+    230.3
+   ]
+  },
+  {
+   "page": 1,
+   "name": "cb_living",
+   "label": "Living",
+   "type": "checkbox",
+   "rect": [
+    224,
+    218.8,
+    236,
+    230.3
+   ]
+  },
+  {
+   "page": 1,
+   "name": "cb_meritorious_service",
+   "label": "Meritorious Service",
+   "type": "checkbox",
+   "rect": [
+    77,
+    244.2,
+    89,
+    255.7
+   ]
+  },
+  {
+   "page": 1,
+   "name": "cb_posthumous",
+   "label": "Posthumous",
+   "type": "checkbox",
+   "rect": [
+    224,
+    244.2,
+    236,
+    255.7
+   ]
+  },
+  {
+   "page": 1,
+   "name": "cb_extraordinary",
+   "label": "Extraordinary Accomplishment or Recognition",
+   "type": "checkbox",
+   "rect": [
+    329,
+    244.2,
+    341,
+    255.7
+   ]
+  },
+  {
+   "page": 1,
+   "name": "cb_team",
+   "label": "Extraordinary: Team",
+   "type": "checkbox",
+   "rect": [
+    362,
+    265.8,
+    371.3,
+    275
+   ]
+  },
+  {
+   "page": 1,
+   "name": "cb_other",
+   "label": "Extraordinary: Other",
+   "type": "checkbox",
+   "rect": [
+    434.2,
+    265.8,
+    443.4,
+    275
+   ]
+  },
+  {
+   "page": 1,
+   "name": "name",
+   "label": "Name",
+   "type": "text",
+   "rect": [
+    111,
+    290.9,
+    308,
+    302.79999999999995
+   ]
+  },
+  {
+   "page": 1,
+   "name": "usbc_card",
+   "label": "USBC card # (if applicable)",
+   "type": "text",
+   "rect": [
+    389,
+    290.9,
+    465,
+    302.79999999999995
+   ]
+  },
+  {
+   "page": 1,
+   "name": "date_of_birth",
+   "label": "Date of birth",
+   "type": "text",
+   "rect": [
+    163,
+    314.3,
+    261,
+    326.2
+   ]
+  },
+  {
+   "page": 1,
+   "name": "phone",
+   "label": "Phone no.",
+   "type": "text",
+   "rect": [
+    389,
+    314.3,
+    531,
+    326.2
+   ]
+  },
+  {
+   "page": 1,
+   "name": "address",
+   "label": "Address",
+   "type": "text",
+   "rect": [
+    129,
+    337.5,
+    546,
+    349.4
+   ]
+  },
+  {
+   "page": 1,
+   "name": "league_bowling_from_1",
+   "label": "Competed in league bowling: from",
+   "type": "text",
+   "rect": [
+    283,
+    372.6,
+    403,
+    384.5
+   ]
+  },
+  {
+   "page": 1,
+   "name": "league_bowling_to_1",
+   "label": "Competed in league bowling: to",
+   "type": "text",
+   "rect": [
+    431,
+    372.6,
+    539,
+    384.5
+   ]
+  },
+  {
+   "page": 1,
+   "name": "league_bowling_from_2",
+   "label": "Competed in league bowling: from (2)",
+   "type": "text",
+   "rect": [
+    283,
+    396.0,
+    403,
+    407.9
+   ]
+  },
+  {
+   "page": 1,
+   "name": "league_bowling_to_2",
+   "label": "Competed in league bowling: to (2)",
+   "type": "text",
+   "rect": [
+    431,
+    396.0,
+    539,
+    407.9
+   ]
+  },
+  {
+   "page": 1,
+   "name": "assn_member_from_1",
+   "label": "Local association member: from",
+   "type": "text",
+   "rect": [
+    283,
+    419.3,
+    403,
+    431.2
+   ]
+  },
+  {
+   "page": 1,
+   "name": "assn_member_to_1",
+   "label": "Local association member: to",
+   "type": "text",
+   "rect": [
+    431,
+    419.3,
+    539,
+    431.2
+   ]
+  },
+  {
+   "page": 1,
+   "name": "assn_member_from_2",
+   "label": "Local association member: from (2)",
+   "type": "text",
+   "rect": [
+    283,
+    442.7,
+    403,
+    454.59999999999997
+   ]
+  },
+  {
+   "page": 1,
+   "name": "assn_member_to_2",
+   "label": "Local association member: to (2)",
+   "type": "text",
+   "rect": [
+    431,
+    442.7,
+    539,
+    454.59999999999997
+   ]
+  },
+  {
+   "page": 1,
+   "name": "local_associations",
+   "label": "Name of local association(s)",
+   "type": "text",
+   "rect": [
+    253,
+    465.9,
+    549,
+    477.79999999999995
+   ]
+  },
+  {
+   "page": 1,
+   "name": "tourn_scusbc",
+   "label": "Spokane County USBC tournament (incl. SBA and SWBA): years & achievements",
+   "type": "text",
+   "rect": [
+    325,
+    617.5,
+    522,
+    629.4
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 1,
+   "name": "tourn_wa_state",
+   "label": "Wash State tournament: years & achievements",
+   "type": "text",
+   "rect": [
+    325,
+    641.0,
+    522,
+    652.9
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 1,
+   "name": "tourn_wa_mixed",
+   "label": "Wash State mixed tournament: years & achievements",
+   "type": "text",
+   "rect": [
+    325,
+    664.3,
+    522,
+    676.1999999999999
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 1,
+   "name": "tourn_wa_senior",
+   "label": "Wash State senior tournament: years & achievements",
+   "type": "text",
+   "rect": [
+    325,
+    687.6,
+    522,
+    699.5
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 1,
+   "name": "tourn_national",
+   "label": "National tournament: years & achievements",
+   "type": "text",
+   "rect": [
+    325,
+    710.9,
+    522,
+    722.8
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 2,
+   "name": "nominee_name_p3",
+   "label": "Nominee last name, first",
+   "type": "text",
+   "rect": [
+    342,
+    159.0,
+    516,
+    170.9
+   ]
+  },
+  {
+   "page": 2,
+   "name": "ach_high_averages",
+   "label": "High averages",
+   "type": "text",
+   "rect": [
+    325,
+    209.3,
+    522,
+    222.29999999999998
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 2,
+   "name": "ach_high_series",
+   "label": "High series",
+   "type": "text",
+   "rect": [
+    325,
+    223.9,
+    522,
+    236.89999999999998
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 2,
+   "name": "ach_high_games",
+   "label": "High games",
+   "type": "text",
+   "rect": [
+    325,
+    238.5,
+    522,
+    251.39999999999998
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 2,
+   "name": "ach_honor_scores",
+   "label": "Honor scores",
+   "type": "text",
+   "rect": [
+    325,
+    253.0,
+    522,
+    266.09999999999997
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 2,
+   "name": "office_national",
+   "label": "Offices held: national",
+   "type": "text",
+   "rect": [
+    325,
+    298.0,
+    522,
+    311.0
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 2,
+   "name": "office_state",
+   "label": "Offices held: state",
+   "type": "text",
+   "rect": [
+    325,
+    312.6,
+    522,
+    325.59999999999997
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 2,
+   "name": "office_local",
+   "label": "Offices held: local",
+   "type": "text",
+   "rect": [
+    325,
+    327.2,
+    522,
+    340.2
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 2,
+   "name": "office_league",
+   "label": "Offices held: league",
+   "type": "text",
+   "rect": [
+    325,
+    341.8,
+    522,
+    354.8
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 2,
+   "name": "service_associations",
+   "label": "Special service: associations and bowlers",
+   "type": "text",
+   "rect": [
+    325,
+    387.0,
+    522,
+    400.0
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 2,
+   "name": "service_sport",
+   "label": "Special service: sport of bowling",
+   "type": "text",
+   "rect": [
+    325,
+    401.6,
+    522,
+    414.5
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 2,
+   "name": "civic_fellowship",
+   "label": "Fellowship clubs / lodges",
+   "type": "text",
+   "rect": [
+    325,
+    446.5,
+    522,
+    459.5
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 2,
+   "name": "civic_community",
+   "label": "Community service clubs",
+   "type": "text",
+   "rect": [
+    325,
+    461.1,
+    522,
+    474.0
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 2,
+   "name": "civic_other",
+   "label": "Other affiliations",
+   "type": "text",
+   "rect": [
+    325,
+    475.6,
+    522,
+    488.7
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 2,
+   "name": "youth_bowling",
+   "label": "Youth bowling: bowling",
+   "type": "text",
+   "rect": [
+    325,
+    520.6999999999999,
+    522,
+    533.7
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 2,
+   "name": "youth_coach",
+   "label": "Youth bowling: coach",
+   "type": "text",
+   "rect": [
+    325,
+    535.3,
+    522,
+    548.2
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 2,
+   "name": "youth_rvp",
+   "label": "Youth bowling: registered volunteer (RVP)",
+   "type": "text",
+   "rect": [
+    325,
+    549.8,
+    522,
+    562.7
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 2,
+   "name": "recommended_by_1",
+   "label": "Recommended by 1: signature, phone or email",
+   "type": "text",
+   "rect": [
+    303,
+    617.3,
+    544,
+    629.1999999999999
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 2,
+   "name": "recommended_by_2",
+   "label": "Recommended by 2: signature, phone or email",
+   "type": "text",
+   "rect": [
+    303,
+    646.4,
+    544,
+    658.3
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 3,
+   "name": "nominee_name_p4",
+   "label": "Nominee last name, first",
+   "type": "text",
+   "rect": [
+    359,
+    160.9,
+    534,
+    172.8
+   ]
+  },
+  {
+   "page": 3,
+   "name": "date_app_received",
+   "label": "Date application received",
+   "type": "text",
+   "rect": [
+    364,
+    264.1,
+    418,
+    276.0
+   ]
+  },
+  {
+   "page": 3,
+   "name": "received_by_whom",
+   "label": "Received by whom",
+   "type": "text",
+   "rect": [
+    428,
+    264.1,
+    548,
+    276.0
+   ]
+  },
+  {
+   "page": 3,
+   "name": "date_received_committee",
+   "label": "Date received by Hall of Fame committee",
+   "type": "text",
+   "rect": [
+    362,
+    289.3,
+    547,
+    301.09999999999997
+   ]
+  },
+  {
+   "page": 3,
+   "name": "date_ack_sent",
+   "label": "Date acknowledgement sent to submitters",
+   "type": "text",
+   "rect": [
+    362,
+    327.5,
+    547,
+    339.4
+   ]
+  },
+  {
+   "page": 3,
+   "name": "action_taken",
+   "label": "Action taken by Hall of Fame committee (line 1)",
+   "type": "text",
+   "rect": [
+    362,
+    352.9,
+    547,
+    364.79999999999995
+   ]
+  },
+  {
+   "page": 3,
+   "name": "action_taken_2",
+   "label": "Action taken by Hall of Fame committee (line 2)",
+   "type": "text",
+   "rect": [
+    362,
+    390.9,
+    547,
+    402.79999999999995
+   ]
+  },
+  {
+   "page": 3,
+   "name": "action_taken_3",
+   "label": "Action taken by Hall of Fame committee (line 3)",
+   "type": "text",
+   "rect": [
+    362,
+    416.3,
+    547,
+    428.2
+   ]
+  },
+  {
+   "page": 3,
+   "name": "date_elected",
+   "label": "Date elected by board to Hall of Fame",
+   "type": "text",
+   "rect": [
+    362,
+    441.6,
+    547,
+    453.5
+   ]
+  },
+  {
+   "page": 3,
+   "name": "date_inducted",
+   "label": "Date inducted into Hall of Fame",
+   "type": "text",
+   "rect": [
+    362,
+    466.9,
+    547,
+    478.79999999999995
+   ]
+  },
+  {
+   "page": 3,
+   "name": "cb_elected_original_retained",
+   "label": "Elected: original retained by association manager",
+   "type": "checkbox",
+   "rect": [
+    113,
+    599.5,
+    125,
+    611.5
+   ]
+  },
+  {
+   "page": 3,
+   "name": "cb_elected_copy_retained",
+   "label": "Elected: copy retained by HOF committee",
+   "type": "checkbox",
+   "rect": [
+    113,
+    617.5,
+    125,
+    629.5
+   ]
+  },
+  {
+   "page": 3,
+   "name": "cb_not_elected_original_returned",
+   "label": "Not elected: original returned to submitter",
+   "type": "checkbox",
+   "rect": [
+    113,
+    686.9,
+    125,
+    698.9
+   ]
+  },
+  {
+   "page": 3,
+   "name": "cb_not_elected_copy_retained",
+   "label": "Not elected: copy retained by HOF committee",
+   "type": "checkbox",
+   "rect": [
+    113,
+    705.5,
+    125,
+    717.5
+   ]
+  }
+ ]
+}

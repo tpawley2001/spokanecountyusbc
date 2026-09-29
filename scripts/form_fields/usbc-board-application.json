@@ -1,0 +1,485 @@
+{
+ "source": "usbc-board-application.pdf",
+ "fields": [
+  {
+   "page": 0,
+   "name": "cb_vice_president",
+   "label": "Vice President",
+   "type": "checkbox",
+   "rect": [
+    242.2,
+    195.2,
+    255.5,
+    208.5
+   ]
+  },
+  {
+   "page": 0,
+   "name": "cb_sergeant_at_arms",
+   "label": "Sergeant at Arms",
+   "type": "checkbox",
+   "rect": [
+    242.2,
+    210.2,
+    255.5,
+    223.5
+   ]
+  },
+  {
+   "page": 0,
+   "name": "cb_director",
+   "label": "Director",
+   "type": "checkbox",
+   "rect": [
+    242.2,
+    223.5,
+    255.5,
+    236.8
+   ]
+  },
+  {
+   "page": 0,
+   "name": "cb_national_delegate",
+   "label": "National Delegate",
+   "type": "checkbox",
+   "rect": [
+    515.8,
+    194,
+    529.2,
+    207.4
+   ]
+  },
+  {
+   "page": 0,
+   "name": "cb_state_delegate",
+   "label": "State Delegate",
+   "type": "checkbox",
+   "rect": [
+    515.8,
+    208,
+    529.2,
+    221.4
+   ]
+  },
+  {
+   "page": 0,
+   "name": "name",
+   "label": "Name",
+   "type": "text",
+   "rect": [
+    83,
+    370.5,
+    401,
+    382.5
+   ]
+  },
+  {
+   "page": 0,
+   "name": "usbc_number",
+   "label": "USBC #",
+   "type": "text",
+   "rect": [
+    460,
+    370.5,
+    575,
+    382.5
+   ]
+  },
+  {
+   "page": 0,
+   "name": "address",
+   "label": "Address",
+   "type": "text",
+   "rect": [
+    102,
+    391.0,
+    403,
+    403.0
+   ]
+  },
+  {
+   "page": 0,
+   "name": "phone",
+   "label": "Phone #",
+   "type": "text",
+   "rect": [
+    461,
+    391.0,
+    576,
+    403.0
+   ]
+  },
+  {
+   "page": 0,
+   "name": "email",
+   "label": "Email address",
+   "type": "text",
+   "rect": [
+    138,
+    413.0,
+    573,
+    425.0
+   ]
+  },
+  {
+   "page": 0,
+   "name": "cb_employed_yes",
+   "label": "Currently employed: yes",
+   "type": "checkbox",
+   "rect": [
+    42.2,
+    454.2,
+    55.6,
+    467
+   ]
+  },
+  {
+   "page": 0,
+   "name": "cb_employed_no",
+   "label": "Currently employed: no",
+   "type": "checkbox",
+   "rect": [
+    68,
+    454.2,
+    81.4,
+    467
+   ]
+  },
+  {
+   "page": 0,
+   "name": "employed_where",
+   "label": "Currently employed: where",
+   "type": "text",
+   "rect": [
+    245,
+    452.5,
+    397,
+    464.5
+   ]
+  },
+  {
+   "page": 0,
+   "name": "employed_how_long",
+   "label": "Currently employed: how long",
+   "type": "text",
+   "rect": [
+    469,
+    452.5,
+    572,
+    464.5
+   ]
+  },
+  {
+   "page": 0,
+   "name": "cb_volunteer_yes",
+   "label": "Volunteer work: yes",
+   "type": "checkbox",
+   "rect": [
+    42.2,
+    481,
+    55.6,
+    494.2
+   ]
+  },
+  {
+   "page": 0,
+   "name": "cb_volunteer_no",
+   "label": "Volunteer work: no",
+   "type": "checkbox",
+   "rect": [
+    68,
+    481,
+    81.4,
+    494.2
+   ]
+  },
+  {
+   "page": 0,
+   "name": "volunteer_where",
+   "label": "Volunteer work: where",
+   "type": "text",
+   "rect": [
+    321,
+    479.25,
+    405,
+    491.25
+   ]
+  },
+  {
+   "page": 0,
+   "name": "volunteer_how_long",
+   "label": "Volunteer work: how long",
+   "type": "text",
+   "rect": [
+    469,
+    479.25,
+    572,
+    491.25
+   ]
+  },
+  {
+   "page": 0,
+   "name": "cb_fundraising_yes",
+   "label": "Fundraising experience: yes",
+   "type": "checkbox",
+   "rect": [
+    42.2,
+    507.8,
+    55.6,
+    521
+   ]
+  },
+  {
+   "page": 0,
+   "name": "cb_fundraising_no",
+   "label": "Fundraising experience: no",
+   "type": "checkbox",
+   "rect": [
+    68,
+    507.8,
+    81.4,
+    521
+   ]
+  },
+  {
+   "page": 0,
+   "name": "fundraising_where",
+   "label": "Fundraising experience: where",
+   "type": "text",
+   "rect": [
+    321,
+    506.0,
+    407,
+    518.0
+   ]
+  },
+  {
+   "page": 0,
+   "name": "fundraising_how_long",
+   "label": "Fundraising experience: how long",
+   "type": "text",
+   "rect": [
+    470,
+    506.0,
+    573,
+    518.0
+   ]
+  },
+  {
+   "page": 0,
+   "name": "cb_prior_board_yes",
+   "label": "Prior USBC board experience: yes",
+   "type": "checkbox",
+   "rect": [
+    42.2,
+    533.2,
+    55.6,
+    546.8
+   ]
+  },
+  {
+   "page": 0,
+   "name": "cb_prior_board_no",
+   "label": "Prior USBC board experience: no",
+   "type": "checkbox",
+   "rect": [
+    68,
+    533.2,
+    81.4,
+    546.8
+   ]
+  },
+  {
+   "page": 0,
+   "name": "prior_board_association",
+   "label": "Prior USBC board experience: association",
+   "type": "text",
+   "rect": [
+    318,
+    533.25,
+    405,
+    545.25
+   ]
+  },
+  {
+   "page": 0,
+   "name": "prior_board_how_long",
+   "label": "Prior USBC board experience: how long",
+   "type": "text",
+   "rect": [
+    473,
+    533.25,
+    576,
+    545.25
+   ]
+  },
+  {
+   "page": 0,
+   "name": "cb_good_standing_yes",
+   "label": "Left USBC board in good standing: yes",
+   "type": "checkbox",
+   "rect": [
+    42.2,
+    560.5,
+    55.6,
+    574
+   ]
+  },
+  {
+   "page": 0,
+   "name": "cb_good_standing_no",
+   "label": "Left USBC board in good standing: no",
+   "type": "checkbox",
+   "rect": [
+    68,
+    560.5,
+    81.4,
+    574
+   ]
+  },
+  {
+   "page": 0,
+   "name": "good_standing_details",
+   "label": "Left USBC board in good standing: details",
+   "type": "text",
+   "rect": [
+    343,
+    560.0,
+    574,
+    572.0
+   ]
+  },
+  {
+   "page": 0,
+   "name": "cb_league_officer_yes",
+   "label": "League officer experience: yes",
+   "type": "checkbox",
+   "rect": [
+    42.2,
+    587.2,
+    55.6,
+    600.8
+   ]
+  },
+  {
+   "page": 0,
+   "name": "cb_league_officer_no",
+   "label": "League officer experience: no",
+   "type": "checkbox",
+   "rect": [
+    68,
+    587.2,
+    81.4,
+    600.8
+   ]
+  },
+  {
+   "page": 0,
+   "name": "league_officer_position_held",
+   "label": "League officer experience: position held",
+   "type": "text",
+   "rect": [
+    309,
+    586.75,
+    405,
+    598.75
+   ]
+  },
+  {
+   "page": 0,
+   "name": "league_officer_how_long",
+   "label": "League officer experience: how long",
+   "type": "text",
+   "rect": [
+    469,
+    586.75,
+    573,
+    598.75
+   ]
+  },
+  {
+   "page": 0,
+   "name": "cb_other_boards_yes",
+   "label": "Other boards: yes",
+   "type": "checkbox",
+   "rect": [
+    42.2,
+    614,
+    55.6,
+    627.5
+   ]
+  },
+  {
+   "page": 0,
+   "name": "cb_other_boards_no",
+   "label": "Other boards: no",
+   "type": "checkbox",
+   "rect": [
+    68,
+    614,
+    81.4,
+    627.5
+   ]
+  },
+  {
+   "page": 0,
+   "name": "other_boards_name",
+   "label": "Other boards: name",
+   "type": "text",
+   "rect": [
+    320,
+    613.5,
+    405,
+    625.5
+   ]
+  },
+  {
+   "page": 0,
+   "name": "other_boards_how_long",
+   "label": "Other boards: how long",
+   "type": "text",
+   "rect": [
+    469,
+    613.5,
+    572,
+    625.5
+   ]
+  },
+  {
+   "page": 0,
+   "name": "cb_coach_rvp_yes",
+   "label": "Current coach / RVP current: yes",
+   "type": "checkbox",
+   "rect": [
+    42.2,
+    643,
+    55.6,
+    656.5
+   ]
+  },
+  {
+   "page": 0,
+   "name": "cb_coach_rvp_no",
+   "label": "Current coach / RVP current: no",
+   "type": "checkbox",
+   "rect": [
+    68,
+    643,
+    81.4,
+    656.5
+   ]
+  },
+  {
+   "page": 0,
+   "name": "coach_rvp_details",
+   "label": "Current coach / RVP current: details",
+   "type": "text",
+   "rect": [
+    379,
+    640.75,
+    574,
+    652.75
+   ]
+  }
+ ]
+}

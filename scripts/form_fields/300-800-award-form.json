@@ -1,0 +1,1313 @@
+{
+ "source": "300-800-award-form.pdf",
+ "fields": [
+  {
+   "page": 1,
+   "name": "center_name",
+   "label": "Center name",
+   "type": "text",
+   "rect": [
+    117.0,
+    69.9,
+    260.0,
+    82.4
+   ]
+  },
+  {
+   "page": 1,
+   "name": "center_number",
+   "label": "Center #",
+   "type": "text",
+   "rect": [
+    309.6,
+    69.9,
+    460.0,
+    82.4
+   ]
+  },
+  {
+   "page": 1,
+   "name": "center_address",
+   "label": "Center address, city/state/zip",
+   "type": "text",
+   "rect": [
+    120.1,
+    88.9,
+    460.0,
+    101.4
+   ]
+  },
+  {
+   "page": 1,
+   "name": "competition_name",
+   "label": "Competition name",
+   "type": "text",
+   "rect": [
+    142.0,
+    109.9,
+    260.0,
+    122.4
+   ]
+  },
+  {
+   "page": 1,
+   "name": "competition_number",
+   "label": "Competition #",
+   "type": "text",
+   "rect": [
+    334.4,
+    109.9,
+    460.0,
+    122.4
+   ]
+  },
+  {
+   "page": 1,
+   "name": "competition_official",
+   "label": "Competition official: print name, address, city/state/zip",
+   "type": "text",
+   "rect": [
+    147.0,
+    128.9,
+    460.0,
+    141.4
+   ]
+  },
+  {
+   "page": 1,
+   "name": "member_name",
+   "label": "Member name: last, first, M.I.",
+   "type": "text",
+   "rect": [
+    119.7,
+    163.0,
+    480.0,
+    175.5
+   ]
+  },
+  {
+   "page": 1,
+   "name": "member_id",
+   "label": "Member ID #",
+   "type": "text",
+   "rect": [
+    557.0,
+    163.0,
+    610.0,
+    175.5
+   ]
+  },
+  {
+   "page": 1,
+   "name": "member_address",
+   "label": "Member street address, apt #",
+   "type": "text",
+   "rect": [
+    128.2,
+    184.0,
+    480.0,
+    196.5
+   ]
+  },
+  {
+   "page": 1,
+   "name": "date_of_birth",
+   "label": "Date of birth",
+   "type": "text",
+   "rect": [
+    557.0,
+    184.0,
+    610.0,
+    196.5
+   ]
+  },
+  {
+   "page": 1,
+   "name": "member_city_state_zip",
+   "label": "City, state, zip",
+   "type": "text",
+   "rect": [
+    47.0,
+    205.0,
+    480.0,
+    217.5
+   ]
+  },
+  {
+   "page": 1,
+   "name": "email",
+   "label": "E-mail",
+   "type": "text",
+   "rect": [
+    80.5,
+    224.0,
+    260.0,
+    236.5
+   ]
+  },
+  {
+   "page": 1,
+   "name": "day_phone",
+   "label": "Day phone",
+   "type": "text",
+   "rect": [
+    318.2,
+    224.0,
+    480.0,
+    236.5
+   ]
+  },
+  {
+   "page": 1,
+   "name": "member_assn_name",
+   "label": "Member association name",
+   "type": "text",
+   "rect": [
+    145.5,
+    243.0,
+    275.0,
+    255.5
+   ]
+  },
+  {
+   "page": 1,
+   "name": "assn_number",
+   "label": "Association number",
+   "type": "text",
+   "rect": [
+    348.9,
+    243.0,
+    480.0,
+    255.5
+   ]
+  },
+  {
+   "page": 1,
+   "name": "date_bowled",
+   "label": "Date bowled (MM/DD/YYYY)",
+   "type": "text",
+   "rect": [
+    110.1,
+    269.3,
+    260.0,
+    281.8
+   ]
+  },
+  {
+   "page": 1,
+   "name": "game1",
+   "label": "Game 1",
+   "type": "text",
+   "rect": [
+    285.4,
+    269.3,
+    315.0,
+    281.8
+   ]
+  },
+  {
+   "page": 1,
+   "name": "game2",
+   "label": "Game 2",
+   "type": "text",
+   "rect": [
+    320.9,
+    269.3,
+    350.0,
+    281.8
+   ]
+  },
+  {
+   "page": 1,
+   "name": "game3",
+   "label": "Game 3",
+   "type": "text",
+   "rect": [
+    357.9,
+    269.3,
+    390.0,
+    281.8
+   ]
+  },
+  {
+   "page": 1,
+   "name": "series_total",
+   "label": "Series total",
+   "type": "text",
+   "rect": [
+    404.7,
+    269.3,
+    435.0,
+    281.8
+   ]
+  },
+  {
+   "page": 1,
+   "name": "average",
+   "label": "Average",
+   "type": "text",
+   "rect": [
+    480.0,
+    269.3,
+    515.0,
+    281.8
+   ]
+  },
+  {
+   "page": 1,
+   "name": "number_of_games",
+   "label": "No. of games",
+   "type": "text",
+   "rect": [
+    528.8,
+    269.3,
+    565.0,
+    281.8
+   ]
+  },
+  {
+   "page": 1,
+   "name": "ball_manufacturer",
+   "label": "Ball manufacturer",
+   "type": "text",
+   "rect": [
+    47.0,
+    292.3,
+    260.0,
+    304.8
+   ]
+  },
+  {
+   "page": 1,
+   "name": "ball_model",
+   "label": "Ball model",
+   "type": "text",
+   "rect": [
+    283.4,
+    292.3,
+    390.0,
+    304.8
+   ]
+  },
+  {
+   "page": 1,
+   "name": "official_signature",
+   "label": "Competition official signature",
+   "type": "text",
+   "rect": [
+    192.0,
+    325.3,
+    390.0,
+    337.8
+   ]
+  },
+  {
+   "page": 1,
+   "name": "times_score_bowled",
+   "label": "# of times score bowled",
+   "type": "text",
+   "rect": [
+    145.4,
+    599.2,
+    170.4,
+    611.7
+   ]
+  },
+  {
+   "page": 1,
+   "name": "pave_number",
+   "label": "Pave panel number",
+   "type": "text",
+   "rect": [
+    528.4,
+    611.7,
+    544.4,
+    624.2
+   ]
+  },
+  {
+   "page": 1,
+   "name": "member_signature",
+   "label": "Member signature",
+   "type": "text",
+   "rect": [
+    135.7,
+    735.0,
+    388.7,
+    747.5
+   ]
+  },
+  {
+   "page": 1,
+   "name": "ship_other",
+   "label": "Ship to other",
+   "type": "text",
+   "rect": [
+    462.5,
+    762.1,
+    593.0,
+    774.6
+   ]
+  },
+  {
+   "page": 1,
+   "name": "ship_other_2",
+   "label": "Ship to other (line 2)",
+   "type": "text",
+   "rect": [
+    415.9,
+    782.3,
+    593.0,
+    794.8
+   ]
+  },
+  {
+   "page": 1,
+   "name": "cb_ship_above_address",
+   "label": "Ship above address",
+   "type": "checkbox",
+   "rect": [
+    414.0,
+    729.3,
+    421.2,
+    736.5
+   ]
+  },
+  {
+   "page": 1,
+   "name": "cb_ship_association",
+   "label": "Ship association",
+   "type": "checkbox",
+   "rect": [
+    414.0,
+    740.3,
+    421.2,
+    747.5
+   ]
+  },
+  {
+   "page": 1,
+   "name": "cb_ship_league_official",
+   "label": "Ship league official",
+   "type": "checkbox",
+   "rect": [
+    414.0,
+    751.3,
+    421.2,
+    758.5
+   ]
+  },
+  {
+   "page": 1,
+   "name": "cb_ship_other",
+   "label": "Ship other",
+   "type": "checkbox",
+   "rect": [
+    414.0,
+    768.3,
+    421.2,
+    775.5
+   ]
+  },
+  {
+   "page": 1,
+   "name": "cb_gender_female",
+   "label": "Gender female",
+   "type": "checkbox",
+   "rect": [
+    486.7,
+    216.6,
+    493.9,
+    223.8
+   ]
+  },
+  {
+   "page": 1,
+   "name": "cb_gender_male",
+   "label": "Gender male",
+   "type": "checkbox",
+   "rect": [
+    486.7,
+    227.6,
+    493.9,
+    234.8
+   ]
+  },
+  {
+   "page": 1,
+   "name": "cb_bowled_right_hand",
+   "label": "Bowled right hand",
+   "type": "checkbox",
+   "rect": [
+    542.2,
+    216.9,
+    549.4,
+    224.1
+   ]
+  },
+  {
+   "page": 1,
+   "name": "cb_bowled_left_hand",
+   "label": "Bowled left hand",
+   "type": "checkbox",
+   "rect": [
+    542.2,
+    227.9,
+    549.4,
+    235.1
+   ]
+  },
+  {
+   "page": 1,
+   "name": "cb_rules_observed_yes",
+   "label": "Rules observed yes",
+   "type": "checkbox",
+   "rect": [
+    406.3,
+    316.4,
+    412.7,
+    322.8
+   ]
+  },
+  {
+   "page": 1,
+   "name": "cb_rules_observed_no",
+   "label": "Rules observed no",
+   "type": "checkbox",
+   "rect": [
+    442.3,
+    316.4,
+    448.7,
+    322.8
+   ]
+  },
+  {
+   "page": 1,
+   "name": "cb_pre_post_bowled_yes",
+   "label": "Pre post bowled yes",
+   "type": "checkbox",
+   "rect": [
+    406.3,
+    335.7,
+    413.1,
+    342.5
+   ]
+  },
+  {
+   "page": 1,
+   "name": "cb_pre_post_bowled_no",
+   "label": "Pre post bowled no",
+   "type": "checkbox",
+   "rect": [
+    442.3,
+    335.7,
+    449.1,
+    342.5
+   ]
+  },
+  {
+   "page": 1,
+   "name": "cb_serial_number_yes",
+   "label": "Serial number yes",
+   "type": "checkbox",
+   "rect": [
+    518.1,
+    297.6,
+    525.3,
+    304.8
+   ]
+  },
+  {
+   "page": 1,
+   "name": "cb_serial_number_no",
+   "label": "Serial number no",
+   "type": "checkbox",
+   "rect": [
+    556.0,
+    297.6,
+    563.2,
+    304.8
+   ]
+  },
+  {
+   "page": 1,
+   "name": "cb_award_300_game",
+   "label": "Award 300 game",
+   "type": "checkbox",
+   "rect": [
+    147.5,
+    363.7,
+    154.7,
+    370.9
+   ]
+  },
+  {
+   "page": 1,
+   "name": "cb_award_800_series",
+   "label": "Award 800 series",
+   "type": "checkbox",
+   "rect": [
+    248.5,
+    363.7,
+    255.7,
+    370.9
+   ]
+  },
+  {
+   "page": 1,
+   "name": "cb_mens_metal_siladium",
+   "label": "Mens metal siladium",
+   "type": "checkbox",
+   "rect": [
+    44.6,
+    445.0,
+    51.8,
+    452.2
+   ]
+  },
+  {
+   "page": 1,
+   "name": "cb_mens_metal_golden_siladium",
+   "label": "Mens metal golden siladium",
+   "type": "checkbox",
+   "rect": [
+    44.6,
+    455.0,
+    51.8,
+    462.2
+   ]
+  },
+  {
+   "page": 1,
+   "name": "cb_mens_metal_siladium_two_tone",
+   "label": "Mens metal siladium two tone",
+   "type": "checkbox",
+   "rect": [
+    44.6,
+    465.0,
+    51.8,
+    472.2
+   ]
+  },
+  {
+   "page": 1,
+   "name": "cb_mens_metal_10k_yellow_gold",
+   "label": "Mens metal 10k yellow gold",
+   "type": "checkbox",
+   "rect": [
+    44.6,
+    475.0,
+    51.8,
+    482.2
+   ]
+  },
+  {
+   "page": 1,
+   "name": "cb_mens_metal_14k_yellow_gold",
+   "label": "Mens metal 14k yellow gold",
+   "type": "checkbox",
+   "rect": [
+    44.6,
+    485.0,
+    51.8,
+    492.2
+   ]
+  },
+  {
+   "page": 1,
+   "name": "cb_side_standard",
+   "label": "Side standard",
+   "type": "checkbox",
+   "rect": [
+    44.6,
+    516.3,
+    51.8,
+    523.5
+   ]
+  },
+  {
+   "page": 1,
+   "name": "cb_side_custom",
+   "label": "Side custom",
+   "type": "checkbox",
+   "rect": [
+    44.6,
+    526.3,
+    51.8,
+    533.5
+   ]
+  },
+  {
+   "page": 1,
+   "name": "cb_panel_signet",
+   "label": "Panel signet",
+   "type": "checkbox",
+   "rect": [
+    44.6,
+    652.5,
+    51.8,
+    659.7
+   ]
+  },
+  {
+   "page": 1,
+   "name": "cb_panel_cz_zenith_stone",
+   "label": "Panel cz zenith stone",
+   "type": "checkbox",
+   "rect": [
+    44.6,
+    666.6,
+    51.8,
+    673.8
+   ]
+  },
+  {
+   "page": 1,
+   "name": "cb_panel_10k_yellow",
+   "label": "Panel 10k yellow",
+   "type": "checkbox",
+   "rect": [
+    44.6,
+    680.6,
+    51.8,
+    687.8
+   ]
+  },
+  {
+   "page": 1,
+   "name": "cb_panel_diamond_zenith_stone",
+   "label": "Panel diamond zenith stone",
+   "type": "checkbox",
+   "rect": [
+    44.6,
+    694.6,
+    51.8,
+    701.8
+   ]
+  },
+  {
+   "page": 1,
+   "name": "cb_top_pin_classic",
+   "label": "Top pin classic",
+   "type": "checkbox",
+   "rect": [
+    201.6,
+    652.5,
+    208.8,
+    659.7
+   ]
+  },
+  {
+   "page": 1,
+   "name": "cb_top_pin_personalized",
+   "label": "Top pin personalized",
+   "type": "checkbox",
+   "rect": [
+    201.6,
+    666.6,
+    208.8,
+    673.8
+   ]
+  },
+  {
+   "page": 1,
+   "name": "cb_top_pin_diamond_accent",
+   "label": "Top pin diamond accent",
+   "type": "checkbox",
+   "rect": [
+    201.6,
+    696.5,
+    208.8,
+    703.7
+   ]
+  },
+  {
+   "page": 1,
+   "name": "cb_womens_metal_siladium",
+   "label": "Womens metal siladium",
+   "type": "checkbox",
+   "rect": [
+    202.0,
+    445.0,
+    209.2,
+    452.2
+   ]
+  },
+  {
+   "page": 1,
+   "name": "cb_womens_metal_golden_siladium",
+   "label": "Womens metal golden siladium",
+   "type": "checkbox",
+   "rect": [
+    202.0,
+    455.0,
+    209.2,
+    462.2
+   ]
+  },
+  {
+   "page": 1,
+   "name": "cb_womens_metal_siladium_two_tone",
+   "label": "Womens metal siladium two tone",
+   "type": "checkbox",
+   "rect": [
+    202.0,
+    465.0,
+    209.2,
+    472.2
+   ]
+  },
+  {
+   "page": 1,
+   "name": "cb_womens_metal_10k_yellow_gold",
+   "label": "Womens metal 10k yellow gold",
+   "type": "checkbox",
+   "rect": [
+    202.0,
+    475.0,
+    209.2,
+    482.2
+   ]
+  },
+  {
+   "page": 1,
+   "name": "cb_womens_metal_14k_yellow_gold",
+   "label": "Womens metal 14k yellow gold",
+   "type": "checkbox",
+   "rect": [
+    202.0,
+    485.0,
+    209.2,
+    492.2
+   ]
+  },
+  {
+   "page": 1,
+   "name": "cb_first_adult_lifetime_achievement",
+   "label": "First adult lifetime achievement",
+   "type": "checkbox",
+   "rect": [
+    138.4,
+    377.8,
+    144.8,
+    384.2
+   ]
+  },
+  {
+   "page": 1,
+   "name": "cb_mens_prestige_ring",
+   "label": "Mens prestige ring",
+   "type": "checkbox",
+   "rect": [
+    44.6,
+    403.7,
+    51.8,
+    410.9
+   ]
+  },
+  {
+   "page": 1,
+   "name": "cb_no_award_requested",
+   "label": "No award requested",
+   "type": "checkbox",
+   "rect": [
+    364.1,
+    697.1,
+    371.3,
+    704.3
+   ]
+  },
+  {
+   "page": 1,
+   "name": "cb_womens_prestige_ring",
+   "label": "Womens prestige ring",
+   "type": "checkbox",
+   "rect": [
+    202.0,
+    403.7,
+    209.2,
+    410.9
+   ]
+  },
+  {
+   "page": 1,
+   "name": "cb_premier_upgrade_10k_yellow_gold",
+   "label": "Premier upgrade 10k yellow gold",
+   "type": "checkbox",
+   "rect": [
+    364.3,
+    533.3,
+    371.5,
+    540.5
+   ]
+  },
+  {
+   "page": 1,
+   "name": "cb_premier_upgrade_14k_yellow_gold",
+   "label": "Premier upgrade 14k yellow gold",
+   "type": "checkbox",
+   "rect": [
+    364.3,
+    543.3,
+    371.5,
+    550.5
+   ]
+  },
+  {
+   "page": 1,
+   "name": "cb_premier_upgrade_diamond_accents",
+   "label": "Premier upgrade diamond accents",
+   "type": "checkbox",
+   "rect": [
+    364.3,
+    553.3,
+    371.5,
+    560.5
+   ]
+  },
+  {
+   "page": 1,
+   "name": "cb_premier_upgrade_lab_ruby",
+   "label": "Premier upgrade lab ruby",
+   "type": "checkbox",
+   "rect": [
+    364.3,
+    563.3,
+    371.5,
+    570.5
+   ]
+  },
+  {
+   "page": 1,
+   "name": "cb_premier_upgrade_amethyst",
+   "label": "Premier upgrade amethyst",
+   "type": "checkbox",
+   "rect": [
+    364.3,
+    573.3,
+    371.5,
+    580.5
+   ]
+  },
+  {
+   "page": 1,
+   "name": "cb_womens_premier_ring",
+   "label": "Womens premier ring",
+   "type": "checkbox",
+   "rect": [
+    364.3,
+    495.1,
+    371.5,
+    502.3
+   ]
+  },
+  {
+   "page": 1,
+   "name": "cb_pave_300",
+   "label": "Pave 300",
+   "type": "checkbox",
+   "rect": [
+    364.3,
+    607.2,
+    371.5,
+    614.4
+   ]
+  },
+  {
+   "page": 1,
+   "name": "cb_pave_800",
+   "label": "Pave 800",
+   "type": "checkbox",
+   "rect": [
+    406.7,
+    607.2,
+    413.9,
+    614.4
+   ]
+  },
+  {
+   "page": 1,
+   "name": "cb_pave_bowling_ball_design",
+   "label": "Pave bowling ball design",
+   "type": "checkbox",
+   "rect": [
+    364.3,
+    617.2,
+    371.5,
+    624.4
+   ]
+  },
+  {
+   "page": 1,
+   "name": "cb_pave_number",
+   "label": "Pave number",
+   "type": "checkbox",
+   "rect": [
+    482.8,
+    617.2,
+    490.0,
+    624.4
+   ]
+  },
+  {
+   "page": 1,
+   "name": "cb_pave_sterling_cz",
+   "label": "Pave sterling cz",
+   "type": "checkbox",
+   "rect": [
+    364.3,
+    627.2,
+    371.5,
+    634.4
+   ]
+  },
+  {
+   "page": 1,
+   "name": "cb_pave_sterling_diamond",
+   "label": "Pave sterling diamond",
+   "type": "checkbox",
+   "rect": [
+    364.3,
+    637.2,
+    371.5,
+    644.4
+   ]
+  },
+  {
+   "page": 1,
+   "name": "cb_pave_10k_cz",
+   "label": "Pave 10k cz",
+   "type": "checkbox",
+   "rect": [
+    364.3,
+    647.2,
+    371.5,
+    654.4
+   ]
+  },
+  {
+   "page": 1,
+   "name": "cb_pave_10k_diamonds",
+   "label": "Pave 10k diamonds",
+   "type": "checkbox",
+   "rect": [
+    364.3,
+    657.2,
+    371.5,
+    664.4
+   ]
+  },
+  {
+   "page": 1,
+   "name": "cb_pave_panel",
+   "label": "Pave panel",
+   "type": "checkbox",
+   "rect": [
+    364.3,
+    592.8,
+    371.5,
+    600.0
+   ]
+  },
+  {
+   "page": 1,
+   "name": "cb_competition_league",
+   "label": "Competition league",
+   "type": "checkbox",
+   "rect": [
+    486.7,
+    73.0,
+    493.9,
+    80.2
+   ]
+  },
+  {
+   "page": 1,
+   "name": "cb_competition_tournament",
+   "label": "Competition tournament",
+   "type": "checkbox",
+   "rect": [
+    486.7,
+    85.5,
+    493.9,
+    92.7
+   ]
+  },
+  {
+   "page": 1,
+   "name": "cb_competition_interscholastic",
+   "label": "Competition interscholastic",
+   "type": "checkbox",
+   "rect": [
+    486.7,
+    98.0,
+    493.9,
+    105.2
+   ]
+  },
+  {
+   "page": 1,
+   "name": "cb_competition_modified_format",
+   "label": "Competition modified format",
+   "type": "checkbox",
+   "rect": [
+    486.7,
+    110.5,
+    493.9,
+    117.7
+   ]
+  },
+  {
+   "page": 1,
+   "name": "cb_donate_hall_of_fame",
+   "label": "Donate hall of fame",
+   "type": "checkbox",
+   "rect": [
+    483.6,
+    415.8,
+    490.8,
+    423.0
+   ]
+  },
+  {
+   "page": 1,
+   "name": "cb_donate_earl_anthony_fund",
+   "label": "Donate earl anthony fund",
+   "type": "checkbox",
+   "rect": [
+    483.6,
+    427.8,
+    490.8,
+    435.0
+   ]
+  },
+  {
+   "page": 1,
+   "name": "cb_donate_bvl",
+   "label": "Donate bvl",
+   "type": "checkbox",
+   "rect": [
+    483.6,
+    439.8,
+    490.8,
+    447.0
+   ]
+  },
+  {
+   "page": 1,
+   "name": "cb_donate_susan_g_komen",
+   "label": "Donate susan g komen",
+   "type": "checkbox",
+   "rect": [
+    483.6,
+    451.8,
+    490.8,
+    459.0
+   ]
+  },
+  {
+   "page": 1,
+   "name": "cb_donate_youth_education_services",
+   "label": "Donate youth education services",
+   "type": "checkbox",
+   "rect": [
+    483.6,
+    463.8,
+    490.8,
+    471.0
+   ]
+  },
+  {
+   "page": 1,
+   "name": "cb_crystal_300_game",
+   "label": "Crystal 300 game",
+   "type": "checkbox",
+   "rect": [
+    363.8,
+    417.9,
+    371.0,
+    425.1
+   ]
+  },
+  {
+   "page": 1,
+   "name": "cb_crystal_800_series",
+   "label": "Crystal 800 series",
+   "type": "checkbox",
+   "rect": [
+    363.8,
+    435.4,
+    371.0,
+    442.6
+   ]
+  },
+  {
+   "page": 1,
+   "name": "cb_plaque_300_game",
+   "label": "Plaque 300 game",
+   "type": "checkbox",
+   "rect": [
+    363.8,
+    452.9,
+    371.0,
+    460.1
+   ]
+  },
+  {
+   "page": 1,
+   "name": "cb_plaque_800_series",
+   "label": "Plaque 800 series",
+   "type": "checkbox",
+   "rect": [
+    363.8,
+    470.4,
+    371.0,
+    477.6
+   ]
+  },
+  {
+   "page": 1,
+   "name": "cb_multiple_achievements",
+   "label": "Multiple achievements",
+   "type": "checkbox",
+   "rect": [
+    308.2,
+    377.5,
+    314.6,
+    383.9
+   ]
+  },
+  {
+   "page": 1,
+   "name": "text_line_1",
+   "label": "Custom side text line 1 (up to 9 characters, ALL CAPS)",
+   "type": "text",
+   "comb": true,
+   "maxlen": 9,
+   "fontsize": 11,
+   "rect": [
+    93.0,
+    540.8,
+    275.3,
+    555.0
+   ]
+  },
+  {
+   "page": 1,
+   "name": "text_line_2",
+   "label": "Custom side text line 2 (up to 9 characters, ALL CAPS)",
+   "type": "text",
+   "comb": true,
+   "maxlen": 9,
+   "fontsize": 11,
+   "rect": [
+    93.0,
+    558.4,
+    275.3,
+    572.6
+   ]
+  },
+  {
+   "page": 1,
+   "name": "ring_date_mm",
+   "label": "Ring date bowled: month (MM)",
+   "type": "text",
+   "comb": true,
+   "maxlen": 2,
+   "fontsize": 11,
+   "rect": [
+    100.8,
+    580.4,
+    135.4,
+    594.6
+   ]
+  },
+  {
+   "page": 1,
+   "name": "ring_date_dd",
+   "label": "Ring date bowled: day (DD)",
+   "type": "text",
+   "comb": true,
+   "maxlen": 2,
+   "fontsize": 11,
+   "rect": [
+    156.1,
+    580.4,
+    190.6,
+    594.6
+   ]
+  },
+  {
+   "page": 1,
+   "name": "ring_date_yy",
+   "label": "Ring date bowled: year (YY)",
+   "type": "text",
+   "comb": true,
+   "maxlen": 2,
+   "fontsize": 11,
+   "rect": [
+    211.3,
+    580.4,
+    245.8,
+    594.6
+   ]
+  },
+  {
+   "page": 1,
+   "name": "top_pin_initials",
+   "label": "Personalized pin (3 characters, ALL CAPS)",
+   "type": "text",
+   "comb": true,
+   "maxlen": 3,
+   "fontsize": 11,
+   "rect": [
+    213.9,
+    678.2,
+    254.5,
+    689.2
+   ]
+  },
+  {
+   "page": 1,
+   "name": "mens_finger_size",
+   "label": "Men's finger size (7-18)",
+   "type": "text",
+   "rect": [
+    87.4,
+    414.5,
+    116.3,
+    425.5
+   ],
+   "fontsize": 8,
+   "maxlen": 5
+  },
+  {
+   "page": 1,
+   "name": "womens_finger_size",
+   "label": "Women's finger size (3-15)",
+   "type": "text",
+   "rect": [
+    244.7,
+    414.5,
+    273.6,
+    425.5
+   ],
+   "fontsize": 8,
+   "maxlen": 5
+  },
+  {
+   "page": 1,
+   "name": "premier_finger_size",
+   "label": "Premier ring finger size (3-15)",
+   "type": "text",
+   "rect": [
+    407.1,
+    506.5,
+    436,
+    517.5
+   ],
+   "fontsize": 8,
+   "maxlen": 5
+  }
+ ]
+}

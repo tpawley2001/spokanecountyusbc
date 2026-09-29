@@ -1,0 +1,199 @@
+{
+ "source": "rookie-of-the-year.pdf",
+ "fields": [
+  {
+   "page": 0,
+   "name": "nominee_name",
+   "label": "Nominee last name, first",
+   "type": "text",
+   "rect": [
+    55.5,
+    166.0,
+    267.1,
+    178.5
+   ]
+  },
+  {
+   "page": 0,
+   "name": "date_of_nomination",
+   "label": "Date of nomination",
+   "type": "text",
+   "rect": [
+    316.6,
+    167.0,
+    528.2,
+    179.5
+   ]
+  },
+  {
+   "page": 0,
+   "name": "name",
+   "label": "Name",
+   "type": "text",
+   "rect": [
+    125.7,
+    250.7,
+    297.0,
+    263.2
+   ]
+  },
+  {
+   "page": 0,
+   "name": "usbc_card",
+   "label": "USBC card # (if applicable)",
+   "type": "text",
+   "rect": [
+    378.5,
+    250.7,
+    446.1,
+    263.2
+   ]
+  },
+  {
+   "page": 0,
+   "name": "address",
+   "label": "Address",
+   "type": "text",
+   "rect": [
+    153.1,
+    274.1,
+    391.1,
+    309.2
+   ],
+   "multiline": true
+  },
+  {
+   "page": 0,
+   "name": "phone",
+   "label": "Phone",
+   "type": "text",
+   "rect": [
+    148.8,
+    323.9,
+    296.7,
+    336.4
+   ]
+  },
+  {
+   "page": 0,
+   "name": "bowling_center",
+   "label": "Bowling center",
+   "type": "text",
+   "rect": [
+    194.7,
+    352.4,
+    528.7,
+    364.9
+   ]
+  },
+  {
+   "page": 0,
+   "name": "league_bowled",
+   "label": "League bowled",
+   "type": "text",
+   "rect": [
+    184.6,
+    377.6,
+    530.5,
+    390.1
+   ]
+  },
+  {
+   "page": 0,
+   "name": "date_started_bowling",
+   "label": "Date started bowling",
+   "type": "text",
+   "rect": [
+    233.6,
+    402.7,
+    327.5,
+    415.2
+   ]
+  },
+  {
+   "page": 0,
+   "name": "ending_average",
+   "label": "Ending average",
+   "type": "text",
+   "rect": [
+    476.2,
+    425.1,
+    528.2,
+    437.6
+   ]
+  },
+  {
+   "page": 0,
+   "name": "beginning_average",
+   "label": "Beginning average after 21 games",
+   "type": "text",
+   "rect": [
+    306.9,
+    427.9,
+    358.8,
+    440.4
+   ]
+  },
+  {
+   "page": 0,
+   "name": "total_pins_improved",
+   "label": "Total pins improved",
+   "type": "text",
+   "rect": [
+    217.1,
+    451.4,
+    275.1,
+    463.9
+   ]
+  },
+  {
+   "page": 0,
+   "name": "secretary_verification",
+   "label": "Secretary verification",
+   "type": "text",
+   "rect": [
+    239.2,
+    479.4,
+    537.2,
+    491.9
+   ]
+  },
+  {
+   "page": 0,
+   "name": "about_nominee",
+   "label": "Tell us something about the nominee",
+   "type": "text",
+   "rect": [
+    73.0,
+    524.2,
+    538.5,
+    555.6
+   ],
+   "multiline": true
+  },
+  {
+   "page": 0,
+   "name": "nominated_by",
+   "label": "Nominated by",
+   "type": "text",
+   "rect": [
+    172.9,
+    567.7,
+    320.9,
+    580.2
+   ]
+  },
+  {
+   "page": 0,
+   "name": "cb_rookie_of_the_year",
+   "label": "Rookie of the Year",
+   "type": "checkbox",
+   "rect": [
+    462.8,
+    203.4,
+    475.2,
+    215.8
+   ]
+  }
+ ]
+}
