@@ -383,20 +383,10 @@
           <option value="gold">Gold</option><option value="red">Red</option>
         </select>
       </div>
-      <div class="form-group">
-        <label>Status</label>
-        <select id="tf-status">
-          <option>Open</option><option>TBD</option><option>Full</option>
-          <option>Closed</option><option>Completed</option>
-        </select>
-      </div>
     </div>
     <div class="form-group">
-      <label>Status Color</label>
-      <select id="tf-status-color">
-        <option value="green">Green (Open)</option><option value="gold">Gold (TBD)</option>
-        <option value="red">Red (Full/Closed)</option><option value="blue">Blue</option>
-      </select>
+      <label>Entry Form (PDF path or URL — blank = "Coming soon")</label>
+      <input type="text" id="tf-entry-form" placeholder="forms/bvl-veterans-doubles-entry.pdf">
     </div>
     <div class="modal-footer">
       <button class="btn btn-ghost" data-action="closeModal" data-args="tournament">Cancel</button>

@@ -116,12 +116,11 @@
   "tournaments": [
     {
       "name": "BVL Veterans Tournament",
-      "date": "November 14, 2026",
+      "date": "November 11, 2026",
       "center": "Valley Bowl",
       "type": "Veterans",
       "type_color": "blue",
-      "status": "TBD",
-      "status_color": "gold"
+      "entry_form": "forms/bvl-veterans-doubles-entry.pdf"
     },
     {
       "name": "Holiday Smash",
@@ -129,8 +128,7 @@
       "center": "Lilac Lanes",
       "type": "Youth/Mixed",
       "type_color": "gold",
-      "status": "TBD",
-      "status_color": "gold"
+      "entry_form": ""
     },
     {
       "name": "Spokane County Queens Tournament",
@@ -138,8 +136,7 @@
       "center": "Lilac Lanes",
       "type": "Queens",
       "type_color": "gold",
-      "status": "TBD",
-      "status_color": "gold"
+      "entry_form": ""
     },
     {
       "name": "SCUSBC Youth Championships",
@@ -147,8 +144,7 @@
       "center": "North Bowl",
       "type": "Youth",
       "type_color": "gold",
-      "status": "TBD",
-      "status_color": "gold"
+      "entry_form": ""
     },
     {
       "name": "SCUSBC Senior Championships",
@@ -156,8 +152,7 @@
       "center": "Players",
       "type": "Senior",
       "type_color": "blue",
-      "status": "TBD",
-      "status_color": "gold"
+      "entry_form": ""
     },
     {
       "name": "SCUSBC Open Championships (Team Event)",
@@ -165,8 +160,7 @@
       "center": "North Bowl",
       "type": "Team",
       "type_color": "blue",
-      "status": "TBD",
-      "status_color": "gold"
+      "entry_form": ""
     },
     {
       "name": "SCUSBC Open Championships (Doubles & Singles Only)",
@@ -174,8 +168,7 @@
       "center": "North Bowl",
       "type": "All-Events",
       "type_color": "green",
-      "status": "TBD",
-      "status_color": "gold"
+      "entry_form": ""
     },
     {
       "name": "SCUSBC Women's Championships",
@@ -183,8 +176,7 @@
       "center": "Players",
       "type": "Women's",
       "type_color": "gold",
-      "status": "TBD",
-      "status_color": "gold"
+      "entry_form": ""
     },
     {
       "name": "SCUSBC Kings Tournament (formerly Masters)",
@@ -192,8 +184,7 @@
       "center": "Lilac Lanes",
       "type": "Kings",
       "type_color": "blue",
-      "status": "TBD",
-      "status_color": "gold"
+      "entry_form": ""
     }
   ],
   "honor_scores": [],

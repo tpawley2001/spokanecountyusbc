@@ -100,7 +100,6 @@
 
   // ── Tournaments ───────────────────────────────────────────────
   const TYPE_COLORS = { Doubles:'blue', Singles:'blue', Trios:'blue', Team:'blue', Scratch:'green', Handicap:'blue', "Women's":'gold', Youth:'gold', Mixed:'gold', 'Youth/Mixed':'gold', 'All-Events':'green', Veterans:'blue', Senior:'blue', Queens:'gold', Kings:'blue' };
-  const STATUS_COLORS = { Open:'green', TBD:'gold', Full:'red', Closed:'red', Completed:'blue' };
 
   function renderTournamentList() {
     const list = document.getElementById('t-list');
@@ -112,7 +111,7 @@
         `<div class="item-label">${esc(t.name)}</div>
          <div class="item-sub" style="display:flex;gap:.4rem;margin-top:.2rem;">
            <span class="item-badge badge-${t.type_color}">${esc(t.type)}</span>
-           <span class="item-badge badge-${t.status_color}">${esc(t.status)}</span>
+           ${t.entry_form ? '<span class="item-badge badge-green">📄 Form</span>' : ''}
            <span style="color:var(--muted)">${esc(t.date)} · ${esc(t.center || 'TBD')}</span>
          </div>`,
         `<button class="btn-edit-sm" data-action="openModal" data-args="tournament,${i}">✏️</button>
@@ -216,15 +215,14 @@
       setTimeout(()=>document.getElementById('mf-name').focus(),50);
 
     } else if(type==='tournament') {
-      const t = isEdit ? siteData.tournaments[index] : {name:'',date:'TBD',center:'TBD',type:'Doubles',type_color:'blue',status:'TBD',status_color:'gold'};
+      const t = isEdit ? siteData.tournaments[index] : {name:'',date:'TBD',center:'TBD',type:'Doubles',type_color:'blue',entry_form:''};
       document.getElementById('modal-t-title').textContent = isEdit ? 'Edit Tournament' : 'Add Tournament';
       document.getElementById('tf-name').value = t.name;
       document.getElementById('tf-date').value = t.date;
       document.getElementById('tf-center').value = t.center || 'TBD';
       document.getElementById('tf-type').value = t.type;
       document.getElementById('tf-type-color').value = t.type_color;
-      document.getElementById('tf-status').value = t.status;
-      document.getElementById('tf-status-color').value = t.status_color;
+      document.getElementById('tf-entry-form').value = t.entry_form || '';
       openOverlay('modal-tournament');
       setTimeout(()=>document.getElementById('tf-name').focus(),50);
 
@@ -273,7 +271,7 @@
     } else if(type==='tournament') {
       const name = document.getElementById('tf-name').value.trim();
       if(!name) { document.getElementById('tf-name').focus(); return; }
-      const t = { name, date:document.getElementById('tf-date').value.trim(), center:document.getElementById('tf-center').value.trim() || 'TBD', type:document.getElementById('tf-type').value, type_color:document.getElementById('tf-type-color').value, status:document.getElementById('tf-status').value, status_color:document.getElementById('tf-status-color').value };
+      const t = { name, date:document.getElementById('tf-date').value.trim(), center:document.getElementById('tf-center').value.trim() || 'TBD', type:document.getElementById('tf-type').value, type_color:document.getElementById('tf-type-color').value, entry_form:document.getElementById('tf-entry-form').value.trim() };
       if(!siteData.tournaments) siteData.tournaments=[];
       if(isEdit) siteData.tournaments[index]=t; else siteData.tournaments.push(t);
       closeModal('tournament');

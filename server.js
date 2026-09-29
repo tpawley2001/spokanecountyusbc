@@ -194,25 +194,27 @@ app.post('/api/tournaments', auth, (req, res) => {
   res.json({ success: true });
 });
 
-function tournamentRow(t, showStatus) {
-  const statusCol = showStatus
-    ? `\n            <td><span class="badge badge-${esc(t.status_color)}">${esc(t.status)}</span></td>` : '';
+function tournamentRow(t, showForm) {
+  const formCell = t.entry_form
+    ? `<a href="${safeUrl(t.entry_form)}" target="_blank" rel="noopener">📄 Entry Form</a>`
+    : `<span style="color:var(--muted,#888);">Coming soon</span>`;
+  const formCol = showForm ? `\n            <td>${formCell}</td>` : '';
   return `          <tr>
             <td><strong>${esc(t.name)}</strong></td>
             <td>${esc(t.date)}${t.date === 'TBD' ? '' : '*'}</td>
             <td>${esc(t.center || 'TBD')}</td>
-            <td><span class="badge badge-${esc(t.type_color)}">${esc(t.type)}</span></td>${statusCol}
+            <td><span class="badge badge-${esc(t.type_color)}">${esc(t.type)}</span></td>${formCol}
             <td><a href="signup.html" class="btn btn-red" style="padding:0.3rem 0.8rem;font-size:0.82rem;">Sign Up</a></td>
           </tr>`;
 }
 
 function regenerateTournaments(tournaments) {
-  // Full table (tournaments.html — has Status column)
+  // Full table (tournaments.html — has Entry Form column)
   const fullRows = tournaments.map(t => tournamentRow(t, true)).join('\n');
   const fullTbody = `        <!-- TOURNAMENTS-TABLE-START -->\n        <tbody>\n${fullRows}\n        </tbody>\n        <!-- TOURNAMENTS-TABLE-END -->`;
   replaceSection('tournaments.html', '<!-- TOURNAMENTS-TABLE-START -->', '<!-- TOURNAMENTS-TABLE-END -->', fullTbody);
 
-  // Preview table (index.html — no Status column)
+  // Preview table (index.html — no Entry Form column)
   const previewRows = tournaments.map(t => tournamentRow(t, false)).join('\n');
   const previewTbody = `        <!-- TOURNAMENTS-PREVIEW-START -->\n        <tbody>\n${previewRows}\n        </tbody>\n        <!-- TOURNAMENTS-PREVIEW-END -->`;
   replaceSection('index.html', '<!-- TOURNAMENTS-PREVIEW-START -->', '<!-- TOURNAMENTS-PREVIEW-END -->', previewTbody);
