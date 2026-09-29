@@ -55,13 +55,21 @@ function amountDue(form, values) {
   return people * (form.fee_per_person || 0);
 }
 
+// The emailed copy is for printing: entries are drawn in black and flattened into
+// the page, since phone/Gmail previews and printers often drop live form fields.
 async function fillPdf(form, values) {
-  const { PDFDocument } = require('pdf-lib');
+  const { PDFDocument, StandardFonts } = require('pdf-lib');
   const doc = await PDFDocument.load(fs.readFileSync(path.join(__dirname, form.pdf)));
+  const font = await doc.embedFont(StandardFonts.Helvetica);
   const pdfForm = doc.getForm();
   for (const [name, v] of Object.entries(values)) {
-    try { const tf = pdfForm.getTextField(name); tf.setFontSize(11); tf.setText(v); } catch {}   // field missing on the PDF: skip
+    let tf;
+    try { tf = pdfForm.getTextField(name); } catch { continue; }   // field missing on the PDF: skip
+    tf.acroField.setDefaultAppearance('/Helv 12 Tf 0 g');
+    tf.setText(v);
   }
+  pdfForm.updateFieldAppearances(font);
+  pdfForm.flatten();
   return Buffer.from(await doc.save());
 }
 
@@ -87,12 +95,12 @@ function emailBody(name, form, values, due, when) {
   rows.push(['Entry fee due', `$${due.toFixed(2)} ($${form.fee_per_person}/person)`]);
   const text = `${name} entry submitted online ${when}\n\n` +
     rows.map(([l, v]) => `${l}: ${v}`).join('\n') +
-    `\n\nThe filled-in entry form is attached. Reply to this email to reach the contact.\n`;
+    `\n\nThe completed entry form is attached as a printable PDF. Reply to this email to reach the contact.\n`;
   const html = `<p><strong>${htmlEsc(name)}</strong> entry submitted online ${htmlEsc(when)}</p>` +
     '<table cellpadding="6" style="border-collapse:collapse;font-family:Arial,sans-serif;font-size:14px">' +
     rows.map(([l, v]) => `<tr><td style="border:1px solid #ccc;background:#f5f7fa"><b>${htmlEsc(l)}</b></td>` +
       `<td style="border:1px solid #ccc">${htmlEsc(v)}</td></tr>`).join('') +
-    '</table><p>The filled-in entry form is attached. Reply to this email to reach the contact.</p>';
+    '</table><p>The completed entry form is attached as a printable PDF. Reply to this email to reach the contact.</p>';
   return { text, html };
 }
 
