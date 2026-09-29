@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-28T13:01:19.172750+00:00",
+  "generated_at": "2026-09-29T14:31:01.125716+00:00",
   "league": {
     "id": 59869,
     "name": "Mens Northwest League",
@@ -12,10 +12,18 @@
       "week": 3,
       "date": "9/24/2026",
       "messages": [
-        "Brackets now available see Luke on lane 2 for more details"
+        "Brackets now available see Luke on lane 2 for more details",
+        "Want to receive the standing sheet early?",
+        "Send your email address to and include your",
+        "full name and Men\u2019s NW in the message. You\u2019ll receive a link to the",
+        "standing sheet on leaguesecretary.com weekly.",
+        "The goal is to have the standing sheet posted online by Sunday",
+        "night.",
+        "You can also check the Spokane County USBC website at",
+        "spokanecountyusbc.org"
       ],
       "usbc_certification": "797234",
-      "lane_certification": "3833",
+      "lane_certification": null,
       "officers": [
         {
           "role": "President",
