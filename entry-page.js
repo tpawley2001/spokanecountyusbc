@@ -55,7 +55,7 @@
     const rules = form.rules ? el('div', { class: 'entry-sheet es-rules' },
       el('h2', { class: 'es-heading es-center-text' }, form.rules.title),
       el('ol', {}, form.rules.items.map(r => el('li', {}, r))),
-      form.payment ? el('p', { class: 'es-text es-sm es-bold' }, form.payment) : null) : null;
+      form.rules.footer ? el('p', { class: 'es-text es-sm es-bold' }, form.rules.footer) : null) : null;
 
     const pdfLink = form.pdf_url ? el('p', { class: 'es-alt' }, 'Prefer paper? ', el('a', { href: form.pdf_url, target: '_blank', rel: 'noopener' }, 'Download the PDF entry form'), ' and mail or email it in.') : null;
     root.replaceChildren(el('p', { class: 'es-back' }, el('a', { href: 'tournaments.html' }, '← Tournaments')), formEl, pdfLink, rules);
@@ -97,7 +97,7 @@
           status.textContent = j.error || 'Something went wrong. Please try again.';
           submit.disabled = false; return;
         }
-        done(form, j);
+        done(form, j, data);
       } catch {
         status.textContent = 'Could not reach the server. Check your connection and try again.';
         submit.disabled = false;
@@ -105,13 +105,36 @@
     });
   }
 
-  function done(form, j) {
+  // Payment panel: PayPal/Venmo buttons prefilled with the amount (and a note on Venmo),
+  // their QR codes, and the check option. Older forms may give payment as plain text.
+  function payBlock(pay, due, note) {
+    if (!pay) return null;
+    if (typeof pay === 'string') return el('p', { class: 'es-text es-sm es-bold' }, pay);
+    const amt = due ? due.toFixed(2) : '';
+    const opts = [];
+    if (pay.paypal) opts.push(el('div', { class: 'es-pay-opt' },
+      pay.paypal_qr ? el('img', { src: pay.paypal_qr, alt: 'PayPal QR code for SCUSBC', class: 'es-qr' }) : null,
+      el('a', { class: 'btn btn-navy', target: '_blank', rel: 'noopener',
+        href: `https://paypal.me/${encodeURIComponent(pay.paypal)}${amt ? '/' + amt : ''}` }, 'Pay with PayPal')));
+    if (pay.venmo) opts.push(el('div', { class: 'es-pay-opt' },
+      pay.venmo_qr ? el('img', { src: pay.venmo_qr, alt: 'Venmo QR code for @' + pay.venmo, class: 'es-qr' }) : null,
+      el('a', { class: 'btn btn-navy', target: '_blank', rel: 'noopener',
+        href: `https://venmo.com/${encodeURIComponent(pay.venmo)}?txn=pay${amt ? '&amount=' + amt : ''}&note=${encodeURIComponent(note)}` }, 'Pay with Venmo')));
+    return el('div', { class: 'es-pay' },
+      el('h2', { class: 'es-heading es-center-text' }, 'Pay Your Entry Fee'),
+      el('p', { class: 'es-text es-sm' }, `Include "${note}" in the payment note.`),
+      el('div', { class: 'es-pay-opts' }, opts),
+      pay.checks ? el('p', { class: 'es-text es-sm es-bold' }, pay.checks) : null);
+  }
+
+  function done(form, j, data) {
+    const note = [j.tournament, data.team_name || data.contact_name].filter(Boolean).join(' - ');
     const box = el('div', { class: 'entry-sheet es-done' },
       el('h1', { class: 'es-title' }, 'Entry Received!'),
       el('p', { class: 'es-subtitle' }, j.tournament),
       el('p', { class: 'es-text es-md' }, 'Your entry has been sent to the Spokane County USBC association manager.'),
       j.due ? el('p', { class: 'es-total' }, `AMOUNT DUE $${j.due.toFixed(2)}`) : null,
-      j.payment ? el('p', { class: 'es-text es-sm es-bold' }, j.payment) : null);
+      payBlock(j.payment, j.due, note));
     if (j.pdf) {
       const bytes = Uint8Array.from(atob(j.pdf), c => c.charCodeAt(0));
       const url = URL.createObjectURL(new Blob([bytes], { type: 'application/pdf' }));

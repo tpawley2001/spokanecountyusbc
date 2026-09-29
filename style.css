@@ -336,3 +336,8 @@ footer {
   .es-title { font-size: 1.5rem; } .es-subtitle { font-size: 1.25rem; } .es-heading { font-size: 1.4rem; }
   .es-total { font-size: 1.4rem; } .es-field { min-width: 100%; }
 }
+.es-pay { margin-top: 1.5rem; border-top: 1px solid var(--border); padding-top: 1rem; }
+.es-pay-opts { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin: 1rem 0; }
+.es-pay-opt { display: flex; flex-direction: column; align-items: center; gap: 0.6rem; }
+.es-qr { width: 150px; height: 150px; }
+.es-done .btn { margin-top: 0.75rem; }
