@@ -120,7 +120,8 @@
       "center": "Valley Bowl",
       "type": "Veterans",
       "type_color": "blue",
-      "entry_form": "forms/bvl-veterans-doubles-entry.pdf"
+      "entry_form": "forms/bvl-veterans-doubles-entry.pdf",
+      "online_form": "bvl-veterans-doubles"
     },
     {
       "name": "Holiday Smash",

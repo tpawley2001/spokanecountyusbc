@@ -49,7 +49,7 @@ app.use((req, res, next) => {
 
 // ── Static files: public site files only (the app dir also holds
 //    .git, server.js, CMS data and scripts, which must not be served)
-const PUBLIC_FILE = /^\/(?:|favicon\.(?:ico|svg)|[\w-]+\.html|style\.css|(?:site|leagues|leagues-page|team-page|bowler-page|admin)\.js|leagues-data\.json|leagues\/[\w-]+\.json|images\/[\w\/-]+\.(?:jpe?g|png|gif|webp|svg|ico)|forms\/[\w-]+\.pdf)$/;
+const PUBLIC_FILE = /^\/(?:|favicon\.(?:ico|svg)|[\w-]+\.html|style\.css|(?:site|leagues|leagues-page|team-page|bowler-page|admin|entry-page)\.js|leagues-data\.json|leagues\/[\w-]+\.json|images\/[\w\/-]+\.(?:jpe?g|png|gif|webp|svg|ico)|forms\/[\w-]+\.pdf)$/;
 const serveStatic = express.static(__dirname, { dotfiles: 'deny' });
 app.use((req, res, next) => {
   if (req.path.startsWith('/api/')) return next();
@@ -195,16 +195,18 @@ app.post('/api/tournaments', auth, (req, res) => {
 });
 
 function tournamentRow(t, showForm) {
-  const formCell = t.entry_form
-    ? `<a href="${safeUrl(t.entry_form)}" target="_blank" rel="noopener">📄 Entry Form</a>`
-    : `<span style="color:var(--muted,#888);">Coming soon</span>`;
+  const online = /^[a-z0-9-]{1,60}$/.test(t.online_form || '') ? `entry.html?form=${t.online_form}` : '';
+  const links = [];
+  if (online) links.push(`<a href="${online}">📝 Enter Online</a>`);
+  if (t.entry_form) links.push(`<a href="${safeUrl(t.entry_form)}" target="_blank" rel="noopener">📄 PDF</a>`);
+  const formCell = links.length ? links.join(' &nbsp;·&nbsp; ') : `<span style="color:var(--muted,#888);">Coming soon</span>`;
   const formCol = showForm ? `\n            <td>${formCell}</td>` : '';
   return `          <tr>
             <td><strong>${esc(t.name)}</strong></td>
             <td>${esc(t.date)}${t.date === 'TBD' ? '' : '*'}</td>
             <td>${esc(t.center || 'TBD')}</td>
             <td><span class="badge badge-${esc(t.type_color)}">${esc(t.type)}</span></td>${formCol}
-            <td><a href="signup.html" class="btn btn-red" style="padding:0.3rem 0.8rem;font-size:0.82rem;">Sign Up</a></td>
+            <td><a href="${online || 'signup.html'}" class="btn btn-red" style="padding:0.3rem 0.8rem;font-size:0.82rem;">Sign Up</a></td>
           </tr>`;
 }
 
@@ -251,7 +253,7 @@ ${indent}<!-- FOOTER-CONTACT-END -->`;
   };
 
   const allPages = ['index.html','board.html','contact.html','forms.html',
-    'honor.html','signup.html','tournaments.html','youth.html','averages.html','leagues.html','team.html'];
+    'honor.html','signup.html','tournaments.html','youth.html','averages.html','leagues.html','team.html','entry.html'];
   allPages.forEach(footerBlock);
 
   // contact.html main section
@@ -463,6 +465,8 @@ app.get('/robots.txt', (req, res) => {
 });
 
 // Own 404 so the security headers above aren't replaced by Express's default
+require('./entries').mount(app, readData);
+
 app.use((req, res) => res.status(404).type('text').send('Not found'));
 
 app.listen(PORT, () => {

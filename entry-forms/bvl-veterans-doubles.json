@@ -1,0 +1,50 @@
+{
+  "tournament": "BVL Veterans Tournament",
+  "pdf": "forms/bvl-veterans-doubles-entry.pdf",
+  "fee_per_person": 35,
+  "fee_people_fields": ["bowler1_name", "bowler2_name"],
+  "fields": {
+    "team_name":     { "label": "Team name", "required": true, "max": 60 },
+    "bowler1_name":  { "label": "Bowler 1", "required": true, "max": 60 },
+    "bowler1_avg":   { "label": "Bowler 1 2025-26 average", "type": "average" },
+    "bowler2_name":  { "label": "Bowler 2", "required": true, "max": 60 },
+    "bowler2_avg":   { "label": "Bowler 2 2025-26 average", "type": "average" },
+    "contact_name":  { "label": "Contact name", "required": true, "max": 60 },
+    "contact_phone": { "label": "Contact phone", "type": "tel", "required": true, "max": 20 },
+    "contact_email": { "label": "Contact email", "type": "email", "required": true, "max": 100 }
+  },
+  "sheet": [
+    { "logos": [
+      { "src": "images/entry/scusbc-logo.png", "alt": "Spokane County USBC" },
+      { "src": "images/entry/bvl-logo.png", "alt": "Bowlers to Veterans Link" } ] },
+    { "title": ["SPOKANE COUNTY VETERANS", "DOUBLES TOURNAMENT"] },
+    { "subtitle": ["November 11, 2026 at", "Valley Bowl"] },
+    { "text": [{ "t": "3 game No Tap - $35.00 entry fee per person" }], "size": "lg" },
+    { "text": [{ "t": "12 pm squad time", "red": true, "bold": true }, { "t": "—Enter early to guarantee your spot.", "bold": true }] },
+    { "text": [{ "t": "Each team should consist of a veteran and a non-veteran if possible." }], "size": "sm" },
+    { "text": [{ "t": "USBC Membership is not required in order to participate in this tournament.", "bold": true }], "size": "sm" },
+    { "row": [{ "label": "TEAM NAME", "field": "team_name" }], "center": true },
+    { "row": [{ "label": "1.", "field": "bowler1_name", "grow": 3 }, { "label": "2025-26 Avg", "field": "bowler1_avg", "grow": 1 }] },
+    { "row": [{ "label": "2.", "field": "bowler2_name", "grow": 3 }, { "label": "2025-26 Avg", "field": "bowler2_avg", "grow": 1 }] },
+    { "heading": "Contact Information" },
+    { "row": [{ "label": "NAME", "field": "contact_name", "grow": 3 }, { "label": "PHONE", "field": "contact_phone", "grow": 2 }] },
+    { "row": [{ "label": "EMAIL", "field": "contact_email" }] },
+    { "total": "TOTAL AMOUNT DUE", "note": "($35/PERSON)" }
+  ],
+  "rules": {
+    "title": "Spokane Veterans Doubles Tournament Rules",
+    "items": [
+      "This tournament is an opportunity to recognize our local veterans. Each team should consist of a veteran and a non-veteran if possible. USBC membership is not required in order to participate in this tournament.",
+      "Cost of the tournament is $70 per team, $30 for bowling, $34 as a BVL donation to our local VA hospital, and $6 for expenses/fees.",
+      "This tournament is a 3 game 9 pin No-tap format. (If the bowler knocks down 9 pins on the first delivery, the shot becomes a strike.)",
+      "This is non-certified tournament and is open to all bowlers. Bowlers with certified averages will use those averages. Male bowlers without a certified average will have an assigned average of 150 and women bowlers without a certified average will have an assigned average of 125. (The tournament director may re-rate the assigned average before the end of the first game.)",
+      "All entrants shall use their highest 2025-26 winter league averages (21 games or more). If no 2025-26 winter league average, an entrant shall use their most recent highest certified league average 21 games or more (including summer league averages). If no certified league average, a women will come in with an entering average of 125 and men will come in with an entering average of 150.",
+      "Bowlers are responsible for the validity of their own average, whether submitted by the bowler, team captain or others. If the submitted average is incorrect, the bowler’s entering average can be corrected by the Tournament Director prior to bowling. The Tournament Director has the right to re-rate bowlers prior to bowling. Their entry fees will be returned if the bowler does not accept the rerated average.",
+      "Any bowler who has only a certified average from a non-standard league will have their average rerated based on the USBC Challenge/Sport Conversion chart.",
+      "Walk-ins will be allowed if lanes are available.",
+      "Brackets will be offered and paid to the winners.",
+      "The Tournament Director’s decisions are final."
+    ]
+  },
+  "payment": "Make checks payable to SCUSBC and mail to Tina Blough, P.O. Box 112, Deer Park, WA 99006-0112. ($25 will be charged for any returned checks.)"
+}
