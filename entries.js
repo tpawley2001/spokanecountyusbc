@@ -40,12 +40,20 @@ function clean(v, max) {
 function validate(form, body) {
   const values = {}, errors = {};
   for (const [name, f] of Object.entries(form.fields)) {
+    if (f.type === 'check') { values[name] = body[name] ? 'X' : ''; continue; }   // checkbox: 'X' on the PDF
     const v = clean(body[name], f.max || 100);
     if (!v) { if (f.required) errors[name] = `${f.label} is required`; values[name] = ''; continue; }
     if (f.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)) errors[name] = 'Enter a valid email address';
     if (f.type === 'tel' && (v.replace(/\D/g, '').length < 7)) errors[name] = 'Enter a valid phone number';
     if (f.type === 'average' && !(/^\d{1,3}$/.test(v) && +v <= 300)) errors[name] = 'Average must be a number from 0 to 300';
     values[name] = v;
+  }
+  // Per-bowler event picks (e.g. Hdcp/Scratch): a named bowler needs at least one,
+  // and an event can't be picked for a bowler with no name.
+  for (const b of form.event_picks || []) {
+    const picked = b.events.some(n => values[n]);
+    if (values[b.name] && !picked) errors[b.events[0]] = b.error || 'Pick at least one event';
+    if (!values[b.name] && picked && !errors[b.name]) errors[b.name] = `${form.fields[b.name].label} is required`;
   }
   return { values, errors };
 }
@@ -65,7 +73,11 @@ async function fillPdf(form, values) {
   for (const [name, v] of Object.entries(values)) {
     let tf;
     try { tf = pdfForm.getTextField(name); } catch { continue; }   // field missing on the PDF: skip
-    tf.acroField.setDefaultAppearance('/Helv 12 Tf 0 g');
+    // 12pt, shrunk only as far as needed so a long value fits a narrow blank
+    const w = tf.acroField.getWidgets()[0];
+    const room = w ? w.getRectangle().width - 4 : Infinity;
+    const size = Math.max(6, Math.min(12, Math.floor(12 * room / (font.widthOfTextAtSize(v, 12) || 1))));
+    tf.acroField.setDefaultAppearance(`/Helv ${size} Tf 0 g`);
     tf.setText(v);
   }
   pdfForm.updateFieldAppearances(font);
@@ -92,7 +104,7 @@ const htmlEsc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').repl
 
 function emailBody(name, form, values, due, when) {
   const rows = Object.entries(form.fields).map(([k, f]) => [f.label, values[k] || '—']);
-  rows.push(['Entry fee due', `$${due.toFixed(2)} ($${form.fee_per_person}/person)`]);
+  rows.push(['Entry fee due', `$${due.toFixed(2)} ($${form.fee_per_person}/${form.fee_unit || 'person'})`]);
   const text = `${name} entry submitted online ${when}\n\n` +
     rows.map(([l, v]) => `${l}: ${v}`).join('\n') +
     `\n\nThe completed entry form is attached as a printable PDF. Reply to this email to reach the contact.\n`;

@@ -17,6 +17,7 @@
   fetch(`/entry/form/${slug}`).then(r => r.ok ? r.json() : Promise.reject()).then(render).catch(() => fail('This entry form could not be found.'));
 
   function input(name, f) {
+    if (f.type === 'check') return el('input', { id: `f-${name}`, name, type: 'checkbox', value: 'X', 'aria-label': f.label });
     const type = f.type === 'email' ? 'email' : f.type === 'tel' ? 'tel' : 'text';
     const attrs = { id: `f-${name}`, name, type, maxlength: f.type === 'average' ? 3 : (f.max || 100), 'aria-label': f.label, required: !!f.required };
     if (f.type === 'average') Object.assign(attrs, { inputmode: 'numeric', pattern: '\\d{1,3}' });
@@ -37,7 +38,7 @@
         b.text.map(s => el('span', { class: [s.red && 'es-red', s.bold && 'es-bold'].filter(Boolean).join(' ') }, s.t))));
       else if (b.heading) sheet.append(el('h2', { class: 'es-heading' }, b.heading));
       else if (b.row) sheet.append(el('div', { class: `es-row${b.center ? ' es-center' : ''}` },
-        b.row.map(c => el('label', { class: 'es-field', style: `flex-grow:${c.grow || 1}`, for: `f-${c.field}` },
+        b.row.map(c => el('label', { class: `es-field${form.fields[c.field].type === 'check' ? ' es-check' : ''}`, style: `flex-grow:${c.grow || 1}`, for: `f-${c.field}` },
           el('span', { class: 'es-label' }, c.label), input(c.field, form.fields[c.field]),
           el('span', { class: 'es-err', id: `e-${c.field}` })))));
       else if (b.total) {
@@ -60,10 +61,11 @@
     const pdfLink = form.pdf_url ? el('p', { class: 'es-alt' }, 'Prefer paper? ', el('a', { href: form.pdf_url, target: '_blank', rel: 'noopener' }, 'Download the PDF entry form'), ' and mail or email it in.') : null;
     root.replaceChildren(el('p', { class: 'es-back' }, el('a', { href: 'tournaments.html' }, '← Tournaments')), formEl, pdfLink, rules);
 
+    const valueOf = i => i.type === 'checkbox' ? (i.checked ? i.value : '') : i.value;
     const people = form.fee_people_fields || [];
     const updateTotal = () => {
       if (!totalOut) return;
-      const n = people.filter(p => formEl.elements[p] && formEl.elements[p].value.trim()).length;
+      const n = people.filter(p => formEl.elements[p] && valueOf(formEl.elements[p]).trim()).length;
       totalOut.textContent = (n * (form.fee_per_person || 0)).toFixed(2);
     };
     formEl.addEventListener('input', e => {
@@ -76,7 +78,7 @@
     formEl.addEventListener('submit', async e => {
       e.preventDefault();
       const data = {};
-      for (const n of [...Object.keys(form.fields), 'website']) data[n] = formEl.elements[n] ? formEl.elements[n].value : '';
+      for (const n of [...Object.keys(form.fields), 'website']) data[n] = formEl.elements[n] ? valueOf(formEl.elements[n]) : '';
       // quick client-side check of required fields; the server re-checks everything
       let bad = null;
       for (const [n, f] of Object.entries(form.fields)) {

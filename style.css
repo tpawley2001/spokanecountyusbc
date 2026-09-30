@@ -315,6 +315,8 @@ footer {
 .es-field input { flex: 1; min-width: 60px; border: 0; border-bottom: 1.5px solid #000; border-radius: 0; background: #fafcff;
   font: inherit; font-weight: 400; color: #0a2a8a; padding: 0.15rem 0.3rem; }
 .es-field input:focus { outline: none; background: #eef4ff; border-bottom-color: var(--navy); }
+.es-field.es-check { min-width: 0; flex: 0 0 auto !important; flex-wrap: nowrap; align-items: center; }
+.es-field input[type=checkbox] { flex: 0 0 auto; width: 1.4rem; height: 1.4rem; min-width: 0; accent-color: var(--navy); }
 .es-field input.es-invalid { border-bottom-color: #f00; background: #fff2f2; }
 .es-err { flex-basis: 100%; color: #c00; font-size: 0.8rem; font-weight: 400; min-height: 0; }
 .es-err:empty { display: none; }
