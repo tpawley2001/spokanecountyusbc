@@ -55,6 +55,9 @@ function validate(form, body) {
     if (values[b.name] && !picked) errors[b.events[0]] = b.error || 'Pick at least one event';
     if (!values[b.name] && picked && !errors[b.name]) errors[b.name] = `${form.fields[b.name].label} is required`;
   }
+  // At least one of several optional fields (e.g. any bowler, doubles or singles)
+  const one = form.require_one;
+  if (one && !one.fields.some(n => values[n]) && !errors[one.fields[0]]) errors[one.fields[0]] = one.error || 'Required';
   return { values, errors };
 }
 

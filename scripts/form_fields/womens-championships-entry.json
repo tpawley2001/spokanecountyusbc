@@ -1,0 +1,248 @@
+{
+ "source": "womens-championships-entry.pdf",
+ "fields": [
+  {
+   "page": 0,
+   "name": "doubles1_name",
+   "label": "Doubles bowler 1 name",
+   "type": "text",
+   "rect": [
+    40.3,
+    453.5,
+    371.6,
+    475.5
+   ]
+  },
+  {
+   "page": 0,
+   "name": "doubles1_usbc",
+   "label": "Doubles bowler 1 USBC number",
+   "type": "text",
+   "rect": [
+    377.6,
+    453.5,
+    457.8,
+    475.5
+   ],
+   "maxlen": 20
+  },
+  {
+   "page": 0,
+   "name": "doubles1_avg",
+   "label": "Doubles bowler 1 2025-26 average",
+   "type": "text",
+   "rect": [
+    463.8,
+    453.5,
+    526.2,
+    475.5
+   ],
+   "maxlen": 3
+  },
+  {
+   "page": 0,
+   "name": "doubles1_hdcp",
+   "label": "Doubles bowler 1 HDCP Div. (X)",
+   "type": "text",
+   "rect": [
+    545.5,
+    456.5,
+    559.5,
+    472.5
+   ],
+   "maxlen": 1
+  },
+  {
+   "page": 0,
+   "name": "doubles2_name",
+   "label": "Doubles bowler 2 name",
+   "type": "text",
+   "rect": [
+    40.3,
+    483.5,
+    371.6,
+    510.0
+   ]
+  },
+  {
+   "page": 0,
+   "name": "doubles2_usbc",
+   "label": "Doubles bowler 2 USBC number",
+   "type": "text",
+   "rect": [
+    377.6,
+    483.5,
+    457.8,
+    510.0
+   ],
+   "maxlen": 20
+  },
+  {
+   "page": 0,
+   "name": "doubles2_avg",
+   "label": "Doubles bowler 2 2025-26 average",
+   "type": "text",
+   "rect": [
+    463.8,
+    483.5,
+    526.2,
+    510.0
+   ],
+   "maxlen": 3
+  },
+  {
+   "page": 0,
+   "name": "doubles2_hdcp",
+   "label": "Doubles bowler 2 HDCP Div. (X)",
+   "type": "text",
+   "rect": [
+    545.5,
+    488.8,
+    559.5,
+    504.8
+   ],
+   "maxlen": 1
+  },
+  {
+   "page": 0,
+   "name": "singles1_name",
+   "label": "Singles bowler 1 name",
+   "type": "text",
+   "rect": [
+    40.3,
+    611.2,
+    371.8,
+    643.7
+   ]
+  },
+  {
+   "page": 0,
+   "name": "singles1_usbc",
+   "label": "Singles bowler 1 USBC number",
+   "type": "text",
+   "rect": [
+    377.8,
+    611.2,
+    454.3,
+    643.7
+   ],
+   "maxlen": 20
+  },
+  {
+   "page": 0,
+   "name": "singles1_avg",
+   "label": "Singles bowler 1 2025-26 average",
+   "type": "text",
+   "rect": [
+    460.3,
+    611.2,
+    525.5,
+    643.7
+   ],
+   "maxlen": 3
+  },
+  {
+   "page": 0,
+   "name": "singles1_hdcp",
+   "label": "Singles bowler 1 HDCP Div. (X)",
+   "type": "text",
+   "rect": [
+    545.1,
+    619.5,
+    559.1,
+    635.5
+   ],
+   "maxlen": 1
+  },
+  {
+   "page": 0,
+   "name": "singles2_name",
+   "label": "Singles bowler 2 name",
+   "type": "text",
+   "rect": [
+    40.3,
+    651.7,
+    371.8,
+    684.2
+   ]
+  },
+  {
+   "page": 0,
+   "name": "singles2_usbc",
+   "label": "Singles bowler 2 USBC number",
+   "type": "text",
+   "rect": [
+    377.8,
+    651.7,
+    454.3,
+    684.2
+   ],
+   "maxlen": 20
+  },
+  {
+   "page": 0,
+   "name": "singles2_avg",
+   "label": "Singles bowler 2 2025-26 average",
+   "type": "text",
+   "rect": [
+    460.3,
+    651.7,
+    525.5,
+    684.2
+   ],
+   "maxlen": 3
+  },
+  {
+   "page": 0,
+   "name": "singles2_hdcp",
+   "label": "Singles bowler 2 HDCP Div. (X)",
+   "type": "text",
+   "rect": [
+    545.1,
+    660.0,
+    559.1,
+    676.0
+   ],
+   "maxlen": 1
+  },
+  {
+   "page": 0,
+   "name": "doubles_fee",
+   "label": "Handicap Doubles $",
+   "type": "text",
+   "rect": [
+    231,
+    726.5,
+    330,
+    740.3
+   ],
+   "maxlen": 10
+  },
+  {
+   "page": 0,
+   "name": "singles_fee",
+   "label": "Handicap Singles $",
+   "type": "text",
+   "rect": [
+    231,
+    743.3,
+    330,
+    757.2
+   ],
+   "maxlen": 10
+  },
+  {
+   "page": 0,
+   "name": "total_submitted",
+   "label": "Total Submitted $",
+   "type": "text",
+   "rect": [
+    231,
+    760.2,
+    330,
+    774.0
+   ],
+   "maxlen": 10
+  }
+ ]
+}

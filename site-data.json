@@ -179,7 +179,8 @@
       "center": "Players",
       "type": "Women's",
       "type_color": "gold",
-      "entry_form": ""
+      "entry_form": "forms/womens-championships-entry.pdf",
+      "online_form": "womens-championships"
     },
     {
       "name": "SCUSBC Kings Tournament (formerly Masters)",

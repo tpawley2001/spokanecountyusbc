@@ -1,0 +1,333 @@
+{
+ "tournament": "SCUSBC Women's Championships",
+ "pdf": "forms/womens-championships-entry.pdf",
+ "fee_per_person": 45,
+ "fee_unit": "event",
+ "fee_people_fields": [
+  "doubles1_name",
+  "doubles2_name",
+  "singles1_name",
+  "singles2_name"
+ ],
+ "require_one": {
+  "fields": [
+   "doubles1_name",
+   "doubles2_name",
+   "singles1_name",
+   "singles2_name"
+  ],
+  "error": "Enter at least one bowler"
+ },
+ "event_picks": [
+  {
+   "name": "doubles1_name",
+   "events": [
+    "doubles2_name"
+   ],
+   "error": "Doubles needs two bowlers"
+  }
+ ],
+ "fields": {
+  "doubles1_name": {
+   "label": "Doubles bowler 1 name",
+   "max": 60
+  },
+  "doubles1_usbc": {
+   "label": "Doubles bowler 1 USBC number",
+   "max": 20
+  },
+  "doubles1_avg": {
+   "label": "Doubles bowler 1 2025-26 average",
+   "type": "average"
+  },
+  "doubles1_hdcp": {
+   "label": "Doubles bowler 1 HDCP Div.",
+   "type": "check"
+  },
+  "doubles2_name": {
+   "label": "Doubles bowler 2 name",
+   "max": 60
+  },
+  "doubles2_usbc": {
+   "label": "Doubles bowler 2 USBC number",
+   "max": 20
+  },
+  "doubles2_avg": {
+   "label": "Doubles bowler 2 2025-26 average",
+   "type": "average"
+  },
+  "doubles2_hdcp": {
+   "label": "Doubles bowler 2 HDCP Div.",
+   "type": "check"
+  },
+  "singles1_name": {
+   "label": "Singles bowler 1 name",
+   "max": 60
+  },
+  "singles1_usbc": {
+   "label": "Singles bowler 1 USBC number",
+   "max": 20
+  },
+  "singles1_avg": {
+   "label": "Singles bowler 1 2025-26 average",
+   "type": "average"
+  },
+  "singles1_hdcp": {
+   "label": "Singles bowler 1 HDCP Div.",
+   "type": "check"
+  },
+  "singles2_name": {
+   "label": "Singles bowler 2 name",
+   "max": 60
+  },
+  "singles2_usbc": {
+   "label": "Singles bowler 2 USBC number",
+   "max": 20
+  },
+  "singles2_avg": {
+   "label": "Singles bowler 2 2025-26 average",
+   "type": "average"
+  },
+  "singles2_hdcp": {
+   "label": "Singles bowler 2 HDCP Div.",
+   "type": "check"
+  },
+  "contact_name": {
+   "label": "Contact name",
+   "required": true,
+   "max": 60
+  },
+  "contact_phone": {
+   "label": "Contact phone",
+   "type": "tel",
+   "required": true,
+   "max": 20
+  },
+  "contact_email": {
+   "label": "Contact email",
+   "type": "email",
+   "required": true,
+   "max": 100
+  }
+ },
+ "sheet": [
+  {
+   "logos": [
+    {
+     "src": "images/entry/scusbc-logo.png",
+     "alt": "Spokane County USBC"
+    }
+   ]
+  },
+  {
+   "subtitle": [
+    "Spokane County USBC presents:",
+    "WOMEN’S CHAMPIONSHIP TOURNAMENT",
+    "April 4, 2027"
+   ]
+  },
+  {
+   "text": [
+    {
+     "t": "PLAYERS  10am Squad only",
+     "red": true
+    }
+   ],
+   "size": "lg"
+  },
+  {
+   "text": [
+    {
+     "t": "$45 per person per event (handicap)",
+     "red": true
+    }
+   ]
+  },
+  {
+   "heading": "DOUBLES"
+  },
+  {
+   "row": [
+    {
+     "label": "NAMES",
+     "field": "doubles1_name",
+     "grow": 3
+    },
+    {
+     "label": "USBC Number",
+     "field": "doubles1_usbc",
+     "grow": 2
+    }
+   ]
+  },
+  {
+   "row": [
+    {
+     "label": "2025-26 Avg.",
+     "field": "doubles1_avg",
+     "grow": 1
+    },
+    {
+     "label": "HDCP Div.",
+     "field": "doubles1_hdcp",
+     "grow": 1
+    }
+   ]
+  },
+  {
+   "row": [
+    {
+     "label": "NAMES",
+     "field": "doubles2_name",
+     "grow": 3
+    },
+    {
+     "label": "USBC Number",
+     "field": "doubles2_usbc",
+     "grow": 2
+    }
+   ]
+  },
+  {
+   "row": [
+    {
+     "label": "2025-26 Avg.",
+     "field": "doubles2_avg",
+     "grow": 1
+    },
+    {
+     "label": "HDCP Div.",
+     "field": "doubles2_hdcp",
+     "grow": 1
+    }
+   ]
+  },
+  {
+   "heading": "SINGLES"
+  },
+  {
+   "row": [
+    {
+     "label": "NAMES",
+     "field": "singles1_name",
+     "grow": 3
+    },
+    {
+     "label": "USBC Number",
+     "field": "singles1_usbc",
+     "grow": 2
+    }
+   ]
+  },
+  {
+   "row": [
+    {
+     "label": "2025-26 Avg.",
+     "field": "singles1_avg",
+     "grow": 1
+    },
+    {
+     "label": "HDCP Div.",
+     "field": "singles1_hdcp",
+     "grow": 1
+    }
+   ]
+  },
+  {
+   "row": [
+    {
+     "label": "NAMES",
+     "field": "singles2_name",
+     "grow": 3
+    },
+    {
+     "label": "USBC Number",
+     "field": "singles2_usbc",
+     "grow": 2
+    }
+   ]
+  },
+  {
+   "row": [
+    {
+     "label": "2025-26 Avg.",
+     "field": "singles2_avg",
+     "grow": 1
+    },
+    {
+     "label": "HDCP Div.",
+     "field": "singles2_hdcp",
+     "grow": 1
+    }
+   ]
+  },
+  {
+   "heading": "Contact Information"
+  },
+  {
+   "row": [
+    {
+     "label": "NAME",
+     "field": "contact_name",
+     "grow": 3
+    },
+    {
+     "label": "PHONE",
+     "field": "contact_phone",
+     "grow": 2
+    }
+   ]
+  },
+  {
+   "row": [
+    {
+     "label": "EMAIL",
+     "field": "contact_email"
+    }
+   ]
+  },
+  {
+   "total": "Total Submitted",
+   "note": "($45 per person per event)"
+  },
+  {
+   "text": [
+    {
+     "t": "MAKE CHECKS PAYABLE TO SCUSBC"
+    }
+   ],
+   "size": "sm"
+  },
+  {
+   "text": [
+    {
+     "t": "ALL ENTRIES MUST HAVE ENTRY FORM"
+    }
+   ],
+   "size": "sm"
+  },
+  {
+   "text": [
+    {
+     "t": "Email entries to: spokaneusbc.assoc.manager@gmail.com"
+    }
+   ],
+   "size": "sm"
+  },
+  {
+   "text": [
+    {
+     "t": "Mail entries to: SCUSBC, P.O. Box 112, Deer Park, WA 99006"
+    }
+   ],
+   "size": "sm"
+  }
+ ],
+ "payment": {
+  "paypal": "SCUSBC",
+  "venmo": "Spokane-USBC",
+  "paypal_qr": "images/pay/paypal-qr.svg",
+  "venmo_qr": "images/pay/venmo-qr.svg",
+  "checks": "Or mail a check payable to SCUSBC to P.O. Box 112, Deer Park, WA 99006-0112. ($25 will be charged for any returned checks.)"
+ }
+}

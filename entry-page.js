@@ -59,7 +59,7 @@
       form.rules.footer ? el('p', { class: 'es-text es-sm es-bold' }, form.rules.footer) : null) : null;
 
     const pdfLink = form.pdf_url ? el('p', { class: 'es-alt' }, 'Prefer paper? ', el('a', { href: form.pdf_url, target: '_blank', rel: 'noopener' }, 'Download the PDF entry form'), ' and mail or email it in.') : null;
-    root.replaceChildren(el('p', { class: 'es-back' }, el('a', { href: 'tournaments.html' }, '← Tournaments')), formEl, pdfLink, rules);
+    root.replaceChildren(...[el('p', { class: 'es-back' }, el('a', { href: 'tournaments.html' }, '← Tournaments')), formEl, pdfLink, rules].filter(Boolean));
 
     const valueOf = i => i.type === 'checkbox' ? (i.checked ? i.value : '') : i.value;
     const people = form.fee_people_fields || [];
