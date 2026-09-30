@@ -1,0 +1,432 @@
+{
+ "source": "senior-championships-entry.pdf",
+ "fields": [
+  {
+   "page": 0,
+   "name": "bowler1_name",
+   "label": "Bowler 1 name",
+   "type": "text",
+   "rect": [
+    42.6,
+    359.6,
+    205.8,
+    374.4
+   ]
+  },
+  {
+   "page": 0,
+   "name": "bowler1_id",
+   "label": "Bowler 1 ID number",
+   "type": "text",
+   "rect": [
+    211.8,
+    359.6,
+    277.8,
+    374.4
+   ],
+   "maxlen": 20,
+   "fontsize": 9
+  },
+  {
+   "page": 0,
+   "name": "bowler1_avg",
+   "label": "Bowler 1 highest 2025-26 average",
+   "type": "text",
+   "rect": [
+    283.8,
+    359.6,
+    335.4,
+    374.4
+   ],
+   "maxlen": 3
+  },
+  {
+   "page": 0,
+   "name": "bowler1_jan_avg",
+   "label": "Bowler 1 Jan. 1, 2026 average",
+   "type": "text",
+   "rect": [
+    341.4,
+    359.6,
+    393.0,
+    374.4
+   ],
+   "maxlen": 3
+  },
+  {
+   "page": 0,
+   "name": "bowler1_singles",
+   "label": "Bowler 1 handicap singles (X)",
+   "type": "text",
+   "rect": [
+    411.6,
+    359.6,
+    423.6,
+    374.4
+   ],
+   "maxlen": 1
+  },
+  {
+   "page": 0,
+   "name": "bowler1_doubles",
+   "label": "Bowler 1 handicap doubles (X)",
+   "type": "text",
+   "rect": [
+    454.8,
+    359.6,
+    466.8,
+    374.4
+   ],
+   "maxlen": 1
+  },
+  {
+   "page": 0,
+   "name": "bowler1_age",
+   "label": "Bowler 1 age as of Oct. 1, 2026",
+   "type": "text",
+   "rect": [
+    485.4,
+    359.6,
+    537.0,
+    374.4
+   ],
+   "maxlen": 3
+  },
+  {
+   "page": 0,
+   "name": "bowler1_mf",
+   "label": "Bowler 1 M/F",
+   "type": "text",
+   "rect": [
+    550.2,
+    359.6,
+    562.2,
+    374.4
+   ],
+   "maxlen": 1
+  },
+  {
+   "page": 0,
+   "name": "bowler2_name",
+   "label": "Bowler 2 name",
+   "type": "text",
+   "rect": [
+    42.6,
+    388.4,
+    205.8,
+    403.2
+   ]
+  },
+  {
+   "page": 0,
+   "name": "bowler2_id",
+   "label": "Bowler 2 ID number",
+   "type": "text",
+   "rect": [
+    211.8,
+    388.4,
+    277.8,
+    403.2
+   ],
+   "maxlen": 20,
+   "fontsize": 9
+  },
+  {
+   "page": 0,
+   "name": "bowler2_avg",
+   "label": "Bowler 2 highest 2025-26 average",
+   "type": "text",
+   "rect": [
+    283.8,
+    388.4,
+    335.4,
+    403.2
+   ],
+   "maxlen": 3
+  },
+  {
+   "page": 0,
+   "name": "bowler2_jan_avg",
+   "label": "Bowler 2 Jan. 1, 2026 average",
+   "type": "text",
+   "rect": [
+    341.4,
+    388.4,
+    393.0,
+    403.2
+   ],
+   "maxlen": 3
+  },
+  {
+   "page": 0,
+   "name": "bowler2_singles",
+   "label": "Bowler 2 handicap singles (X)",
+   "type": "text",
+   "rect": [
+    411.6,
+    388.4,
+    423.6,
+    403.2
+   ],
+   "maxlen": 1
+  },
+  {
+   "page": 0,
+   "name": "bowler2_doubles",
+   "label": "Bowler 2 handicap doubles (X)",
+   "type": "text",
+   "rect": [
+    454.8,
+    388.4,
+    466.8,
+    403.2
+   ],
+   "maxlen": 1
+  },
+  {
+   "page": 0,
+   "name": "bowler2_age",
+   "label": "Bowler 2 age as of Oct. 1, 2026",
+   "type": "text",
+   "rect": [
+    485.4,
+    388.4,
+    537.0,
+    403.2
+   ],
+   "maxlen": 3
+  },
+  {
+   "page": 0,
+   "name": "bowler2_mf",
+   "label": "Bowler 2 M/F",
+   "type": "text",
+   "rect": [
+    550.2,
+    388.4,
+    562.2,
+    403.2
+   ],
+   "maxlen": 1
+  },
+  {
+   "page": 0,
+   "name": "contact_name",
+   "label": "Team contact",
+   "type": "text",
+   "rect": [
+    95.1,
+    444.5,
+    226.4,
+    457.5
+   ]
+  },
+  {
+   "page": 0,
+   "name": "contact_address",
+   "label": "Address",
+   "type": "text",
+   "rect": [
+    74.2,
+    467,
+    223.3,
+    480
+   ]
+  },
+  {
+   "page": 0,
+   "name": "contact_city_state",
+   "label": "City/State",
+   "type": "text",
+   "rect": [
+    79.5,
+    489.4,
+    219.7,
+    502.4
+   ]
+  },
+  {
+   "page": 0,
+   "name": "contact_zip",
+   "label": "Zip code",
+   "type": "text",
+   "rect": [
+    74.9,
+    511.9,
+    112.9,
+    524.9
+   ],
+   "maxlen": 10,
+   "fontsize": 9
+  },
+  {
+   "page": 0,
+   "name": "contact_phone",
+   "label": "Phone #",
+   "type": "text",
+   "rect": [
+    149.2,
+    511.9,
+    213.9,
+    524.9
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 0,
+   "name": "contact_email",
+   "label": "E-mail",
+   "type": "text",
+   "rect": [
+    67.5,
+    534.3,
+    221.1,
+    547.3
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 0,
+   "name": "reserved_date",
+   "label": "Date reserved",
+   "type": "text",
+   "rect": [
+    265.9,
+    452.5,
+    299.3,
+    462.5
+   ],
+   "fontsize": 8
+  },
+  {
+   "page": 0,
+   "name": "reserved_time",
+   "label": "Time reserved",
+   "type": "text",
+   "rect": [
+    312.6,
+    452.5,
+    346.1,
+    462.5
+   ],
+   "fontsize": 8
+  },
+  {
+   "page": 0,
+   "name": "preferred1_date",
+   "label": "Preferred date 1",
+   "type": "text",
+   "rect": [
+    265.9,
+    495.9,
+    299.3,
+    505.9
+   ],
+   "fontsize": 8
+  },
+  {
+   "page": 0,
+   "name": "preferred1_time",
+   "label": "Preferred time 1",
+   "type": "text",
+   "rect": [
+    312.6,
+    495.9,
+    346.1,
+    505.9
+   ],
+   "fontsize": 8
+  },
+  {
+   "page": 0,
+   "name": "preferred2_date",
+   "label": "Preferred date 2",
+   "type": "text",
+   "rect": [
+    265.9,
+    506.4,
+    299.3,
+    516.4
+   ],
+   "fontsize": 8
+  },
+  {
+   "page": 0,
+   "name": "preferred2_time",
+   "label": "Preferred time 2",
+   "type": "text",
+   "rect": [
+    312.6,
+    506.4,
+    346.1,
+    516.4
+   ],
+   "fontsize": 8
+  },
+  {
+   "page": 0,
+   "name": "preferred3_date",
+   "label": "Preferred date 3",
+   "type": "text",
+   "rect": [
+    265.9,
+    517.0,
+    299.3,
+    527.0
+   ],
+   "fontsize": 8
+  },
+  {
+   "page": 0,
+   "name": "preferred3_time",
+   "label": "Preferred time 3",
+   "type": "text",
+   "rect": [
+    312.6,
+    517.0,
+    346.1,
+    527.0
+   ],
+   "fontsize": 8
+  },
+  {
+   "page": 0,
+   "name": "doubles_amount",
+   "label": "Doubles entry amount",
+   "type": "text",
+   "rect": [
+    517.5,
+    466,
+    560.5,
+    476.8
+   ],
+   "fontsize": 8
+  },
+  {
+   "page": 0,
+   "name": "singles_amount",
+   "label": "Singles entry amount",
+   "type": "text",
+   "rect": [
+    517.5,
+    477,
+    560.5,
+    487.3
+   ],
+   "fontsize": 8
+  },
+  {
+   "page": 0,
+   "name": "total_amount",
+   "label": "Total amount remitted",
+   "type": "text",
+   "rect": [
+    517.5,
+    498.5,
+    560.5,
+    509.8
+   ],
+   "fontsize": 9
+  }
+ ]
+}

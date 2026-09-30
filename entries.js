@@ -73,10 +73,10 @@ async function fillPdf(form, values) {
   for (const [name, v] of Object.entries(values)) {
     let tf;
     try { tf = pdfForm.getTextField(name); } catch { continue; }   // field missing on the PDF: skip
-    // 12pt, shrunk only as far as needed so a long value fits a narrow blank
+    // 12pt, shrunk only as far as needed so a long value fits a narrow (or short) blank
     const w = tf.acroField.getWidgets()[0];
-    const room = w ? w.getRectangle().width - 4 : Infinity;
-    const size = Math.max(6, Math.min(12, Math.floor(12 * room / (font.widthOfTextAtSize(v, 12) || 1))));
+    const r = w ? w.getRectangle() : { width: Infinity, height: Infinity };
+    const size = Math.max(6, Math.min(12, Math.floor(r.height * 0.9), Math.floor(12 * (r.width - 4) / (font.widthOfTextAtSize(v, 12) || 1))));
     tf.acroField.setDefaultAppearance(`/Helv ${size} Tf 0 g`);
     tf.setText(v);
   }

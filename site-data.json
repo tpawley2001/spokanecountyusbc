@@ -154,7 +154,8 @@
       "center": "Players",
       "type": "Senior",
       "type_color": "blue",
-      "entry_form": ""
+      "entry_form": "forms/senior-championships-entry.pdf",
+      "online_form": "senior-championships"
     },
     {
       "name": "SCUSBC Open Championships (Team Event)",

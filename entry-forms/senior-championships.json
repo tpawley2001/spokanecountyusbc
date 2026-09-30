@@ -1,0 +1,586 @@
+{
+  "tournament": "SCUSBC Senior Championships",
+  "pdf": "forms/senior-championships-entry.pdf",
+  "fee_per_person": 35,
+  "fee_unit": "event",
+  "fee_people_fields": [
+    "bowler1_singles",
+    "bowler1_doubles",
+    "bowler2_singles",
+    "bowler2_doubles"
+  ],
+  "event_picks": [
+    {
+      "name": "bowler1_name",
+      "events": [
+        "bowler1_singles",
+        "bowler1_doubles"
+      ],
+      "error": "Pick Singles, Doubles or both"
+    },
+    {
+      "name": "bowler2_name",
+      "events": [
+        "bowler2_singles",
+        "bowler2_doubles"
+      ],
+      "error": "Pick Singles, Doubles or both"
+    }
+  ],
+  "fields": {
+    "bowler1_name": {
+      "label": "Bowler 1 name",
+      "required": true,
+      "max": 60
+    },
+    "bowler1_id": {
+      "label": "Bowler 1 ID number",
+      "max": 20
+    },
+    "bowler1_avg": {
+      "label": "Bowler 1 highest 2025-26 average",
+      "type": "average"
+    },
+    "bowler1_jan_avg": {
+      "label": "Bowler 1 Jan. 1, 2026 average",
+      "type": "average"
+    },
+    "bowler1_singles": {
+      "label": "Bowler 1 handicap singles",
+      "type": "check"
+    },
+    "bowler1_doubles": {
+      "label": "Bowler 1 handicap doubles",
+      "type": "check"
+    },
+    "bowler1_age": {
+      "label": "Bowler 1 age as of Oct. 1, 2026",
+      "max": 3
+    },
+    "bowler1_mf": {
+      "label": "Bowler 1 M/F",
+      "max": 1
+    },
+    "bowler2_name": {
+      "label": "Bowler 2 name",
+      "required": false,
+      "max": 60
+    },
+    "bowler2_id": {
+      "label": "Bowler 2 ID number",
+      "max": 20
+    },
+    "bowler2_avg": {
+      "label": "Bowler 2 highest 2025-26 average",
+      "type": "average"
+    },
+    "bowler2_jan_avg": {
+      "label": "Bowler 2 Jan. 1, 2026 average",
+      "type": "average"
+    },
+    "bowler2_singles": {
+      "label": "Bowler 2 handicap singles",
+      "type": "check"
+    },
+    "bowler2_doubles": {
+      "label": "Bowler 2 handicap doubles",
+      "type": "check"
+    },
+    "bowler2_age": {
+      "label": "Bowler 2 age as of Oct. 1, 2026",
+      "max": 3
+    },
+    "bowler2_mf": {
+      "label": "Bowler 2 M/F",
+      "max": 1
+    },
+    "contact_name": {
+      "label": "Team contact",
+      "required": true,
+      "max": 60
+    },
+    "contact_address": {
+      "label": "Address",
+      "max": 100
+    },
+    "contact_city_state": {
+      "label": "City/State",
+      "max": 60
+    },
+    "contact_zip": {
+      "label": "Zip code",
+      "max": 10
+    },
+    "contact_phone": {
+      "label": "Phone #",
+      "type": "tel",
+      "required": true,
+      "max": 20
+    },
+    "contact_email": {
+      "label": "E-mail",
+      "type": "email",
+      "required": true,
+      "max": 100
+    },
+    "reserved_date": {
+      "label": "Date reserved",
+      "max": 20
+    },
+    "reserved_time": {
+      "label": "Time reserved",
+      "max": 20
+    },
+    "preferred1_date": {
+      "label": "Preferred date 1",
+      "max": 20
+    },
+    "preferred1_time": {
+      "label": "Preferred time 1",
+      "max": 20
+    },
+    "preferred2_date": {
+      "label": "Preferred date 2",
+      "max": 20
+    },
+    "preferred2_time": {
+      "label": "Preferred time 2",
+      "max": 20
+    },
+    "preferred3_date": {
+      "label": "Preferred date 3",
+      "max": 20
+    },
+    "preferred3_time": {
+      "label": "Preferred time 3",
+      "max": 20
+    }
+  },
+  "sheet": [
+    {
+      "logos": [
+        {
+          "src": "images/entry/scusbc-logo-black.png",
+          "alt": "Spokane County USBC"
+        },
+        {
+          "src": "images/entry/senior-added-money.png",
+          "alt": "$200 Added Money From SCUSBC Association"
+        }
+      ]
+    },
+    {
+      "title": [
+        "Spokane County USBC",
+        "27th ANNUAL",
+        "SENIOR CHAMPIONSHIP TOURNAMENT"
+      ]
+    },
+    {
+      "subtitle": [
+        "At Players & Spectators",
+        "12828 E Sprague Ave,",
+        "Spokane Valley, WA 99216"
+      ]
+    },
+    {
+      "text": [
+        {
+          "t": "Senior Championship Tournament",
+          "bold": true
+        }
+      ],
+      "size": "lg"
+    },
+    {
+      "text": [
+        {
+          "t": "November 1, 2026     10:00 am and 1:00 pm",
+          "bold": true
+        }
+      ],
+      "size": "md"
+    },
+    {
+      "text": [
+        {
+          "t": "Entry Fee - $35 per person",
+          "red": true,
+          "bold": true
+        }
+      ],
+      "size": "lg"
+    },
+    {
+      "text": [
+        {
+          "t": "Bowl Doubles or Singles on either squad",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "text": [
+        {
+          "t": "3 Games each squad",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "text": [
+        {
+          "t": "2 Prize Divisions",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "text": [
+        {
+          "t": "Male & Female Prize lists",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "text": [
+        {
+          "t": "2 Age Divisions",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "text": [
+        {
+          "t": "Ages 50-64 and 65 and Over",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "row": [
+        {
+          "label": "1. Bowler’s Name",
+          "field": "bowler1_name",
+          "grow": 3
+        },
+        {
+          "label": "ID Number",
+          "field": "bowler1_id",
+          "grow": 2
+        }
+      ]
+    },
+    {
+      "row": [
+        {
+          "label": "Highest 2025-26 Avg.",
+          "field": "bowler1_avg"
+        },
+        {
+          "label": "Jan. 1, 2026 Average",
+          "field": "bowler1_jan_avg"
+        }
+      ]
+    },
+    {
+      "row": [
+        {
+          "label": "Hdcp. Singles",
+          "field": "bowler1_singles"
+        },
+        {
+          "label": "Hdcp Doubles",
+          "field": "bowler1_doubles"
+        }
+      ]
+    },
+    {
+      "row": [
+        {
+          "label": "Age as of Oct. 1, 2026",
+          "field": "bowler1_age",
+          "grow": 3
+        },
+        {
+          "label": "M/F",
+          "field": "bowler1_mf",
+          "grow": 1
+        }
+      ]
+    },
+    {
+      "row": [
+        {
+          "label": "2. Bowler’s Name",
+          "field": "bowler2_name",
+          "grow": 3
+        },
+        {
+          "label": "ID Number",
+          "field": "bowler2_id",
+          "grow": 2
+        }
+      ]
+    },
+    {
+      "row": [
+        {
+          "label": "Highest 2025-26 Avg.",
+          "field": "bowler2_avg"
+        },
+        {
+          "label": "Jan. 1, 2026 Average",
+          "field": "bowler2_jan_avg"
+        }
+      ]
+    },
+    {
+      "row": [
+        {
+          "label": "Hdcp. Singles",
+          "field": "bowler2_singles"
+        },
+        {
+          "label": "Hdcp Doubles",
+          "field": "bowler2_doubles"
+        }
+      ]
+    },
+    {
+      "row": [
+        {
+          "label": "Age as of Oct. 1, 2026",
+          "field": "bowler2_age",
+          "grow": 3
+        },
+        {
+          "label": "M/F",
+          "field": "bowler2_mf",
+          "grow": 1
+        }
+      ]
+    },
+    {
+      "heading": "PLEASE PRINT OR TYPE"
+    },
+    {
+      "row": [
+        {
+          "label": "Team Contact",
+          "field": "contact_name"
+        }
+      ]
+    },
+    {
+      "row": [
+        {
+          "label": "Address",
+          "field": "contact_address"
+        }
+      ]
+    },
+    {
+      "row": [
+        {
+          "label": "City/State",
+          "field": "contact_city_state"
+        }
+      ]
+    },
+    {
+      "row": [
+        {
+          "label": "Zip Code",
+          "field": "contact_zip",
+          "grow": 1
+        },
+        {
+          "label": "Phone #",
+          "field": "contact_phone",
+          "grow": 2
+        }
+      ]
+    },
+    {
+      "row": [
+        {
+          "label": "E-mail",
+          "field": "contact_email"
+        }
+      ]
+    },
+    {
+      "heading": "Date and Time Reserved by phone or e-mail"
+    },
+    {
+      "row": [
+        {
+          "label": "Date",
+          "field": "reserved_date"
+        },
+        {
+          "label": "Time",
+          "field": "reserved_time"
+        }
+      ]
+    },
+    {
+      "text": [
+        {
+          "t": "If no reservation, list dates & times preferred",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "row": [
+        {
+          "label": "Date",
+          "field": "preferred1_date"
+        },
+        {
+          "label": "Time",
+          "field": "preferred1_time"
+        }
+      ]
+    },
+    {
+      "row": [
+        {
+          "label": "Date",
+          "field": "preferred2_date"
+        },
+        {
+          "label": "Time",
+          "field": "preferred2_time"
+        }
+      ]
+    },
+    {
+      "row": [
+        {
+          "label": "Date",
+          "field": "preferred3_date"
+        },
+        {
+          "label": "Time",
+          "field": "preferred3_time"
+        }
+      ]
+    },
+    {
+      "text": [
+        {
+          "t": "I hereby certify the average(s) as listed are correct and total entry fees as follows are enclosed.",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "text": [
+        {
+          "t": "Doubles Entry— $35 each bowler"
+        }
+      ]
+    },
+    {
+      "text": [
+        {
+          "t": "Singles Entry— $35 each bowler"
+        }
+      ]
+    },
+    {
+      "total": "Total Amount Remitted",
+      "note": "($35 per person per event)"
+    },
+    {
+      "text": [
+        {
+          "t": "Make Checks payable to SCUSBC",
+          "bold": true
+        },
+        {
+          "t": " ($25 will be charged for any returned checks)"
+        }
+      ],
+      "size": "sm"
+    },
+    {
+      "text": [
+        {
+          "t": "Make Reservations: ",
+          "bold": true
+        },
+        {
+          "t": "Tina Blough, P.O. Box 112, Deer Park, WA 99006-0112"
+        }
+      ],
+      "size": "sm"
+    },
+    {
+      "text": [
+        {
+          "t": "Web: spokanecountyusbc.com  E-mail: spokaneusbc.assoc.manager@gmail.com",
+          "bold": true
+        }
+      ],
+      "size": "sm"
+    },
+    {
+      "text": [
+        {
+          "t": "Brackets will be offered.",
+          "bold": true
+        }
+      ],
+      "size": "md"
+    },
+    {
+      "text": [
+        {
+          "t": "Download the entry form and view tournament results at: spokanecountyusbc.com",
+          "bold": true
+        }
+      ],
+      "size": "sm"
+    },
+    {
+      "text": [
+        {
+          "t": "See other side for tournament rules.",
+          "bold": true
+        }
+      ],
+      "size": "sm"
+    }
+  ],
+  "rules": {
+    "title": "Spokane County USBC Senior Tournament Rules",
+    "items": [
+      "There will be two divisions, Senior (50-64) and Super Senior (65 and over) for both doubles and singles. Men and Women will compete in separate prize divisions in each division. The participant’s age as of October 1st, 2026 will determine the division in which the member may compete in Singles. The younger of the two doubles bowlers will determine the division of the Doubles team. Mixed doubles entries will compete in the men’s prize division and they will compete in separate prize divisions for their singles event.",
+      "The handicap will be 90% from 220 in singles and 440 in doubles. Prize payout will be one in four. Multiple participation is allowed; however, bowlers must change doubles partners. Bowlers may only cash once in the singles event (see USBC Rule 315c)",
+      "Champions in each event will be recognized for their achievements at the Association Awards Banquet.",
+      "Handicap Entry Fees. $35 per person per event ($15 for bowling, $3 for expense and $17 for prize fee). No entry fees will be returned after acceptance of assigned schedule time. Incomplete entries and entries not received at least 48 hours prior to their scheduled squad time will be treated as walk in entries and will not have guaranteed squad times. Walk in entries will be accepted up to the start of the last squad subject to lane availability. (Squad times are reserved for prepaid entries.",
+      "All bowlers must be adult members of the United States Bowling Congress (USBC). Members from another association must provide verified averages from their association. Non-USBC members may establish eligibility by purchase of a USBC membership.",
+      "Bowlers will use their highest certified league average based on a minimum of 21 games for the 2025-26 season (Rule 319a1a). If no average last year, use highest certified league average for the 2024-25 season based on a minimum of 21 games. If no winter league average for the 2024-25 or 2025-26 season, use the highest certified league average, 21 games or more as of January 1, 2026. A 2026 summer league average will be accepted only if no other average is available. All others bowl scratch.",
+      "Any bowler who has only a certified average from a non-standard league will have their average rerated based on the USBC Sport/Challenge league adjustment chart. If the bowler has both a nonstandard average and a standard league average, and their re-rated average is higher than their standard average, the bowler must use the re-rated average.",
+      "The Tournament Manager or an authorized representative may adjust an entrant’s average upward prior to bowling. The entrant will be notified of any rerating and, if the entrant chooses not to bowl with the adjusted average, their entry fee will be refunded. Such adjustment may be appealed to the USBC within 15 days of the date of bowling or prior to the payment of prizes, whichever comes first. (Rule 319c)",
+      "It shall be each bowler’s responsibility to verify the accuracy of their average in handicap or classified tournaments, whether originally submitted by the bowler, their team captain, or others. Failure to use the proper average or make a correction by the completion of the first game of a series shall disqualify score if submitted average is lower than actual or base prize winnings on submitted average if it is higher per USBC Rule 319a3.",
+      "The maximum handicap game score is capped at 300(Rule 327d)",
+      "Paid entries must be received by October 10, 2026 to guarantee your requested squad time(s) in this tournament.",
+      "Suggested attire should be neat, clean and proper fitting."
+    ],
+    "footer": "If the tournament, or squads in the tournament, are cancelled due to unforeseen circumstances, the entry fees for bowlers scheduled in the cancelled squad(s) will be refunded. Mail Entries to: Tina Blough, PO Box 112, Deer Park, WA 99006-0112. Make Checks Payable to: SCUSBC ($25 will be charged for any returned checks)"
+  },
+  "payment": {
+    "paypal": "SCUSBC",
+    "venmo": "Spokane-USBC",
+    "paypal_qr": "images/pay/paypal-qr.svg",
+    "venmo_qr": "images/pay/venmo-qr.svg",
+    "checks": "Or mail a check payable to SCUSBC to P.O. Box 112, Deer Park, WA 99006-0112. ($25 will be charged for any returned checks.)"
+  }
+}
