@@ -1,0 +1,54 @@
+{
+ "source": "queens-tournament-entry.pdf",
+ "fields": [
+  {
+   "page": 0,
+   "name": "contact_name",
+   "label": "Name",
+   "type": "text",
+   "rect": [
+    95.9,
+    356.1,
+    343.9,
+    370.6
+   ]
+  },
+  {
+   "page": 0,
+   "name": "usbc_number",
+   "label": "USBC#",
+   "type": "text",
+   "rect": [
+    104.3,
+    379.1,
+    282.3,
+    393.6
+   ],
+   "maxlen": 20
+  },
+  {
+   "page": 0,
+   "name": "contact_address",
+   "label": "Address",
+   "type": "text",
+   "rect": [
+    133.2,
+    402.1,
+    571.2,
+    416.6
+   ]
+  },
+  {
+   "page": 0,
+   "name": "contact_phone",
+   "label": "Phone #",
+   "type": "text",
+   "rect": [
+    123.7,
+    425.1,
+    331.7,
+    439.6
+   ]
+  }
+ ]
+}

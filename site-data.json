@@ -137,7 +137,8 @@
       "center": "Lilac Lanes",
       "type": "Queens",
       "type_color": "gold",
-      "entry_form": ""
+      "entry_form": "forms/queens-tournament-entry.pdf",
+      "online_form": "queens-tournament"
     },
     {
       "name": "SCUSBC Youth Championships",

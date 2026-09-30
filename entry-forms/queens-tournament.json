@@ -1,0 +1,214 @@
+{
+  "tournament": "Spokane County Queens Tournament",
+  "pdf": "forms/queens-tournament-entry.pdf",
+  "fee_per_person": 100,
+  "fee_people_fields": [
+    "contact_name"
+  ],
+  "fields": {
+    "contact_name": {
+      "label": "Name",
+      "required": true,
+      "max": 60
+    },
+    "usbc_number": {
+      "label": "USBC#",
+      "required": true,
+      "max": 20
+    },
+    "contact_address": {
+      "label": "Address",
+      "required": true,
+      "max": 100
+    },
+    "contact_phone": {
+      "label": "Phone #",
+      "type": "tel",
+      "required": true,
+      "max": 20
+    },
+    "contact_email": {
+      "label": "Email",
+      "type": "email",
+      "required": true,
+      "max": 100
+    }
+  },
+  "sheet": [
+    {
+      "logos": [
+        {
+          "src": "images/entry/queens-crown.png",
+          "alt": "Queens crown"
+        }
+      ]
+    },
+    {
+      "title": [
+        "33rd Annual SCUSBC Queens Tournament"
+      ]
+    },
+    {
+      "subtitle": [
+        "Hosted by Lilac Lanes and Casino",
+        "1112 E Magnesium Rd",
+        "Spokane, WA 99208"
+      ]
+    },
+    {
+      "text": [
+        {
+          "t": "Sunday February 7, 2027 at 9:00 AM",
+          "red": true
+        }
+      ],
+      "size": "lg"
+    },
+    {
+      "text": [
+        {
+          "t": "$100 entry fee. ($20 Lineage, $80 Prize fund)"
+        }
+      ],
+      "size": "lg"
+    },
+    {
+      "row": [
+        {
+          "label": "NAME",
+          "field": "contact_name"
+        }
+      ]
+    },
+    {
+      "row": [
+        {
+          "label": "USBC#",
+          "field": "usbc_number"
+        }
+      ]
+    },
+    {
+      "row": [
+        {
+          "label": "ADDRESS",
+          "field": "contact_address"
+        }
+      ]
+    },
+    {
+      "row": [
+        {
+          "label": "PHONE #",
+          "field": "contact_phone",
+          "grow": 2
+        },
+        {
+          "label": "EMAIL",
+          "field": "contact_email",
+          "grow": 3
+        }
+      ]
+    },
+    {
+      "text": [
+        {
+          "t": "The tournament winner will receive cash prize, trophy, and an entry into the 2028 Washington State Queens Tournament."
+        }
+      ],
+      "size": "lg"
+    },
+    {
+      "text": [
+        {
+          "t": "LOCAL SPONSORS:"
+        }
+      ]
+    },
+    {
+      "text": [
+        {
+          "t": "Valley Bowl Trophy"
+        }
+      ],
+      "size": "sm"
+    },
+    {
+      "text": [
+        {
+          "t": "Spokane Co. USBC"
+        }
+      ],
+      "size": "sm"
+    },
+    {
+      "text": [
+        {
+          "t": "Caruso’s Deli"
+        }
+      ],
+      "size": "sm"
+    },
+    {
+      "text": [
+        {
+          "t": "AAA Glass"
+        }
+      ],
+      "size": "sm"
+    },
+    {
+      "text": [
+        {
+          "t": "Katie’s Massage Therapy & Associates"
+        }
+      ],
+      "size": "sm"
+    },
+    {
+      "text": [
+        {
+          "t": "The Shear Shed"
+        }
+      ],
+      "size": "sm"
+    },
+    {
+      "text": [
+        {
+          "t": "Mike’s Tru-Fit Pro Shop"
+        }
+      ],
+      "size": "sm"
+    }
+  ],
+  "rules": {
+    "title": "33rd ANNUAL QUEENS TOURNAMENT RULES",
+    "items": [
+      "This is an individual scratch tournament open to all current USBC female members.",
+      "The 2027 City Queens champion will receive money, a trophy, and an entry into the 2028 WSUBC Queens Tournament.",
+      "Entry fee shall be $100. $20 for lineage. $80 for the prize fund. Entries will close 30 minutes prior to start time of tournament.",
+      "Check-In time will be at 8 a.m.",
+      "Tournament will begin on February 7, 2027 at 9:00a.m. Lane assignments will be given at check-in.",
+      "You will bowl 8 games of qualifying. Moving after every game.",
+      "1 in 4 will make the first cut---and cash.",
+      "You will then have Round Robin Match Play.",
+      "We will then cut to the top 3 for Stepladder Finals.",
+      "If a tie exists, a 9th & 10th frame roll-off shall immediately be held. Failure of any contestant to remain available in case of a tie will constitute a forfeit. A 9th and 10th frame will be rolled until the tie is broken.",
+      "Youth bowlers, who have not attained the age of 18, must furnish written authorization signed by a parent or guardian. Written authorization must be filed with the entry form unless her parent or guardian will accompany the student to check in, where consent form may be filed.",
+      "We will issue a check to the Smart Account for any female youth bowler that cashes.",
+      "All other USBC rules will apply.",
+      "Prize fund will be returned 100 percent.",
+      "Bowl at your own risk.",
+      "Tournament Director makes the final decisions on all disputes."
+    ],
+    "footer": "Contact Information--- Spokane Co USBC, PO Box 112, Deer Park, WA 99006 (509) 795-1845 spokaneusbc.assoc.manager@gmail.com"
+  },
+  "payment": {
+    "paypal": "SCUSBC",
+    "venmo": "Spokane-USBC",
+    "paypal_qr": "images/pay/paypal-qr.svg",
+    "venmo_qr": "images/pay/venmo-qr.svg",
+    "checks": "Or mail a check payable to SCUSBC to P.O. Box 112, Deer Park, WA 99006-0112. ($25 will be charged for any returned checks.)"
+  }
+}
