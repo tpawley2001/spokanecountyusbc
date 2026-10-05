@@ -3,7 +3,8 @@
 // layout (drawn by entry-page.js to look like the paper entry form) and the
 // fillable PDF whose field names match. A submission is validated, written to
 // that PDF, emailed to the entry address with the PDF attached, and appended
-// to entries/<slug>.jsonl as a backup in case the email ever fails.
+// to entries/<slug>.jsonl as a backup in case the email ever fails. The log
+// also records where it was sent and the SMTP reply (Mission Control reads it).
 //
 // Mail settings come from the environment (EnvironmentFile in the systemd unit):
 //   SMTP_USER, SMTP_PASS   Gmail account + app password used to send
@@ -159,11 +160,12 @@ function mount(app, readData) {
     try { pdf = await fillPdf(form, values); } catch (e) { console.error('entry pdf fill failed:', e.message); }
 
     let emailed = false;
+    let mail = null;   // delivery record kept in the log, read by Mission Control's USBC tab
     let t = null;
     try { t = await mailer(); } catch (e) { console.error('entry email lookup failed:', e.message); }
     if (t) {
       try {
-        await t.sendMail({
+        const info = await t.sendMail({
           from: { name: 'Spokane County USBC Entries', address: process.env.SMTP_USER },
           to: ENTRY_TO,
           replyTo: { name: values.contact_name || '', address: values.contact_email },
@@ -172,13 +174,20 @@ function mount(app, readData) {
           attachments: pdf ? [{ filename: `${slug}-entry-${clean(values.team_name || values.contact_name, 40).replace(/[^\w-]+/g, '-')}.pdf`, content: pdf }] : [],
         });
         emailed = true;
-      } catch (e) { console.error('entry email failed:', e.message); }
-    } else console.error('entry email not configured (SMTP_USER/SMTP_PASS unset)');
+        mail = { message_id: info.messageId, response: info.response, rejected: info.rejected };
+      } catch (e) {
+        console.error('entry email failed:', e.message);
+        mail = { error: e.message };
+      }
+    } else {
+      console.error('entry email not configured (SMTP_USER/SMTP_PASS unset)');
+      mail = { error: 'SMTP_USER/SMTP_PASS unset' };
+    }
 
     try {
       fs.mkdirSync(LOG_DIR, { recursive: true, mode: 0o700 });
       fs.appendFileSync(path.join(LOG_DIR, `${slug}.jsonl`),
-        JSON.stringify({ at: new Date().toISOString(), emailed, due, values }) + '\n', { mode: 0o600 });
+        JSON.stringify({ at: new Date().toISOString(), tournament: name, emailed, to: ENTRY_TO, mail, due, values }) + '\n', { mode: 0o600 });
     } catch (e) { console.error('entry log failed:', e.message); }
 
     if (!emailed) return res.status(502).json({ error: 'Your entry could not be sent right now. Please try again in a few minutes, or download the PDF entry form and email it in.' });
