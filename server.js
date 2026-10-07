@@ -47,6 +47,38 @@ app.use((req, res, next) => {
   next();
 });
 
+// ── Canonical host/URLs ───────────────────────────────────────────
+// Google Search Console flagged "Duplicate without user-selected canonical":
+// www and /index.html served the same pages as the apex and /. Send both to
+// the one canonical URL. Each static page carries its own <link rel=canonical>;
+// the query-string pages below get theirs injected per request.
+const SITE_URL = process.env.SITE_URL || 'https://spokanecountyusbc.org';
+app.use((req, res, next) => {
+  if (/^www\./i.test(req.hostname || '')) return res.redirect(301, SITE_URL + req.originalUrl);
+  if (req.path === '/index.html') return res.redirect(301, '/' + req.originalUrl.slice('/index.html'.length));
+  next();
+});
+
+// team/bowler/entry pages are one HTML shell filled in client-side from the
+// query string. Canonicalize to the params that pick the content (fixed order,
+// junk params dropped); without them the page renders nothing, so noindex it.
+const QUERY_PAGES = {
+  '/team.html': ['league', 'id'],
+  '/bowler.html': ['league', 'name'],
+  '/entry.html': ['form'],
+};
+app.get(Object.keys(QUERY_PAGES), (req, res, next) => {
+  const keys = QUERY_PAGES[req.path];
+  const complete = keys.every(k => typeof req.query[k] === 'string' && req.query[k]);
+  const tag = complete
+    ? `<link rel="canonical" href="${esc(SITE_URL + req.path + '?' + new URLSearchParams(keys.map(k => [k, req.query[k]])))}">`
+    : '<meta name="robots" content="noindex">';
+  fs.readFile(path.join(__dirname, req.path), 'utf-8', (err, html) => {
+    if (err) return next();
+    res.type('html').send(html.replace('</head>', `  ${tag}\n</head>`));
+  });
+});
+
 // ── Static files: public site files only (the app dir also holds
 //    .git, server.js, CMS data and scripts, which must not be served)
 const PUBLIC_FILE = /^\/(?:|favicon\.(?:ico|svg)|[\w-]+\.html|style\.css|(?:site|leagues|leagues-page|team-page|bowler-page|admin|entry-page)\.js|leagues-data\.json|leagues\/[\w-]+\.json|images\/[\w\/-]+\.(?:jpe?g|png|gif|webp|svg|ico)|forms\/[\w-]+\.pdf)$/;
@@ -417,7 +449,6 @@ ${rows}
 // league auto-deploy without anyone regenerating a file. team.html and
 // bowler.html only render with a query string, and admin.html is private,
 // so they're left out.
-const SITE_URL = process.env.SITE_URL || 'https://spokanecountyusbc.org';
 const SITEMAP_PAGES = [
   { file: 'index.html', loc: '/', priority: '1.0' },
   { file: 'leagues.html', data: 'leagues-data.json', priority: '0.9' },
