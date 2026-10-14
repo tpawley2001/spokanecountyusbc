@@ -146,7 +146,8 @@
       "center": "North Bowl",
       "type": "Youth",
       "type_color": "gold",
-      "entry_form": ""
+      "entry_form": "forms/youth-championships-entry.pdf",
+      "online_form": "youth-championships"
     },
     {
       "name": "SCUSBC Senior Championships",

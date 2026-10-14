@@ -1,0 +1,502 @@
+{
+  "tournament": "SCUSBC Youth Championships",
+  "pdf": "forms/youth-championships-entry.pdf",
+  "fee_per_person": 25,
+  "fee_unit": "event",
+  "fee_people_fields": [
+    "bowler1_hdcp",
+    "bowler1_scratch",
+    "bowler2_hdcp",
+    "bowler2_scratch"
+  ],
+  "event_picks": [
+    {
+      "name": "bowler1_name",
+      "events": [
+        "bowler1_hdcp",
+        "bowler1_scratch"
+      ],
+      "error": "Pick Hdcp, Scratch or both"
+    },
+    {
+      "name": "bowler2_name",
+      "events": [
+        "bowler2_hdcp",
+        "bowler2_scratch"
+      ],
+      "error": "Pick Hdcp, Scratch or both"
+    }
+  ],
+  "fields": {
+    "bowler1_name": {
+      "label": "Bowler 1 name",
+      "required": true,
+      "max": 60
+    },
+    "bowler1_id": {
+      "label": "Bowler 1 ID number",
+      "max": 20
+    },
+    "bowler1_avg": {
+      "label": "Bowler 1 highest 2025-26 average",
+      "type": "average"
+    },
+    "bowler1_cur_avg": {
+      "label": "Bowler 1 2026-27 average if applicable",
+      "type": "average"
+    },
+    "bowler1_hdcp": {
+      "label": "Bowler 1 singles handicap",
+      "type": "check"
+    },
+    "bowler1_scratch": {
+      "label": "Bowler 1 singles scratch",
+      "type": "check"
+    },
+    "bowler2_name": {
+      "label": "Bowler 2 name",
+      "required": false,
+      "max": 60
+    },
+    "bowler2_id": {
+      "label": "Bowler 2 ID number",
+      "max": 20
+    },
+    "bowler2_avg": {
+      "label": "Bowler 2 highest 2025-26 average",
+      "type": "average"
+    },
+    "bowler2_cur_avg": {
+      "label": "Bowler 2 2026-27 average if applicable",
+      "type": "average"
+    },
+    "bowler2_hdcp": {
+      "label": "Bowler 2 singles handicap",
+      "type": "check"
+    },
+    "bowler2_scratch": {
+      "label": "Bowler 2 singles scratch",
+      "type": "check"
+    },
+    "contact_name": {
+      "label": "Team contact",
+      "required": true,
+      "max": 60
+    },
+    "contact_address": {
+      "label": "Address",
+      "max": 100
+    },
+    "contact_city_state": {
+      "label": "City/State",
+      "max": 60
+    },
+    "contact_zip": {
+      "label": "Zip code",
+      "max": 10
+    },
+    "contact_phone": {
+      "label": "Phone #",
+      "type": "tel",
+      "required": true,
+      "max": 20
+    },
+    "contact_email": {
+      "label": "E-mail",
+      "type": "email",
+      "required": true,
+      "max": 100
+    },
+    "reserved_date": {
+      "label": "Date reserved",
+      "max": 20
+    },
+    "reserved_time": {
+      "label": "Time reserved",
+      "max": 20
+    },
+    "preferred1_date": {
+      "label": "Preferred date 1",
+      "max": 20
+    },
+    "preferred1_time": {
+      "label": "Preferred time 1",
+      "max": 20
+    },
+    "preferred2_date": {
+      "label": "Preferred date 2",
+      "max": 20
+    },
+    "preferred2_time": {
+      "label": "Preferred time 2",
+      "max": 20
+    }
+  },
+  "sheet": [
+    {
+      "logos": [
+        {
+          "src": "images/entry/youth-scusbc-logo.png",
+          "alt": "USBC Spokane County"
+        }
+      ]
+    },
+    {
+      "title": [
+        "Spokane County USBC",
+        "44th Annual",
+        "YOUTH CHAMPIONSHIP",
+        "TOURNAMENT"
+      ]
+    },
+    {
+      "subtitle": [
+        "North Bowl",
+        "125 W Sinto Ave",
+        "Spokane, WA 99201"
+      ]
+    },
+    {
+      "text": [
+        {
+          "t": "Singles Events ONLY"
+        }
+      ],
+      "size": "lg"
+    },
+    {
+      "text": [
+        {
+          "t": "January 10, 2027—10:00 am"
+        }
+      ],
+      "size": "md"
+    },
+    {
+      "text": [
+        {
+          "t": "Entry fee - $25 per person for each event",
+          "red": true
+        }
+      ],
+      "size": "lg"
+    },
+    {
+      "text": [
+        {
+          "t": "$2000 Added Money",
+          "red": true
+        }
+      ],
+      "size": "lg"
+    },
+    {
+      "text": [
+        {
+          "t": "From SCUSBC SMART Account"
+        }
+      ],
+      "size": "md"
+    },
+    {
+      "text": [
+        {
+          "t": "Bowler Name (First, Middle Initial, Last)",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "row": [
+        {
+          "label": "1.",
+          "field": "bowler1_name",
+          "grow": 3
+        },
+        {
+          "label": "Bowler ID Number",
+          "field": "bowler1_id",
+          "grow": 2
+        }
+      ]
+    },
+    {
+      "row": [
+        {
+          "label": "Highest 2025-26 Average",
+          "field": "bowler1_avg"
+        },
+        {
+          "label": "2026-27 Average if Applicable",
+          "field": "bowler1_cur_avg"
+        }
+      ]
+    },
+    {
+      "row": [
+        {
+          "label": "Singles Hdcp",
+          "field": "bowler1_hdcp"
+        },
+        {
+          "label": "Singles Scratch",
+          "field": "bowler1_scratch"
+        }
+      ]
+    },
+    {
+      "row": [
+        {
+          "label": "2.",
+          "field": "bowler2_name",
+          "grow": 3
+        },
+        {
+          "label": "Bowler ID Number",
+          "field": "bowler2_id",
+          "grow": 2
+        }
+      ]
+    },
+    {
+      "row": [
+        {
+          "label": "Highest 2025-26 Average",
+          "field": "bowler2_avg"
+        },
+        {
+          "label": "2026-27 Average if Applicable",
+          "field": "bowler2_cur_avg"
+        }
+      ]
+    },
+    {
+      "row": [
+        {
+          "label": "Singles Hdcp",
+          "field": "bowler2_hdcp"
+        },
+        {
+          "label": "Singles Scratch",
+          "field": "bowler2_scratch"
+        }
+      ]
+    },
+    {
+      "heading": "PLEASE PRINT OR TYPE"
+    },
+    {
+      "row": [
+        {
+          "label": "Team Contact",
+          "field": "contact_name"
+        }
+      ]
+    },
+    {
+      "row": [
+        {
+          "label": "Address",
+          "field": "contact_address"
+        }
+      ]
+    },
+    {
+      "row": [
+        {
+          "label": "City/State",
+          "field": "contact_city_state"
+        }
+      ]
+    },
+    {
+      "row": [
+        {
+          "label": "Zip Code",
+          "field": "contact_zip",
+          "grow": 1
+        },
+        {
+          "label": "Phone #",
+          "field": "contact_phone",
+          "grow": 2
+        }
+      ]
+    },
+    {
+      "row": [
+        {
+          "label": "E-mail",
+          "field": "contact_email"
+        }
+      ]
+    },
+    {
+      "heading": "Date and Time Reserved by phone or e-mail"
+    },
+    {
+      "row": [
+        {
+          "label": "Date",
+          "field": "reserved_date"
+        },
+        {
+          "label": "Time",
+          "field": "reserved_time"
+        }
+      ]
+    },
+    {
+      "text": [
+        {
+          "t": "If no reservation, list dates & times preferred",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "row": [
+        {
+          "label": "Date",
+          "field": "preferred1_date"
+        },
+        {
+          "label": "Time",
+          "field": "preferred1_time"
+        }
+      ]
+    },
+    {
+      "row": [
+        {
+          "label": "Date",
+          "field": "preferred2_date"
+        },
+        {
+          "label": "Time",
+          "field": "preferred2_time"
+        }
+      ]
+    },
+    {
+      "text": [
+        {
+          "t": "Handicap Event Only  $25"
+        }
+      ]
+    },
+    {
+      "text": [
+        {
+          "t": "Scratch Event Only  $25"
+        }
+      ]
+    },
+    {
+      "text": [
+        {
+          "t": "Bowlers may enter one or both events",
+          "red": true
+        }
+      ]
+    },
+    {
+      "total": "Total Amount Remitted",
+      "note": "($25 per person for each event)"
+    },
+    {
+      "text": [
+        {
+          "t": "Make Checks payable to SCUSBC",
+          "bold": true
+        },
+        {
+          "t": " ($25 will be charged for any returned checks)"
+        }
+      ],
+      "size": "sm"
+    },
+    {
+      "text": [
+        {
+          "t": "Make Reservations: ",
+          "bold": true
+        },
+        {
+          "t": "Tina Blough, P.O. Box 112, Deer Park, WA 99006-0112"
+        }
+      ],
+      "size": "sm"
+    },
+    {
+      "text": [
+        {
+          "t": "Web: spokanecountyusbc.com  E-mail: spokaneusbc.assoc.manager@gmail.com",
+          "bold": true
+        }
+      ],
+      "size": "sm"
+    },
+    {
+      "text": [
+        {
+          "t": "All prize money is awarded to the youth bowler in the form of SMART scholarships."
+        }
+      ],
+      "size": "sm"
+    },
+    {
+      "text": [
+        {
+          "t": "Youth brackets will be offered. (Youth brackets for scholarships only.)"
+        }
+      ],
+      "size": "sm"
+    },
+    {
+      "text": [
+        {
+          "t": "Download the entry form and view tournament results at: spokanecountyusbc.com"
+        }
+      ],
+      "size": "sm"
+    },
+    {
+      "text": [
+        {
+          "t": "See other side for tournament rules."
+        }
+      ],
+      "size": "sm"
+    }
+  ],
+  "rules": {
+    "title": "2027 Spokane County USBC Youth Championship Tournament Rules",
+    "items": [
+      "This tournament consists of a singles event only.",
+      "At least one in three entries in each classification will receive awards. All award fees will be returned 100%.",
+      "Champions in each event will be recognized for their achievements at the Association Banquet.",
+      "Handicap will be 90% of 220. (All fractions will be dropped).",
+      "CLASSIFICATIONS ARE AS FOLLOWS: Div. A 160 and above; Div. B 159 and below",
+      "Entry fees: $25 per event. ($12 bowling, $10 prize fund, $3 fees). $2000 from the SCUSBC SMART Account will be added to the total prize fund.",
+      "All Youth members holding a current USBC membership card are eligible to enter. USBC RULES WILL GOVERN THIS CERTIFIED TOURNAMENT.",
+      "All entries must be eligible under USBC Youth Rule 400. An individual may only cash once in the singles event as per USBC Rule 315c.",
+      "Use your highest certified average, based on a minimum of 12 games, for the 2025-26 season or If no 2025-26 season average, use your current 2026-27 season average, based on a minimum of 12 games, or If no 2025-26 or 2026-27 season average, use highest average, based on a minimum of 12, games for the previous seasons. If no verified average, bowlers under the age of 14 (on August 1. 2026) will use an assigned average of 120. Those 14 and older will use an assigned average of 160. RULE 319a IS WAIVED.",
+      "Any bowler who has only a certified average from a non-standard league will have their average rerated based on the USBC Challenge/Sport Conversion chart.",
+      "The Tournament Manager has the right to re-rate bowlers prior to bowling. Their entry fees will be returned if the bowler does not accept the re-rated average.",
+      "Poor sportsmanship will not be tolerated. Undue displays of temper and the disturbance of other bowlers will not be allowed. Poor conduct or abuse of bowling center equipment may result in disqualification by the Tournament Director.",
+      "All protests or appeals must be submitted in writing to the Tournament Manager within 72 hours of the date bowled as per USBC Rule 329.",
+      "All bowlers MUST be checked in at least one-half hour prior to squad times, and averages verified by coaches.",
+      "Dress attire must be neat, clean and proper fitting. Collared shirts and slacks, walking shorts, capris, or skorts are suggested. No hats, denim with holes, spandex, leggings, or sweats will be allowed. Youth participants will not wear apparel or use bowling equipment depicting alcohol, gambling, an illegal substance or use inappropriate language/gestures during competition (USBC Rule 301b). Tournament Director must approve any/all exceptions. The Tournament Director’s decision is final.",
+      "If the tournament, or squads in the tournament, is cancelled due to unforeseen circumstances, the entry fees for bowlers scheduled in the cancelled squad(s) will be refunded."
+    ],
+    "footer": "Mail Entries to: Tina Blough, P.O. Box 112, Deer Park, WA 99006-0112. Make Checks Payable to: SCUSBC ($25 will be charged for any returned checks)"
+  },
+  "payment": {
+    "paypal": "SCUSBC",
+    "venmo": "Spokane-USBC",
+    "paypal_qr": "images/pay/paypal-qr.svg",
+    "venmo_qr": "images/pay/venmo-qr.svg",
+    "checks": "Or mail a check payable to SCUSBC to P.O. Box 112, Deer Park, WA 99006-0112. ($25 will be charged for any returned checks.)"
+  }
+}

@@ -1,0 +1,354 @@
+{
+ "source": "youth-championships-entry.pdf",
+ "fields": [
+  {
+   "page": 0,
+   "name": "bowler1_name",
+   "label": "Bowler 1 name (first, middle initial, last)",
+   "type": "text",
+   "rect": [
+    55.0,
+    425.5,
+    290.4,
+    440.3
+   ]
+  },
+  {
+   "page": 0,
+   "name": "bowler1_id",
+   "label": "Bowler 1 ID number",
+   "type": "text",
+   "rect": [
+    296.4,
+    425.5,
+    382.3,
+    440.3
+   ],
+   "maxlen": 20,
+   "fontsize": 9
+  },
+  {
+   "page": 0,
+   "name": "bowler1_avg",
+   "label": "Bowler 1 highest 2025-26 average",
+   "type": "text",
+   "rect": [
+    388.3,
+    425.5,
+    442.8,
+    440.3
+   ],
+   "maxlen": 3
+  },
+  {
+   "page": 0,
+   "name": "bowler1_cur_avg",
+   "label": "Bowler 1 2026-27 average if applicable",
+   "type": "text",
+   "rect": [
+    448.8,
+    425.5,
+    503.5,
+    440.3
+   ],
+   "maxlen": 3
+  },
+  {
+   "page": 0,
+   "name": "bowler1_hdcp",
+   "label": "Bowler 1 singles handicap (X)",
+   "type": "text",
+   "rect": [
+    517.2,
+    425.5,
+    529.2,
+    440.3
+   ],
+   "maxlen": 1
+  },
+  {
+   "page": 0,
+   "name": "bowler1_scratch",
+   "label": "Bowler 1 singles scratch (X)",
+   "type": "text",
+   "rect": [
+    553.6,
+    425.5,
+    565.6,
+    440.3
+   ],
+   "maxlen": 1
+  },
+  {
+   "page": 0,
+   "name": "bowler2_name",
+   "label": "Bowler 2 name (first, middle initial, last)",
+   "type": "text",
+   "rect": [
+    55.0,
+    452.6,
+    290.4,
+    467.4
+   ]
+  },
+  {
+   "page": 0,
+   "name": "bowler2_id",
+   "label": "Bowler 2 ID number",
+   "type": "text",
+   "rect": [
+    296.4,
+    452.6,
+    382.3,
+    467.4
+   ],
+   "maxlen": 20,
+   "fontsize": 9
+  },
+  {
+   "page": 0,
+   "name": "bowler2_avg",
+   "label": "Bowler 2 highest 2025-26 average",
+   "type": "text",
+   "rect": [
+    388.3,
+    452.6,
+    442.8,
+    467.4
+   ],
+   "maxlen": 3
+  },
+  {
+   "page": 0,
+   "name": "bowler2_cur_avg",
+   "label": "Bowler 2 2026-27 average if applicable",
+   "type": "text",
+   "rect": [
+    448.8,
+    452.6,
+    503.5,
+    467.4
+   ],
+   "maxlen": 3
+  },
+  {
+   "page": 0,
+   "name": "bowler2_hdcp",
+   "label": "Bowler 2 singles handicap (X)",
+   "type": "text",
+   "rect": [
+    517.2,
+    452.6,
+    529.2,
+    467.4
+   ],
+   "maxlen": 1
+  },
+  {
+   "page": 0,
+   "name": "bowler2_scratch",
+   "label": "Bowler 2 singles scratch (X)",
+   "type": "text",
+   "rect": [
+    553.6,
+    452.6,
+    565.6,
+    467.4
+   ],
+   "maxlen": 1
+  },
+  {
+   "page": 0,
+   "name": "contact_name",
+   "label": "Team contact",
+   "type": "text",
+   "rect": [
+    95.0,
+    501.4,
+    208.7,
+    514.4
+   ]
+  },
+  {
+   "page": 0,
+   "name": "contact_address",
+   "label": "Address",
+   "type": "text",
+   "rect": [
+    74.0,
+    528.0,
+    207.7,
+    541.0
+   ]
+  },
+  {
+   "page": 0,
+   "name": "contact_city_state",
+   "label": "City/State",
+   "type": "text",
+   "rect": [
+    79.3,
+    553.2,
+    209.0,
+    566.2
+   ]
+  },
+  {
+   "page": 0,
+   "name": "contact_zip",
+   "label": "Zip code",
+   "type": "text",
+   "rect": [
+    72.9,
+    578.4,
+    111.0,
+    591.4
+   ],
+   "maxlen": 10,
+   "fontsize": 9
+  },
+  {
+   "page": 0,
+   "name": "contact_phone",
+   "label": "Phone #",
+   "type": "text",
+   "rect": [
+    146.3,
+    578.4,
+    211.1,
+    591.4
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 0,
+   "name": "contact_email",
+   "label": "E-mail",
+   "type": "text",
+   "rect": [
+    67.3,
+    626.0,
+    209.1,
+    639.0
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 0,
+   "name": "reserved_date",
+   "label": "Date reserved",
+   "type": "text",
+   "rect": [
+    228.4,
+    527.4,
+    296.4,
+    539.4
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 0,
+   "name": "reserved_time",
+   "label": "Time reserved",
+   "type": "text",
+   "rect": [
+    302.4,
+    527.4,
+    368.8,
+    539.4
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 0,
+   "name": "preferred1_date",
+   "label": "Preferred date 1",
+   "type": "text",
+   "rect": [
+    228.4,
+    577.8,
+    296.4,
+    589.8
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 0,
+   "name": "preferred1_time",
+   "label": "Preferred time 1",
+   "type": "text",
+   "rect": [
+    302.4,
+    577.8,
+    368.8,
+    589.8
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 0,
+   "name": "preferred2_date",
+   "label": "Preferred date 2",
+   "type": "text",
+   "rect": [
+    228.4,
+    613.8,
+    296.4,
+    625.8
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 0,
+   "name": "preferred2_time",
+   "label": "Preferred time 2",
+   "type": "text",
+   "rect": [
+    302.4,
+    613.8,
+    368.8,
+    625.8
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 0,
+   "name": "hdcp_amount",
+   "label": "Handicap event amount",
+   "type": "text",
+   "rect": [
+    540.0,
+    493.0,
+    566.0,
+    504.5
+   ],
+   "fontsize": 8
+  },
+  {
+   "page": 0,
+   "name": "scratch_amount",
+   "label": "Scratch event amount",
+   "type": "text",
+   "rect": [
+    538.0,
+    524.5,
+    566.0,
+    536.0
+   ],
+   "fontsize": 8
+  },
+  {
+   "page": 0,
+   "name": "total_amount",
+   "label": "Total amount remitted",
+   "type": "text",
+   "rect": [
+    527.0,
+    578.0,
+    566.0,
+    589.8
+   ],
+   "fontsize": 9
+  }
+ ]
+}
