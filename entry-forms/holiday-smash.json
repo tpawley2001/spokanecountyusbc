@@ -1,0 +1,428 @@
+{
+  "tournament": "Holiday Smash",
+  "pdf": "forms/holiday-smash-entry.pdf",
+  "fee_per_person": 40,
+  "fee_unit": "team",
+  "fee_people_fields": [
+    "youth_name"
+  ],
+  "fields": {
+    "youth_name": {
+      "label": "Youth bowler name",
+      "required": true,
+      "max": 60
+    },
+    "youth_id": {
+      "label": "Youth bowler ID number",
+      "max": 20
+    },
+    "youth_avg": {
+      "label": "Youth bowler 2025-26 average",
+      "type": "average"
+    },
+    "youth_prev_avg": {
+      "label": "Youth bowler highest previous average",
+      "type": "average"
+    },
+    "youth_address": {
+      "label": "Youth bowler address (non-members only)",
+      "max": 100
+    },
+    "adult_name": {
+      "label": "Adult bowler name",
+      "required": true,
+      "max": 60
+    },
+    "adult_id": {
+      "label": "Adult bowler ID number",
+      "max": 20
+    },
+    "adult_avg": {
+      "label": "Adult bowler 2025-26 average",
+      "type": "average"
+    },
+    "adult_prev_avg": {
+      "label": "Adult bowler highest previous average",
+      "type": "average"
+    },
+    "adult_address": {
+      "label": "Adult bowler address (non-members only)",
+      "max": 100
+    },
+    "contact_name": {
+      "label": "Contact name",
+      "required": true,
+      "max": 60
+    },
+    "contact_phone": {
+      "label": "Contact phone",
+      "type": "tel",
+      "required": true,
+      "max": 20
+    },
+    "contact_email": {
+      "label": "Contact email",
+      "type": "email",
+      "required": true,
+      "max": 100
+    },
+    "squad_10am": {
+      "label": "Preferred time 10 AM",
+      "type": "check"
+    },
+    "squad_1pm": {
+      "label": "Preferred time 1 PM",
+      "type": "check"
+    }
+  },
+  "sheet": [
+    {
+      "logos": [
+        {
+          "src": "images/entry/holiday-smash-santa.jpg",
+          "alt": "Santa Claus"
+        },
+        {
+          "src": "images/entry/scusbc-logo-black.png",
+          "alt": "Spokane County USBC"
+        }
+      ]
+    },
+    {
+      "text": [
+        {
+          "t": "9 Pin no tap!",
+          "blue": true,
+          "bold": true
+        }
+      ],
+      "size": "title"
+    },
+    {
+      "text": [
+        {
+          "t": "Fun 4 All!!!",
+          "blue": true,
+          "bold": true
+        }
+      ],
+      "size": "title"
+    },
+    {
+      "subtitle": [
+        "Spokane County USBC",
+        "18th Annual",
+        "Holiday Smash",
+        "Adult/Youth Doubles Tournament"
+      ]
+    },
+    {
+      "text": [
+        {
+          "t": "At Lilac Lanes",
+          "red": true,
+          "bold": true
+        }
+      ],
+      "size": "lg"
+    },
+    {
+      "text": [
+        {
+          "t": "1112 E Magnesium Rd.",
+          "red": true,
+          "bold": true
+        }
+      ],
+      "size": "lg"
+    },
+    {
+      "text": [
+        {
+          "t": "SUNDAY---December 20, 2026",
+          "red": true,
+          "bold": true
+        }
+      ],
+      "size": "md"
+    },
+    {
+      "text": [
+        {
+          "t": "10:00 am & 1:00 pm",
+          "red": true,
+          "bold": true
+        }
+      ],
+      "size": "md"
+    },
+    {
+      "text": [
+        {
+          "t": "1 Day Only",
+          "bold": true
+        }
+      ],
+      "size": "lg"
+    },
+    {
+      "heading": "No-Tap Adult/Youth Doubles Tournament"
+    },
+    {
+      "text": [
+        {
+          "t": "$40.00 team entry fee",
+          "red": true,
+          "bold": true
+        }
+      ],
+      "size": "lg"
+    },
+    {
+      "text": [
+        {
+          "t": "$1000 Added Money from SCUSBC SMART Account",
+          "red": true,
+          "bold": true
+        }
+      ],
+      "size": "md"
+    },
+    {
+      "text": [
+        {
+          "t": "Bowler’s Name",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "row": [
+        {
+          "label": "Youth",
+          "field": "youth_name",
+          "grow": 3
+        },
+        {
+          "label": "Bowler ID Number",
+          "field": "youth_id",
+          "grow": 2
+        }
+      ]
+    },
+    {
+      "row": [
+        {
+          "label": "2025-26 Average",
+          "field": "youth_avg"
+        },
+        {
+          "label": "Highest Previous Avg",
+          "field": "youth_prev_avg"
+        }
+      ]
+    },
+    {
+      "row": [
+        {
+          "label": "Address *",
+          "field": "youth_address"
+        }
+      ]
+    },
+    {
+      "row": [
+        {
+          "label": "Adult",
+          "field": "adult_name",
+          "grow": 3
+        },
+        {
+          "label": "Bowler ID Number",
+          "field": "adult_id",
+          "grow": 2
+        }
+      ]
+    },
+    {
+      "row": [
+        {
+          "label": "2025-26 Average",
+          "field": "adult_avg"
+        },
+        {
+          "label": "Highest Previous Avg",
+          "field": "adult_prev_avg"
+        }
+      ]
+    },
+    {
+      "row": [
+        {
+          "label": "Address *",
+          "field": "adult_address"
+        }
+      ]
+    },
+    {
+      "text": [
+        {
+          "t": "* Only needed for entrants who are not Spokane County USBC members.",
+          "bold": true
+        }
+      ],
+      "size": "sm"
+    },
+    {
+      "heading": "PLEASE PRINT OR TYPE"
+    },
+    {
+      "text": [
+        {
+          "t": "CONTACT INFORMATION",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "row": [
+        {
+          "label": "NAME",
+          "field": "contact_name",
+          "grow": 3
+        },
+        {
+          "label": "PHONE",
+          "field": "contact_phone",
+          "grow": 2
+        }
+      ]
+    },
+    {
+      "row": [
+        {
+          "label": "EMAIL",
+          "field": "contact_email"
+        }
+      ]
+    },
+    {
+      "text": [
+        {
+          "t": "Date and Time Preferred ",
+          "bold": true
+        },
+        {
+          "t": "(circle time)",
+          "red": true,
+          "bold": true
+        }
+      ]
+    },
+    {
+      "text": [
+        {
+          "t": "DEC 20",
+          "red": true,
+          "bold": true
+        }
+      ],
+      "size": "lg"
+    },
+    {
+      "row": [
+        {
+          "label": "10AM",
+          "field": "squad_10am"
+        },
+        {
+          "label": "1 PM",
+          "field": "squad_1pm"
+        }
+      ]
+    },
+    {
+      "text": [
+        {
+          "t": "I hereby certify the average(s) as listed are correct and total entry fees as follows are enclosed"
+        }
+      ]
+    },
+    {
+      "total": "TOTAL SUBMITTED",
+      "note": "($40 per team)"
+    },
+    {
+      "text": [
+        {
+          "t": "Make checks payable to SCUSBC",
+          "bold": true
+        }
+      ],
+      "size": "sm"
+    },
+    {
+      "text": [
+        {
+          "t": "Make Reservations: ",
+          "bold": true
+        },
+        {
+          "t": "Tina Blough, P.O. Box 112, Deer Park, WA 99006-0112"
+        }
+      ],
+      "size": "sm"
+    },
+    {
+      "text": [
+        {
+          "t": "Phone: 509-795-1845  Web: spokanecountyusbc.com  E-mail: spokaneusbc.assoc.manager@gmail.com",
+          "bold": true
+        }
+      ],
+      "size": "sm"
+    },
+    {
+      "text": [
+        {
+          "t": "All prize money is awarded to the youth bowler in the form of SMART scholarships. Adult and youth brackets will be offered. (Youth brackets for scholarships only.) Download the entry form and view tournament results at: spokanecountyusbc.com",
+          "bold": true
+        }
+      ],
+      "size": "sm"
+    },
+    {
+      "text": [
+        {
+          "t": "See other side for tournament rules.",
+          "bold": true
+        }
+      ],
+      "size": "sm"
+    }
+  ],
+  "rules": {
+    "title": "HOLIDAY SMASH TOURNAMENT RULES",
+    "items": [
+      "Cost of the tournament is $40 per team ($15 bowling, $5 fees, $20 prize fund).",
+      "This tournament is a 3 game 9 pin No-tap format. (If the bowler knocks down 9 pins on the first delivery, the shot becomes a strike.) Each doubles team will consist of 1 youth and 1 adult (individuals who are not currently in youth leagues). Multiple participation will be allowed but bowlers may only bowl with the same partner once.",
+      "Divisions are based on team average: Div. A – 350 & above, B - 349 and below. Handicap will be based on team average. Handicap in each division will be 100% from 440. In the event of a tie co-champions will be declared.",
+      "All entrants shall use their highest 2025-26 winter league averages (12 games or more for youths and 21 games or more for adults. If no 2025-26 winter league average, an entrant shall use their most recent highest certified league average (12 games for youths and 21 games or more for adults (including summer league averages). If no certified league average, women will come in with an entering average of 125 and men will come in with an entering average of 150. The tournament director may re-rate the adult before the end of the first game.)",
+      "Bowlers are responsible for the validity of their own average, whether submitted by the bowler, team captain or others. If the submitted average is incorrect, the bowler’s entering average can be corrected by the Tournament Director prior to bowling. The Tournament Director has the right to re-rate bowlers prior to bowling. Their entry fees will be returned if the bowler does not accept the rerated average.",
+      "Prizes will be awarded based on a 1 to 3 ratio of paid entries. $1000 from the SCUSBC SMART Account will be added to the total prize fund. This is a scholarship tournament to benefit the youth bowlers. All prize money is awarded to the youth bowler in the form of SMART scholarships. Winners of each division will be awarded bowling jerseys. Adults do not cash in this tournament.",
+      "There will be no smoking or consumption of alcoholic beverages during this tournament. Bowlers may not play pull tabs or participate in any gambling activities.",
+      "Participants will not wear apparel or use bowling equipment depicting alcohol, tobacco, gambling, an illegal substance or use inappropriate language/gestures during competition.",
+      "Poor sportsmanship will not be tolerated. Undue displays of temper and the disturbing of other bowlers will not be allowed. Poor conduct or abuse of bowling center equipment may result in disqualification by the Tournament Director.",
+      "Walk-ins will be allowed if lanes are available.",
+      "Suggested Dress Code: Attire must be neat, clean and proper fitting. Collared shirts/Bowling Jerseys with slacks, walking shorts, capris, or skorts are encouraged. Sleeveless shirts, muscle shirts and tank tops will not be permitted. Denim jeans are allowed provided they are free of holes, tears or stains. Only holiday related hats are allowed (such as Santa hats). Holiday related attire is allowed (i.e. ugly sweaters/shirts). The Tournament Director must approve any/all exceptions. The Tournament Director’s decisions are final."
+    ],
+    "footer": "Mail entries to: Tina Blough, P.O. Box 112, Deer Park, WA 99006-0112. Make Checks Payable to SCUSBC ($25 will be charged for any returned checks)"
+  },
+  "payment": {
+    "paypal": "SCUSBC",
+    "venmo": "Spokane-USBC",
+    "paypal_qr": "images/pay/paypal-qr.svg",
+    "venmo_qr": "images/pay/venmo-qr.svg",
+    "checks": "Or mail a check payable to SCUSBC to P.O. Box 112, Deer Park, WA 99006-0112. ($25 will be charged for any returned checks.)"
+  }
+}

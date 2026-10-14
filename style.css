@@ -304,7 +304,7 @@ footer {
 .es-subtitle { font-size: 1.6rem; font-weight: 700; text-align: center; line-height: 1.25; margin: 0 0 0.75rem; }
 .es-text { margin: 0.15rem 0; line-height: 1.35; }
 .es-lg { font-size: 1.3rem; } .es-md { font-size: 1.1rem; } .es-sm { font-size: 0.95rem; }
-.es-red { color: #f00; } .es-bold { font-weight: 700; }
+.es-red { color: #f00; } .es-blue { color: #00b0f0; } .es-bold { font-weight: 700; }
 .es-heading { font-size: 1.75rem; font-weight: 700; margin: 1.5rem 0 0.25rem; color: #000; }
 .es-center-text { text-align: center; }
 .es-row { display: flex; flex-wrap: wrap; gap: 0.5rem 2rem; margin: 1.1rem 0 0; }

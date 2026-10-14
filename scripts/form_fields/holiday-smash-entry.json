@@ -1,0 +1,205 @@
+{
+ "source": "holiday-smash-entry.pdf",
+ "fields": [
+  {
+   "page": 0,
+   "name": "youth_name",
+   "label": "Youth bowler name",
+   "type": "text",
+   "rect": [
+    68,
+    394,
+    271,
+    409
+   ]
+  },
+  {
+   "page": 0,
+   "name": "youth_id",
+   "label": "Youth bowler ID number",
+   "type": "text",
+   "rect": [
+    276,
+    394,
+    372,
+    409
+   ],
+   "maxlen": 20
+  },
+  {
+   "page": 0,
+   "name": "youth_avg",
+   "label": "Youth bowler 2025-26 average",
+   "type": "text",
+   "rect": [
+    377,
+    394,
+    466,
+    409
+   ],
+   "maxlen": 3
+  },
+  {
+   "page": 0,
+   "name": "youth_prev_avg",
+   "label": "Youth bowler highest previous average",
+   "type": "text",
+   "rect": [
+    470,
+    394,
+    574,
+    409
+   ],
+   "maxlen": 3
+  },
+  {
+   "page": 0,
+   "name": "youth_address",
+   "label": "Youth bowler address (non-members only)",
+   "type": "text",
+   "rect": [
+    84,
+    418,
+    574,
+    434
+   ]
+  },
+  {
+   "page": 0,
+   "name": "adult_name",
+   "label": "Adult bowler name",
+   "type": "text",
+   "rect": [
+    68,
+    445,
+    271,
+    460
+   ]
+  },
+  {
+   "page": 0,
+   "name": "adult_id",
+   "label": "Adult bowler ID number",
+   "type": "text",
+   "rect": [
+    276,
+    445,
+    372,
+    460
+   ],
+   "maxlen": 20
+  },
+  {
+   "page": 0,
+   "name": "adult_avg",
+   "label": "Adult bowler 2025-26 average",
+   "type": "text",
+   "rect": [
+    377,
+    445,
+    466,
+    460
+   ],
+   "maxlen": 3
+  },
+  {
+   "page": 0,
+   "name": "adult_prev_avg",
+   "label": "Adult bowler highest previous average",
+   "type": "text",
+   "rect": [
+    470,
+    445,
+    574,
+    460
+   ],
+   "maxlen": 3
+  },
+  {
+   "page": 0,
+   "name": "adult_address",
+   "label": "Adult bowler address (non-members only)",
+   "type": "text",
+   "rect": [
+    82,
+    469.5,
+    574,
+    485.5
+   ]
+  },
+  {
+   "page": 0,
+   "name": "contact_name",
+   "label": "Contact name",
+   "type": "text",
+   "rect": [
+    78,
+    557,
+    236,
+    570
+   ]
+  },
+  {
+   "page": 0,
+   "name": "contact_phone",
+   "label": "Contact phone",
+   "type": "text",
+   "rect": [
+    84,
+    583.5,
+    236,
+    596.5
+   ]
+  },
+  {
+   "page": 0,
+   "name": "contact_email",
+   "label": "Contact email",
+   "type": "text",
+   "rect": [
+    80,
+    610,
+    236,
+    623
+   ]
+  },
+  {
+   "page": 0,
+   "name": "squad_10am",
+   "label": "10 AM squad preferred (X)",
+   "type": "text",
+   "rect": [
+    308,
+    569,
+    322,
+    583
+   ],
+   "maxlen": 1
+  },
+  {
+   "page": 0,
+   "name": "squad_1pm",
+   "label": "1 PM squad preferred (X)",
+   "type": "text",
+   "rect": [
+    308,
+    587.5,
+    322,
+    601.5
+   ],
+   "maxlen": 1
+  },
+  {
+   "page": 0,
+   "name": "total_submitted",
+   "label": "Total submitted",
+   "type": "text",
+   "rect": [
+    433,
+    594,
+    525,
+    607
+   ]
+  }
+ ]
+}

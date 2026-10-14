@@ -129,7 +129,8 @@
       "center": "Lilac Lanes",
       "type": "Youth/Mixed",
       "type_color": "gold",
-      "entry_form": ""
+      "entry_form": "forms/holiday-smash-entry.pdf",
+      "online_form": "holiday-smash"
     },
     {
       "name": "Spokane County Queens Tournament",

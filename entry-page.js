@@ -35,7 +35,7 @@
       else if (b.title) sheet.append(el('h1', { class: 'es-title' }, b.title.map((t, i) => [i ? el('br') : null, t])));
       else if (b.subtitle) sheet.append(el('p', { class: 'es-subtitle' }, b.subtitle.map((t, i) => [i ? el('br') : null, t])));
       else if (b.text) sheet.append(el('p', { class: `es-text es-${b.size || 'md'}` },
-        b.text.map(s => el('span', { class: [s.red && 'es-red', s.bold && 'es-bold'].filter(Boolean).join(' ') }, s.t))));
+        b.text.map(s => el('span', { class: [s.red && 'es-red', s.blue && 'es-blue', s.bold && 'es-bold'].filter(Boolean).join(' ') }, s.t))));
       else if (b.heading) sheet.append(el('h2', { class: 'es-heading' }, b.heading));
       else if (b.row) sheet.append(el('div', { class: `es-row${b.center ? ' es-center' : ''}` },
         b.row.map(c => el('label', { class: `es-field${form.fields[c.field].type === 'check' ? ' es-check' : ''}`, style: `flex-grow:${c.grow || 1}`, for: `f-${c.field}` },
