@@ -115,6 +115,15 @@
   },
   "tournaments": [
     {
+      "name": "SCUSBC Senior Championships",
+      "date": "November 1, 2026",
+      "center": "Players",
+      "type": "Senior",
+      "type_color": "blue",
+      "entry_form": "forms/senior-championships-entry.pdf",
+      "online_form": "senior-championships"
+    },
+    {
       "name": "BVL Veterans Tournament",
       "date": "November 14, 2026",
       "center": "Valley Bowl",
@@ -133,15 +142,6 @@
       "online_form": "holiday-smash"
     },
     {
-      "name": "Spokane County Queens Tournament",
-      "date": "February 7, 2027",
-      "center": "Lilac Lanes",
-      "type": "Queens",
-      "type_color": "gold",
-      "entry_form": "forms/queens-tournament-entry.pdf",
-      "online_form": "queens-tournament"
-    },
-    {
       "name": "SCUSBC Youth Championships",
       "date": "January 10, 2027",
       "center": "North Bowl",
@@ -151,13 +151,13 @@
       "online_form": "youth-championships"
     },
     {
-      "name": "SCUSBC Senior Championships",
-      "date": "November 1, 2026",
-      "center": "Players",
-      "type": "Senior",
-      "type_color": "blue",
-      "entry_form": "forms/senior-championships-entry.pdf",
-      "online_form": "senior-championships"
+      "name": "Spokane County Queens Tournament",
+      "date": "February 7, 2027",
+      "center": "Lilac Lanes",
+      "type": "Queens",
+      "type_color": "gold",
+      "entry_form": "forms/queens-tournament-entry.pdf",
+      "online_form": "queens-tournament"
     },
     {
       "name": "SCUSBC Open Championships (Team Event)",

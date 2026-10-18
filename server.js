@@ -220,11 +220,23 @@ app.post('/api/tournaments', auth, (req, res) => {
   const { tournaments } = req.body;
   if (!Array.isArray(tournaments)) return res.status(400).json({ error: 'Invalid' });
   const data = readData();
-  data.tournaments = tournaments;
+  data.tournaments = sortTournaments(tournaments);
   saveData(data);
-  regenerateTournaments(tournaments);
+  regenerateTournaments(data.tournaments);
   res.json({ success: true });
 });
+
+// Soonest first. Dates are free text ("May 1–2, 2027"), so parse the month,
+// first day and year; anything unparseable (e.g. "TBD") sorts to the end.
+function tournamentTime(t) {
+  const m = String(t.date || '').match(/^([A-Za-z]+)\.?\s+(\d{1,2})\D.*?(\d{4})/);
+  const time = m ? new Date(`${m[1]} ${m[2]}, ${m[3]}`).getTime() : NaN;
+  return Number.isNaN(time) ? Infinity : time;
+}
+
+function sortTournaments(tournaments) {
+  return [...tournaments].sort((a, b) => tournamentTime(a) - tournamentTime(b));
+}
 
 function tournamentRow(t, showForm) {
   const online = /^[a-z0-9-]{1,60}$/.test(t.online_form || '') ? `entry.html?form=${t.online_form}` : '';
