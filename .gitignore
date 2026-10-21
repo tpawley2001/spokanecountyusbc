@@ -1,3 +1,4 @@
 .session-secret
 node_modules/
 entries/
+bvl-data/

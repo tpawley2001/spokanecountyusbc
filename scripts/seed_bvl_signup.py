@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build the BVL collection sign-up sheet (entries/bvl-signup.json, read by
+"""Build the BVL collection sign-up sheet (bvl-data/bvl-signup.json, read by
 bvl.js) from the board's spreadsheet.
 
 The spreadsheet's "Assignments" sheet has a header row (House, Day, Session,
@@ -9,7 +9,7 @@ they are; nothing is corrected. The Phone / email column is left out: the
 online sheet takes names only.
 
 The output holds directors' names and amounts: write it outside the
-repository (which is public) and copy it to the server's entries/ directory.
+repository (which is public) and copy it to the server's bvl-data/ directory.
 
     python3 scripts/seed_bvl_signup.py SIGNUP.xlsx OUT.json
 """

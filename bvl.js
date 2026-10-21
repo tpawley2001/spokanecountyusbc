@@ -9,15 +9,16 @@
 // BVL_TOKEN is unset. The page is noindex, not cached, sends no referrer and is
 // not linked from the site. Not under /api/ because Cloudflare Access gates it.
 //
-// The sheet is entries/bvl-signup.json (gitignored, never served: the repo is
+// The sheet is bvl-data/bvl-signup.json (gitignored, never served: the repo is
 // public and the sheet holds directors' names and collection amounts). Every change is
-// appended to entries/bvl-signup-log.jsonl with the old and new values, so a
+// appended to bvl-data/bvl-signup-log.jsonl with the old and new values, so a
 // mistaken edit can be put back by hand.
 const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
 
-const DATA_DIR = path.join(__dirname, 'entries');
+// Its own directory: entries/*.jsonl are tournament entry logs (Mission Control reads them all)
+const DATA_DIR = path.join(__dirname, 'bvl-data');
 const SHEET_FILE = path.join(DATA_DIR, 'bvl-signup.json');
 const LOG_FILE = path.join(DATA_DIR, 'bvl-signup-log.jsonl');
 const PAGE_FILE = path.join(__dirname, 'pages', 'bvl-signup.html');
@@ -44,6 +45,7 @@ function readSheet() {
 
 // Write to a temp file and rename, so a crash mid-write can't leave half a sheet
 function saveSheet(sheet) {
+  fs.mkdirSync(DATA_DIR, { recursive: true, mode: 0o700 });
   const tmp = SHEET_FILE + '.tmp';
   fs.writeFileSync(tmp, JSON.stringify(sheet, null, 2), { mode: 0o600 });
   fs.renameSync(tmp, SHEET_FILE);
