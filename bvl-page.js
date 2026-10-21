@@ -13,7 +13,7 @@
   let openId = null;       // card whose form is showing
   let message = null;      // { id, text, kind }
 
-  // Name/contact remembered on this phone for one-tap sign-up
+  // Name remembered on this phone for one-tap sign-up
   const me = {
     get() { try { return JSON.parse(localStorage.getItem('bvl-me') || '{}'); } catch { return {}; } },
     set(v) { try { localStorage.setItem('bvl-me', JSON.stringify(v)); } catch {} },
@@ -33,13 +33,6 @@
 
   function money(n) {
     return '$' + Number(n || 0).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-  }
-
-  function contactLink(c) {
-    if (!c) return null;
-    if (/@/.test(c)) return el('a', { href: 'mailto:' + c }, c);
-    if (c.replace(/\D/g, '').length >= 7) return el('a', { href: 'tel:' + c.replace(/[^\d+]/g, '') }, c);
-    return el('span', null, c);
   }
 
   function isMine(s) {
@@ -93,7 +86,6 @@
     const signing = !s.director;
     const f = el('form', { class: 'bvl-form', novalidate: true },
       field('Your name', 'director', s.director || (signing ? saved.director : ''), { autocomplete: 'name', maxlength: 60, required: true }),
-      field('Phone or email', 'contact', s.contact || (signing ? saved.contact : ''), { autocomplete: 'tel', inputmode: 'text', maxlength: 80 }),
       el('details', { class: 'bvl-collected', open: (s.date_collected || s.amount || s.notes) ? true : null },
         el('summary', null, 'After the visit: date and amount collected'),
         field('Date collected', 'date_collected', s.date_collected, { type: 'date' }),
@@ -129,13 +121,13 @@
       message = { id: s.id, kind: 'error', text: 'Enter your name to sign up.' };
       render(); return;
     }
-    if (values.director.trim()) me.set({ director: values.director.trim(), contact: values.contact.trim() });
+    if (values.director.trim()) me.set({ director: values.director.trim() });
     send(s, values);
   }
 
   function clearSlot(s) {
     if (!confirm(`Take ${s.director} off ${s.house}, ${s.day} ${s.session.toLowerCase()}?`)) return;
-    send(s, { director: '', contact: '' });
+    send(s, { director: '' });
   }
 
   function card(s) {
@@ -148,7 +140,7 @@
           el('div', { class: 'bvl-arrive' }, 'Arrive by ', el('strong', null, s.arrive || '—'))),
         s.director ? el('span', { class: 'bvl-pill taken' }, '✓ Covered') : el('span', { class: 'bvl-pill open' }, 'Open')),
       el('div', { class: 'bvl-leagues' }, s.leagues),
-      s.director ? el('div', { class: 'bvl-who' }, el('strong', null, s.director), s.contact ? ' · ' : '', contactLink(s.contact)) : null,
+      s.director ? el('div', { class: 'bvl-who' }, el('strong', null, s.director)) : null,
       (s.date_collected || s.amount) ? el('div', { class: 'bvl-done' },
         'Collected', s.date_collected ? ` ${new Date(s.date_collected + 'T12:00').toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}` : '',
         s.amount ? el('strong', null, ' ' + money(s.amount)) : '') : null,

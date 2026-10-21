@@ -5,10 +5,11 @@ bvl.js) from the board's spreadsheet.
 The spreadsheet's "Assignments" sheet has a header row (House, Day, Session,
 Arrive by, Leagues bowling, Director, Phone / email, Date collected, Amount
 collected, Notes) followed by one row per league visit. Values are copied as
-they are; nothing is corrected.
+they are; nothing is corrected. The Phone / email column is left out: the
+online sheet takes names only.
 
-The output holds directors' contact details: write it outside the repository
-(which is public) and copy it to the server's entries/ directory.
+The output holds directors' names and amounts: write it outside the
+repository (which is public) and copy it to the server's entries/ directory.
 
     python3 scripts/seed_bvl_signup.py SIGNUP.xlsx OUT.json
 """
@@ -22,7 +23,7 @@ import openpyxl
 COLUMNS = {
     "House": "house", "Day": "day", "Session": "session", "Arrive by": "arrive",
     "Leagues bowling (start time)": "leagues", "Director (sign up)": "director",
-    "Phone / email": "contact", "Date collected": "date_collected",
+    "Date collected": "date_collected",
     "Amount collected": "amount", "Notes": "notes",
 }
 

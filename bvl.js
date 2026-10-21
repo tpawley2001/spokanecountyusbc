@@ -1,7 +1,7 @@
 // ── BVL donation collection: director sign-up sheet ───────────────
 // The online copy of the board's BVL collection sign-up spreadsheet: one row
-// per league visit, where directors put their name and contact next to a visit
-// and later record the date and amount collected.
+// per league visit, where directors put their name next to a visit and later
+// record the date and amount collected. Names only: no contact details.
 //
 // Private by link: everything lives under /bvl/<BVL_TOKEN>/, where BVL_TOKEN
 // comes from the environment (EnvironmentFile in the systemd unit). A wrong or
@@ -10,7 +10,7 @@
 // not linked from the site. Not under /api/ because Cloudflare Access gates it.
 //
 // The sheet is entries/bvl-signup.json (gitignored, never served: the repo is
-// public and the sheet holds directors' contact details). Every change is
+// public and the sheet holds directors' names and collection amounts). Every change is
 // appended to entries/bvl-signup-log.jsonl with the old and new values, so a
 // mistaken edit can be put back by hand.
 const fs = require('fs');
@@ -23,7 +23,7 @@ const LOG_FILE = path.join(DATA_DIR, 'bvl-signup-log.jsonl');
 const PAGE_FILE = path.join(__dirname, 'pages', 'bvl-signup.html');
 const TOKEN = process.env.BVL_TOKEN || '';
 
-const EDITABLE = { director: 60, contact: 80, date_collected: 10, amount: 12, notes: 200 };
+const EDITABLE = { director: 60, date_collected: 10, amount: 12, notes: 200 };
 const NEW_SLOT = { house: 40, day: 10, session: 12, arrive: 10, leagues: 160 };
 const DAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
@@ -139,7 +139,7 @@ function mount(app) {
     let sheet;
     try { sheet = readSheet(); } catch { return res.status(500).json({ error: 'The sign-up sheet could not be loaded.' }); }
     const slot = { id: crypto.randomBytes(6).toString('hex'), ...values,
-      director: '', contact: '', date_collected: '', amount: '', notes: '',
+      director: '', date_collected: '', amount: '', notes: '',
       version: 1, updated_at: new Date().toISOString() };
     sheet.slots.push(slot);
     saveSheet(sheet);
