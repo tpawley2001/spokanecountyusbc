@@ -343,3 +343,61 @@ footer {
 .es-pay-opt { display: flex; flex-direction: column; align-items: center; gap: 0.6rem; }
 .es-qr { width: 150px; height: 150px; }
 .es-done .btn { margin-top: 0.75rem; }
+
+/* ── BVL collection sign-up (pages/bvl-signup.html): phone-first ── */
+.bvl-body { background: var(--light-bg); padding-bottom: env(safe-area-inset-bottom); }
+.bvl-header { background: linear-gradient(135deg, var(--navy) 0%, #1a3a6e 100%); color: var(--white); padding: 1rem 1rem 1.1rem; padding-top: max(1rem, env(safe-area-inset-top)); }
+.bvl-brand { font-size: 0.85rem; font-weight: 600; opacity: 0.9; }
+.bvl-brand span { color: var(--gold); }
+.bvl-header h1 { font-size: 1.45rem; line-height: 1.2; margin-top: 0.35rem; }
+.bvl-sub { color: var(--gold); font-size: 0.9rem; }
+.bvl-main { max-width: 640px; margin: 0 auto; padding: 0.9rem 0.75rem 2rem; }
+.bvl-intro { font-size: 0.95rem; margin-bottom: 0.9rem; }
+.bvl-status { padding: 1.5rem 0.5rem; text-align: center; color: var(--muted); }
+.bvl-summary { display: flex; gap: 0.5rem; margin-bottom: 0.75rem; }
+.bvl-summary > div { flex: 1; background: var(--white); border-radius: 10px; box-shadow: var(--shadow); padding: 0.6rem 0.75rem; font-size: 0.85rem; color: var(--muted); }
+.bvl-summary strong { display: block; font-size: 1.25rem; color: var(--navy); }
+.bvl-filters { position: sticky; top: 0; z-index: 5; background: var(--light-bg); padding: 0.4rem 0 0.5rem; margin: 0 -0.75rem 0.25rem; padding-left: 0.75rem; padding-right: 0.75rem; }
+.bvl-chips { display: flex; gap: 0.4rem; overflow-x: auto; padding: 0.15rem 0; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+.bvl-chips::-webkit-scrollbar { display: none; }
+.bvl-chip { flex: none; min-height: 40px; padding: 0 0.95rem; border-radius: 20px; border: 1px solid var(--border); background: var(--white); color: var(--navy); font: inherit; font-size: 0.9rem; cursor: pointer; }
+.bvl-chip.active { background: var(--navy); border-color: var(--navy); color: var(--white); }
+.bvl-house h2 { display: flex; justify-content: space-between; align-items: baseline; font-size: 1.1rem; color: var(--navy); margin: 1.1rem 0.15rem 0.5rem; padding-bottom: 0.25rem; border-bottom: 3px solid var(--gold); }
+.bvl-house h2 span { font-size: 0.8rem; font-weight: 400; color: var(--muted); }
+.bvl-card { background: var(--white); border-radius: 12px; box-shadow: var(--shadow); padding: 0.85rem 0.9rem; margin-bottom: 0.65rem; border-left: 5px solid var(--gold); }
+.bvl-card.taken { border-left-color: #2e8b57; }
+.bvl-card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 0.5rem; }
+.bvl-when { font-weight: 700; color: var(--navy); font-size: 1.05rem; }
+.bvl-arrive { font-size: 0.9rem; color: var(--muted); }
+.bvl-arrive strong { color: var(--text); }
+.bvl-pill { flex: none; font-size: 0.75rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 12px; }
+.bvl-pill.open { background: #fff4d6; color: #8a6200; }
+.bvl-pill.taken { background: #e3f4ea; color: #1f6b42; }
+.bvl-leagues { margin: 0.35rem 0 0.45rem; font-size: 0.95rem; }
+.bvl-who, .bvl-done, .bvl-notes { font-size: 0.9rem; margin-bottom: 0.4rem; overflow-wrap: anywhere; }
+.bvl-who a { color: var(--navy); }
+.bvl-done { color: #1f6b42; }
+.bvl-notes { color: var(--muted); font-style: italic; }
+.bvl-btn { min-height: 48px; padding: 0 1.1rem; border-radius: 10px; border: 1px solid var(--border); background: var(--white); color: var(--navy); font: inherit; font-weight: 600; font-size: 1rem; cursor: pointer; }
+.bvl-btn-primary { background: var(--gold); border-color: var(--gold); color: var(--navy); }
+.bvl-full { width: 100%; margin-top: 0.2rem; }
+.bvl-link-btn { background: none; border: none; color: var(--red); font: inherit; font-size: 0.9rem; padding: 0.75rem 0 0.1rem; cursor: pointer; text-decoration: underline; }
+.bvl-form { margin-top: 0.5rem; }
+.bvl-field { display: block; margin-bottom: 0.7rem; }
+.bvl-field > span { display: block; font-size: 0.85rem; font-weight: 600; color: var(--navy); margin-bottom: 0.2rem; }
+.bvl-field input, .bvl-field textarea, .bvl-field select { width: 100%; min-height: 48px; font: inherit; font-size: 16px; padding: 0.55rem 0.7rem; border: 1px solid var(--border); border-radius: 8px; background: var(--white); color: var(--text); }
+.bvl-field textarea { min-height: 72px; resize: vertical; }
+.bvl-collected { margin: 0.2rem 0 0.8rem; }
+.bvl-collected summary, .bvl-add summary { min-height: 44px; display: flex; align-items: center; cursor: pointer; color: var(--navy); font-weight: 600; font-size: 0.95rem; }
+.bvl-collected[open] summary { margin-bottom: 0.5rem; }
+.bvl-actions { display: flex; gap: 0.5rem; }
+.bvl-actions .bvl-btn { flex: 1; }
+.bvl-msg { font-size: 0.9rem; padding: 0.5rem 0.65rem; border-radius: 8px; margin: 0.4rem 0; }
+.bvl-msg.ok { background: #e3f4ea; color: #1f6b42; }
+.bvl-msg.warn { background: #fff4d6; color: #8a6200; }
+.bvl-msg.error { background: #fde8e6; color: var(--red); }
+.bvl-add { background: var(--white); border-radius: 12px; box-shadow: var(--shadow); padding: 0.4rem 0.9rem 0.6rem; margin-top: 1.5rem; }
+@media (min-width: 700px) {
+  .bvl-header { text-align: center; }
+  .bvl-header h1 { font-size: 1.8rem; }
+}
