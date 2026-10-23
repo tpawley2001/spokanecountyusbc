@@ -52,7 +52,11 @@
                        h.lane_certification ? `Lane Certification: ${escapeHtml(h.lane_certification)}` : null].filter(Boolean) : [];
     document.getElementById('league-info').innerHTML = `
       <h4>League Info</h4>
-      ${h && h.messages && h.messages.length ? `
+      ${h && h.notes && h.notes.length ? h.notes.map(n => `
+        ${n.title ? `<p style="color:var(--navy);font-weight:600;margin-bottom:0.25rem;">${escapeHtml(n.title)}</p>` : ''}
+        ${n.lines && n.lines.length ? `<p>${n.lines.map(escapeHtml).join('<br>')}</p>` : ''}`).join('') + `
+        <p style="font-size:0.8rem;margin-bottom:0.5rem;">From the week ${h.week} recap sheet${h.date ? ' (' + escapeHtml(h.date) + ')' : ''}</p>`
+      : h && h.messages && h.messages.length ? `
         <p style="color:var(--navy);font-weight:600;">${h.messages.map(escapeHtml).join('<br>')}</p>
         <p style="font-size:0.8rem;margin-bottom:0.5rem;">From the week ${h.week} recap sheet${h.date ? ' (' + escapeHtml(h.date) + ')' : ''}</p>` : ''}
       ${certs.length ? `<p>${certs.join(' · ')}</p>` : ''}

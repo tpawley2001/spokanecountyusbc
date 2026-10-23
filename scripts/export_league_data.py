@@ -106,7 +106,7 @@ def sheet_header(slug):
         return None
     if not h:
         return None
-    return {k: h.get(k) for k in ("week", "date", "messages", "usbc_certification", "lane_certification", "officers")}
+    return {k: h.get(k) for k in ("week", "date", "messages", "notes", "usbc_certification", "lane_certification", "officers")}
 
 
 def mnw_standings(cur):
