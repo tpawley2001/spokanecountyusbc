@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-22T22:01:33.700915+00:00",
+  "generated_at": "2026-10-23T00:47:18.601777+00:00",
   "league": {
     "slug": "weekend-rollers",
     "name": "Weekend Rollers 26/27",
@@ -14,6 +14,7 @@
       "week": 3,
       "date": "10/11/2026",
       "messages": [],
+      "notes": null,
       "usbc_certification": "797245",
       "lane_certification": "7356",
       "officers": [

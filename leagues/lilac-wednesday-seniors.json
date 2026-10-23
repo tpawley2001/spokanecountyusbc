@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-22T22:01:33.699115+00:00",
+  "generated_at": "2026-10-23T00:47:18.599908+00:00",
   "league": {
     "slug": "lilac-wednesday-seniors",
     "name": "Lilac Wednesday Seniors 26",
@@ -14,6 +14,7 @@
       "week": 7,
       "date": "10/21/2026",
       "messages": [],
+      "notes": null,
       "usbc_certification": null,
       "lane_certification": null,
       "officers": [

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-22T22:01:33.690540+00:00",
+  "generated_at": "2026-10-23T00:47:18.591524+00:00",
   "league": {
     "id": 59869,
     "name": "Mens Northwest League",
@@ -14,6 +14,35 @@
       "messages": [
         "Position Round and Roll-Offs",
         "League Fees"
+      ],
+      "notes": [
+        {
+          "title": "Position Round and Roll-Offs",
+          "lines": [
+            "Position Round \u2014 This Week: 10/22/26",
+            "League Rule: Substitutes Are Not Allowed During Any Position Round Or Roll-Off.",
+            "Position Rounds & Roll-Off Schedule",
+            "Dates May Change Due To Weather Conditions",
+            "10/22/26: Mid-1st Half Position Round",
+            "1/7/27: 1st Half Position Round \u2014 1st Half Winner Crowned",
+            "2/18/27: Mid-2nd Half Position Round",
+            "4/8/27: 2nd Half Position Round \u2014 2nd Half Winner Crowned",
+            "4/15/27: Roll-Off \u2014 1st Half Winner vs. 2nd Half Winner to Crown the League Champion",
+            "4/22/27: Final Night of Bowling \u2014 Prize Money Awarded & 9-Pin No-Tap"
+          ]
+        },
+        {
+          "title": "League Fees",
+          "lines": [
+            "Sponsor Fees $25.00",
+            "I have 2 out of 10 teams that have paid please pay soon,",
+            "Sweepers",
+            "Week 28 Singles $5.00 Per Person",
+            "Week 29 Team $25.00 Per Team",
+            "Last Two Weeks of Bowling $44.00",
+            "Start thinking about paying the last two weeks of bowling early."
+          ]
+        }
       ],
       "usbc_certification": "797234",
       "lane_certification": "3833",
