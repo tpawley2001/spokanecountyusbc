@@ -81,7 +81,7 @@ app.get(Object.keys(QUERY_PAGES), (req, res, next) => {
 
 // ── Static files: public site files only (the app dir also holds
 //    .git, server.js, CMS data and scripts, which must not be served)
-const PUBLIC_FILE = /^\/(?:|favicon\.(?:ico|svg)|[\w-]+\.html|style\.css|(?:site|leagues|leagues-page|team-page|bowler-page|admin|entry-page|bvl-page)\.js|leagues-data\.json|leagues\/[\w-]+\.json|images\/[\w\/-]+\.(?:jpe?g|png|gif|webp|svg|ico)|forms\/[\w-]+\.pdf)$/;
+const PUBLIC_FILE = /^\/(?:|favicon\.(?:ico|svg)|[\w-]+\.html|style\.css|(?:site|leagues|leagues-page|team-page|bowler-page|admin|entry-page|bvl-page|bvl-calendar)\.js|leagues-data\.json|leagues\/[\w-]+\.json|images\/[\w\/-]+\.(?:jpe?g|png|gif|webp|svg|ico)|forms\/[\w-]+\.pdf)$/;
 const serveStatic = express.static(__dirname, { dotfiles: 'deny' });
 app.use((req, res, next) => {
   if (req.path.startsWith('/api/')) return next();

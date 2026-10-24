@@ -52,7 +52,12 @@
     if (!r.ok) { root.replaceChildren(el('p', { class: 'bvl-status' }, r.data.error || 'The sign-up sheet could not be loaded.')); return; }
     sheet = r.data;
     for (const s of sheet.slots) if (!HOUSES_ORDER.includes(s.house)) HOUSES_ORDER.push(s.house);
+    // Arriving from the calendar's "Open: sign up" link (#v-<id>): open that visit's form
+    const linked = sheet.slots.find(s => '#v-' + s.id === location.hash);
+    if (linked) openId = linked.id;
     render();
+    const c = linked && document.getElementById('v-' + linked.id);
+    if (c) { c.scrollIntoView({ block: 'center' }); c.querySelector('input').focus({ preventScroll: true }); }
   }
 
   function summary() {

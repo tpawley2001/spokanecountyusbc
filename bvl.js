@@ -22,6 +22,7 @@ const DATA_DIR = path.join(__dirname, 'bvl-data');
 const SHEET_FILE = path.join(DATA_DIR, 'bvl-signup.json');
 const LOG_FILE = path.join(DATA_DIR, 'bvl-signup-log.jsonl');
 const PAGE_FILE = path.join(__dirname, 'pages', 'bvl-signup.html');
+const CALENDAR_FILE = path.join(__dirname, 'pages', 'bvl-calendar.html');
 const TOKEN = process.env.BVL_TOKEN || '';
 
 const EDITABLE = { director: 60, date_collected: 10, amount: 12, notes: 200 };
@@ -101,6 +102,13 @@ function mount(app) {
     // Relative URLs in the page resolve against /bvl/<token>/
     if (!req.originalUrl.split('?')[0].endsWith('/')) return res.redirect(301, req.originalUrl.replace(/(\?|$)/, '/$1'));
     res.type('html').sendFile(PAGE_FILE);
+  });
+
+  // Read-only week view of every visit; linked from the sign-up page
+  router.get('/calendar', (req, res) => {
+    // Its relative URLs (sheet, ./) need it to sit beside the sign-up page, not under it
+    if (req.originalUrl.split('?')[0].endsWith('/')) return res.redirect(301, req.originalUrl.replace(/\/(\?|$)/, '$1'));
+    res.type('html').sendFile(CALENDAR_FILE);
   });
 
   router.get('/sheet', (req, res) => {

@@ -397,6 +397,69 @@ footer {
 .bvl-msg.warn { background: #fff4d6; color: #8a6200; }
 .bvl-msg.error { background: #fde8e6; color: var(--red); }
 .bvl-add { background: var(--white); border-radius: 12px; box-shadow: var(--shadow); padding: 0.4rem 0.9rem 0.6rem; margin-top: 1.5rem; }
+.bvl-cal-link { display: flex; align-items: center; justify-content: center; gap: 0.4rem; min-height: 48px; margin-bottom: 0.9rem; border-radius: 10px; background: var(--navy); color: var(--white); font-weight: 600; text-decoration: none; }
+.bvl-card:target { outline: 3px solid var(--gold); outline-offset: 2px; }
+
+/* ── BVL collection calendar (pages/bvl-calendar.html) ── */
+.bvl-cal-main { max-width: 1400px; }
+.bvl-cal-nav { display: flex; gap: 0.5rem; margin-bottom: 0.6rem; }
+.bvl-cal-nav .bvl-btn { display: inline-flex; align-items: center; text-decoration: none; }
+.bvl-cal-nav a.bvl-btn { flex: 1; justify-content: center; }
+.bvl-cal-filters { display: flex; flex-direction: column; gap: 0.4rem; }
+.bvl-cal-who { display: flex; align-items: center; gap: 0.6rem; margin: 0; }
+.bvl-cal-who > span { margin: 0; }
+.bvl-cal-who select { max-width: 320px; }
+.bvl-chip .bvl-dot { margin-right: 0.35rem; }
+.bvl-cal-count { font-size: 0.9rem; color: var(--muted); margin: 0.3rem 0.15rem; }
+.bvl-legend { display: flex; flex-wrap: wrap; gap: 0.3rem 0.9rem; font-size: 0.85rem; margin: 0 0.15rem 0.6rem; }
+.bvl-dot { display: inline-block; width: 0.75rem; height: 0.75rem; border-radius: 50%; margin-right: 0.3rem; vertical-align: -0.05rem; background: var(--hc); }
+.h0 { --hc: #0a2342; } .h1 { --hc: #c0392b; } .h2 { --hc: #2e8b57; } .h3 { --hc: #7b4bb7; } .h4 { --hc: #d2691e; } .h5 { --hc: #1f7a8c; }
+.bvl-week { display: grid; gap: 0.6rem; }
+.bvl-day { background: var(--white); border-radius: 12px; box-shadow: var(--shadow); padding: 0.6rem 0.6rem 0.2rem; min-width: 0; }
+.bvl-day.today { box-shadow: 0 0 0 3px var(--gold), var(--shadow); }
+.bvl-day h2 { display: flex; justify-content: space-between; align-items: baseline; font-size: 1.05rem; color: var(--navy); padding-bottom: 0.25rem; margin-bottom: 0.5rem; border-bottom: 3px solid var(--gold); }
+.bvl-day h2 span { font-size: 0.78rem; font-weight: 400; color: var(--muted); }
+.bvl-day.empty { opacity: 0.7; }
+.bvl-cal-visit { border-left: 5px solid var(--hc); background: var(--light-bg); border-radius: 8px; padding: 0.45rem 0.55rem; margin-bottom: 0.45rem; font-size: 0.88rem; line-height: 1.35; overflow-wrap: anywhere; }
+.bvl-cal-visit.open { background: #fff8e6; }
+.bvl-cal-time { font-weight: 700; color: var(--navy); }
+.bvl-cal-time span { display: block; font-weight: 600; font-size: 0.8rem; color: var(--hc); }
+.bvl-cal-leagues { margin: 0.15rem 0; }
+.bvl-cal-who-name { font-weight: 700; color: #1f6b42; }
+.bvl-cal-who-name::before { content: '✓ '; }
+.bvl-cal-open { display: inline-block; font-weight: 700; color: #8a6200; padding: 0.15rem 0; }
+.bvl-cal-done { font-size: 0.8rem; color: #1f6b42; }
+.bvl-cal-h { font-size: 1.15rem; color: var(--navy); margin: 1.4rem 0.15rem 0.5rem; padding-bottom: 0.25rem; border-bottom: 3px solid var(--gold); }
+.bvl-cal-total { margin: 0 0.15rem 0.6rem; }
+.bvl-month { background: var(--white); border-radius: 12px; box-shadow: var(--shadow); padding: 0.6rem; margin-bottom: 0.8rem; }
+.bvl-month h3 { color: var(--navy); font-size: 1rem; margin-bottom: 0.4rem; }
+.bvl-mgrid { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 2px; }
+.bvl-mhead { font-size: 0.75rem; font-weight: 700; color: var(--muted); text-align: center; }
+.bvl-mday { min-height: 3.2rem; background: var(--light-bg); border-radius: 4px; padding: 0.15rem 0.25rem; font-size: 0.7rem; line-height: 1.25; overflow-wrap: anywhere; }
+.bvl-mday.blank { background: none; }
+.bvl-mday.hit { background: #e3f4ea; }
+.bvl-mday b { display: block; color: var(--navy); }
+.bvl-mvisit { border-left: 3px solid var(--hc); padding-left: 0.2rem; margin-top: 0.15rem; }
+@media (min-width: 1000px) {
+  .bvl-week { grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 0.45rem; }
+  .bvl-cal-filters { flex-direction: row; align-items: center; gap: 1rem; }
+  .bvl-cal-nav a.bvl-btn { flex: none; }
+  .bvl-mday { min-height: 4.5rem; font-size: 0.78rem; }
+}
+@media print {
+  .bvl-cal-body { background: #fff; }
+  .bvl-cal-body .bvl-header { background: none; color: #000; padding: 0 0 0.3rem; text-align: center; }
+  .bvl-cal-body .bvl-header h1 { font-size: 1.3rem; }
+  .bvl-cal-nav, .bvl-chips, .bvl-cal-open { display: none; }
+  .bvl-cal-main { max-width: none; padding: 0; }
+  .bvl-cal-filters { position: static; padding: 0; margin: 0; }
+  .bvl-cal-who select { border: none; min-height: 0; padding: 0; }
+  .bvl-week { grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 0.25rem; }
+  .bvl-day, .bvl-month { box-shadow: none; border: 1px solid #ccc; padding: 0.3rem; }
+  .bvl-day.today { box-shadow: none; }
+  .bvl-cal-visit { font-size: 0.7rem; padding: 0.25rem 0.3rem; break-inside: avoid; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .bvl-cal-visit.open::after { content: 'OPEN'; font-weight: 700; color: #8a6200; }
+}
 @media (min-width: 700px) {
   .bvl-header { text-align: center; }
   .bvl-header h1 { font-size: 1.8rem; }
