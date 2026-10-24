@@ -39,7 +39,7 @@
     return (Number(m[1]) % 12 + (m[3].toUpperCase() === 'P' ? 12 : 0)) * 60 + Number(m[2] || 0);
   }
 
-  // A visit can carry two directors ("Russ Blough  Tina Blough", "A & B")
+  // A visit can carry two directors ("First Last  First Last", "A & B")
   function names(s) {
     return (s.director || '').split(/\s{2,}|\s*[,&\/]\s*|\s+and\s+/i).map(n => n.trim()).filter(Boolean);
   }
