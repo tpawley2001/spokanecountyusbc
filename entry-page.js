@@ -66,7 +66,8 @@
     const updateTotal = () => {
       if (!totalOut) return;
       const n = people.filter(p => formEl.elements[p] && valueOf(formEl.elements[p]).trim()).length;
-      totalOut.textContent = (n * (form.fee_per_person || 0)).toFixed(2);
+      const extra = n ? (form.fee_addons || []).filter(a => !(a.unless && formEl.elements[a.unless] && valueOf(formEl.elements[a.unless]))).reduce((sum, a) => sum + a.amount, 0) : 0;
+      totalOut.textContent = (n * (form.fee_per_person || 0) + extra).toFixed(2);
     };
     formEl.addEventListener('input', e => {
       updateTotal();
@@ -134,7 +135,7 @@
     const box = el('div', { class: 'entry-sheet es-done' },
       el('h1', { class: 'es-title' }, 'Entry Received!'),
       el('p', { class: 'es-subtitle' }, j.tournament),
-      el('p', { class: 'es-text es-md' }, 'Your entry has been sent to the Spokane County USBC association manager.'),
+      el('p', { class: 'es-text es-md' }, `Your entry has been sent to ${form.sent_to || 'the Spokane County USBC association manager'}.`),
       j.due ? el('p', { class: 'es-total' }, `AMOUNT DUE $${j.due.toFixed(2)}`) : null,
       payBlock(j.payment, j.due, note));
     if (j.pdf) {

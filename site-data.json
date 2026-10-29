@@ -157,8 +157,8 @@
       "type": "Women's",
       "type_color": "gold",
       "entry_form": "forms/600-club-womens-tournament.pdf",
-      "online_form": "",
-      "signup_url": "forms/600-club-womens-tournament.pdf"
+      "online_form": "600-club-womens",
+      "signup_url": ""
     },
     {
       "name": "Spokane County Queens Tournament",

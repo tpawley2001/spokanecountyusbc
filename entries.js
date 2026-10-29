@@ -9,7 +9,8 @@
 // Mail settings come from the environment (EnvironmentFile in the systemd unit):
 //   SMTP_USER, SMTP_PASS   Gmail account + app password used to send
 //   SMTP_HOST, SMTP_PORT   default smtp.gmail.com:465
-//   ENTRY_TO               recipient, default the association manager
+//   ENTRY_TO               recipient, default the association manager; a form's
+//                          own email_to wins (events run by other organizations)
 const fs = require('fs');
 const path = require('path');
 
@@ -62,9 +63,33 @@ function validate(form, body) {
   return { values, errors };
 }
 
+// Fee per person today. A fee_schedule ([{until:'YYYY-MM-DD', fee}, ..., {fee}])
+// raises it after a date (Pacific); otherwise it's the flat fee_per_person.
+function entryFee(form) {
+  const today = new Date().toLocaleDateString('en-CA', { timeZone: 'America/Los_Angeles' });
+  const step = (form.fee_schedule || []).find(s => !s.until || today <= s.until);
+  return step ? step.fee : (form.fee_per_person || 0);
+}
+
+// Flat extras on an entry (e.g. a $3 membership card), skipped when their
+// `unless` checkbox is ticked (already a member).
+function addons(form, values) {
+  return (form.fee_addons || []).filter(a => !(a.unless && values[a.unless]));
+}
+
 function amountDue(form, values) {
   const people = (form.fee_people_fields || []).filter(n => values[n]).length;
-  return people * (form.fee_per_person || 0);
+  if (!people) return 0;
+  return people * entryFee(form) + addons(form, values).reduce((sum, a) => sum + a.amount, 0);
+}
+
+// Fee lines for the PDF's own blanks (fee_pdf: {entry, total}; addons name theirs)
+function feeValues(form, values, due) {
+  const p = form.fee_pdf;
+  if (!p) return {};
+  const out = { [p.entry]: `$${entryFee(form).toFixed(2)}`, [p.total]: `$${due.toFixed(2)}` };
+  for (const a of form.fee_addons || []) if (a.pdf_field) out[a.pdf_field] = addons(form, values).includes(a) ? `$${a.amount.toFixed(2)}` : 'Paid';
+  return out;
 }
 
 // The emailed copy is for printing: entries are drawn in black and flattened into
@@ -108,7 +133,8 @@ const htmlEsc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').repl
 
 function emailBody(name, form, values, due, when) {
   const rows = Object.entries(form.fields).map(([k, f]) => [f.label, values[k] || '—']);
-  rows.push(['Entry fee due', `$${due.toFixed(2)} ($${form.fee_per_person}/${form.fee_unit || 'person'})`]);
+  const extra = addons(form, values).map(a => ` + $${a.amount} ${a.label}`).join('');
+  rows.push(['Entry fee due', `$${due.toFixed(2)} ($${entryFee(form)}/${form.fee_unit || 'person'}${extra})`]);
   const text = `${name} entry submitted online ${when}\n\n` +
     rows.map(([l, v]) => `${l}: ${v}`).join('\n') +
     `\n\nThe completed entry form is attached as a printable PDF. Reply to this email to reach the contact.\n`;
@@ -137,8 +163,8 @@ function mount(app, readData) {
   app.get('/entry/form/:slug', (req, res) => {
     const form = loadForm(req.params.slug);
     if (!form) return res.status(404).json({ error: 'Form not found' });
-    const { pdf, ...pub } = form;
-    res.json({ ...pub, tournament: tournamentName(req.params.slug, form, readData), pdf_url: pdf });
+    const { pdf, email_to, ...pub } = form;
+    res.json({ ...pub, fee_per_person: entryFee(form), tournament: tournamentName(req.params.slug, form, readData), pdf_url: pdf });
   });
 
   // Not under /api/ on purpose: Cloudflare Access gates /api/* for the admin panel.
@@ -154,10 +180,11 @@ function mount(app, readData) {
     if (rateLimited(ip)) return res.status(429).json({ error: 'Too many entries from this connection. Please try again later or email the entry form.' });
 
     const name = tournamentName(slug, form, readData);
+    const to = form.email_to || ENTRY_TO;
     const due = amountDue(form, values);
     const when = new Date().toLocaleString('en-US', { timeZone: 'America/Los_Angeles', dateStyle: 'medium', timeStyle: 'short' });
     let pdf;
-    try { pdf = await fillPdf(form, values); } catch (e) { console.error('entry pdf fill failed:', e.message); }
+    try { pdf = await fillPdf(form, { ...values, ...feeValues(form, values, due) }); } catch (e) { console.error('entry pdf fill failed:', e.message); }
 
     let emailed = false;
     let mail = null;   // delivery record kept in the log, read by Mission Control's USBC tab
@@ -167,7 +194,7 @@ function mount(app, readData) {
       try {
         const info = await t.sendMail({
           from: { name: 'Spokane County USBC Entries', address: process.env.SMTP_USER },
-          to: ENTRY_TO,
+          to,
           replyTo: { name: values.contact_name || '', address: values.contact_email },
           subject: `${name} Entry Form`,
           ...emailBody(name, form, values, due, when),
@@ -187,7 +214,7 @@ function mount(app, readData) {
     try {
       fs.mkdirSync(LOG_DIR, { recursive: true, mode: 0o700 });
       fs.appendFileSync(path.join(LOG_DIR, `${slug}.jsonl`),
-        JSON.stringify({ at: new Date().toISOString(), tournament: name, emailed, to: ENTRY_TO, mail, due, values }) + '\n', { mode: 0o600 });
+        JSON.stringify({ at: new Date().toISOString(), tournament: name, emailed, to, mail, due, values }) + '\n', { mode: 0o600 });
     } catch (e) { console.error('entry log failed:', e.message); }
 
     if (!emailed) return res.status(502).json({ error: 'Your entry could not be sent right now. Please try again in a few minutes, or download the PDF entry form and email it in.' });
