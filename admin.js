@@ -224,6 +224,7 @@
       document.getElementById('tf-type-color').value = t.type_color;
       document.getElementById('tf-entry-form').value = t.entry_form || '';
       document.getElementById('tf-online-form').value = t.online_form || '';
+      document.getElementById('tf-signup-url').value = t.signup_url || '';
       openOverlay('modal-tournament');
       setTimeout(()=>document.getElementById('tf-name').focus(),50);
 
@@ -272,7 +273,7 @@
     } else if(type==='tournament') {
       const name = document.getElementById('tf-name').value.trim();
       if(!name) { document.getElementById('tf-name').focus(); return; }
-      const t = { name, date:document.getElementById('tf-date').value.trim(), center:document.getElementById('tf-center').value.trim() || 'TBD', type:document.getElementById('tf-type').value, type_color:document.getElementById('tf-type-color').value, entry_form:document.getElementById('tf-entry-form').value.trim(), online_form:document.getElementById('tf-online-form').value.trim() };
+      const t = { name, date:document.getElementById('tf-date').value.trim(), center:document.getElementById('tf-center').value.trim() || 'TBD', type:document.getElementById('tf-type').value, type_color:document.getElementById('tf-type-color').value, entry_form:document.getElementById('tf-entry-form').value.trim(), online_form:document.getElementById('tf-online-form').value.trim(), signup_url:document.getElementById('tf-signup-url').value.trim() };
       if(!siteData.tournaments) siteData.tournaments=[];
       if(isEdit) siteData.tournaments[index]=t; else siteData.tournaments.push(t);
       closeModal('tournament');
