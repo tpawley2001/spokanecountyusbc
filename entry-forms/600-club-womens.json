@@ -5,16 +5,29 @@
   "sent_to": "the Spokane 600 Club tournament directors",
   "fee_per_person": 80,
   "fee_schedule": [
-    { "until": "2027-01-16", "fee": 75 },
-    { "fee": 80 }
+    {
+      "until": "2027-01-16",
+      "fee": 75
+    },
+    {
+      "fee": 80
+    }
   ],
   "fee_people_fields": [
     "contact_name"
   ],
   "fee_addons": [
-    { "label": "600 Club fee", "amount": 3, "unless": "club_member", "pdf_field": "club_fee" }
+    {
+      "label": "600 Club fee",
+      "amount": 3,
+      "unless": "club_member",
+      "pdf_field": "club_fee"
+    }
   ],
-  "fee_pdf": { "entry": "tournament_entry", "total": "total" },
+  "fee_pdf": {
+    "entry": "tournament_entry",
+    "total": "total"
+  },
   "fields": {
     "contact_name": {
       "label": "Name",
@@ -30,6 +43,10 @@
       "label": "Phone #",
       "type": "tel",
       "required": true,
+      "max": 20
+    },
+    "club_number": {
+      "label": "600 Club #",
       "max": 20
     },
     "contact_email": {
@@ -119,9 +136,17 @@
           "grow": 2
         },
         {
+          "label": "600 CLUB #",
+          "field": "club_number",
+          "grow": 2
+        }
+      ]
+    },
+    {
+      "row": [
+        {
           "label": "EMAIL",
-          "field": "contact_email",
-          "grow": 3
+          "field": "contact_email"
         }
       ]
     },
@@ -143,18 +168,18 @@
     "items": [
       "Eligibility: Entrant must be a current paid Spokane 600 Club member. Membership card $3.00, payable with entry fee. This is a USBC Certified Tournament for Women Only.",
       "Format: Bowl 5 games, moving one pair to the right after each game. Total scratch pin fall will determine TOP 12 or more qualifiers. Qualifiers may be adjusted according to number of entrants.",
-      "Door prizes will be drawn after each game of the qualifying round. The ball raffle will be drawn at the conclusion of qualifying game 5. Pin fall will not carry forward to pool play.",
-      "Top 12 will advance to match play and be divided into pools. You will bowl a one-game match receiving total actual pins plus 30 bonus pins for a win. In case of ties, 15 pins will be awarded to each bowler.",
-      "After pool play there will be a one-game position round between bowlers of all pools, ranked by pin fall plus bonus pins, to determine the top four. Ties for the top 4 will be decided by a 9th and 10th frame roll-off.",
+      "Door prizes will be drawn after each game of the qualifying round. The ball raffle will be drawn at the conclusion of qualifying game 5.",
+      "Top 12 will advance to match play. Pin fall will not carry forward to pool play. Top 12 will be divided into pools. You will bowl one-game matches receiving actual pins plus a 30 pin bonus for each win. In case of ties, 15 pins will be awarded to each bowler.",
+      "After pool play there will be a one-game position round between bowlers of all pools, ranked by pin fall plus bonus pins, to determine the top four. Ties to determine the top four will be decided by a 9th and 10th frame roll-off.",
       "Top 4 will bowl the Eliminator Format. Scores start fresh each game; the lowest score is eliminated and survivors advance, moving a pair to the right each game. The final two survivors bowl to determine the champion. Awards follow the final match.",
       "Extra prize funds: Sponsor donations, the bowling ball raffle and the prize fund will be returned 100%. Ratio 1:3.",
       "Cost: $75 if paid by 1/16/27, $80 if paid after 1/17/27. Cash only on the day of the tournament.",
       "Entry fee breakdown: Prize Fund $50.00, Bowling $20.00, Expenses $5.00."
     ],
-    "footer": "For more information or to reserve a spot contact Sandy Friberg / Cheryl Gould / Denise Loehlein — North Bowl 509-328-7090, lakegirlgould@gmail.com / 509-475-5015."
+    "footer": "For more information or to reserve a spot contact Sandy Friberg / Cheryl Gould / Denise Loehlein — North Bowl 509-328-7090, lakegirlgould@gmail.com / 509-475-5015, deniseloehlein56@gmail.com, nsandberg@gmail.com."
   },
   "payment": {
     "venmo": "denise-loehlein",
-    "checks": "No Venmo after 1/20/27. You can also pay at North Bowl, or in cash on the day of the tournament (cash only that day)."
+    "checks": "Or mail your entry fee to 4108 W. Thorpe Rd, Spokane, WA 99224. No Venmo after 1/20/27. Cash only on the day of the tournament."
   }
 }
