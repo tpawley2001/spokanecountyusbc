@@ -1,7 +1,10 @@
 {
   "tournament": "Spokane 600 Club Women's Tournament",
   "pdf": "forms/600-club-womens-tournament.pdf",
-  "email_to": "lakegirlgould@gmail.com",
+  "email_to": [
+    "lakegirlgould@gmail.com",
+    "deniseloehlein56@gmail.com"
+  ],
   "sent_to": "the Spokane 600 Club tournament directors",
   "fee_per_person": 80,
   "fee_schedule": [

@@ -10,7 +10,7 @@
 //   SMTP_USER, SMTP_PASS   Gmail account + app password used to send
 //   SMTP_HOST, SMTP_PORT   default smtp.gmail.com:465
 //   ENTRY_TO               recipient, default the association manager; a form's
-//                          own email_to wins (events run by other organizations)
+//                          own email_to (a string or a list) wins (events run by other organizations)
 const fs = require('fs');
 const path = require('path');
 
