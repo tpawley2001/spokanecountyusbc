@@ -48,7 +48,9 @@
     const highGame = allGames.length ? Math.max(...allGames) : null;
     const highSeries = Math.max(...appearances.map(a => parseInt(a.entry.total, 10) || 0));
     const highHdcpSeries = scratch ? null : Math.max(...appearances.map(a => parseInt(a.entry.handicap_total, 10) || 0));
-    const currentAverage = appearances[0].entry.average;
+    // Recap rows carry the average ENTERING that week; current_averages is League
+    // Secretary's average after the latest week, when the export has it.
+    const currentAverage = (data.current_averages || {})[bowlerName] ?? appearances[0].entry.average;
 
     summary.innerHTML = `
       <h4>Season Summary</h4>

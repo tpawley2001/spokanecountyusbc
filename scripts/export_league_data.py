@@ -86,7 +86,10 @@ def main():
     mnw = {**data, "league": {**LEAGUE_INFO, "slug": "mens-northwest", "day_time": "Thursday 6:00 pm",
                               "scoring": "handicap", "source": "League Secretary / BLS recap sheets",
                               "header": sheet_header("mens-northwest")},
-           "standings": standings, "as_of": {"week": through_week, "date": None}}
+           "standings": standings, "as_of": {"week": through_week, "date": None},
+           # League Secretary's average AFTER the latest week (recap rows carry the entering average)
+           "current_averages": {r["name"]: r["average"] for r in cur.execute(
+               "SELECT name, average FROM bowlers WHERE average > 0")}}
     index = [{"slug": "mens-northwest", "name": LEAGUE_INFO["name"], "center": LEAGUE_INFO["center"],
               "day_time": "Thursday 6:00 pm"}]
     (LEAGUES_OUT / "mens-northwest.json").write_text(json.dumps(mnw, indent=2))
@@ -167,6 +170,7 @@ def photo_leagues():
                        "header": sheet_header(cfg["slug"])},
             "as_of": {"week": latest["week"], "date": latest["date"]},
             "standings": latest["standings"],
+            "current_averages": latest.get("current_averages", {}),
             "lane_assignments": {"week_num": upcoming, "date": la.get("date"),
                                  "lanes": sorted(la.get("lanes", []), key=lambda l: l["lane_number"])},
             "teams": sorted(teams.values(), key=lambda t: t["team_id"]),
