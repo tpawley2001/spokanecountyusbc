@@ -14,7 +14,8 @@
   const fail = msg => { root.replaceChildren(el('div', { class: 'info-box' }, el('h4', {}, 'Entry form unavailable'), el('p', {}, msg), el('p', {}, el('a', { href: 'tournaments.html' }, '← Back to Tournaments')))); };
 
   if (!/^[a-z0-9-]{1,60}$/.test(slug)) return fail('No entry form was selected.');
-  fetch(`/entry/form/${slug}`).then(r => r.ok ? r.json() : Promise.reject()).then(render).catch(() => fail('This entry form could not be found.'));
+  fetch(`/entry/form/${slug}`).then(r => r.ok ? r.json() : r.json().then(j => Promise.reject(j.error), () => Promise.reject()))
+    .then(render).catch(msg => fail(typeof msg === 'string' ? msg : 'This entry form could not be found.'));
 
   function input(name, f) {
     if (f.type === 'check') return el('input', { id: `f-${name}`, name, type: 'checkbox', value: 'X', 'aria-label': f.label });

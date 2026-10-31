@@ -1,5 +1,6 @@
 {
   "tournament": "SCUSBC Senior Championships",
+  "closed": "Online entries are closed for this tournament. Walk-ins only.",
   "pdf": "forms/senior-championships-entry.pdf",
   "fee_per_person": 35,
   "fee_unit": "event",

@@ -249,7 +249,7 @@ function tournamentRow(t, showForm) {
             <td>${esc(t.date)}${t.date === 'TBD' ? '' : '*'}</td>
             <td>${esc(t.center || 'TBD')}</td>
             <td><span class="badge badge-${esc(t.type_color)}">${esc(t.type)}</span></td>${formCol}
-            <td><a href="${online || (t.signup_url ? safeUrl(t.signup_url) : 'signup.html')}"${!online && t.signup_url ? ' target="_blank" rel="noopener"' : ''} class="btn btn-red" style="padding:0.3rem 0.8rem;font-size:0.82rem;white-space:nowrap;">${online ? 'Enter Online' : 'Sign Up'}</a></td>
+            <td>${t.entry_note ? `<span style="color:var(--muted,#888);font-size:0.82rem;">${esc(t.entry_note)}</span>` : `<a href="${online || (t.signup_url ? safeUrl(t.signup_url) : 'signup.html')}"${!online && t.signup_url ? ' target="_blank" rel="noopener"' : ''} class="btn btn-red" style="padding:0.3rem 0.8rem;font-size:0.82rem;white-space:nowrap;">${online ? 'Enter Online' : 'Sign Up'}</a>`}</td>
           </tr>`;
 }
 

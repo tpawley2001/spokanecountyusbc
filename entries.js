@@ -163,6 +163,7 @@ function mount(app, readData) {
   app.get('/entry/form/:slug', (req, res) => {
     const form = loadForm(req.params.slug);
     if (!form) return res.status(404).json({ error: 'Form not found' });
+    if (form.closed) return res.status(410).json({ error: form.closed });
     const { pdf, email_to, ...pub } = form;
     res.json({ ...pub, fee_per_person: entryFee(form), tournament: tournamentName(req.params.slug, form, readData), pdf_url: pdf });
   });
@@ -172,6 +173,7 @@ function mount(app, readData) {
     const slug = req.params.slug;
     const form = loadForm(slug);
     if (!form) return res.status(404).json({ error: 'Form not found' });
+    if (form.closed) return res.status(410).json({ error: form.closed });
     const body = req.body || {};
     if (body.website) return res.json({ success: true });            // honeypot: quietly drop bots
     const { values, errors } = validate(form, body);
