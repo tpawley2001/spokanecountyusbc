@@ -48,6 +48,14 @@
       ? ` · Standings through week ${data.as_of.week}${data.as_of.date ? ' (' + escapeHtml(data.as_of.date) + ')' : ''}` : '';
     // Mirrors the notice block at the top of the league's latest standing sheet
     const h = league.header;
+    // Redacted copies of the original weekly sheets, newest first
+    const sheets = league.recap_sheets || [];
+    const sheetLinks = sheets.length ? `
+      <p style="margin-top:0.5rem;">
+        <a class="btn btn-outline-navy" href="${escapeHtml(sheets[0].url)}" target="_blank" rel="noopener">📄 Week ${sheets[0].week} recap sheet (PDF)</a>
+        ${sheets.length > 1 ? `<span style="font-size:0.85rem;margin-left:0.5rem;">Earlier: ${sheets.slice(1).map(s =>
+          `<a href="${escapeHtml(s.url)}" target="_blank" rel="noopener">Wk ${s.week}</a>`).join(' · ')}</span>` : ''}
+      </p>` : '';
     const certs = h ? [h.usbc_certification ? `USBC Certification: ${escapeHtml(h.usbc_certification)}` : null,
                        h.lane_certification ? `Lane Certification: ${escapeHtml(h.lane_certification)}` : null].filter(Boolean) : [];
     document.getElementById('league-info').innerHTML = `
@@ -63,6 +71,7 @@
       ${h && h.officers && h.officers.length ? `
         <ul>${h.officers.map(o => `<li><strong>${escapeHtml(o.role)}:</strong> ${escapeHtml(o.name)}</li>`).join('')}</ul>` : ''}
       <p style="margin-top:0.5rem;">${teams.length} teams${league.total_weeks ? ` · ${league.total_weeks}-week season` : ''}${league.scoring === 'scratch' ? ' · Scratch' : ''}${asOf}. Results come from the league's weekly ${escapeHtml(league.source || 'recap sheets')}.</p>
+      ${sheetLinks}
     `;
 
     document.getElementById('lane-assignments-heading').textContent =

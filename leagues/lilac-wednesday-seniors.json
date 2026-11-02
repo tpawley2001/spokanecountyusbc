@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-02T05:02:35.910938+00:00",
+  "generated_at": "2026-11-02T16:40:06.065423+00:00",
   "league": {
     "slug": "lilac-wednesday-seniors",
     "name": "Lilac Wednesday Seniors 26",
@@ -35,7 +35,13 @@
           "name": "Roger Prang"
         }
       ]
-    }
+    },
+    "recap_sheets": [
+      {
+        "week": 8,
+        "url": "leagues/sheets/lilac-wednesday-seniors-week-08.pdf"
+      }
+    ]
   },
   "as_of": {
     "week": 8,

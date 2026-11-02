@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-02T05:02:35.918851+00:00",
+  "generated_at": "2026-11-02T16:40:06.074181+00:00",
   "league": {
     "slug": "lost-weekenders",
     "name": "Lost Weekenders 26-27",
@@ -35,7 +35,13 @@
           "name": "Sean Slate"
         }
       ]
-    }
+    },
+    "recap_sheets": [
+      {
+        "week": 4,
+        "url": "leagues/sheets/lost-weekenders-week-04.pdf"
+      }
+    ]
   },
   "as_of": {
     "week": 4,

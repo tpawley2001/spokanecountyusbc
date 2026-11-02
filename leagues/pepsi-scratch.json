@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-02T05:02:35.907737+00:00",
+  "generated_at": "2026-11-02T16:40:06.062038+00:00",
   "league": {
     "slug": "pepsi-scratch",
     "name": "Pepsi Scratch League (SCHSTSL)",
@@ -10,7 +10,8 @@
     "total_weeks": 30,
     "scoring": "scratch",
     "source": "BLS recap sheet photos",
-    "header": null
+    "header": null,
+    "recap_sheets": []
   },
   "as_of": {
     "week": 2,

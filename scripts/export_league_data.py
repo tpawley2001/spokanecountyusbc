@@ -18,6 +18,8 @@ LEAGUES_OUT = Path(__file__).resolve().parent.parent / "leagues"
 PHOTO_LEAGUES_DIR = Path("/home/tyson/bracket-system/data/leagues")
 # Notice block from the top of each league's standing sheet (sync_league_headers.py)
 HEADERS_PATH = PHOTO_LEAGUES_DIR / "headers.json"
+# Redacted copies of the weekly standing sheets (bracket-system recap_sheet_publish.py)
+SHEETS_DIR = LEAGUES_OUT / "sheets"
 
 LEAGUE_INFO = {"id": 59869, "name": "Mens Northwest League", "center": "Lilac Lanes"}
 
@@ -85,7 +87,8 @@ def main():
     standings, through_week = mnw_standings(cur)
     mnw = {**data, "league": {**LEAGUE_INFO, "slug": "mens-northwest", "day_time": "Thursday 6:00 pm",
                               "scoring": "handicap", "source": "League Secretary / BLS recap sheets",
-                              "header": sheet_header("mens-northwest")},
+                              "header": sheet_header("mens-northwest"),
+                              "recap_sheets": recap_sheets("mens-northwest")},
            "standings": standings, "as_of": {"week": through_week, "date": None},
            # League Secretary's average AFTER the latest week (recap rows carry the entering average)
            "current_averages": {r["name"]: r["average"] for r in cur.execute(
@@ -139,6 +142,13 @@ def mnw_standings(cur):
     return standings, max((r["thru"] for r in rows), default=None)
 
 
+def recap_sheets(slug):
+    """[{week, url}] newest first, for the PDFs in leagues/sheets/<slug>-week-NN.pdf."""
+    sheets = [{"week": int(p.stem.rsplit("-", 1)[1]), "url": f"leagues/sheets/{p.name}"}
+              for p in SHEETS_DIR.glob(f"{slug}-week-[0-9][0-9].pdf")]
+    return sorted(sheets, key=lambda s: -s["week"])
+
+
 def photo_leagues():
     """Leagues in the file-based multi-league format (bracket-system/data/leagues/<slug>/week-NN.json),
     written either by the recap-sheet photo reader or sync_league_secretary_leagues.py."""
@@ -167,7 +177,8 @@ def photo_leagues():
                        "day_time": latest.get("day_time"), "lanes": latest.get("lanes"),
                        "total_weeks": latest.get("total_weeks"), "scoring": cfg.get("scoring", "scratch"),
                        "source": cfg.get("source", "BLS recap sheet photos"),
-                       "header": sheet_header(cfg["slug"])},
+                       "header": sheet_header(cfg["slug"]),
+                       "recap_sheets": recap_sheets(cfg["slug"])},
             "as_of": {"week": latest["week"], "date": latest["date"]},
             "standings": latest["standings"],
             "current_averages": latest.get("current_averages", {}),
