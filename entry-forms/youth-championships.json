@@ -5,9 +5,7 @@
   "fee_unit": "event",
   "fee_people_fields": [
     "bowler1_hdcp",
-    "bowler1_scratch",
-    "bowler2_hdcp",
-    "bowler2_scratch"
+    "bowler1_scratch"
   ],
   "event_picks": [
     {
@@ -17,65 +15,32 @@
         "bowler1_scratch"
       ],
       "error": "Pick Hdcp, Scratch or both"
-    },
-    {
-      "name": "bowler2_name",
-      "events": [
-        "bowler2_hdcp",
-        "bowler2_scratch"
-      ],
-      "error": "Pick Hdcp, Scratch or both"
     }
   ],
   "fields": {
     "bowler1_name": {
-      "label": "Bowler 1 name",
+      "label": "Bowler name",
       "required": true,
       "max": 60
     },
     "bowler1_id": {
-      "label": "Bowler 1 ID number",
+      "label": "Bowler ID number",
       "max": 20
     },
     "bowler1_avg": {
-      "label": "Bowler 1 highest 2025-26 average",
+      "label": "Bowler highest 2025-26 average",
       "type": "average"
     },
     "bowler1_cur_avg": {
-      "label": "Bowler 1 2026-27 average if applicable",
+      "label": "Bowler 2026-27 average if applicable",
       "type": "average"
     },
     "bowler1_hdcp": {
-      "label": "Bowler 1 singles handicap",
+      "label": "Bowler singles handicap",
       "type": "check"
     },
     "bowler1_scratch": {
-      "label": "Bowler 1 singles scratch",
-      "type": "check"
-    },
-    "bowler2_name": {
-      "label": "Bowler 2 name",
-      "required": false,
-      "max": 60
-    },
-    "bowler2_id": {
-      "label": "Bowler 2 ID number",
-      "max": 20
-    },
-    "bowler2_avg": {
-      "label": "Bowler 2 highest 2025-26 average",
-      "type": "average"
-    },
-    "bowler2_cur_avg": {
-      "label": "Bowler 2 2026-27 average if applicable",
-      "type": "average"
-    },
-    "bowler2_hdcp": {
-      "label": "Bowler 2 singles handicap",
-      "type": "check"
-    },
-    "bowler2_scratch": {
-      "label": "Bowler 2 singles scratch",
+      "label": "Bowler singles scratch",
       "type": "check"
     },
     "contact_name": {
@@ -209,7 +174,7 @@
     {
       "row": [
         {
-          "label": "1.",
+          "label": "Name",
           "field": "bowler1_name",
           "grow": 3
         },
@@ -241,44 +206,6 @@
         {
           "label": "Singles Scratch",
           "field": "bowler1_scratch"
-        }
-      ]
-    },
-    {
-      "row": [
-        {
-          "label": "2.",
-          "field": "bowler2_name",
-          "grow": 3
-        },
-        {
-          "label": "Bowler ID Number",
-          "field": "bowler2_id",
-          "grow": 2
-        }
-      ]
-    },
-    {
-      "row": [
-        {
-          "label": "Highest 2025-26 Average",
-          "field": "bowler2_avg"
-        },
-        {
-          "label": "2026-27 Average if Applicable",
-          "field": "bowler2_cur_avg"
-        }
-      ]
-    },
-    {
-      "row": [
-        {
-          "label": "Singles Hdcp",
-          "field": "bowler2_hdcp"
-        },
-        {
-          "label": "Singles Scratch",
-          "field": "bowler2_scratch"
         }
       ]
     },
@@ -403,6 +330,26 @@
     {
       "total": "Total Amount Remitted",
       "note": "($25 per person for each event)"
+    },
+    {
+      "logos": [
+        {
+          "src": "images/pay/paypal-qr.svg",
+          "alt": "PayPal QR code for SCUSBC"
+        }
+      ]
+    },
+    {
+      "text": [
+        {
+          "t": "Scan to pay with PayPal",
+          "bold": true
+        },
+        {
+          "t": " (paypal.me/SCUSBC)"
+        }
+      ],
+      "size": "sm"
     },
     {
       "text": [
