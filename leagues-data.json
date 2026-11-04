@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-02T16:40:06.058404+00:00",
+  "generated_at": "2026-11-04T16:33:10.818611+00:00",
   "league": {
     "id": 59869,
     "name": "Mens Northwest League",
@@ -2857,7 +2857,7 @@
                 "185"
               ],
               "total": "555",
-              "handicap_total": "1203"
+              "handicap_total": "648"
             }
           ]
         }
@@ -3391,7 +3391,7 @@
                 "131"
               ],
               "total": "393",
-              "handicap_total": "1026"
+              "handicap_total": "633"
             },
             {
               "name": "Marshall, Daniel",
@@ -4507,7 +4507,7 @@
                 "130"
               ],
               "total": "390",
-              "handicap_total": "1050"
+              "handicap_total": "660"
             },
             {
               "name": "Michels, Paul",
@@ -5089,7 +5089,7 @@
                 "174"
               ],
               "total": "522",
-              "handicap_total": "1167"
+              "handicap_total": "645"
             }
           ]
         }
