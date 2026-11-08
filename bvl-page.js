@@ -11,6 +11,7 @@
   let filter = 'all';      // all | open | mine
   let house = '';          // '' = every house
   let openId = null;       // card whose form is showing
+  let calId = null;        // card whose add-to-calendar panel is showing
   let message = null;      // { id, text, kind }
 
   // Name remembered on this phone for one-tap sign-up
@@ -35,9 +36,97 @@
     return '$' + Number(n || 0).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
   }
 
+  // A visit can carry two directors ("First Last  First Last", "A & B"); same split as the calendar
+  function names(director) {
+    return (director || '').split(/\s{2,}|\s*[,&\/]\s*|\s+and\s+/i).map(n => n.trim()).filter(Boolean);
+  }
+
   function isMine(s) {
     const name = (me.get().director || '').trim().toLowerCase();
-    return name && (s.director || '').trim().toLowerCase() === name;
+    return !!name && names(s.director).some(n => n.toLowerCase() === name);
+  }
+
+  // Everyone signed up for anything, for the "My sign-ups" name picker
+  function directors() {
+    const seen = new Map();
+    for (const s of sheet.slots) for (const n of names(s.director)) if (!seen.has(n.toLowerCase())) seen.set(n.toLowerCase(), n);
+    return [...seen.values()].sort((a, b) => a.localeCompare(b));
+  }
+
+  // ── Add to calendar ──
+  const DAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  const ymd = d => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+
+  // The next date (today counts) that falls on the visit's weekday
+  function nextDate(day) {
+    const d = new Date();
+    d.setDate(d.getDate() + (DAYS.indexOf(day) - d.getDay() + 7) % 7);
+    return ymd(d);
+  }
+
+  // "6:30 PM" -> [18, 30]
+  function clock(t) {
+    const m = /^(\d{1,2}):?(\d{2})?\s*([AP])/i.exec(t || '');
+    return m ? [Number(m[1]) % 12 + (m[3].toUpperCase() === 'P' ? 12 : 0), Number(m[2] || 0)] : [18, 0];
+  }
+
+  // Google Calendar's new-event page (opens the app or signed-in web on Android)
+  function googleUrl(s, date) {
+    const [h, m] = clock(s.arrive);
+    const at = (hh) => date.replace(/-/g, '') + 'T' + String(hh).padStart(2, '0') + String(m).padStart(2, '0') + '00';
+    const q = new URLSearchParams({
+      action: 'TEMPLATE',
+      text: `BVL collection – ${s.house}`,
+      dates: `${at(h)}/${at(h + 1)}`,
+      ctz: 'America/Los_Angeles',
+      location: `${s.house}, Spokane, WA`,
+      details: `${s.day} ${s.session.toLowerCase()}: ${s.leagues}\nArrive by ${s.arrive || '—'}.\nAfter the visit, record the date and amount on the sign-up sheet:\n${location.origin}${location.pathname}`,
+    });
+    return 'https://calendar.google.com/calendar/render?' + q;
+  }
+
+  // The site serves the .ics; iPhone Safari opens it straight into Calendar
+  const icsUrl = (s, date) => `visit/${encodeURIComponent(s.id)}/calendar.ics?date=${date}`;
+
+  function calendarPanel(s) {
+    const date = el('input', { type: 'date', name: 'cal_date', value: nextDate(s.day) });
+    const google = el('a', { class: 'bvl-btn bvl-cal-btn', target: '_blank', rel: 'noopener' }, 'Google Calendar', el('small', null, 'Android'));
+    const apple = el('a', { class: 'bvl-btn bvl-cal-btn' }, 'Apple Calendar', el('small', null, 'iPhone · Outlook'));
+    const update = () => {
+      const d = /^\d{4}-\d{2}-\d{2}$/.test(date.value) ? date.value : nextDate(s.day);
+      google.href = googleUrl(s, d);
+      apple.href = icsUrl(s, d);
+    };
+    date.addEventListener('change', update);
+    update();
+    return el('div', { class: 'bvl-calpanel' },
+      el('label', { class: 'bvl-field' }, el('span', null, `Which ${s.day} are you going?`), date),
+      el('div', { class: 'bvl-actions' }, google, apple),
+      el('button', { type: 'button', class: 'bvl-link-btn bvl-muted', onclick: () => { calId = null; render(); } }, 'Close'));
+  }
+
+  // "My sign-ups": pick your name once, then see every visit you're on across houses
+  function minePanel() {
+    const name = me.get().director || '';
+    const known = directors();
+    const pick = el('select', { name: 'me', 'aria-label': 'Your name' },
+      el('option', { value: '' }, 'Pick your name…'),
+      known.map(n => el('option', { value: n, selected: n.toLowerCase() === name.toLowerCase() }, n)));
+    pick.addEventListener('change', () => { me.set({ director: pick.value }); render(); });
+    const mine = name ? sheet.slots.filter(isMine) : [];
+    const upcoming = mine.filter(s => !s.date_collected);
+    return el('div', { class: 'bvl-mine' },
+      el('div', { class: 'bvl-mine-top' },
+        el('h2', null, 'My sign-ups'),
+        el('button', { type: 'button', class: 'bvl-link-btn bvl-muted', onclick: () => { filter = 'all'; render(); } }, 'Show every visit')),
+      el('label', { class: 'bvl-field' }, el('span', null, 'Your name'), pick),
+      !name ? el('p', { class: 'bvl-mine-note' }, 'Pick your name to see every visit you’re signed up for.')
+        : !mine.length ? el('p', { class: 'bvl-mine-note' }, `${name} isn’t signed up for any visits yet.`)
+        : el('p', { class: 'bvl-mine-note' }, el('strong', null, `${mine.length} visit${mine.length === 1 ? '' : 's'}`),
+          upcoming.length < mine.length ? ` · ${mine.length - upcoming.length} already collected` : ''),
+      upcoming.length ? el('a', { class: 'bvl-btn bvl-btn-primary bvl-full bvl-cal-all', href: 'mine/calendar.ics?name=' + encodeURIComponent(name) },
+        `📅 Add all ${upcoming.length} to my calendar`) : null,
+      upcoming.length ? el('p', { class: 'bvl-mine-hint' }, 'Each goes on its next date; move any in your calendar. On Android with Google Calendar, use “Add to my calendar” on each visit below.') : null);
   }
 
   async function api(url, body) {
@@ -75,7 +164,7 @@
       el('div', { class: 'bvl-chips' },
         chip('All', filter === 'all', () => { filter = 'all'; render(); }),
         chip(`Open (${open})`, filter === 'open', () => { filter = 'open'; render(); }),
-        me.get().director ? chip('Mine', filter === 'mine', () => { filter = 'mine'; render(); }) : null),
+        chip('My sign-ups', filter === 'mine', () => { filter = 'mine'; render(); })),
       el('div', { class: 'bvl-chips' },
         chip('Every house', !house, () => { house = ''; render(); }),
         HOUSES_ORDER.map(h => chip(h, house === h, () => { house = h; render(); }))));
@@ -151,6 +240,8 @@
         s.amount ? el('strong', null, ' ' + money(s.amount)) : '') : null,
       s.notes ? el('div', { class: 'bvl-notes' }, s.notes) : null,
       msg,
+      s.director && !showing ? (calId === s.id ? calendarPanel(s)
+        : el('button', { type: 'button', class: 'bvl-btn bvl-full bvl-cal-add', onclick: () => { calId = s.id; render(); } }, '📅 Add to my calendar')) : null,
       showing ? form(s) : el('button', { type: 'button', class: 'bvl-btn ' + (s.director ? '' : 'bvl-btn-primary') + ' bvl-full',
         onclick: () => { openId = s.id; message = null; render(); const c = document.getElementById('v-' + s.id); if (c) c.querySelector('input').focus(); } },
         s.director ? (isMine(s) ? 'Edit / record collection' : 'Edit') : 'Sign up for this visit'));
@@ -197,11 +288,19 @@
         el('h2', null, h, el('span', null, `${list.filter(s => s.director).length}/${list.length} covered`)),
         list.map(card));
     }).filter(Boolean);
-    root.replaceChildren(summary(), chips(),
-      ...(groups.length ? groups : [el('p', { class: 'bvl-status' }, filter === 'open' ? 'Every visit here is covered. Thank you!' : 'Nothing to show.')]),
-      addForm());
+    const empty = filter === 'open' ? 'Every visit here is covered. Thank you!' : filter === 'mine' ? null : 'Nothing to show.';
+    root.replaceChildren(...[summary(), chips(), filter === 'mine' ? minePanel() : null,
+      ...(groups.length ? groups : empty ? [el('p', { class: 'bvl-status' }, empty)] : []),
+      addForm()].filter(Boolean));
     window.scrollTo(0, scroll);
   }
+
+  document.getElementById('bvl-mine-link').addEventListener('click', () => {
+    if (!sheet) return;
+    filter = 'mine'; house = ''; openId = null; calId = null; message = null;
+    render();
+    root.scrollIntoView();
+  });
 
   load();
 })();

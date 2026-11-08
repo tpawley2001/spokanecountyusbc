@@ -9,7 +9,7 @@
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="/images/icon-192.png" type="image/png" sizes="192x192">
   <title>BVL Collection Sign-Up | Spokane County USBC</title>
-  <link rel="stylesheet" href="/style.css?v=11">
+  <link rel="stylesheet" href="/style.css?v=12">
 </head>
 <body class="bvl-body">
 
@@ -21,11 +21,14 @@
 
 <main class="bvl-main">
   <p class="bvl-intro">Put your name next to each visit you can cover, and be at the house by the <strong>Arrive by</strong> time. After the visit, add the date and amount collected.</p>
-  <a class="bvl-cal-link" href="calendar">📅 See every visit on the calendar</a>
+  <div class="bvl-top-links">
+    <button type="button" class="bvl-cal-link bvl-mine-link" id="bvl-mine-link">👤 View all my sign-ups</button>
+    <a class="bvl-cal-link" href="calendar">📅 See every visit on the calendar</a>
+  </div>
   <div id="bvl-root"><p class="bvl-status">Loading the sign-up sheet…</p></div>
   <noscript><p class="bvl-status">This sign-up sheet needs JavaScript turned on.</p></noscript>
 </main>
 
-<script src="/bvl-page.js?v=3"></script>
+<script src="/bvl-page.js?v=4"></script>
 </body>
 </html>

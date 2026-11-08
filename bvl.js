@@ -75,6 +75,78 @@ function validate(body, fields) {
   return { values, errors };
 }
 
+// ── Add to calendar (.ics) ──
+// Visits are weekly league slots with no set date, so the director picks the
+// day they're going (the page defaults it to the next one). Times are Pacific;
+// an event runs an hour from the arrive time, with a reminder an hour before.
+const TZ = 'America/Los_Angeles';
+const VTIMEZONE = [
+  'BEGIN:VTIMEZONE', 'TZID:' + TZ,
+  'BEGIN:DAYLIGHT', 'TZOFFSETFROM:-0800', 'TZOFFSETTO:-0700', 'TZNAME:PDT', 'DTSTART:19700308T020000', 'RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=2SU', 'END:DAYLIGHT',
+  'BEGIN:STANDARD', 'TZOFFSETFROM:-0700', 'TZOFFSETTO:-0800', 'TZNAME:PST', 'DTSTART:19701101T020000', 'RRULE:FREQ=YEARLY;BYMONTH=11;BYDAY=1SU', 'END:STANDARD',
+  'END:VTIMEZONE'];
+
+// A visit can carry two directors ("First Last  First Last", "A & B"); same split as the pages
+function names(director) {
+  return String(director || '').split(/\s{2,}|\s*[,&\/]\s*|\s+and\s+/i).map(n => n.trim()).filter(Boolean);
+}
+
+// "6:30 PM" -> [18, 30]; null when the sheet has no usable time
+function clock(t) {
+  const m = /^(\d{1,2}):?(\d{2})?\s*([AP])/i.exec(t || '');
+  return m ? [Number(m[1]) % 12 + (m[3].toUpperCase() === 'P' ? 12 : 0), Number(m[2] || 0)] : null;
+}
+
+// The next date (today counts) that falls on the visit's weekday, in Pacific time
+function nextDate(day) {
+  const today = new Date(new Date().toLocaleDateString('en-CA', { timeZone: TZ }) + 'T12:00:00Z');
+  const ahead = (DAYS.indexOf(day) - today.getUTCDay() + 7) % 7;
+  return new Date(today.getTime() + ahead * 864e5).toISOString().slice(0, 10);
+}
+
+function icsText(v) {
+  return String(v).replace(/[\\;,]/g, c => '\\' + c).replace(/\r?\n/g, '\\n');
+}
+
+// Lines over 75 octets are folded onto continuation lines (RFC 5545 3.1)
+function icsFold(line) {
+  const out = [];
+  let cur = '';
+  for (const ch of line) {
+    if (Buffer.byteLength(cur + ch) > (out.length ? 74 : 75)) { out.push(cur); cur = ''; }
+    cur += ch;
+  }
+  out.push(cur);
+  return out.join('\r\n ');
+}
+
+function icsEvent(slot, date, pageUrl) {
+  const [h, m] = clock(slot.arrive) || [18, 0];
+  const start = new Date(Date.UTC(...date.split('-').map((n, i) => Number(n) - (i === 1 ? 1 : 0)), h, m));
+  const end = new Date(start.getTime() + 3600e3);
+  const local = d => d.toISOString().replace(/[-:]/g, '').slice(0, 15);
+  const stamp = new Date().toISOString().replace(/[-:]/g, '').replace(/\.\d+/, '');
+  return [
+    'BEGIN:VEVENT',
+    `UID:bvl-${slot.id}-${date}@spokanecountyusbc.org`,
+    'DTSTAMP:' + stamp,
+    `DTSTART;TZID=${TZ}:${local(start)}`,
+    `DTEND;TZID=${TZ}:${local(end)}`,
+    'SUMMARY:' + icsText(`BVL collection – ${slot.house}`),
+    'LOCATION:' + icsText(`${slot.house}, Spokane, WA`),
+    'DESCRIPTION:' + icsText(`${slot.day} ${slot.session.toLowerCase()}: ${slot.leagues}\nArrive by ${slot.arrive || '—'}.\nAfter the visit, record the date and amount on the sign-up sheet:\n${pageUrl}`),
+    'BEGIN:VALARM', 'ACTION:DISPLAY', 'TRIGGER:-PT1H', 'DESCRIPTION:' + icsText(`BVL collection at ${slot.house}`), 'END:VALARM',
+    'END:VEVENT',
+  ];
+}
+
+function sendIcs(res, filename, events) {
+  const lines = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Spokane County USBC//BVL sign-up//EN', 'CALSCALE:GREGORIAN', 'METHOD:PUBLISH', ...VTIMEZONE, ...events.flat(), 'END:VCALENDAR'];
+  res.type('text/calendar; charset=utf-8')
+    .set('Content-Disposition', `inline; filename="${filename}"`)
+    .send(lines.map(icsFold).join('\r\n') + '\r\n');
+}
+
 // Edits are rare (a dozen directors), so a generous per-IP cap only stops floods
 const hits = new Map();
 function rateLimited(ip) {
@@ -114,6 +186,29 @@ function mount(app) {
   router.get('/sheet', (req, res) => {
     try { res.json(readSheet()); }
     catch (e) { console.error('bvl read failed:', e.message); res.status(500).json({ error: 'The sign-up sheet could not be loaded.' }); }
+  });
+
+  // One visit as a calendar event, on ?date= (YYYY-MM-DD) or the next one
+  router.get('/visit/:id/calendar.ics', (req, res) => {
+    let sheet;
+    try { sheet = readSheet(); } catch { return res.status(500).type('text').send('The sign-up sheet could not be loaded.'); }
+    const slot = sheet.slots.find(s => s.id === req.params.id);
+    if (!slot) return res.status(404).type('text').send('That visit is no longer on the sheet.');
+    const date = /^\d{4}-\d{2}-\d{2}$/.test(req.query.date || '') ? req.query.date : nextDate(slot.day);
+    const pageUrl = `https://${req.get('host')}/bvl/${req.params.token}/`;
+    sendIcs(res, 'bvl-visit.ics', [icsEvent(slot, date, pageUrl)]);
+  });
+
+  // Every visit a director is signed up for, each on its next date
+  router.get('/mine/calendar.ics', (req, res) => {
+    const who = clean(req.query.name, 60).toLowerCase();
+    if (!who) return res.status(400).type('text').send('Pick your name first.');
+    let sheet;
+    try { sheet = readSheet(); } catch { return res.status(500).type('text').send('The sign-up sheet could not be loaded.'); }
+    const pageUrl = `https://${req.get('host')}/bvl/${req.params.token}/`;
+    // Visits already collected are done, so they're left off
+    const mine = sheet.slots.filter(s => !s.date_collected && names(s.director).some(n => n.toLowerCase() === who));
+    sendIcs(res, 'bvl-my-visits.ics', mine.map(s => icsEvent(s, nextDate(s.day), pageUrl)));
   });
 
   // Update one visit. The client sends the version it last saw; if someone else

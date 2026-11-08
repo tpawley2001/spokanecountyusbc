@@ -399,6 +399,23 @@ footer {
 .bvl-add { background: var(--white); border-radius: 12px; box-shadow: var(--shadow); padding: 0.4rem 0.9rem 0.6rem; margin-top: 1.5rem; }
 .bvl-cal-link { display: flex; align-items: center; justify-content: center; gap: 0.4rem; min-height: 48px; margin-bottom: 0.9rem; border-radius: 10px; background: var(--navy); color: var(--white); font-weight: 600; text-decoration: none; }
 .bvl-card:target { outline: 3px solid var(--gold); outline-offset: 2px; }
+.bvl-top-links { display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 0.9rem; }
+.bvl-top-links .bvl-cal-link { margin-bottom: 0; }
+.bvl-mine-link { width: 100%; border: none; font: inherit; font-weight: 600; cursor: pointer; background: var(--gold); color: var(--navy); }
+.bvl-mine { background: var(--white); border-radius: 12px; box-shadow: var(--shadow); padding: 0.75rem 0.9rem 0.8rem; margin: 0.4rem 0 0.4rem; border-top: 4px solid var(--navy); }
+.bvl-mine-top { display: flex; justify-content: space-between; align-items: baseline; gap: 0.5rem; }
+.bvl-mine-top h2 { font-size: 1.15rem; color: var(--navy); }
+.bvl-mine-top .bvl-link-btn { padding: 0; }
+.bvl-mine .bvl-field { margin: 0.5rem 0; }
+.bvl-mine-note { font-size: 0.95rem; margin: 0.2rem 0 0.6rem; }
+.bvl-mine-hint { font-size: 0.8rem; color: var(--muted); margin-top: 0.45rem; }
+a.bvl-btn { display: inline-flex; align-items: center; justify-content: center; text-decoration: none; }
+.bvl-cal-add { margin-top: 0.4rem; font-size: 0.95rem; min-height: 44px; }
+.bvl-calpanel { margin-top: 0.5rem; padding: 0.65rem 0.7rem 0.3rem; background: var(--light-bg); border-radius: 10px; }
+.bvl-cal-btn { flex-direction: column; line-height: 1.15; font-size: 0.95rem; padding: 0.35rem 0.5rem; }
+.bvl-cal-btn small { font-size: 0.72rem; font-weight: 400; color: var(--muted); }
+.bvl-link-btn.bvl-muted { color: var(--muted); }
+@media (min-width: 560px) { .bvl-top-links { flex-direction: row; } .bvl-top-links > * { flex: 1; } }
 
 /* ── BVL collection calendar (pages/bvl-calendar.html) ── */
 .bvl-cal-main { max-width: 1400px; }
