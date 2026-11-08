@@ -79,7 +79,7 @@
       text: `BVL collection – ${s.house}`,
       dates: `${at(h)}/${at(h + 1)}`,
       ctz: 'America/Los_Angeles',
-      location: `${s.house}, Spokane, WA`,
+      location: (sheet.places || {})[s.house] || `${s.house}, Spokane, WA`,
       details: `${s.day} ${s.session.toLowerCase()}: ${s.leagues}\nArrive by ${s.arrive || '—'}.\nAfter the visit, record the date and amount on the sign-up sheet:\n${location.origin}${location.pathname}`,
     });
     return 'https://calendar.google.com/calendar/render?' + q;

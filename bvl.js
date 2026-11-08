@@ -80,6 +80,14 @@ function validate(body, fields) {
 // day they're going (the page defaults it to the next one). Times are Pacific;
 // an event runs an hour from the arrive time, with a reminder an hour before.
 const TZ = 'America/Los_Angeles';
+// Street addresses (looked up 2026-11-08); a house not listed falls back to "<house>, Spokane, WA"
+const ADDRESSES = {
+  'Lilac Lanes': '1112 E Magnesium Rd, Spokane, WA',
+  'North Bowl': '125 W Sinto Ave, Spokane, WA',
+  'Players & Spectators': '12828 E Sprague Ave, Spokane Valley, WA',
+  'Valley Bowl': '8005 E Sprague Ave, Spokane Valley, WA',
+};
+const placeOf = house => ADDRESSES[house] ? `${house}, ${ADDRESSES[house]}` : `${house}, Spokane, WA`;
 const VTIMEZONE = [
   'BEGIN:VTIMEZONE', 'TZID:' + TZ,
   'BEGIN:DAYLIGHT', 'TZOFFSETFROM:-0800', 'TZOFFSETTO:-0700', 'TZNAME:PDT', 'DTSTART:19700308T020000', 'RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=2SU', 'END:DAYLIGHT',
@@ -133,7 +141,7 @@ function icsEvent(slot, date, pageUrl) {
     `DTSTART;TZID=${TZ}:${local(start)}`,
     `DTEND;TZID=${TZ}:${local(end)}`,
     'SUMMARY:' + icsText(`BVL collection – ${slot.house}`),
-    'LOCATION:' + icsText(`${slot.house}, Spokane, WA`),
+    'LOCATION:' + icsText(placeOf(slot.house)),
     'DESCRIPTION:' + icsText(`${slot.day} ${slot.session.toLowerCase()}: ${slot.leagues}\nArrive by ${slot.arrive || '—'}.\nAfter the visit, record the date and amount on the sign-up sheet:\n${pageUrl}`),
     'BEGIN:VALARM', 'ACTION:DISPLAY', 'TRIGGER:-PT1H', 'DESCRIPTION:' + icsText(`BVL collection at ${slot.house}`), 'END:VALARM',
     'END:VEVENT',
@@ -184,7 +192,8 @@ function mount(app) {
   });
 
   router.get('/sheet', (req, res) => {
-    try { res.json(readSheet()); }
+    // places: event locations for the page's Google Calendar links
+    try { res.json({ ...readSheet(), places: Object.fromEntries(Object.keys(ADDRESSES).map(h => [h, placeOf(h)])) }); }
     catch (e) { console.error('bvl read failed:', e.message); res.status(500).json({ error: 'The sign-up sheet could not be loaded.' }); }
   });
 
