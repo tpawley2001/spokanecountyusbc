@@ -59,23 +59,67 @@ app.use((req, res, next) => {
   next();
 });
 
-// team/bowler/entry pages are one HTML shell filled in client-side from the
-// query string. Canonicalize to the params that pick the content (fixed order,
-// junk params dropped); without them the page renders nothing, so noindex it.
+// leagues/team/bowler/entry pages are one HTML shell filled in client-side
+// from the query string. Canonicalize to the params that pick the content
+// (fixed order, junk params dropped), encoded exactly as the site's own links
+// encode them (encodeURIComponent). URLSearchParams wrote "Baker%2C+Becky"
+// where links say "Baker%2C%20Becky", so Google filed every bowler page as an
+// "Alternate page" of a URL nothing links to. Params that don't match any
+// content render "not found" client-side, so answer those with a real 404
+// (Google called them soft 404s) and noindex.
+const DEFAULT_LEAGUE = 'mens-northwest';   // same as leagues.js
+const leagueCache = new Map();             // slug -> { mtimeMs, data }
+function leagueData(slug) {
+  if (!/^[a-z0-9-]+$/.test(slug || '')) return null;
+  const file = path.join(__dirname, 'leagues', slug + '.json');
+  try {
+    const { mtimeMs } = fs.statSync(file);
+    const hit = leagueCache.get(slug);
+    if (hit && hit.mtimeMs === mtimeMs) return hit.data;
+    const data = JSON.parse(fs.readFileSync(file, 'utf-8'));
+    leagueCache.set(slug, { mtimeMs, data });
+    return data;
+  } catch { return null; }
+}
+
 const QUERY_PAGES = {
-  '/team.html': ['league', 'id'],
-  '/bowler.html': ['league', 'name'],
-  '/entry.html': ['form'],
+  '/leagues.html': {
+    keys: ['league'],
+    optional: true,   // bare leagues.html shows the default league
+    exists: q => !!leagueData(q.league),
+  },
+  '/team.html': {
+    keys: ['league', 'id'],
+    exists: q => !!leagueData(q.league)?.teams.some(t => String(t.team_id) === q.id),
+  },
+  '/bowler.html': {
+    keys: ['league', 'name'],
+    exists: q => !!leagueData(q.league)?.teams.some(t =>
+      Object.values(t.weeks).some(w => w.bowlers.some(b => b.name === q.name))),
+  },
+  '/entry.html': {
+    keys: ['form'],
+    exists: q => /^[\w-]+$/.test(q.form) && fs.existsSync(path.join(__dirname, 'entry-forms', q.form + '.json')),
+  },
 };
 app.get(Object.keys(QUERY_PAGES), (req, res, next) => {
-  const keys = QUERY_PAGES[req.path];
-  const complete = keys.every(k => typeof req.query[k] === 'string' && req.query[k]);
-  const tag = complete
-    ? `<link rel="canonical" href="${esc(SITE_URL + req.path + '?' + new URLSearchParams(keys.map(k => [k, req.query[k]])))}">`
-    : '<meta name="robots" content="noindex">';
+  const page = QUERY_PAGES[req.path];
+  const q = {};
+  for (const k of page.keys) if (typeof req.query[k] === 'string' && req.query[k]) q[k] = req.query[k];
+  const given = Object.keys(q).length;
+  let tag, status = 200;
+  if (page.optional && (!given || (req.path === '/leagues.html' && q.league === DEFAULT_LEAGUE))) {
+    tag = `<link rel="canonical" href="${esc(SITE_URL + req.path)}">`;
+  } else if (given === page.keys.length && page.exists(q)) {
+    const qs = page.keys.map(k => `${k}=${encodeURIComponent(q[k])}`).join('&');
+    tag = `<link rel="canonical" href="${esc(SITE_URL + req.path + '?' + qs)}">`;
+  } else {
+    tag = '<meta name="robots" content="noindex">';
+    status = 404;
+  }
   fs.readFile(path.join(__dirname, req.path), 'utf-8', (err, html) => {
     if (err) return next();
-    res.type('html').send(html.replace('</head>', `  ${tag}\n</head>`));
+    res.status(status).type('html').send(html.replace('</head>', `  ${tag}\n</head>`));
   });
 });
 
@@ -482,7 +526,14 @@ function lastModified(...files) {
 }
 
 app.get('/sitemap.xml', (req, res) => {
-  const urls = SITEMAP_PAGES.map(p => {
+  // Each league's page too (the default league is bare leagues.html, above).
+  let leagues = [];
+  try { leagues = JSON.parse(fs.readFileSync(path.join(__dirname, 'leagues', 'index.json'), 'utf-8')).leagues; } catch {}
+  const leaguePages = leagues.filter(l => l.slug !== DEFAULT_LEAGUE && leagueData(l.slug)).map(l => ({
+    file: 'leagues.html', data: `leagues/${l.slug}.json`,
+    loc: `/leagues.html?league=${encodeURIComponent(l.slug)}`, priority: '0.7',
+  }));
+  const urls = SITEMAP_PAGES.concat(leaguePages).map(p => {
     const mod = lastModified(p.file, p.data);
     return '  <url>\n' +
       `    <loc>${SITE_URL}${p.loc || '/' + p.file}</loc>\n` +
