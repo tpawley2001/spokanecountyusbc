@@ -130,7 +130,7 @@
       "type": "Veterans",
       "type_color": "blue",
       "entry_form": "forms/bvl-veterans-doubles-entry.pdf",
-      "online_form": "bvl-veterans-doubles"
+      "entry_note": "Online entries closed — in-person entries only"
     },
     {
       "name": "Holiday Smash",

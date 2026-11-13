@@ -1,5 +1,6 @@
 {
   "tournament": "BVL Veterans Tournament",
+  "closed": "Online entries are closed for this tournament. In-person entries only.",
   "pdf": "forms/bvl-veterans-doubles-entry.pdf",
   "fee_per_person": 35,
   "fee_people_fields": [
