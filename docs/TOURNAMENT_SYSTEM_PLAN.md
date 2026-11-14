@@ -111,7 +111,9 @@ audit(id, at, who, action, before_json, after_json)
 4. **Tournament day tools.** Fold in the check-in desk (roster comes from our own DB instead of
    a TournamentBowl export), lane assignment + printable lane sheets, final standings + prize
    list PDF.
-5. **Pilot: Holiday Smash, Sun Dec 20 2026, Lilac Lanes.** Adult/youth doubles, 9-pin no-tap,
+5. **Pilot: first run TBD** (Tyson 2026-11-14: Holiday Smash is too complicated for the first run; keep mocking up). Side brackets are a future enhancement, not in scope. Youth prizes are always SMART scholarship money, never cash.
+   First real-data test: re-run the 2026-11-14 BVL Veterans doubles from scanned score sheets and compare with the official TournamentBowl results.
+   Holiday Smash notes kept for later: **Sun Dec 20 2026, Lilac Lanes.** Adult/youth doubles, 9-pin no-tap,
    squads at 10 AM and 1 PM, $40 per team, prize money paid as SMART scholarships to the youth
    bowler, with adult and youth side brackets. One event and two squads make it a small first
    run. Run it on both systems side by side (TournamentBowl stays official) and compare every
@@ -153,7 +155,7 @@ no-average rule (125 women / 150 men) needs.
 
 - Entries: Tyson and the Association Manager (2026-11-14).
 - Scores: from the houses (sender program or email), plus board entry as backup (2026-11-14).
-- Pilot: Holiday Smash, 2026-12-20 (2026-11-14).
+- Pilot: TBD; Holiday Smash is too complicated for a first run. Brackets: future enhancement (2026-11-14).
 
 ## Open questions (for the board / Association Manager)
 
