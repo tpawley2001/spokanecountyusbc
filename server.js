@@ -560,6 +560,7 @@ app.get('/robots.txt', (req, res) => {
 // Own 404 so the security headers above aren't replaced by Express's default
 require('./entries').mount(app, readData);
 require('./bvl').mount(app);
+require('./checkin').mount(app);
 
 app.use((req, res) => res.status(404).type('text').send('Not found'));
 
