@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <title>Board Desk (mockup) | Spokane County USBC</title>
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="mock.css">
+</head>
+<body>
+<div class="mock-banner">MOCKUP with made-up sample data. Changes save only in this browser. <a href="index.html" target="_blank" rel="noopener">Open the live results</a> next to this tab.</div>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="../../index.html">🎳 <span>Spokane County</span> USBC</a>
+    <button class="nav-toggle" aria-label="Toggle menu" data-nav-toggle>☰</button>
+    <ul class="nav-links">
+      <li><a href="../../tournaments.html">Tournaments</a></li>
+      <li><a href="index.html">Live Results</a></li>
+      <li><a href="board.html" class="active">Board (demo)</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="tm-wrap">
+  <div class="tm-head">
+    <div>
+      <h1 id="bd-name">Board Desk</h1>
+      <div class="tm-sub" id="bd-sub"></div>
+    </div>
+  </div>
+  <div class="bd-gate">
+    <span>🔒 Signed in as <b>Board member (demo)</b>. The real desk sits behind the board login, and every change is logged with who made it.</span>
+    <button type="button" class="bd-btn small" id="bd-reset">Reset sample data</button>
+  </div>
+
+  <div class="tm-controls">
+    <div class="tm-tabs" id="bd-tabs" role="group" aria-label="Section">
+      <button type="button" class="tm-tab" data-tab="entries" aria-pressed="true">Entries</button>
+      <button type="button" class="tm-tab" data-tab="scores" aria-pressed="false">Scores</button>
+      <button type="button" class="tm-tab" data-tab="lanes" aria-pressed="false">Squads &amp; Lanes</button>
+      <button type="button" class="tm-tab" data-tab="settings" aria-pressed="false">Settings</button>
+    </div>
+  </div>
+
+  <!-- Entries -->
+  <section class="bd-panel on" id="p-entries">
+    <div class="bd-grid">
+      <form class="bd-card" id="bd-form" autocomplete="off">
+        <h3>Add an entry</h3>
+        <label class="bd-field"><span>Event</span><select id="f-ev"></select></label>
+        <label class="bd-field" id="f-team-wrap"><span>Team name</span><input id="f-team" placeholder="e.g. Split Happens"></label>
+        <div id="f-bowlers"></div>
+        <label class="bd-field"><span>Squad</span><select id="f-squad"></select></label>
+        <label class="bd-check"><input type="checkbox" id="f-ae"> Also enter all-events (each bowler)</label>
+        <label class="bd-check"><input type="checkbox" id="f-paid"> Paid <select id="f-method"><option>Cash</option><option>Check</option><option>Card</option></select></label>
+        <div class="bd-mini" id="f-fee"></div>
+        <button type="submit" class="bd-btn primary">Add entry</button>
+        <div class="bd-mini" id="f-msg"></div>
+      </form>
+      <div>
+        <div class="tm-controls">
+          <div class="tm-seg" id="e-filter" role="group" aria-label="Event filter"></div>
+          <input type="search" id="e-search" placeholder="Search entries…" aria-label="Search entries">
+        </div>
+        <div class="bd-totals" id="e-totals"></div>
+        <div class="table-wrap">
+          <table class="tm-table">
+            <thead><tr><th>Entry</th><th>Event</th><th class="hide-sm">Squad</th><th>Source</th><th>Paid</th><th></th></tr></thead>
+            <tbody id="e-body"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scores -->
+  <section class="bd-panel" id="p-scores">
+    <div class="tm-controls">
+      <select id="s-squad" aria-label="Squad"></select>
+      <div class="tm-seg" id="s-ev" role="group" aria-label="Event"></div>
+      <button type="button" class="bd-btn" id="s-final">Mark squad final</button>
+    </div>
+    <p class="tm-note">Type each game as the lane finishes it. It saves as you go and shows up on the live page within a few seconds. A score over 300 or under 0 is refused.</p>
+    <div class="bd-lanes" id="s-lanes"></div>
+  </section>
+
+  <!-- Lanes -->
+  <section class="bd-panel" id="p-lanes">
+    <div class="tm-controls">
+      <select id="l-squad" aria-label="Squad"></select>
+      <button type="button" class="bd-btn" id="l-auto">Auto-assign lanes</button>
+      <button type="button" class="bd-btn" id="l-print">Print lane sheet</button>
+    </div>
+    <p class="tm-note">Same idea as the check-in desk: lanes per entry, with check-in and paid status on one screen. A lane-sheet photo can still set lanes.</p>
+    <div class="table-wrap">
+      <table class="tm-table">
+        <thead><tr><th>Lane</th><th>Entry</th><th>Event</th><th>Checked in</th><th>Paid</th></tr></thead>
+        <tbody id="l-body"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Settings -->
+  <section class="bd-panel" id="p-settings">
+    <div class="bd-card">
+      <h3>Tournament rules</h3>
+      <div class="bd-set">
+        <label>Handicap base <small>scratch figure handicap is figured from</small><input type="number" id="c-base" min="150" max="260"></label>
+        <label>Handicap % <small>e.g. 90 or 100</small><input type="number" id="c-pct" min="0" max="100"></label>
+        <label>Handicap max per game <small>0 = no cap</small><input type="number" id="c-max" min="0" max="200"></label>
+        <label>Prize ratio, events <small>1 in N entries cash</small><input type="number" id="c-ratio" min="2" max="20"></label>
+        <label>Prize ratio, all-events <small>1 in N</small><input type="number" id="c-aeratio" min="2" max="20"></label>
+      </div>
+      <p class="tm-note" style="margin-top:0.8rem">Changing these re-figures every standing right away; scores are never stored with handicap baked in. In the real system these get set once per tournament from the entry form and rules sheet.</p>
+    </div>
+  </section>
+</main>
+<div class="bd-toast" id="bd-toast" role="status"></div>
+
+<script src="../../site.js"></script>
+<script src="mock.js"></script>
+<script src="board.js"></script>
+</body>
+</html>

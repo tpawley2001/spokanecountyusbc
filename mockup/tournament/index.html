@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <title>Live Results (mockup) | Spokane County USBC</title>
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="mock.css">
+</head>
+<body>
+<div class="mock-banner">MOCKUP with made-up sample data — not a real tournament. <a href="board.html">Open the board view</a> in another tab and enter a score to watch this page update.</div>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="../../index.html">🎳 <span>Spokane County</span> USBC</a>
+    <button class="nav-toggle" aria-label="Toggle menu" data-nav-toggle>☰</button>
+    <ul class="nav-links">
+      <li><a href="../../index.html">Home</a></li>
+      <li><a href="../../tournaments.html" class="active">Tournaments</a></li>
+      <li><a href="index.html">Live Results</a></li>
+      <li><a href="board.html">Board (demo)</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="tm-wrap">
+  <div class="tm-head">
+    <div>
+      <div id="tm-live"></div>
+      <h1 id="tm-name">Tournament</h1>
+      <div class="tm-sub" id="tm-sub"></div>
+    </div>
+    <div class="tm-updated" id="tm-updated"></div>
+  </div>
+
+  <div class="tm-squads" id="tm-squads"></div>
+
+  <div class="tm-controls">
+    <div class="tm-tabs" id="tm-events" role="group" aria-label="Event"></div>
+    <div class="tm-seg" id="tm-div" role="group" aria-label="Division">
+      <button type="button" data-div="hdcp" aria-pressed="true">Handicap</button>
+      <button type="button" data-div="scratch" aria-pressed="false">Scratch</button>
+    </div>
+    <select id="tm-squad-filter" aria-label="Squad"></select>
+    <input type="search" id="tm-search" placeholder="Find a bowler or team…" aria-label="Find a bowler or team">
+  </div>
+  <div class="tm-note" id="tm-note"></div>
+
+  <div class="table-wrap">
+    <table class="tm-table">
+      <thead id="tm-thead"></thead>
+      <tbody id="tm-body"></tbody>
+    </table>
+  </div>
+  <div class="tm-legend"><span>Currently in the money</span><em>Tap a row to see each bowler's games. Standings are unofficial until the board marks the tournament final.</em></div>
+</main>
+
+<script src="../../site.js"></script>
+<script src="mock.js"></script>
+<script src="live.js"></script>
+</body>
+</html>
