@@ -117,11 +117,33 @@ audit(id, at, who, action, before_json, after_json)
    run. Run it on both systems side by side (TournamentBowl stays official) and compare every
    standing. Then switch.
 
+### Holiday Smash rules (from the back of the entry form, forms/holiday-smash-entry.pdf p.2)
+
+- 3 games, 9-pin no-tap. Doubles = 1 youth + 1 adult. A bowler may enter more than once, but
+  never twice with the same partner (the entry screen must block that).
+- **Handicap is per team, not per bowler:** 100% of 440 minus the team average (youth avg +
+  adult avg). The system needs a "team handicap" mode next to the per-bowler one.
+- **Two divisions by team average:** A = 350 and up, B = 349 and below. Standings, cash line and
+  prizes are per division.
+- Averages: highest 2025-26 winter league average (12+ games youth, 21+ adult); else the most
+  recent highest certified average (summer counts); else 125 for women, 150 for men. The director
+  can re-rate before bowling (and an adult before the end of game 1), so averages stay editable
+  until a squad starts, with every change logged.
+- Prizes: 1 in 3 paid entries (per division, assumed), prize fund $20 per team + $1000 added
+  from the SMART account. All prize money goes to the youth bowler as SMART scholarship credit;
+  adults don't cash. Division winners get jerseys. Ties = co-champions.
+- Fee $40 per team ($15 bowling, $5 fees, $20 prize fund). PayPal/Venmo or check. Walk-ins allowed.
+
+Gaps: the form doesn't say the handicap rounding (assume whole pins, drop fractions), whether
+the 1:3 ratio is per division, how the prize fund splits by place, or anything about the side
+brackets (fee, handicap, payout). The online entry form also has no gender field, which the
+no-average rule (125 women / 150 men) needs.
+
 ### Holiday Smash timeline (5 weeks)
 
 | By | What |
 |---|---|
-| Nov 22 | Holiday Smash rules from the Association Manager (handicap basis for no-tap, games, ties, how the scholarship money splits); ask Lilac Lanes about its scoring system and get a sample export |
+| Nov 22 | Answers to the Holiday Smash rule gaps; ask Lilac Lanes about its scoring system and get a sample export |
 | Nov 29 | Phase 2: entries live on the board desk; online-form entries flowing in |
 | Dec 6 | Phase 3: score entry + live results page, tested with a fake 40-team tournament |
 | Dec 13 | House score intake (email first, sender program if Lilac's system allows); dry run with Lilac's sample file |
@@ -135,7 +157,8 @@ audit(id, at, who, action, before_json, after_json)
 
 ## Open questions (for the board / Association Manager)
 
-1. Holiday Smash rules: handicap basis for 9-pin no-tap, games per bowler, tie rule, prize split.
+1. Holiday Smash: the gaps listed under "Holiday Smash rules" above (rounding, ratio per
+   division, prize split by place, side-bracket fee/handicap/payout).
 2. Should the adult/youth side brackets run in this system too (bracket-live already does
    brackets), or stay on paper for the pilot?
 3. Online payment: keep "pay at the house" (today's behavior) or add card payments later?
