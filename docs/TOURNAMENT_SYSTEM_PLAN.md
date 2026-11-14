@@ -53,11 +53,35 @@ are already there.
 - Storage: SQLite via `node:sqlite` (the box runs Node 22.22, which has it built in). One file per
   season, backed up nightly with the rest of the app data.
 - Public pages: `/t/<slug>` (live results) served by the router, not by `PUBLIC_FILE`.
-- Board desk: under `/api/t/…` so the existing Cloudflare Access gate covers it. It's open
-  question 1 below: board members need logins, so the Access policy gets their emails
-  (or a per-member PIN login on top).
+- Board desk: under `/api/t/…` so the existing Cloudflare Access gate covers it. Entries are
+  done by Tyson and the Association Manager (decided 2026-11-14), so the only change is adding
+  the Association Manager's email to that Access policy. The audit log records which of the two
+  made each change.
 - Entry intake: new online-form submissions (`entries/<slug>.jsonl`) become entries automatically.
   Paper forms are typed in by the board. TournamentBowl sync is retired once this is live.
+
+## Scores from the houses (decided 2026-11-14)
+
+Tyson is working with the houses so they send scores to us instead of the board typing every
+game. Two ways in, both landing in the same place:
+
+1. **A small sender program on the house's scoring PC.** QubicaAMF Conqueror can already write a
+   score export file for tournament software, and Brunswick Sync can export scores at the front
+   desk. The sender watches that export folder and uploads each new file to
+   `/api/t/<slug>/house-scores` with a per-house key. First step: ask each house which scoring
+   system and version it runs, and get one sample export file.
+2. **Email.** The house emails the export file, a printout PDF or a photo of the recap to
+   Tyson's email. A watcher picks up mail from known house addresses (or with a tournament tag
+   in the subject), reads the attachment (file parser, or OCR for PDFs/photos, the same approach
+   the BLS sheet reader uses) and posts it to the same endpoint.
+
+Either way, house scores land as **pending**: each game is matched to an entry by lane + bowler
+name/USBC #, and the board desk shows "from Lilac Lanes, 12 games, 2 didn't match". One click
+posts the matched games; unmatched ones get fixed by hand. The board can still type any score
+directly, and a typed score always wins over a house file. Once a house's files have matched
+cleanly for a few tournaments, its scores can post on arrival without the click.
+
+Today's houses for the season: Players, Valley Bowl, Lilac Lanes, North Bowl.
 
 ## Data model (first cut)
 
@@ -71,7 +95,8 @@ entry(id, event_id, squad_id, lane, team_name, paid_cents, pay_method, source[on
       withdrawn_at, created_by)
 entry_member(entry_id, bowler_id, position, entering_avg, avg_source[bowlcom|form|board])
 all_events(tournament_id, bowler_id, paid_cents)
-game(entry_id, bowler_id, game_no, score, entered_by, entered_at)
+game(entry_id, bowler_id, game_no, score, entered_by, entered_at, source[board|house])
+house_batch(id, tournament_id, house, via[sender|email], received_at, file, status, matched, unmatched)
 audit(id, at, who, action, before_json, after_json)
 ```
 
@@ -86,14 +111,33 @@ audit(id, at, who, action, before_json, after_json)
 4. **Tournament day tools.** Fold in the check-in desk (roster comes from our own DB instead of
    a TournamentBowl export), lane assignment + printable lane sheets, final standings + prize
    list PDF.
-5. **Pilot.** Run one small tournament on both systems side by side (TournamentBowl stays the
-   official one) and compare every standing. Then switch.
+5. **Pilot: Holiday Smash, Sun Dec 20 2026, Lilac Lanes.** Adult/youth doubles, 9-pin no-tap,
+   squads at 10 AM and 1 PM, $40 per team, prize money paid as SMART scholarships to the youth
+   bowler, with adult and youth side brackets. One event and two squads make it a small first
+   run. Run it on both systems side by side (TournamentBowl stays official) and compare every
+   standing. Then switch.
+
+### Holiday Smash timeline (5 weeks)
+
+| By | What |
+|---|---|
+| Nov 22 | Holiday Smash rules from the Association Manager (handicap basis for no-tap, games, ties, how the scholarship money splits); ask Lilac Lanes about its scoring system and get a sample export |
+| Nov 29 | Phase 2: entries live on the board desk; online-form entries flowing in |
+| Dec 6 | Phase 3: score entry + live results page, tested with a fake 40-team tournament |
+| Dec 13 | House score intake (email first, sender program if Lilac's system allows); dry run with Lilac's sample file |
+| Dec 20 | Pilot day |
+
+## Decided
+
+- Entries: Tyson and the Association Manager (2026-11-14).
+- Scores: from the houses (sender program or email), plus board entry as backup (2026-11-14).
+- Pilot: Holiday Smash, 2026-12-20 (2026-11-14).
 
 ## Open questions (for the board / Association Manager)
 
-1. Who on the board enters entries and scores, and how do they log in?
-2. Which tournament is the pilot? (Holiday Smash 12-20 or Youth Championships 1-10 are the next
-   small ones.)
+1. Holiday Smash rules: handicap basis for 9-pin no-tap, games per bowler, tie rule, prize split.
+2. Should the adult/youth side brackets run in this system too (bracket-live already does
+   brackets), or stay on paper for the pilot?
 3. Online payment: keep "pay at the house" (today's behavior) or add card payments later?
 4. Prize lists: does the board want the system to figure payouts from the prize fund, or only
    show who's in the money?
