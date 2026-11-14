@@ -108,3 +108,9 @@ table.tm-table .badge { white-space: nowrap; }
 tr.hb-bad td { background: #fff8e6; }
 tr.hb-done td { color: var(--muted); }
 .hb-pick { font: inherit; font-size: 0.85rem; padding: 0.2rem 0.3rem; border: 1px solid var(--border); border-radius: 6px; max-width: 100%; }
+
+.mock-pick { font: inherit; font-size: 0.82rem; font-weight: 600; padding: 0.15rem 0.35rem; border: 1px solid var(--navy); border-radius: 6px; background: var(--white); color: var(--navy); margin-right: 0.4rem; max-width: 100%; }
+.tm-check { background: #eaf6ee; border: 1px solid #b7e1c4; color: #155724; border-radius: 10px; padding: 0.55rem 0.85rem; font-size: 0.85rem; margin-bottom: 1rem; }
+.tm-check.bad { background: #fdecea; border-color: #f5c2bd; color: var(--red); }
+.tm-tb { font-size: 0.75rem; color: #155724; white-space: nowrap; }
+.tm-tb.bad { color: var(--red); font-weight: 700; }

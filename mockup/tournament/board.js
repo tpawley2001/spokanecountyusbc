@@ -4,9 +4,10 @@
   const { h } = TM;
   let s = TM.load();
   const $ = id => document.getElementById(id);
-  const ui = { tab: 'entries', filter: 'all', q: '', squad: 'D1', sev: 'singles', lsquad: 'D1' };
+  const sq0 = (s.tournament.squads.find(q => q.id === 'D1') || s.tournament.squads[0]).id;
+  const ui = { tab: 'entries', filter: 'all', q: '', squad: sq0, sev: 'singles', lsquad: sq0 };
   const checkedIn = new Set(); // demo-only, not saved
-  const SRC = { online: ['Online form', 'badge-blue'], paper: ['Paper form', 'badge-gold'], board: ['Board', 'badge-green'] };
+  const SRC = { online: ['Online form', 'badge-blue'], paper: ['Paper form', 'badge-gold'], board: ['Board', 'badge-green'], tb: ['TournamentBowl', 'badge-blue'] };
 
   function toast(msg) {
     const t = $('bd-toast'); t.textContent = msg; t.classList.add('on');
@@ -147,7 +148,7 @@
     entries.forEach(e => { const k = e.lane || '?'; if (!lanes.has(k)) lanes.set(k, []); lanes.get(k).push(e); });
     const order = [...lanes.keys()].sort((a, b) => (parseInt(a, 10) || 999) - (parseInt(b, 10) || 999));
     $('s-lanes').replaceChildren(...order.map(k => h('div', { class: 'bd-lane' },
-      h('div', { class: 'bd-lane-h' }, h('span', null, k === '?' ? 'No lane yet' : 'Lane ' + k), h('span', null, lanes.get(k).length + ' entr' + (lanes.get(k).length === 1 ? 'y' : 'ies'))),
+      h('div', { class: 'bd-lane-h' }, h('span', null, k === '?' ? 'Lane not recorded' : 'Lane ' + k), h('span', null, lanes.get(k).length + ' entr' + (lanes.get(k).length === 1 ? 'y' : 'ies'))),
       ...lanes.get(k).map(e => scoreEntry(e, fin)))));
     if (!entries.length) $('s-lanes').replaceChildren(h('p', { class: 'tm-note' }, 'No entries in this squad for this event.'));
   }

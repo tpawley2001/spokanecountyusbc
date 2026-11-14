@@ -4,7 +4,12 @@
 // so you can enter a score on the board page and watch the live page update.
 (function () {
   'use strict';
-  const KEY = 'scusbc-tourney-mock-v2';
+  // ?t=senior loads the real 2026 Senior Championships results (senior-2026.js); default is the made-up sample.
+  const DATASETS = { sample: 'Sample: Open Championships (made-up data)', senior: '2026 Senior Championships (real results)' };
+  let DS = 'sample';
+  try { DS = new URLSearchParams(location.search).get('t') || 'sample'; } catch (e) { /* default */ }
+  if (!DATASETS[DS]) DS = 'sample';
+  const KEY = 'scusbc-tourney-mock-v2' + (DS === 'sample' ? '' : '-' + DS);
 
   function rng(seed) {
     return () => { seed = (seed * 1664525 + 1013904223) >>> 0; return seed / 4294967296; };
@@ -97,15 +102,40 @@
     };
   }
 
+  function fresh() {
+    if (DS !== 'sample' && window.TM_DATASETS && window.TM_DATASETS[DS]) {
+      const d = JSON.parse(JSON.stringify(window.TM_DATASETS[DS])); d.updated = Date.now(); return d;
+    }
+    return seed();
+  }
   function load() {
     try { const s = JSON.parse(localStorage.getItem(KEY)); if (s && s.rev) return s; } catch (e) { /* demo only */ }
-    return seed();
+    return fresh();
   }
   function save(s) {
     s.rev++; s.updated = Date.now();
     try { localStorage.setItem(KEY, JSON.stringify(s)); } catch (e) { /* demo only */ }
   }
-  function reset() { try { localStorage.removeItem(KEY); } catch (e) { /* demo only */ } return seed(); }
+  function reset() { try { localStorage.removeItem(KEY); } catch (e) { /* demo only */ } return fresh(); }
+
+  // Keep ?t= on links between the mockup pages, and put a tournament picker in the banner.
+  function wire() {
+    document.querySelectorAll('a[href]').forEach(a => {
+      const h = a.getAttribute('href');
+      if (/^(index|board)\.html$/.test(h) && DS !== 'sample') a.setAttribute('href', h + '?t=' + DS);
+    });
+    const banner = document.querySelector('.mock-banner');
+    if (!banner) return;
+    const sel = document.createElement('select');
+    sel.className = 'mock-pick'; sel.setAttribute('aria-label', 'Tournament');
+    for (const k in DATASETS) { const o = document.createElement('option'); o.value = k; o.textContent = DATASETS[k]; o.selected = k === DS; sel.append(o); }
+    sel.addEventListener('change', () => { location.search = sel.value === 'sample' ? '' : '?t=' + sel.value; });
+    if (DS === 'senior') {
+      banner.replaceChildren('REAL results from the 2026 Senior Championships (from TournamentBowl), shown in the new system. Board changes save only in this browser.');
+    }
+    banner.prepend(sel, ' ');
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', wire); else wire();
 
   // ---- scoring math (this is the part that carries over to the real build) ----
   function hdcp(avg, cfg) {
@@ -194,5 +224,5 @@
     return el;
   }
 
-  window.TM = { KEY, load, save, reset, hdcp, games, entryLine, standings, allEvents, bowler, squad, squadState, entryName, h };
+  window.TM = { DS, KEY, load, save, reset, hdcp, games, entryLine, standings, allEvents, bowler, squad, squadState, entryName, h };
 })();
