@@ -210,11 +210,96 @@
   });
   $('l-print').addEventListener('click', () => window.print());
 
+  // ---------- house scores ----------
+  // Match a house row to a bowler: same squad + lane, then same last name and first initial.
+  function matchRow(b, r) {
+    if (r.pick) return r.pick;
+    const [first, ...rest] = r.name.trim().split(/\s+/);
+    const last = rest.join(' ').toLowerCase();
+    const hits = [];
+    s.entries.filter(e => e.squad === b.squad && e.ev === b.ev && e.lane === r.lane).forEach(e => e.members.forEach(m => {
+      const bw = TM.bowler(s, m);
+      const [bf, ...bl] = bw.name.split(' ');
+      if (bl.join(' ').toLowerCase() === last && bf[0].toLowerCase() === first[0].toLowerCase()) hits.push(e.id + '|' + m);
+    }));
+    return hits.length === 1 ? hits[0] : null;
+  }
+  function renderHouse() {
+    const pending = (s.houseBatches || []).filter(b => b.status === 'pending').length;
+    $('house-count').textContent = pending || '';
+    if (ui.tab !== 'house') return;
+    const list = s.houseBatches || [];
+    if (!list.length) { $('h-list').replaceChildren(h('p', { class: 'tm-note' }, 'Nothing from the houses yet.')); return; }
+    $('h-list').replaceChildren(...list.map(b => {
+      b.squad = b.squad || 'D2'; b.ev = b.ev || 'doubles';
+      const rows = b.rows.map(r => ({ r, hit: matchRow(b, r) }));
+      // Two rows pointing at the same bowler + game is a conflict: post neither until it's fixed.
+      const seen = {};
+      rows.forEach(x => { if (x.hit) { const k = x.hit + '|' + x.r.game; seen[k] = (seen[k] || 0) + 1; } });
+      rows.forEach(x => { if (x.hit && seen[x.hit + '|' + x.r.game] > 1) { x.conflict = true; x.hit = null; } });
+      const ok = rows.filter(x => x.hit).length;
+      const laneOptions = r => {
+        const opts = [];
+        s.entries.filter(e => e.squad === b.squad && e.ev === b.ev).forEach(e => e.members.forEach(m =>
+          opts.push([e.id + '|' + m, 'Lane ' + e.lane + ' — ' + TM.bowler(s, m).name])));
+        return h('select', { class: 'hb-pick', 'aria-label': 'Pick the bowler for ' + r.name, onchange: ev => { r.pick = ev.target.value || null; commit(); renderHouse(); } },
+          h('option', { value: '' }, 'Pick the bowler…'), ...opts.map(([v, l]) => h('option', { value: v, selected: r.pick === v }, l)));
+      };
+      const body = rows.map(({ r, hit, conflict }) => {
+        let note = '';
+        if (hit) {
+          const [eid, mid] = hit.split('|');
+          const cur = (s.scores[b.ev + ':' + eid + ':' + mid] || [])[r.game - 1];
+          if (cur != null && cur !== r.score) note = 'Board already typed ' + cur + ' — keeps ' + cur;
+          else if (cur === r.score) note = 'Already posted';
+        }
+        const done = b.status === 'posted';
+        return h('tr', { class: done ? 'hb-done' : hit ? '' : 'hb-bad' },
+          h('td', null, r.lane), h('td', null, r.name), h('td', { class: 'num' }, 'G' + r.game), h('td', { class: 'num' }, h('strong', null, r.score)),
+          h('td', null, hit ? h('span', { class: 'badge badge-green' }, '✓ ' + TM.bowler(s, hit.split('|')[1]).name) :
+            done ? 'skipped' : h('span', null, h('span', { class: 'badge badge-red' }, conflict ? 'Two rows → same bowler' : 'No match'), ' ', laneOptions(r))),
+          h('td', { class: 'hb-meta' }, note));
+      });
+      const post = h('button', { type: 'button', class: 'bd-btn primary', disabled: b.status !== 'pending' || !ok, onclick: () => {
+        let n = 0;
+        rows.forEach(({ r, hit }) => {
+          if (!hit) return;
+          const [eid, mid] = hit.split('|');
+          const k = b.ev + ':' + eid + ':' + mid;
+          const gs = (s.scores[k] || [null, null, null]).slice();
+          if (gs[r.game - 1] == null) { gs[r.game - 1] = r.score; s.scores[k] = gs; n++; }
+        });
+        b.status = 'posted'; b.posted = n;
+        commit(n + ' games posted to the live results'); renderHouse();
+      } }, b.status === 'posted' ? 'Posted ' + b.posted + ' games' : 'Post ' + ok + ' matched games');
+      return h('div', { class: 'bd-card', style: 'margin-bottom:1rem' },
+        h('div', { class: 'hb-head' }, h('div', null, h('h3', null, b.house + ' — ' + b.subject),
+          h('div', { class: 'hb-meta' }, (b.via === 'email' ? '📧 Email from ' : '💻 Sender program at ') + b.from + ' · ' + b.file + ' · received ' + b.received + ' · ' +
+            TM.squad(s, b.squad).label + ' ' + evName(b.ev))), post),
+        h('div', { class: 'bd-totals' }, h('span', null, h('b', null, ok), ' matched'), h('span', null, h('b', null, rows.length - ok), ' need a pick')),
+        h('div', { class: 'table-wrap' }, h('table', { class: 'tm-table' },
+          h('thead', null, h('tr', null, h('th', null, 'Lane'), h('th', null, 'Name in file'), h('th', { class: 'num' }, 'Game'), h('th', { class: 'num' }, 'Score'), h('th', null, 'Matched to'), h('th', null, ''))),
+          h('tbody', null, ...body))));
+    }));
+  }
+
   // ---------- settings ----------
   const SET = { 'c-base': ['hdcp', 'base'], 'c-pct': ['hdcp', 'pct'], 'c-max': ['hdcp', 'max'], 'c-ratio': [null, 'prizeRatio'], 'c-aeratio': [null, 'aeRatio'] };
   function renderSettings() {
-    for (const id in SET) { const [a, k] = SET[id]; $(id).value = a ? s.tournament[a][k] : s.tournament[k]; }
+    const t = s.tournament;
+    for (const id in SET) { const [a, k] = SET[id]; $(id).value = a ? t[a][k] : t[k]; }
+    $('c-name').value = t.name; $('c-center').value = t.center; $('c-dates').value = t.dates; $('c-award').value = t.award || 'cash';
+    $('c-events').replaceChildren(...t.events.map(e => h('tr', null, h('td', null, h('strong', null, e.name)), h('td', null, e.size), h('td', null, e.games),
+      h('td', null, h('input', { class: 'bd-lane-input', type: 'number', min: 0, value: t.fees[e.id], 'aria-label': e.name + ' fee',
+        onchange: ev => { t.fees[e.id] = +ev.target.value || 0; commit('Fee saved'); } })))),
+      h('tr', null, h('td', null, h('strong', null, 'All-Events')), h('td', null, 'optional add-on'), h('td', null, t.events.length * 3),
+        h('td', null, h('input', { class: 'bd-lane-input', type: 'number', min: 0, value: t.fees.ae, 'aria-label': 'All-events fee',
+          onchange: ev => { t.fees.ae = +ev.target.value || 0; commit('Fee saved'); } }))));
+    $('c-squads').replaceChildren(...t.squads.map(q => h('tr', null, h('td', null, q.label),
+      h('td', null, q.events.map(evName).join(' + ')), h('td', null, TM.squadState(s, q.id)))));
   }
+  [['c-name', 'name'], ['c-center', 'center'], ['c-dates', 'dates'], ['c-award', 'award']].forEach(([id, k]) =>
+    $(id).addEventListener('change', e => { s.tournament[k] = e.target.value.trim(); commit('Saved'); buildForm(); }));
   Object.keys(SET).forEach(id => $(id).addEventListener('change', e => {
     const v = parseInt(e.target.value, 10); if (!Number.isFinite(v)) return;
     const [a, k] = SET[id]; if (a) s.tournament[a][k] = v; else s.tournament[k] = v;
@@ -229,6 +314,7 @@
     if (ui.tab === 'scores') renderScores();
     if (ui.tab === 'lanes') renderLanes();
     if (ui.tab === 'settings') renderSettings();
+    renderHouse();
   }
   buildForm(); render();
 })();

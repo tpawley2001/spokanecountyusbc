@@ -8,6 +8,10 @@
   let lastTotals = new Map();
   const $ = id => document.getElementById(id);
 
+  const smart = () => s.tournament.award === 'smart';
+  const cashWord = () => (smart() ? 'earn SMART scholarship money' : 'cash');
+  const cashLine = n => (smart() ? '▲ earning SMART scholarship money (top ' + n + ')' : '▲ in the money (top ' + n + ')');
+
   function chip(done, games, started) {
     if (!started) return h('span', { class: 'tm-chip wait' }, 'Not started');
     if (done >= games) return h('span', { class: 'tm-chip final' }, 'Final');
@@ -49,7 +53,7 @@
     const ev = s.tournament.events.find(e => e.id === ui.ev);
     const { lines, cash } = TM.standings(s, ui.ev, ui.div);
     $('tm-note').textContent = lines.length + ' ' + ev.name.toLowerCase() + ' entries · prize ratio 1 in ' +
-      s.tournament.prizeRatio + ' → top ' + cash + ' cash' + (ui.div === 'scratch' ? ' · scratch view (no handicap)' : '');
+      s.tournament.prizeRatio + ' → top ' + cash + ' ' + cashWord() + (ui.div === 'scratch' ? ' · scratch view (no handicap)' : '');
     $('tm-thead').replaceChildren(h('tr', null, h('th', null, 'Pl'), h('th', null, ev.size > 1 ? (ev.id === 'team' ? 'Team' : 'Pair') : 'Bowler'),
       h('th', { class: 'num hide-sm' }, 'G1'), h('th', { class: 'num hide-sm' }, 'G2'), h('th', { class: 'num hide-sm' }, 'G3'),
       h('th', { class: 'num' }, 'Scratch'), ui.div === 'hdcp' ? h('th', { class: 'num hide-sm' }, 'Hdcp') : null,
@@ -65,7 +69,7 @@
       if (!matches(names)) return;
       const cashing = l.place != null && l.place <= cash;
       if (!cashing && !cashDrawn && !ui.q && !ui.squad && rows.length) {
-        rows.push(h('tr', { class: 'cashline' }, h('td', { colspan: cols }, '▲ in the money (top ' + cash + ')')));
+        rows.push(h('tr', { class: 'cashline' }, h('td', { colspan: cols }, cashLine(cash))));
         cashDrawn = true;
       }
       const sq = TM.squad(s, l.e.squad);
@@ -92,7 +96,7 @@
     const { lines, cash } = TM.allEvents(s, ui.div);
     const evs = s.tournament.events;
     $('tm-note').textContent = lines.length + ' bowlers entered all-events · ' + evs.length * 3 + ' games · prize ratio 1 in ' +
-      (s.tournament.aeRatio || 8) + ' → top ' + cash + ' cash';
+      (s.tournament.aeRatio || 8) + ' → top ' + cash + ' ' + cashWord();
     $('tm-thead').replaceChildren(h('tr', null, h('th', null, 'Pl'), h('th', null, 'Bowler'),
       ...evs.map(e => h('th', { class: 'num hide-sm' }, e.name)), h('th', { class: 'num' }, 'Scratch'),
       ui.div === 'hdcp' ? h('th', { class: 'num hide-sm' }, 'Hdcp') : null, ui.div === 'hdcp' ? h('th', { class: 'num' }, 'Total') : null,
@@ -104,7 +108,7 @@
       if (!matches([l.b.name])) return;
       const cashing = l.place != null && l.place <= cash;
       if (!cashing && !cashDrawn && !ui.q && rows.length) {
-        rows.push(h('tr', { class: 'cashline' }, h('td', { colspan: cols }, '▲ in the money (top ' + cash + ')')));
+        rows.push(h('tr', { class: 'cashline' }, h('td', { colspan: cols }, cashLine(cash))));
         cashDrawn = true;
       }
       rows.push(h('tr', { class: cashing ? 'cashing' : '' },
@@ -119,7 +123,9 @@
   }
 
   function toggle(id) { ui.open.has(id) ? ui.open.delete(id) : ui.open.add(id); render(); }
-  function render() { header(); ui.ev === 'ae' ? renderAE() : renderEvent(); }
+  function render() {
+    document.querySelector('.tm-legend span').textContent = smart() ? 'Currently earning SMART scholarship money' : 'Currently in the money';
+    header(); ui.ev === 'ae' ? renderAE() : renderEvent(); }
 
   $('tm-div').addEventListener('click', e => {
     const b = e.target.closest('button'); if (!b) return;

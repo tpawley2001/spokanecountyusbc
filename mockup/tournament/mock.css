@@ -99,3 +99,12 @@ table.tm-table .badge { white-space: nowrap; }
   .tm-squads { grid-template-columns: 1fr 1fr; }
   .tm-squad { padding: 0.5rem 0.6rem; font-size: 0.78rem; }
 }
+
+.bd-count { display: inline-block; min-width: 1.3rem; padding: 0 0.35rem; margin-left: 0.2rem; border-radius: 99px; background: var(--red); color: var(--white); font-size: 0.72rem; line-height: 1.3rem; }
+.bd-count:empty { display: none; }
+.hb-head { display: flex; flex-wrap: wrap; gap: 0.4rem 1.2rem; align-items: center; justify-content: space-between; margin-bottom: 0.6rem; }
+.hb-head h3 { margin: 0; }
+.hb-meta { color: var(--muted); font-size: 0.82rem; }
+tr.hb-bad td { background: #fff8e6; }
+tr.hb-done td { color: var(--muted); }
+.hb-pick { font: inherit; font-size: 0.85rem; padding: 0.2rem 0.3rem; border: 1px solid var(--border); border-radius: 6px; max-width: 100%; }

@@ -39,8 +39,9 @@
     <div class="tm-tabs" id="bd-tabs" role="group" aria-label="Section">
       <button type="button" class="tm-tab" data-tab="entries" aria-pressed="true">Entries</button>
       <button type="button" class="tm-tab" data-tab="scores" aria-pressed="false">Scores</button>
+      <button type="button" class="tm-tab" data-tab="house" aria-pressed="false">House Scores <span class="bd-count" id="house-count"></span></button>
       <button type="button" class="tm-tab" data-tab="lanes" aria-pressed="false">Squads &amp; Lanes</button>
-      <button type="button" class="tm-tab" data-tab="settings" aria-pressed="false">Settings</button>
+      <button type="button" class="tm-tab" data-tab="settings" aria-pressed="false">Setup</button>
     </div>
   </div>
 
@@ -86,6 +87,12 @@
     <div class="bd-lanes" id="s-lanes"></div>
   </section>
 
+  <!-- House scores -->
+  <section class="bd-panel" id="p-house">
+    <p class="tm-note">Scores the houses send in, by email to the tournament address or from the sender program on their scoring computer. Each game is matched to a bowler by lane and name. Nothing shows on the live page until you post it, and a score typed on the Scores tab is never overwritten.</p>
+    <div id="h-list"></div>
+  </section>
+
   <!-- Lanes -->
   <section class="bd-panel" id="p-lanes">
     <div class="tm-controls">
@@ -105,7 +112,22 @@
   <!-- Settings -->
   <section class="bd-panel" id="p-settings">
     <div class="bd-card">
-      <h3>Tournament rules</h3>
+      <h3>Tournament</h3>
+      <div class="bd-set">
+        <label>Name<input id="c-name"></label>
+        <label>Bowling center<select id="c-center"><option>Lilac Lanes</option><option>North Bowl</option><option>Players</option><option>Valley Bowl</option></select></label>
+        <label>Dates<input id="c-dates"></label>
+        <label>Prizes paid as <small>youth events pay SMART scholarship money, never cash</small><select id="c-award"><option value="cash">Cash</option><option value="smart">SMART scholarship money</option></select></label>
+      </div>
+    </div>
+    <div class="bd-card" style="margin-top:1rem">
+      <h3>Events &amp; squads</h3>
+      <div class="table-wrap"><table class="tm-table"><thead><tr><th>Event</th><th>Bowlers per entry</th><th>Games</th><th>Fee per bowler</th></tr></thead><tbody id="c-events"></tbody></table></div>
+      <div class="table-wrap" style="margin-top:0.8rem"><table class="tm-table"><thead><tr><th>Squad</th><th>Events bowled</th><th>Status</th></tr></thead><tbody id="c-squads"></tbody></table></div>
+      <p class="tm-note" style="margin-top:0.6rem">In the real system: add/remove events and squads here, then open entries.</p>
+    </div>
+    <div class="bd-card" style="margin-top:1rem">
+      <h3>Rules</h3>
       <div class="bd-set">
         <label>Handicap base <small>scratch figure handicap is figured from</small><input type="number" id="c-base" min="150" max="260"></label>
         <label>Handicap % <small>e.g. 90 or 100</small><input type="number" id="c-pct" min="0" max="100"></label>

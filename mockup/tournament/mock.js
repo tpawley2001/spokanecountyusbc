@@ -4,7 +4,7 @@
 // so you can enter a score on the board page and watch the live page update.
 (function () {
   'use strict';
-  const KEY = 'scusbc-tourney-mock-v1';
+  const KEY = 'scusbc-tourney-mock-v2';
 
   function rng(seed) {
     return () => { seed = (seed * 1664525 + 1013904223) >>> 0; return seed / 4294967296; };
@@ -61,12 +61,25 @@
         scores[e.ev + ':' + e.id + ':' + m] = g;
       });
     });
+    // A pending batch of scores emailed by the house: Sun 1 PM doubles, game 1.
+    // Two rows don't match on purpose (a misspelled name, and a bowler on the wrong lane).
+    const batchRows = [];
+    entries.filter(e => e.squad === 'D2' && e.ev === 'doubles').forEach(e => e.members.forEach(m => {
+      const b = bowlers.find(x => x.id === m);
+      batchRows.push({ lane: e.lane, name: b.name, game: 1, score: game(m) });
+    }));
+    if (batchRows.length > 6) {
+      batchRows[3].name = batchRows[3].name.replace(/[aeiou](?=[a-z]*$)/, 'e').replace(/(\w+)$/, w => w + 'e');
+      batchRows[6].lane = String(+batchRows[6].lane + 4);
+    }
     return {
       rev: 1,
+      houseBatches: [{ id: 'hb1', house: 'North Bowl', via: 'email', from: 'front desk, North Bowl',
+        subject: 'Open Champs Sun 1pm doubles G1', file: 'recap-1pm-g1.csv', received: '1:42 PM', status: 'pending', rows: batchRows }],
       updated: Date.now(),
       tournament: {
         name: 'SCUSBC Open Championships', season: '2026–27 (sample)', center: 'North Bowl', dates: 'March 13–14, 2027',
-        hdcp: { base: 220, pct: 90, max: 0 }, prizeRatio: 5, aeRatio: 8,
+        hdcp: { base: 220, pct: 90, max: 0 }, prizeRatio: 5, aeRatio: 8, award: 'cash',
         fees: { team: 25, doubles: 25, singles: 25, ae: 10 },
         events: [
           { id: 'team', name: 'Team', size: 4, games: 3 },
