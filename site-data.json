@@ -229,5 +229,13 @@
   "payment": {
     "venmo_url": "https://venmo.com",
     "paypal_url": "https://paypal.com"
+  },
+  "announcement2": {
+    "visible": true,
+    "type": "event",
+    "label": "Youth Committee Meeting",
+    "text": "The Youth Committee is meeting at Players and Spectators on 11/21/2026 at 12:15 pm. If you have any questions about how SMART money works, come out and ask questions. If you have questions, email",
+    "link_text": "Mark McBeth",
+    "link": "mailto:mmmcbeth1816@yahoo.com"
   }
 }

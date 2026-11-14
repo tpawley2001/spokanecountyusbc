@@ -380,11 +380,19 @@ ${indent}<!-- FOOTER-CONTACT-END -->`;
 
 // ── Announcement ──────────────────────────────────────────────────
 app.post('/api/announcement', auth, (req, res) => {
-  const ann = req.body;
   const data = readData();
-  data.announcement = ann;
+  data.announcement = req.body;
   saveData(data);
-  regenerateAnnouncement(ann);
+  regenerateAnnouncement(data);
+  res.json({ success: true });
+});
+
+// Second home-page banner (shown under the first one), same fields.
+app.post('/api/announcement2', auth, (req, res) => {
+  const data = readData();
+  data.announcement2 = req.body;
+  saveData(data);
+  regenerateAnnouncement(data);
   res.json({ success: true });
 });
 
@@ -398,24 +406,24 @@ const BANNER_TYPES = {
   info:         { icon: 'ℹ️', label: 'Info' },
 };
 
-function regenerateAnnouncement(ann) {
-  let block;
-  if (ann.visible) {
-    const typeKey = BANNER_TYPES[ann.type] ? ann.type : 'reminder';
-    const type = BANNER_TYPES[typeKey];
-    const heading = String(ann.label || '').trim() || type.label;
-    const link = ann.link && ann.link_text
-      ? ` <a href="${safeUrl(ann.link)}" target="_blank" rel="noopener">${esc(ann.link_text)}</a>!`
-      : '';
-    block = `  <!-- ANNOUNCEMENT-START -->
+function bannerHtml(ann) {
+  if (!ann || !ann.visible) return '';
+  const typeKey = BANNER_TYPES[ann.type] ? ann.type : 'reminder';
+  const type = BANNER_TYPES[typeKey];
+  const heading = String(ann.label || '').trim() || type.label;
+  const link = ann.link && ann.link_text
+    ? ` <a href="${safeUrl(ann.link)}" target="_blank" rel="noopener">${esc(ann.link_text)}</a>!`
+    : '';
+  return `
   <div class="alert alert-${typeKey}">
     <strong>${type.icon} ${esc(heading)}:</strong> ${esc(ann.text)}${link}
-  </div>
+  </div>`;
+}
+
+// Renders both home-page banners (announcement, then announcement2) between the markers.
+function regenerateAnnouncement(data) {
+  const block = `  <!-- ANNOUNCEMENT-START -->${bannerHtml(data.announcement)}${bannerHtml(data.announcement2)}
   <!-- ANNOUNCEMENT-END -->`;
-  } else {
-    block = `  <!-- ANNOUNCEMENT-START -->
-  <!-- ANNOUNCEMENT-END -->`;
-  }
   replaceSection('index.html', '<!-- ANNOUNCEMENT-START -->', '<!-- ANNOUNCEMENT-END -->', block);
 }
 

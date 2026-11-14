@@ -54,14 +54,16 @@
   // ── Populate all sections from siteData ───────────────────────
   function populateAll() {
     // Home
-    const ann = siteData.announcement || {};
-    document.getElementById('ann-visible').checked = !!ann.visible;
-    document.getElementById('ann-text').value = ann.text || '';
-    document.getElementById('ann-link-text').value = ann.link_text || '';
-    document.getElementById('ann-link').value = ann.link || '';
-    document.getElementById('ann-type').value = BANNER_TYPES[ann.type] ? ann.type : 'reminder';
-    document.getElementById('ann-label').value = ann.label || '';
-    renderAnnouncementPreview();
+    BANNER_SLOTS.forEach(([p, key]) => {
+      const ann = siteData[key] || {};
+      document.getElementById(p + '-visible').checked = !!ann.visible;
+      document.getElementById(p + '-text').value = ann.text || '';
+      document.getElementById(p + '-link-text').value = ann.link_text || '';
+      document.getElementById(p + '-link').value = ann.link || '';
+      document.getElementById(p + '-type').value = BANNER_TYPES[ann.type] ? ann.type : 'reminder';
+      document.getElementById(p + '-label').value = ann.label || '';
+      renderAnnouncementPreview(p);
+    });
 
     // Contact
     const c = siteData.contact || {};
@@ -318,6 +320,7 @@
   async function saveSection(section, silent=false) {
     const endpoints = {
       announcement: { url:'/api/announcement', body:siteData.announcement },
+      announcement2: { url:'/api/announcement2', body:siteData.announcement2 },
       board: { url:'/api/board', body:{members: siteData.board?.members||[]} },
       tournaments: { url:'/api/tournaments', body:{tournaments: siteData.tournaments||[]} },
       honor: { url:'/api/honor', body:{honor_scores: siteData.honor_scores||[]} },
@@ -325,17 +328,19 @@
       contact: { url:'/api/contact', body: buildContact() },
     };
 
-    // For announcement, build from form first
-    if(section==='announcement') {
-      siteData.announcement = {
-        visible: document.getElementById('ann-visible').checked,
-        text: document.getElementById('ann-text').value.trim(),
-        link_text: document.getElementById('ann-link-text').value.trim(),
-        link: document.getElementById('ann-link').value.trim(),
-        type: document.getElementById('ann-type').value,
-        label: document.getElementById('ann-label').value.trim()
+    // For a banner, build from its form first
+    const slot = BANNER_SLOTS.find(([, key]) => key === section);
+    if (slot) {
+      const p = slot[0];
+      siteData[section] = {
+        visible: document.getElementById(p + '-visible').checked,
+        text: document.getElementById(p + '-text').value.trim(),
+        link_text: document.getElementById(p + '-link-text').value.trim(),
+        link: document.getElementById(p + '-link').value.trim(),
+        type: document.getElementById(p + '-type').value,
+        label: document.getElementById(p + '-label').value.trim()
       };
-      endpoints.announcement.body = siteData.announcement;
+      endpoints[section].body = siteData[section];
     }
 
     const { url, body } = endpoints[section];
@@ -398,6 +403,8 @@
   });
 
   // Home page banner types - keep in sync with BANNER_TYPES in server.js
+  // Home-page banner forms: [id prefix, siteData key]
+  const BANNER_SLOTS = [['ann', 'announcement'], ['ann2', 'announcement2']];
   const BANNER_TYPES = {
     reminder:     { icon: '📢', label: 'Reminder' },
     announcement: { icon: '📣', label: 'Announcement' },
@@ -407,17 +414,17 @@
     info:         { icon: 'ℹ️', label: 'Info' },
   };
 
-  function renderAnnouncementPreview() {
-    const typeKey = document.getElementById('ann-type').value;
+  function renderAnnouncementPreview(p) {
+    const typeKey = document.getElementById(p + '-type').value;
     const type = BANNER_TYPES[typeKey] || BANNER_TYPES.reminder;
-    const heading = document.getElementById('ann-label').value.trim() || type.label;
-    const text = document.getElementById('ann-text').value.trim();
-    const linkText = document.getElementById('ann-link-text').value.trim();
-    const link = document.getElementById('ann-link').value.trim();
-    const preview = document.getElementById('ann-preview');
+    const heading = document.getElementById(p + '-label').value.trim() || type.label;
+    const text = document.getElementById(p + '-text').value.trim();
+    const linkText = document.getElementById(p + '-link-text').value.trim();
+    const link = document.getElementById(p + '-link').value.trim();
+    const preview = document.getElementById(p + '-preview');
     preview.className = `ann-preview alert alert-${typeKey}`;
     preview.innerHTML = `<strong>${type.icon} ${esc(heading)}:</strong> ${esc(text)}` +
       (link && linkText ? ` <a href="#">${esc(linkText)}</a>!` : '');
   }
-  ['ann-type', 'ann-label', 'ann-text', 'ann-link-text', 'ann-link'].forEach(id =>
-    document.getElementById(id).addEventListener('input', renderAnnouncementPreview));
+  BANNER_SLOTS.forEach(([p]) => ['-type', '-label', '-text', '-link-text', '-link'].forEach(id =>
+    document.getElementById(p + id).addEventListener('input', () => renderAnnouncementPreview(p))));

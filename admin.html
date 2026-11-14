@@ -209,7 +209,7 @@
       <!-- HOME -->
       <div class="section-panel active" id="s-home">
         <div class="page-title">🏠 Home Page</div>
-        <p class="page-sub">Edit the announcement banner shown at the top of the home page.</p>
+        <p class="page-sub">Edit the announcement banners shown at the top of the home page. The second banner shows under the first.</p>
         <div class="toggle-row">
           <label class="toggle"><input type="checkbox" id="ann-visible"><span class="toggle-slider"></span></label>
           <span class="toggle-label">Show announcement banner</span>
@@ -250,6 +250,48 @@
           <div class="ann-preview alert" id="ann-preview"></div>
         </div>
         <button class="btn btn-success" data-action="saveSection" data-args="announcement">💾 Publish</button>
+
+        <div class="page-title" style="margin-top:2rem;font-size:1.1rem">Second banner</div>
+        <div class="toggle-row">
+          <label class="toggle"><input type="checkbox" id="ann2-visible"><span class="toggle-slider"></span></label>
+          <span class="toggle-label">Show second banner (under the first)</span>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Banner Type</label>
+            <select id="ann2-type">
+              <option value="reminder">📢 Reminder (yellow)</option>
+              <option value="announcement">📣 Announcement (blue)</option>
+              <option value="important">⚠️ Important (red)</option>
+              <option value="event">📅 Upcoming Event (green)</option>
+              <option value="congrats">🎉 Congratulations (purple)</option>
+              <option value="info">ℹ️ Info (gray)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Custom Heading <span style="font-weight:400">(optional)</span></label>
+            <input type="text" id="ann2-label" placeholder="Leave blank to use the type's heading">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Announcement Text</label>
+            <input type="text" id="ann2-text" placeholder="Renew your USBC membership online at">
+          </div>
+          <div class="form-group">
+            <label>Link Text</label>
+            <input type="text" id="ann2-link-text" placeholder="Bowl.com">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Link URL <span style="font-weight:400">(optional — leave link text and URL blank for no link)</span></label>
+          <input type="url" id="ann2-link" placeholder="https://www.bowl.com">
+        </div>
+        <div class="form-group">
+          <label>Preview</label>
+          <div class="ann-preview alert" id="ann2-preview"></div>
+        </div>
+        <button class="btn btn-success" data-action="saveSection" data-args="announcement2">💾 Publish</button>
       </div>
 
       <!-- TOURNAMENTS -->
