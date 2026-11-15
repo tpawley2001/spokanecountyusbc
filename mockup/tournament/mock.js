@@ -80,7 +80,7 @@
       batchRows[6].lane = String(+batchRows[6].lane + 4);
     }
     return {
-      rev: 1,
+      rev: 1, ver: SAMPLE_VER,
       houseBatches: [{ id: 'hb1', house: 'North Bowl', via: 'email', from: 'front desk, North Bowl',
         subject: 'Open Champs Sun 1pm doubles G1', file: 'recap-1pm-g1.csv', received: '1:42 PM', status: 'pending', rows: batchRows }],
       updated: Date.now(),
@@ -110,8 +110,16 @@
     }
     return seed();
   }
+  // Each dataset has a version (ver). A copy saved in this browser from an older version is thrown away,
+  // so a republished dataset always shows instead of an old saved demo state.
+  const SAMPLE_VER = 'sample-1';
+  function shippedVer() { return DS === 'sample' ? SAMPLE_VER : ((window.TM_DATASETS && window.TM_DATASETS[DS] && window.TM_DATASETS[DS].ver) || '1'); }
   function load() {
-    try { const s = JSON.parse(localStorage.getItem(KEY)); if (s && s.rev) return s; } catch (e) { /* demo only */ }
+    try {
+      const s = JSON.parse(localStorage.getItem(KEY));
+      if (s && s.rev && (s.ver || '1') === shippedVer()) return s;
+      localStorage.removeItem(KEY);
+    } catch (e) { /* demo only */ }
     return fresh();
   }
   function save(s) {
