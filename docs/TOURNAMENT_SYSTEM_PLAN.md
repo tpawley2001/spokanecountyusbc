@@ -113,6 +113,11 @@ audit(id, at, who, action, before_json, after_json)
    list PDF.
 5. **Pilot: first run TBD** (Tyson 2026-11-14: Holiday Smash is too complicated for the first run; keep mocking up). Side brackets are a future enhancement, not in scope. Youth prizes are always SMART scholarship money, never cash.
    First real-data test: re-run the 2026-11-14 BVL Veterans doubles from scanned score sheets and compare with the official TournamentBowl results.
+   Done 2026-11-14 from the Valley Bowl results sheet (mockup `?t=bvl`). Lessons: (a) the house sheet has pair game totals only, so
+   scores must also be storable per entry (`<ev>:<entry>:*`), not just per bowler; (b) walk-ins and partner swaps on the day
+   (6 walk-in pairs, 3 re-pairings, 2 no-shows vs our check-in list), so check-in must allow adding/re-pairing at the desk;
+   (c) the house software printed one pair with another pair's average (Sword/Avila got Birkland/Busse's 371, same entry #6),
+   which moved them from 27th to 38th. Our handicap comes from the bowler record, so that slip can't happen here.
    Holiday Smash notes kept for later: **Sun Dec 20 2026, Lilac Lanes.** Adult/youth doubles, 9-pin no-tap,
    squads at 10 AM and 1 PM, $40 per team, prize money paid as SMART scholarships to the youth
    bowler, with adult and youth side brackets. One event and two squads make it a small first

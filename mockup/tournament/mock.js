@@ -4,8 +4,10 @@
 // so you can enter a score on the board page and watch the live page update.
 (function () {
   'use strict';
+  // ?t=senior / ?t=bvl load real results (senior-2026.js, bvl-2026.js); the default is the made-up sample.
   // ?t=senior loads the real 2026 Senior Championships results (senior-2026.js); default is the made-up sample.
-  const DATASETS = { sample: 'Sample: Open Championships (made-up data)', senior: '2026 Senior Championships (real results)' };
+  const DATASETS = { sample: 'Sample: Open Championships (made-up data)', senior: '2026 Senior Championships (real results)',
+    bvl: '2026 BVL Veterans Doubles (real results)' };
   let DS = 'sample';
   try { DS = new URLSearchParams(location.search).get('t') || 'sample'; } catch (e) { /* default */ }
   if (!DATASETS[DS]) DS = 'sample';
@@ -133,17 +135,30 @@
     if (DS === 'senior') {
       banner.replaceChildren('REAL results from the 2026 Senior Championships (from TournamentBowl), shown in the new system. Board changes save only in this browser.');
     }
+    if (DS === 'bvl') {
+      banner.replaceChildren('REAL results from the 2026 BVL Veterans Doubles (Valley Bowl results sheet + our check-in), shown in the new system. Board changes save only in this browser.');
+    }
     banner.prepend(sel, ' ');
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', wire); else wire();
 
   // ---- scoring math (this is the part that carries over to the real build) ----
   function hdcp(avg, cfg) {
+    if (avg == null) return null;
     let h = Math.max(0, Math.floor((cfg.base - avg) * cfg.pct / 100));
     if (cfg.max > 0) h = Math.min(h, cfg.max);
     return h;
   }
   function games(s, ev, e, m) { return s.scores[ev + ':' + e.id + ':' + m] || [null, null, null]; }
+  // Some houses only report a pair/team total per game (no per-bowler games). Those land under the
+  // key '<ev>:<entry>:*'. When a bowler's own average isn't known (walk-in), the entry carries the
+  // house's team average + per-game team handicap (e.teamAvg / e.teamHc).
+  const PAIR = '*';
+  function pairGames(s, e) { return s.scores[e.ev + ':' + e.id + ':' + PAIR] || null; }
+  function entryHc(s, e) {
+    const hs = e.members.map(m => hdcp(bowler(s, m).avg, s.tournament.hdcp));
+    return hs.some(x => x == null) ? (e.teamHc != null ? e.teamHc : 0) : hs.reduce((a, x) => a + x, 0);
+  }
 
   function entryLine(s, e) {
     const cfg = s.tournament.hdcp;
@@ -158,8 +173,13 @@
       done = Math.min(done, gs.filter(x => x != null).length);
       return { b, gs, h, scratch: gs.reduce((a, x) => a + (x || 0), 0), n };
     });
+    const pg = pairGames(s, e);
+    if (pg) {
+      const ph = entryHc(s, e), n = pg.filter(x => x != null).length, sc = pg.reduce((a, x) => a + (x || 0), 0);
+      return { e, members, pair: true, games: pg.slice(), scratch: sc, hdcp: ph * n, total: sc + ph * n, done: n, started: n > 0, hcGame: ph };
+    }
     const gameCols = g.map((x, i) => (members.some(m => m.gs[i] != null) ? x : null));
-    return { e, members, games: gameCols, scratch, hdcp: hc, total: scratch + hc, done, started: any };
+    return { e, members, games: gameCols, scratch, hdcp: hc, total: scratch + hc, done, started: any, hcGame: entryHc(s, e) };
   }
 
   function rank(lines, div) {
@@ -177,7 +197,7 @@
 
   function standings(s, ev, div) {
     const lines = s.entries.filter(e => e.ev === ev).map(e => entryLine(s, e));
-    const cash = Math.ceil(lines.length / s.tournament.prizeRatio);
+    const cash = s.tournament.prizeRatio ? Math.ceil(lines.length / s.tournament.prizeRatio) : 0;
     return { lines: rank(lines, div), cash };
   }
 
@@ -203,7 +223,7 @@
   function squad(s, id) { return s.tournament.squads.find(q => q.id === id); }
   function squadState(s, id) {
     if (s.final[id]) return 'final';
-    const any = s.entries.some(e => e.squad === id && e.members.some(m => games(s, e.ev, e, m).some(x => x != null)));
+    const any = s.entries.some(e => e.squad === id && ((pairGames(s, e) || []).some(x => x != null) || e.members.some(m => games(s, e.ev, e, m).some(x => x != null))));
     return any ? 'live' : 'upcoming';
   }
   function entryName(s, e) {
@@ -224,5 +244,5 @@
     return el;
   }
 
-  window.TM = { DS, KEY, load, save, reset, hdcp, games, entryLine, standings, allEvents, bowler, squad, squadState, entryName, h };
+  window.TM = { DS, KEY, PAIR, load, save, reset, hdcp, games, pairGames, entryHc, entryLine, standings, allEvents, bowler, squad, squadState, entryName, h };
 })();

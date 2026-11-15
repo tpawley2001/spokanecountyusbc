@@ -7,7 +7,8 @@
   const sq0 = (s.tournament.squads.find(q => q.id === 'D1') || s.tournament.squads[0]).id;
   const ui = { tab: 'entries', filter: 'all', q: '', squad: sq0, sev: 'singles', lsquad: sq0 };
   const checkedIn = new Set(); // demo-only, not saved
-  const SRC = { online: ['Online form', 'badge-blue'], paper: ['Paper form', 'badge-gold'], board: ['Board', 'badge-green'], tb: ['TournamentBowl', 'badge-blue'] };
+  const SRC = { online: ['Online form', 'badge-blue'], paper: ['Paper form', 'badge-gold'], board: ['Board', 'badge-green'], tb: ['TournamentBowl', 'badge-blue'],
+    checkin: ['Check-in list', 'badge-blue'], walkin: ['Walk-in (house sheet)', 'badge-gold'] };
 
   function toast(msg) {
     const t = $('bd-toast'); t.textContent = msg; t.classList.add('on');
@@ -118,7 +119,7 @@
       h('span', null, 'Fees ', h('b', null, '$' + paid), ' of $' + owed + ' collected (events)'));
     $('e-body').replaceChildren(...list.slice().reverse().map(e => h('tr', null,
       h('td', null, h('strong', null, TM.entryName(s, e)), h('span', { class: 'tm-mem' }, e.members.map(m => {
-        const b = TM.bowler(s, m); return b.usbc + ' · ' + b.avg;
+        const b = TM.bowler(s, m); return (b.usbc || 'no USBC #') + ' · ' + (b.avg == null ? 'avg ?' : b.avg);
       }).join(' / '))),
       h('td', null, evName(e.ev)),
       h('td', { class: 'hide-sm' }, TM.squad(s, e.squad).label + (e.lane ? ' · L' + e.lane : '')),
@@ -156,11 +157,20 @@
     const line = TM.entryLine(s, e);
     const wrap = h('div', { class: 'bd-entry' }, e.members.length > 1 ? h('div', { class: 'bd-entry-name' }, TM.entryName(s, e)) : null,
       h('div', { class: 'bd-score hd' }, h('span'), h('span', null, 'G1'), h('span', null, 'G2'), h('span', null, 'G3'), h('span', null, 'Total')));
+    if (line.pair) {
+      // House reported pair totals only: one row of game boxes for the whole pair.
+      const tot = h('span', { class: 't' }, line.started ? line.total : '–');
+      const k = e.ev + ':' + e.id + ':' + TM.PAIR;
+      const inputs = [0, 1, 2].map(i => h('input', { inputmode: 'numeric', value: line.games[i] == null ? '' : line.games[i], disabled: fin, 'aria-label': 'Pair game ' + (i + 1),
+        onchange: ev => setPair(e, k, i, ev.target, tot) }));
+      wrap.append(h('div', { class: 'bd-score' }, h('span', { class: 'nm' }, 'Pair total', h('small', null, 'hdcp ' + line.hcGame + '/game · house gives pair totals only')), ...inputs, tot));
+      return wrap;
+    }
     line.members.forEach(m => {
       const tot = h('span', { class: 't' }, m.n ? m.scratch + m.h * m.n : '–');
       const inputs = [0, 1, 2].map(i => h('input', { inputmode: 'numeric', value: m.gs[i] == null ? '' : m.gs[i], disabled: fin, 'aria-label': m.b.name + ' game ' + (i + 1),
         onchange: ev => setScore(e, m.b, i, ev.target, tot) }));
-      wrap.append(h('div', { class: 'bd-score' }, h('span', { class: 'nm' }, m.b.name, h('small', null, 'avg ' + m.b.avg + ' · hdcp ' + m.h)), ...inputs, tot));
+      wrap.append(h('div', { class: 'bd-score' }, h('span', { class: 'nm' }, m.b.name, h('small', null, m.b.avg == null ? 'avg not on file' : 'avg ' + m.b.avg + ' · hdcp ' + m.h)), ...inputs, tot));
     });
     return wrap;
   }
@@ -177,6 +187,19 @@
     const n = gs.filter(x => x != null).length;
     const hc = TM.hdcp(b.avg, s.tournament.hdcp);
     tot.textContent = n ? gs.reduce((a, x) => a + (x || 0), 0) + hc * n : '–';
+  }
+  function setPair(e, k, i, input, tot) {
+    const raw = input.value.trim();
+    const v = raw === '' ? null : Number(raw);
+    const max = 300 * e.members.length;
+    if (v != null && !(Number.isInteger(v) && v >= 0 && v <= max)) { input.classList.add('bad'); toast('Pair games are 0 to ' + max); return; }
+    input.classList.remove('bad');
+    const gs = (s.scores[k] || [null, null, null]).slice();
+    gs[i] = v; s.scores[k] = gs;
+    commit(raw === '' ? 'Score cleared' : 'Pair G' + (i + 1) + ': ' + v + ' saved');
+    input.classList.add('saved');
+    const l = TM.entryLine(s, e);
+    tot.textContent = l.started ? l.total : '–';
   }
   $('s-squad').addEventListener('change', e => { ui.squad = e.target.value; renderScores(); });
   $('s-final').addEventListener('click', () => {

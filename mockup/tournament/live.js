@@ -62,12 +62,13 @@
   function renderEvent() {
     const ev = s.tournament.events.find(e => e.id === ui.ev);
     const { lines, cash } = TM.standings(s, ui.ev, ui.div);
-    $('tm-note').textContent = lines.length + ' ' + ev.name.toLowerCase() + ' entries · prize ratio 1 in ' +
-      s.tournament.prizeRatio + ' → top ' + cash + ' ' + cashWord() + (ui.div === 'scratch' ? ' · scratch view (no handicap)' : '');
+    $('tm-note').textContent = lines.length + ' ' + ev.name.toLowerCase() + ' entries · ' +
+      (s.tournament.prizeRatio ? 'prize ratio 1 in ' + s.tournament.prizeRatio + ' → top ' + cash + ' ' + cashWord() : 'prize ratio not published') +
+      (ui.div === 'scratch' ? ' · scratch view (no handicap)' : '');
     $('tm-thead').replaceChildren(h('tr', null, h('th', null, 'Pl'), h('th', null, ev.size > 1 ? (ev.id === 'team' ? 'Team' : 'Pair') : 'Bowler'),
       h('th', { class: 'num hide-sm' }, 'G1'), h('th', { class: 'num hide-sm' }, 'G2'), h('th', { class: 'num hide-sm' }, 'G3'),
       h('th', { class: 'num' }, 'Scratch'), ui.div === 'hdcp' ? h('th', { class: 'num hide-sm' }, 'Hdcp') : null,
-      ui.div === 'hdcp' ? h('th', { class: 'num' }, 'Total') : null, h('th', null, 'Status'), checking() ? h('th', null, 'TournamentBowl') : null));
+      ui.div === 'hdcp' ? h('th', { class: 'num' }, 'Total') : null, h('th', null, 'Status'), checking() ? h('th', null, offName()) : null));
     const rows = [];
     const totals = new Map();
     let cashDrawn = false;
@@ -78,7 +79,7 @@
       const names = l.members.map(m => m.b.name).concat(l.e.name || []);
       if (!matches(names)) return;
       const cashing = l.place != null && l.place <= cash;
-      if (!cashing && !cashDrawn && !ui.q && !ui.squad && rows.length) {
+      if (cash && !cashing && !cashDrawn && !ui.q && !ui.squad && rows.length) {
         rows.push(h('tr', { class: 'cashline' }, h('td', { colspan: cols }, cashLine(cash))));
         cashDrawn = true;
       }
@@ -93,7 +94,12 @@
         cell(l.started ? l.scratch : null), ui.div === 'hdcp' ? cell(l.started ? l.hdcp : null, 'hide-sm') : null,
         ui.div === 'hdcp' ? cell(l.started ? l.total : null, 'tot') : null, h('td', null, chip(l.done, ev.games, l.started)),
         checking() ? h('td', null, tbCell(l)) : null));
-      if (ui.open.has(l.e.id)) l.members.forEach(m => rows.push(h('tr', { class: 'members' },
+      if (ui.open.has(l.e.id) && l.pair) rows.push(h('tr', { class: 'members' }, h('td', null),
+        h('td', { class: 'who', colspan: cols - 1 }, 'The house reported pair totals only (no per-bowler games). ' +
+          l.members.map(m => m.b.name + (m.b.avg == null ? ' (avg not on file)' : ' · avg ' + m.b.avg + ' · hdcp ' + m.h)).join(' · ') +
+          (l.members.some(m => m.b.avg == null) ? ' · team avg ' + l.e.teamAvg + ', team hdcp ' + l.hcGame + '/game from the house sheet' : '') +
+          (l.e.note ? ' · ' + l.e.note : ''))));
+      if (ui.open.has(l.e.id) && !l.pair) l.members.forEach(m => rows.push(h('tr', { class: 'members' },
         h('td', null), h('td', { class: 'who' }, m.b.name + ' · avg ' + m.b.avg + ' · hdcp ' + m.h),
         cell(m.gs[0], 'hide-sm'), cell(m.gs[1], 'hide-sm'), cell(m.gs[2], 'hide-sm'), cell(m.n ? m.scratch : null),
         ui.div === 'hdcp' ? cell(m.n ? m.h * m.n : null, 'hide-sm') : null, ui.div === 'hdcp' ? cell(m.n ? m.scratch + m.h * m.n : null) : null, h('td', null),
@@ -106,20 +112,24 @@
 
   // Compare one of our standings lines with TournamentBowl's official place + total.
   function tbOk(l) { const o = s.official[l.e.id]; return o && o.place === l.place && o.total === l.total && o.scratch === l.scratch; }
+  const offName = () => s.tournament.officialLabel || 'TournamentBowl';
   function tbCell(l) {
     const o = s.official[l.e.id];
-    if (!o) return h('span', { class: 'tm-tb bad' }, 'not in TB');
+    if (!o) return h('span', { class: 'tm-tb bad' }, 'not on ' + offName());
     return tbOk(l) ? h('span', { class: 'tm-tb' }, '✓ ' + o.place + (o.tie ? 't' : '') + ' · ' + o.total)
-      : h('span', { class: 'tm-tb bad' }, '✗ TB says ' + o.place + (o.tie ? 't' : '') + ' · ' + o.total);
+      : h('span', { class: 'tm-tb bad' }, '✗ ' + (s.tournament.officialShort || 'TB') + ' says ' + o.place + (o.tie ? 't' : '') + ' · ' + o.total);
   }
   function checkBanner() {
     const box = $('tm-check');
     if (!s.official) { box.replaceChildren(); return; }
+    const ch = s.tournament.changes;
     let n = 0, ok = 0;
     s.tournament.events.forEach(e => TM.standings(base, e.id, 'hdcp').lines.forEach(l => { n++; if (tbOk(l)) ok++; }));
     box.replaceChildren(h('div', { class: 'tm-check' + (ok === n ? '' : ' bad') },
-      (ok === n ? '✓ ' : '✗ ') + 'Checked against TournamentBowl\'s official standings: ' + ok + ' of ' + n +
-      ' entries match on every game, scratch, handicap total and place. ' + (s.tournament.source || '')));
+      (ok === n ? '✓ ' : '✗ ') + 'Checked against ' + offName() + '\'s official standings: ' + ok + ' of ' + n +
+      ' entries match on every game, scratch, handicap total and place. ' + (s.tournament.source || '')),
+      ch && ch.length ? h('details', { class: 'tm-changes' }, h('summary', null, ch.length + ' changes from our check-in list'),
+        h('ul', null, ...ch.map(c => h('li', null, c)))) : null);
   }
 
   function renderAE() {
