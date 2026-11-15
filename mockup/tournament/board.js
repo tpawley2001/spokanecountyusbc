@@ -8,7 +8,7 @@
   const ui = { tab: 'entries', filter: 'all', q: '', squad: sq0, sev: 'singles', lsquad: sq0 };
   const checkedIn = new Set(); // demo-only, not saved
   const SRC = { online: ['Online form', 'badge-blue'], paper: ['Paper form', 'badge-gold'], board: ['Board', 'badge-green'], tb: ['TournamentBowl', 'badge-blue'],
-    checkin: ['Check-in list', 'badge-blue'], walkin: ['Walk-in (house sheet)', 'badge-gold'] };
+    checkin: ['Pre-entered', 'badge-blue'], walkin: ['Walk-in', 'badge-gold'] };
 
   function toast(msg) {
     const t = $('bd-toast'); t.textContent = msg; t.classList.add('on');
@@ -163,14 +163,14 @@
       const k = e.ev + ':' + e.id + ':' + TM.PAIR;
       const inputs = [0, 1, 2].map(i => h('input', { inputmode: 'numeric', value: line.games[i] == null ? '' : line.games[i], disabled: fin, 'aria-label': 'Pair game ' + (i + 1),
         onchange: ev => setPair(e, k, i, ev.target, tot) }));
-      wrap.append(h('div', { class: 'bd-score' }, h('span', { class: 'nm' }, 'Pair total', h('small', null, 'hdcp ' + line.hcGame + '/game · house gives pair totals only')), ...inputs, tot));
+      wrap.append(h('div', { class: 'bd-score' }, h('span', { class: 'nm' }, 'Pair total', h('small', null, 'hdcp ' + line.hcGame + '/game')), ...inputs, tot));
       return wrap;
     }
     line.members.forEach(m => {
       const tot = h('span', { class: 't' }, m.n ? m.scratch + m.h * m.n : '–');
       const inputs = [0, 1, 2].map(i => h('input', { inputmode: 'numeric', value: m.gs[i] == null ? '' : m.gs[i], disabled: fin, 'aria-label': m.b.name + ' game ' + (i + 1),
         onchange: ev => setScore(e, m.b, i, ev.target, tot) }));
-      wrap.append(h('div', { class: 'bd-score' }, h('span', { class: 'nm' }, m.b.name, h('small', null, m.b.avg == null ? 'avg not on file' : 'avg ' + m.b.avg + ' · hdcp ' + m.h)), ...inputs, tot));
+      wrap.append(h('div', { class: 'bd-score' }, h('span', { class: 'nm' }, m.b.name, h('small', null, m.b.avg == null ? '' : 'avg ' + m.b.avg + ' · hdcp ' + m.h)), ...inputs, tot));
     });
     return wrap;
   }

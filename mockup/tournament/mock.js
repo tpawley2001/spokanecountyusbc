@@ -136,7 +136,7 @@
       banner.replaceChildren('REAL results from the 2026 Senior Championships (from TournamentBowl), shown in the new system. Board changes save only in this browser.');
     }
     if (DS === 'bvl') {
-      banner.replaceChildren('REAL results from the 2026 BVL Veterans Doubles (Valley Bowl results sheet + our check-in), shown in the new system. Board changes save only in this browser.');
+      banner.replaceChildren('REAL results from the 2026 BVL Veterans Doubles, shown in the new system. Board changes save only in this browser.');
     }
     banner.prepend(sel, ' ');
   }

@@ -95,10 +95,9 @@
         ui.div === 'hdcp' ? cell(l.started ? l.total : null, 'tot') : null, h('td', null, chip(l.done, ev.games, l.started)),
         checking() ? h('td', null, tbCell(l)) : null));
       if (ui.open.has(l.e.id) && l.pair) rows.push(h('tr', { class: 'members' }, h('td', null),
-        h('td', { class: 'who', colspan: cols - 1 }, 'The house reported pair totals only (no per-bowler games). ' +
-          l.members.map(m => m.b.name + (m.b.avg == null ? ' (avg not on file)' : ' · avg ' + m.b.avg + ' · hdcp ' + m.h)).join(' · ') +
-          (l.members.some(m => m.b.avg == null) ? ' · team avg ' + l.e.teamAvg + ', team hdcp ' + l.hcGame + '/game from the house sheet' : '') +
-          (l.e.note ? ' · ' + l.e.note : ''))));
+        h('td', { class: 'who', colspan: cols - 1 },
+          l.members.map(m => m.b.name + (m.b.avg == null ? '' : ' · avg ' + m.b.avg + ' · hdcp ' + m.h)).join(' · ') +
+          (l.members.some(m => m.b.avg == null) ? ' · pair avg ' + l.e.teamAvg + ' · hdcp ' + l.hcGame + '/game' : ''))));
       if (ui.open.has(l.e.id) && !l.pair) l.members.forEach(m => rows.push(h('tr', { class: 'members' },
         h('td', null), h('td', { class: 'who' }, m.b.name + ' · avg ' + m.b.avg + ' · hdcp ' + m.h),
         cell(m.gs[0], 'hide-sm'), cell(m.gs[1], 'hide-sm'), cell(m.gs[2], 'hide-sm'), cell(m.n ? m.scratch : null),
