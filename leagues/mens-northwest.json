@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-14T02:02:39.307982+00:00",
+  "generated_at": "2026-11-16T05:02:04.716780+00:00",
   "league": {
     "id": 59869,
     "name": "Mens Northwest League",
@@ -9,27 +9,26 @@
     "scoring": "handicap",
     "source": "League Secretary / BLS recap sheets",
     "header": {
-      "week": 9,
-      "date": "11/5/2026",
+      "week": 10,
+      "date": "11/12/2026",
       "messages": [
-        "Absent Bowler Scores and Fees",
-        "Sponsor Fees"
+        "Happy Thanksgiving!!!",
+        "Congatulations!!!"
       ],
       "notes": [
         {
-          "title": "Absent Bowler Scores and Fees",
+          "title": "Happy Thanksgiving!!!",
           "lines": [
-            "Absent bowlers are -10 off their average per game and -30 for the series",
-            "Absent bowlers fees are owed the same as present bowlers."
+            "Have a happy and safe Thanksgiving guys!",
+            "We will see you all in a couple of weeks!"
           ]
         },
         {
-          "title": "Sponsor Fees",
+          "title": "Congatulations!!!",
           "lines": [
-            "Each Team is responsible for a $25 Sponsor Fee",
-            "Thank you to",
-            "Dean's Team, Top K Kids, & Bowling Stones",
-            "for paying the Sponsor Fee."
+            "Congratulations to Travis Pierpont for bowling a 300!!!",
+            "Too bad he could not break a 700 series!!!",
+            "Sandbagger!!!!"
           ]
         }
       ],
@@ -56,6 +55,10 @@
     },
     "recap_sheets": [
       {
+        "week": 10,
+        "url": "leagues/sheets/mens-northwest-week-10.pdf"
+      },
+      {
         "week": 9,
         "url": "leagues/sheets/mens-northwest-week-09.pdf"
       },
@@ -68,67 +71,67 @@
   "lane_assignments": {
     "year": 2026,
     "season": "f",
-    "week_num": 10,
+    "week_num": 11,
     "lanes": [
       {
         "lane_number": 1,
-        "team_id": 3,
-        "team_name": "Splitz & Giggles",
-        "team_num": 8
-      },
-      {
-        "lane_number": 2,
-        "team_id": 11,
-        "team_name": "Crap Sack",
-        "team_num": 10
-      },
-      {
-        "lane_number": 3,
-        "team_id": 10,
-        "team_name": "Sluggalos",
-        "team_num": 2
-      },
-      {
-        "lane_number": 4,
-        "team_id": 6,
-        "team_name": "Outlaw BBQ",
-        "team_num": 5
-      },
-      {
-        "lane_number": 5,
-        "team_id": 9,
-        "team_name": "Dean's Team",
-        "team_num": 9
-      },
-      {
-        "lane_number": 6,
         "team_id": 8,
         "team_name": "Bowling Stones",
         "team_num": 4
       },
       {
-        "lane_number": 7,
-        "team_id": 7,
-        "team_name": "Top K Kids",
-        "team_num": 1
-      },
-      {
-        "lane_number": 8,
-        "team_id": 4,
-        "team_name": "Quality Hardwood",
-        "team_num": 7
-      },
-      {
-        "lane_number": 9,
+        "lane_number": 2,
         "team_id": 2,
         "team_name": "Pocket Pounders",
         "team_num": 3
       },
       {
-        "lane_number": 10,
+        "lane_number": 3,
+        "team_id": 11,
+        "team_name": "Crap Sack",
+        "team_num": 10
+      },
+      {
+        "lane_number": 4,
+        "team_id": 9,
+        "team_name": "Dean's Team",
+        "team_num": 9
+      },
+      {
+        "lane_number": 5,
+        "team_id": 10,
+        "team_name": "Sluggalos",
+        "team_num": 2
+      },
+      {
+        "lane_number": 6,
+        "team_id": 7,
+        "team_name": "Top K Kids",
+        "team_num": 1
+      },
+      {
+        "lane_number": 7,
         "team_id": 1,
         "team_name": "Alpaca Bowl",
         "team_num": 6
+      },
+      {
+        "lane_number": 8,
+        "team_id": 6,
+        "team_name": "Outlaw BBQ",
+        "team_num": 5
+      },
+      {
+        "lane_number": 9,
+        "team_id": 3,
+        "team_name": "Splitz & Giggles",
+        "team_num": 8
+      },
+      {
+        "lane_number": 10,
+        "team_id": 4,
+        "team_name": "Quality Hardwood",
+        "team_num": 7
       }
     ]
   },
@@ -755,6 +758,75 @@
               ],
               "total": "467",
               "handicap_total": "683"
+            }
+          ]
+        },
+        "10": {
+          "year": 2026,
+          "season": "f",
+          "week_num": 10,
+          "lane_bowled_on": 10,
+          "points_won": 4.0,
+          "bowlers": [
+            {
+              "name": "Parker, Justin",
+              "average": "163",
+              "handicap": "60",
+              "games": [
+                "151",
+                "143",
+                "153"
+              ],
+              "total": "447",
+              "handicap_total": "627"
+            },
+            {
+              "name": "Newman, Billy",
+              "average": "136",
+              "handicap": "84",
+              "games": [
+                "145",
+                "123",
+                "132"
+              ],
+              "total": "400",
+              "handicap_total": "652"
+            },
+            {
+              "name": "Giammona, Justin",
+              "average": "171",
+              "handicap": "53",
+              "games": [
+                "178",
+                "186",
+                "195"
+              ],
+              "total": "559",
+              "handicap_total": "718"
+            },
+            {
+              "name": "Parker, Gunner",
+              "average": "151",
+              "handicap": "71",
+              "games": [
+                "176",
+                "148",
+                "176"
+              ],
+              "total": "500",
+              "handicap_total": "713"
+            },
+            {
+              "name": "Warner, Ryan",
+              "average": "152",
+              "handicap": "70",
+              "games": [
+                "180",
+                "157",
+                "132"
+              ],
+              "total": "469",
+              "handicap_total": "679"
             }
           ]
         }
@@ -1384,6 +1456,75 @@
               "handicap_total": "691"
             }
           ]
+        },
+        "10": {
+          "year": 2026,
+          "season": "f",
+          "week_num": 10,
+          "lane_bowled_on": 6,
+          "points_won": 0.0,
+          "bowlers": [
+            {
+              "name": "Cook, Alan",
+              "average": "178",
+              "handicap": "46",
+              "games": [
+                "156",
+                "182",
+                "134"
+              ],
+              "total": "472",
+              "handicap_total": "610"
+            },
+            {
+              "name": "Reed, Victor",
+              "average": "169",
+              "handicap": "54",
+              "games": [
+                "135",
+                "140",
+                "163"
+              ],
+              "total": "438",
+              "handicap_total": "600"
+            },
+            {
+              "name": "Estes, Wayne",
+              "average": "165",
+              "handicap": "58",
+              "games": [
+                "130",
+                "159",
+                "177"
+              ],
+              "total": "466",
+              "handicap_total": "640"
+            },
+            {
+              "name": "Warren, Steven",
+              "average": "211",
+              "handicap": "17",
+              "games": [
+                "234",
+                "208",
+                "279"
+              ],
+              "total": "721",
+              "handicap_total": "772"
+            },
+            {
+              "name": "Lyngstad, Micheal",
+              "average": "169",
+              "handicap": "54",
+              "games": [
+                "181",
+                "151",
+                "179"
+              ],
+              "total": "511",
+              "handicap_total": "673"
+            }
+          ]
         }
       }
     },
@@ -2009,6 +2150,75 @@
               ],
               "total": "594",
               "handicap_total": "651"
+            }
+          ]
+        },
+        "10": {
+          "year": 2026,
+          "season": "f",
+          "week_num": 10,
+          "lane_bowled_on": 2,
+          "points_won": 4.5,
+          "bowlers": [
+            {
+              "name": "Bean, Josh",
+              "average": "170",
+              "handicap": "54",
+              "games": [
+                "183",
+                "177",
+                "163"
+              ],
+              "total": "523",
+              "handicap_total": "685"
+            },
+            {
+              "name": "Winslow, Dave",
+              "average": "161",
+              "handicap": "62",
+              "games": [
+                "188",
+                "186",
+                "200"
+              ],
+              "total": "574",
+              "handicap_total": "760"
+            },
+            {
+              "name": "Eixenberger, Theron",
+              "average": "170",
+              "handicap": "54",
+              "games": [
+                "198",
+                "193",
+                "205"
+              ],
+              "total": "596",
+              "handicap_total": "758"
+            },
+            {
+              "name": "Bussard, Jacob",
+              "average": "193",
+              "handicap": "33",
+              "games": [
+                "171",
+                "211",
+                "198"
+              ],
+              "total": "580",
+              "handicap_total": "679"
+            },
+            {
+              "name": "Golden, Jay",
+              "average": "208",
+              "handicap": "19",
+              "games": [
+                "172",
+                "202",
+                "197"
+              ],
+              "total": "571",
+              "handicap_total": "628"
             }
           ]
         }
@@ -2638,6 +2848,75 @@
               "handicap_total": "695"
             }
           ]
+        },
+        "10": {
+          "year": 2026,
+          "season": "f",
+          "week_num": 10,
+          "lane_bowled_on": 5,
+          "points_won": 5.0,
+          "bowlers": [
+            {
+              "name": "Mccabe, Jerry",
+              "average": "178",
+              "handicap": "46",
+              "games": [
+                "221",
+                "212",
+                "196"
+              ],
+              "total": "629",
+              "handicap_total": "767"
+            },
+            {
+              "name": "Mitchell, Cameron",
+              "average": "197",
+              "handicap": "29",
+              "games": [
+                "166",
+                "213",
+                "147"
+              ],
+              "total": "526",
+              "handicap_total": "613"
+            },
+            {
+              "name": "Mitchell, Chad",
+              "average": "173",
+              "handicap": "51",
+              "games": [
+                "219",
+                "164",
+                "168"
+              ],
+              "total": "551",
+              "handicap_total": "704"
+            },
+            {
+              "name": "Kerr, Jeffrey",
+              "average": "204",
+              "handicap": "23",
+              "games": [
+                "202",
+                "200",
+                "248"
+              ],
+              "total": "650",
+              "handicap_total": "719"
+            },
+            {
+              "name": "Swanson, Ryan",
+              "average": "211",
+              "handicap": "17",
+              "games": [
+                "194",
+                "204",
+                "237"
+              ],
+              "total": "635",
+              "handicap_total": "686"
+            }
+          ]
         }
       }
     },
@@ -3263,6 +3542,75 @@
               ],
               "total": "617",
               "handicap_total": "710"
+            }
+          ]
+        },
+        "10": {
+          "year": 2026,
+          "season": "f",
+          "week_num": 10,
+          "lane_bowled_on": 3,
+          "points_won": 0.0,
+          "bowlers": [
+            {
+              "name": "Ellison, Millhouse",
+              "average": "148",
+              "handicap": "73",
+              "games": [
+                "149",
+                "135",
+                "160"
+              ],
+              "total": "444",
+              "handicap_total": "663"
+            },
+            {
+              "name": "Greaves, Grandpa Pickles",
+              "average": "153",
+              "handicap": "69",
+              "games": [
+                "149",
+                "112",
+                "141"
+              ],
+              "total": "402",
+              "handicap_total": "609"
+            },
+            {
+              "name": "Langford, Double Gut",
+              "average": "95",
+              "handicap": "121",
+              "games": [
+                "93",
+                "110",
+                "122"
+              ],
+              "total": "325",
+              "handicap_total": "688"
+            },
+            {
+              "name": "Pawley, Fetus",
+              "average": "180",
+              "handicap": "45",
+              "games": [
+                "128",
+                "112",
+                "138"
+              ],
+              "total": "378",
+              "handicap_total": "513"
+            },
+            {
+              "name": "Williams, Sweatpants",
+              "average": "196",
+              "handicap": "30",
+              "games": [
+                "204",
+                "207",
+                "192"
+              ],
+              "total": "603",
+              "handicap_total": "693"
             }
           ]
         }
@@ -3892,6 +4240,75 @@
               "handicap_total": "709"
             }
           ]
+        },
+        "10": {
+          "year": 2026,
+          "season": "f",
+          "week_num": 10,
+          "lane_bowled_on": 4,
+          "points_won": 5.0,
+          "bowlers": [
+            {
+              "name": "Erickson, Dave",
+              "average": "188",
+              "handicap": "37",
+              "games": [
+                "166",
+                "148",
+                "201"
+              ],
+              "total": "515",
+              "handicap_total": "626"
+            },
+            {
+              "name": "Strange, Steven",
+              "average": "142",
+              "handicap": "79",
+              "games": [
+                "178",
+                "175",
+                "147"
+              ],
+              "total": "500",
+              "handicap_total": "737"
+            },
+            {
+              "name": "Blair, Dave",
+              "average": "142",
+              "handicap": "79",
+              "games": [
+                "145",
+                "156",
+                "151"
+              ],
+              "total": "452",
+              "handicap_total": "689"
+            },
+            {
+              "name": "Marshall, Daniel",
+              "average": "153",
+              "handicap": "69",
+              "games": [
+                "158",
+                "178",
+                "170"
+              ],
+              "total": "506",
+              "handicap_total": "713"
+            },
+            {
+              "name": "Erickson, Trevor",
+              "average": "197",
+              "handicap": "29",
+              "games": [
+                "216",
+                "199",
+                "183"
+              ],
+              "total": "598",
+              "handicap_total": "685"
+            }
+          ]
         }
       }
     },
@@ -4517,6 +4934,75 @@
               ],
               "total": "629",
               "handicap_total": "629"
+            }
+          ]
+        },
+        "10": {
+          "year": 2026,
+          "season": "f",
+          "week_num": 10,
+          "lane_bowled_on": 9,
+          "points_won": 1.0,
+          "bowlers": [
+            {
+              "name": "Avila, Leo",
+              "average": "156",
+              "handicap": "66",
+              "games": [
+                "213",
+                "120",
+                "180"
+              ],
+              "total": "513",
+              "handicap_total": "711"
+            },
+            {
+              "name": "Rouns, Adam",
+              "average": "145",
+              "handicap": "76",
+              "games": [
+                "123",
+                "116",
+                "125"
+              ],
+              "total": "364",
+              "handicap_total": "592"
+            },
+            {
+              "name": "Mcmanus, Calvin",
+              "average": "174",
+              "handicap": "50",
+              "games": [
+                "172",
+                "176",
+                "193"
+              ],
+              "total": "541",
+              "handicap_total": "691"
+            },
+            {
+              "name": "Mcginn, Andrew",
+              "average": "186",
+              "handicap": "39",
+              "games": [
+                "198",
+                "173",
+                "184"
+              ],
+              "total": "555",
+              "handicap_total": "672"
+            },
+            {
+              "name": "Pierpont, Travis",
+              "average": "230",
+              "handicap": "0",
+              "games": [
+                "191",
+                "300",
+                "193"
+              ],
+              "total": "684",
+              "handicap_total": "684"
             }
           ]
         }
@@ -5146,6 +5632,75 @@
               "handicap_total": "753"
             }
           ]
+        },
+        "10": {
+          "year": 2026,
+          "season": "f",
+          "week_num": 10,
+          "lane_bowled_on": 8,
+          "points_won": 0.0,
+          "bowlers": [
+            {
+              "name": "Michels, Nathanial",
+              "average": "189",
+              "handicap": "36",
+              "games": [
+                "172",
+                "164",
+                "143"
+              ],
+              "total": "479",
+              "handicap_total": "587"
+            },
+            {
+              "name": "Beckley, Brandon",
+              "average": "164",
+              "handicap": "59",
+              "games": [
+                "137",
+                "167",
+                "129"
+              ],
+              "total": "433",
+              "handicap_total": "610"
+            },
+            {
+              "name": "Vacant",
+              "average": "130",
+              "handicap": "90",
+              "games": [
+                "130",
+                "130",
+                "130"
+              ],
+              "total": "390",
+              "handicap_total": "660"
+            },
+            {
+              "name": "Michels, Paul",
+              "average": "187",
+              "handicap": "38",
+              "games": [
+                "178",
+                "226",
+                "166"
+              ],
+              "total": "570",
+              "handicap_total": "684"
+            },
+            {
+              "name": "Kleinknecht, Redneck",
+              "average": "180",
+              "handicap": "45",
+              "games": [
+                "181",
+                "181",
+                "170"
+              ],
+              "total": "532",
+              "handicap_total": "667"
+            }
+          ]
         }
       }
     },
@@ -5771,6 +6326,75 @@
               ],
               "total": "522",
               "handicap_total": "645"
+            }
+          ]
+        },
+        "10": {
+          "year": 2026,
+          "season": "f",
+          "week_num": 10,
+          "lane_bowled_on": 1,
+          "points_won": 0.5,
+          "bowlers": [
+            {
+              "name": "Hansen, Erik",
+              "average": "184",
+              "handicap": "41",
+              "games": [
+                "181",
+                "220",
+                "193"
+              ],
+              "total": "594",
+              "handicap_total": "717"
+            },
+            {
+              "name": "Penny, Matt",
+              "average": "185",
+              "handicap": "40",
+              "games": [
+                "175",
+                "175",
+                "175"
+              ],
+              "total": "525",
+              "handicap_total": "645"
+            },
+            {
+              "name": "Martindale, Tyler",
+              "average": "192",
+              "handicap": "34",
+              "games": [
+                "224",
+                "169",
+                "199"
+              ],
+              "total": "592",
+              "handicap_total": "694"
+            },
+            {
+              "name": "Schroeder, Patrick",
+              "average": "137",
+              "handicap": "83",
+              "games": [
+                "146",
+                "118",
+                "123"
+              ],
+              "total": "387",
+              "handicap_total": "636"
+            },
+            {
+              "name": "Knechtges, Zach",
+              "average": "184",
+              "handicap": "41",
+              "games": [
+                "169",
+                "193",
+                "144"
+              ],
+              "total": "506",
+              "handicap_total": "629"
             }
           ]
         }
@@ -6400,6 +7024,75 @@
               "handicap_total": "624"
             }
           ]
+        },
+        "10": {
+          "year": 2026,
+          "season": "f",
+          "week_num": 10,
+          "lane_bowled_on": 7,
+          "points_won": 5.0,
+          "bowlers": [
+            {
+              "name": "Kleinknecht, Top K",
+              "average": "146",
+              "handicap": "75",
+              "games": [
+                "134",
+                "148",
+                "123"
+              ],
+              "total": "405",
+              "handicap_total": "630"
+            },
+            {
+              "name": "Allen, Chicken Hawk",
+              "average": "156",
+              "handicap": "66",
+              "games": [
+                "172",
+                "169",
+                "137"
+              ],
+              "total": "478",
+              "handicap_total": "676"
+            },
+            {
+              "name": "Lilly, Pappa Smurf",
+              "average": "173",
+              "handicap": "51",
+              "games": [
+                "203",
+                "237",
+                "214"
+              ],
+              "total": "654",
+              "handicap_total": "807"
+            },
+            {
+              "name": "Kleinknecht, Gilligan",
+              "average": "204",
+              "handicap": "23",
+              "games": [
+                "203",
+                "244",
+                "209"
+              ],
+              "total": "656",
+              "handicap_total": "725"
+            },
+            {
+              "name": "Milward, Rodney",
+              "average": "214",
+              "handicap": "14",
+              "games": [
+                "171",
+                "204",
+                "178"
+              ],
+              "total": "553",
+              "handicap_total": "595"
+            }
+          ]
         }
       }
     }
@@ -6409,106 +7102,106 @@
       "place": 1,
       "team_id": 3,
       "team_name": "Splitz & Giggles",
-      "points_won": 30.0,
-      "points_lost": 15.0,
-      "pct_won": 66.7,
-      "scratch_pins": 23302
+      "points_won": 30.5,
+      "points_lost": 19.5,
+      "pct_won": 61.0,
+      "scratch_pins": 25906
     },
     {
       "place": 2,
-      "team_id": 2,
-      "team_name": "Pocket Pounders",
-      "points_won": 25.0,
-      "points_lost": 20.0,
-      "pct_won": 55.6,
-      "scratch_pins": 24432
+      "team_id": 9,
+      "team_name": "Dean's Team",
+      "points_won": 28.0,
+      "points_lost": 22.0,
+      "pct_won": 56.0,
+      "scratch_pins": 28677
     },
     {
       "place": 3,
-      "team_id": 4,
-      "team_name": "Quality Hardwood",
-      "points_won": 25.0,
-      "points_lost": 20.0,
-      "pct_won": 55.6,
-      "scratch_pins": 22804
+      "team_id": 6,
+      "team_name": "Outlaw BBQ",
+      "points_won": 28.0,
+      "points_lost": 22.0,
+      "pct_won": 56.0,
+      "scratch_pins": 25279
     },
     {
       "place": 4,
-      "team_id": 10,
-      "team_name": "Sluggalos",
-      "points_won": 25.0,
-      "points_lost": 20.0,
-      "pct_won": 55.6,
-      "scratch_pins": 21717
+      "team_id": 2,
+      "team_name": "Pocket Pounders",
+      "points_won": 26.0,
+      "points_lost": 24.0,
+      "pct_won": 52.0,
+      "scratch_pins": 27089
     },
     {
       "place": 5,
-      "team_id": 9,
-      "team_name": "Dean's Team",
-      "points_won": 23.0,
-      "points_lost": 22.0,
-      "pct_won": 51.1,
-      "scratch_pins": 25686
+      "team_id": 4,
+      "team_name": "Quality Hardwood",
+      "points_won": 25.0,
+      "points_lost": 25.0,
+      "pct_won": 50.0,
+      "scratch_pins": 25208
     },
     {
       "place": 6,
-      "team_id": 6,
-      "team_name": "Outlaw BBQ",
-      "points_won": 23.0,
-      "points_lost": 22.0,
-      "pct_won": 51.1,
-      "scratch_pins": 22708
+      "team_id": 10,
+      "team_name": "Sluggalos",
+      "points_won": 25.0,
+      "points_lost": 25.0,
+      "pct_won": 50.0,
+      "scratch_pins": 23869
     },
     {
       "place": 7,
-      "team_id": 8,
-      "team_name": "Bowling Stones",
-      "points_won": 22.0,
-      "points_lost": 23.0,
-      "pct_won": 48.9,
-      "scratch_pins": 23113
+      "team_id": 11,
+      "team_name": "Crap Sack",
+      "points_won": 24.5,
+      "points_lost": 25.5,
+      "pct_won": 49.0,
+      "scratch_pins": 27072
     },
     {
       "place": 8,
-      "team_id": 11,
-      "team_name": "Crap Sack",
-      "points_won": 20.0,
-      "points_lost": 25.0,
-      "pct_won": 44.4,
-      "scratch_pins": 24228
+      "team_id": 7,
+      "team_name": "Top K Kids",
+      "points_won": 23.0,
+      "points_lost": 27.0,
+      "pct_won": 46.0,
+      "scratch_pins": 26855
     },
     {
       "place": 9,
-      "team_id": 7,
-      "team_name": "Top K Kids",
-      "points_won": 18.0,
-      "points_lost": 27.0,
-      "pct_won": 40.0,
-      "scratch_pins": 24109
+      "team_id": 8,
+      "team_name": "Bowling Stones",
+      "points_won": 22.0,
+      "points_lost": 28.0,
+      "pct_won": 44.0,
+      "scratch_pins": 25721
     },
     {
       "place": 10,
       "team_id": 1,
       "team_name": "Alpaca Bowl",
-      "points_won": 14.0,
-      "points_lost": 31.0,
-      "pct_won": 31.1,
-      "scratch_pins": 20990
+      "points_won": 18.0,
+      "points_lost": 32.0,
+      "pct_won": 36.0,
+      "scratch_pins": 23365
     }
   ],
   "as_of": {
-    "week": 9,
+    "week": 10,
     "date": null
   },
   "current_averages": {
-    "Allen, Chicken Hawk": 156,
+    "Allen, Chicken Hawk": 157,
     "Ankenman, Fat Bastard": 211,
-    "Avila, Leo": 156,
+    "Avila, Leo": 159,
     "Barson, John": 191,
-    "Bean, Josh": 170,
-    "Beckley, Brandon": 164,
+    "Bean, Josh": 171,
+    "Beckley, Brandon": 162,
     "Bishop, Alex": 189,
-    "Blair, Dave": 142,
+    "Blair, Dave": 143,
     "Boydston, Sean": 181,
     "Burns, Darryl": 214,
     "Bussard, Jacob": 193,
@@ -6517,7 +7210,7 @@
     "Carroll, Gene": 130,
     "Clawson, Corey": 204,
     "Colliton, Tim": 122,
-    "Cook, Alan": 178,
+    "Cook, Alan": 175,
     "Cook, Ken": 171,
     "Cramer, Trevor": 191,
     "Davis, Beau": 189,
@@ -6526,19 +7219,19 @@
     "Demand, Ryan": 149,
     "Doughty, Gregory": 130,
     "Dunn, Chris": 171,
-    "Eixenberger, Theron": 170,
-    "Ellison, Millhouse": 157,
+    "Eixenberger, Theron": 174,
+    "Ellison, Millhouse": 148,
     "Erickson, Art": 165,
-    "Erickson, Dave": 188,
+    "Erickson, Dave": 186,
     "Erickson, Stan": 146,
     "Erickson, Trevor": 197,
-    "Estes, Wayne": 165,
+    "Estes, Wayne": 164,
     "Fleetwood, Rick": 201,
     "Forness, Jay": 210,
     "Frantz, Jason": 130,
     "Funke, Eric": 164,
-    "Golden, Jay": 208,
-    "Greaves, Grandpa Pickles": 153,
+    "Golden, Jay": 205,
+    "Greaves, Grandpa Pickles": 149,
     "Griesh, Christopher": 172,
     "Grissom, Nate": 156,
     "Hansen, Erick": 195,
@@ -6553,32 +7246,32 @@
     "Jorgensen, Guy": 181,
     "Kelly, Lil Bitch": 224,
     "Kelly, Ek": 130,
-    "Kerr, Jeffrey": 204,
-    "Knechtges, Zach": 184,
+    "Kerr, Jeffrey": 205,
+    "Knechtges, Zach": 182,
     "Koski, Richard": 130,
     "Kurucz, Brian": 130,
     "Kurucz, Levis": 130,
     "Kurucz, Louis": 130,
-    "Langford, Double Gut": 95,
+    "Langford, Double Gut": 97,
     "Lasalle, Ed": 167,
-    "Lilly, Pappa Smurf": 173,
+    "Lilly, Pappa Smurf": 178,
     "Lyngstad, Michael": 169,
     "Marchand, Tyson": 195,
-    "Marshall, Daniel": 153,
+    "Marshall, Daniel": 155,
     "Martindale, Tyler": 192,
-    "Mccabe, Jerry": 178,
+    "Mccabe, Jerry": 182,
     "Mccormick, Casey": 130,
     "Mcdonald, Whiskey Dick": 171,
     "Mcginn, Andrew": 186,
     "Mcintyre, Colt": 130,
     "Mckenna, Ken": 130,
-    "Mcmanus, Calvin": 174,
+    "Mcmanus, Calvin": 175,
     "Merril, Gary": 145,
-    "Michels, Nathanial": 189,
+    "Michels, Nathanial": 186,
     "Michels, Paul": 187,
-    "Milward, Rodney": 214,
-    "Mitchell, Cameron": 197,
-    "Mitchell, Chad": 173,
+    "Milward, Rodney": 199,
+    "Mitchell, Cameron": 193,
+    "Mitchell, Chad": 175,
     "Mitchell, Mitch": 164,
     "Naccarato, Rich": 166,
     "Nevin, Walt Sr": 130,
@@ -6586,13 +7279,13 @@
     "O'Connor, Michael": 130,
     "Odea, Conner": 179,
     "Ogle, Dana": 130,
-    "Parker, Gunner": 151,
-    "Parker, Justin": 163,
+    "Parker, Gunner": 153,
+    "Parker, Justin": 161,
     "Patrick, Cameron": 160,
-    "Pawley, Fetus": 180,
+    "Pawley, Fetus": 174,
     "Penny, Matt": 185,
     "Perry, David": 214,
-    "Pierpont, Travis": 230,
+    "Pierpont, Travis": 229,
     "Poffenroth, Mike": 162,
     "Polaski, John": 130,
     "Powell, Lil D": 175,
@@ -6600,7 +7293,7 @@
     "Pratt, Jeremy": 133,
     "Price, Ryan": 156,
     "Pritchard, Kenneth": 130,
-    "Reed, Victor": 169,
+    "Reed, Victor": 166,
     "Roche, Dovanan": 216,
     "Rosenthal, Thomas": 187,
     "Rounsville, Jack": 152,
@@ -6609,18 +7302,18 @@
     "Shipman, Keven": 162,
     "Slinkard, Ed": 201,
     "Steen, Jeremy": 130,
-    "Strange, Steven": 142,
+    "Strange, Steven": 148,
     "Swanson, Ryan": 211,
     "Thoet, Jeff": 138,
     "Trieschman, Jason": 153,
     "Trotchie, Ray": 161,
     "Utt, Walt": 137,
-    "Warner, Ryan": 152,
-    "Warren, Steven": 211,
+    "Warner, Ryan": 153,
+    "Warren, Steven": 217,
     "Weeks, Ty": 130,
-    "Williams, Sweatpants": 196,
+    "Williams, Sweatpants": 197,
     "Winchell, Magilla": 230,
-    "Winslow, Dave": 161,
+    "Winslow, Dave": 164,
     "Winslow, Jacob": 188,
     "Yarnell, Lance": 210,
     "Yates, Kevin": 170,
@@ -6636,17 +7329,18 @@
     "Bolles, Kenneth": 130,
     "Bushby, Jonathen": 188,
     "Kleinknecht, Redneck": 180,
-    "Kleinknecht, Top K": 146,
-    "Kleinknecht, Gilligan": 204,
+    "Kleinknecht, Top K": 145,
+    "Kleinknecht, Gilligan": 205,
     "Grieshaber, Christopher": 154,
-    "Hansen, Erik": 184,
+    "Hansen, Erik": 185,
     "Bean, Micah": 217,
-    "Rouns, Adam": 145,
-    "Schroeder, Patrick": 137,
+    "Rouns, Adam": 142,
+    "Schroeder, Patrick": 136,
     "Avila, Jj": 185,
     "Erickson, Cory": 192,
-    "Giammona, Justin": 171,
-    "Newman, Billy": 136,
-    "Giammona, Tony": 191
+    "Giammona, Justin": 174,
+    "Newman, Billy": 135,
+    "Giammona, Tony": 191,
+    "Lyngstad, Micheal": 169
   }
 }
