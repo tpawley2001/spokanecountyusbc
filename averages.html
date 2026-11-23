@@ -8,7 +8,7 @@
   <link rel="icon" href="images/icon-192.png" type="image/png" sizes="192x192">
   <title>Bowler Averages | Spokane County USBC</title>
   <link rel="canonical" href="https://spokanecountyusbc.org/averages.html">
-  <link rel="stylesheet" href="style.css?v=9">
+  <link rel="stylesheet" href="style.css?v=10">
 </head>
 <body>
 
@@ -35,10 +35,31 @@
   <div class="page-header">
     <h1>Bowler Averages</h1>
     <div class="divider"></div>
-    <p>Look up current or past averages for all Spokane USBC bowlers.</p>
+    <p>2025–2026 season averages for Spokane County USBC bowlers, plus current averages on Bowl.com.</p>
   </div>
 
   <section class="section" style="border-top:none;padding-top:0;">
+    <h2>2025–2026 Season Averages</h2>
+    <div class="divider"></div>
+    <p class="section-meta">Final 2025–2026 averages for Spokane County USBC league bowlers, from the association yearbook. Search by name or USBC ID, or pick a league.</p>
+    <div class="avg-tools">
+      <input type="search" id="avg-q" placeholder="Search name or USBC ID" aria-label="Search name or USBC ID" autocomplete="off">
+      <select id="avg-league" aria-label="League"><option value="">All leagues</option></select>
+      <a href="forms/averages-2025-26.pdf" target="_blank" rel="noopener" class="btn btn-primary">📄 Download PDF</a>
+    </div>
+    <p class="avg-count" id="avg-count" aria-live="polite">Loading averages…</p>
+    <div class="table-wrap avg-wrap">
+      <table class="avg-table">
+        <thead><tr><th>Name</th><th class="num">Avg</th><th class="num">Games</th><th>League</th><th>USBC ID</th></tr></thead>
+        <tbody id="avg-body"></tbody>
+      </table>
+    </div>
+    <p class="avg-note">L = Left, R = Right, S = Sport. Bowlers in more than one league have one line per league.</p>
+  </section>
+
+  <section class="section">
+    <h2>Current Season Averages</h2>
+    <div class="divider"></div>
     <div class="info-box">
       <h4>Official Average Lookup</h4>
       <p>Bowler averages are maintained by USBC and accessible through Bowl.com. Click below to search current and historical averages for all certified USBC leagues in the Spokane area.</p>
@@ -118,5 +139,6 @@
 </footer>
 
 <script src="site.js"></script>
+<script src="averages-page.js"></script>
 </body>
 </html>
