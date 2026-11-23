@@ -39,6 +39,15 @@
       "pdf_field": "fee_scratch_ae"
     },
     {
+      "label": "Scratch Team: no additional fee",
+      "short": "Scratch team",
+      "amount": 0,
+      "fields": [
+        "scratch_team"
+      ],
+      "check": "Yes"
+    },
+    {
       "label": "Hdcp. Doubles Entry: $50 each bowler",
       "short": "Hdcp doubles",
       "amount": 50,
@@ -48,8 +57,7 @@
         "ds3_hdcp_dbls",
         "ds4_hdcp_dbls"
       ],
-      "pdf_field": "fee_hdcp_dbls",
-      "gap": true
+      "pdf_field": "fee_hdcp_dbls"
     },
     {
       "label": "Hdcp. Singles Entry: $50 each bowler",
@@ -64,7 +72,7 @@
       "pdf_field": "fee_hdcp_sgls"
     },
     {
-      "label": "Scratch Doubles Entry: $20 each bowler",
+      "label": "Scratch Doubles: Add’l $20 each bowler",
       "short": "Scratch doubles",
       "amount": 20,
       "fields": [
@@ -76,7 +84,7 @@
       "pdf_field": "fee_scratch_dbls"
     },
     {
-      "label": "Scratch Singles Entry: $20 each bowler",
+      "label": "Scratch Singles: Add’l $20 each bowler",
       "short": "Scratch singles",
       "amount": 20,
       "fields": [
@@ -188,6 +196,11 @@
     {
       "field": "team4_scratch_ae",
       "needs": "team4_name"
+    },
+    {
+      "field": "scratch_team",
+      "needs": "team1_name",
+      "error": "Scratch team needs the team entry"
     },
     {
       "field": "ds1_scratch_dbls",
@@ -349,6 +362,10 @@
     },
     "team4_scratch_ae": {
       "label": "Team bowler 4 Scratch A/E",
+      "type": "check"
+    },
+    "scratch_team": {
+      "label": "Scratch team (no additional fee)",
       "type": "check"
     },
     "ds1_name": {
@@ -851,7 +868,7 @@
     {
       "text": [
         {
-          "t": "Scratch Doubles and Singles"
+          "t": "Scratch Team, Doubles and Singles"
         }
       ],
       "center": true
@@ -960,7 +977,7 @@
       },
       [
         {
-          "t": "This Tournament will have two divisions. (Averages for Singles of 180 and over, Doubles of 360 and over will be in the ‘A’ division. Averages for Singles of 179 or less, Doubles of 359 or less will be in the ‘B’ division.) Handicaps for both divisions will be 90% from 230. "
+          "t": "This Tournament will have two divisions. (Averages for Teams of 720 and over, Singles of 180 and over, Doubles of 360 and over will be in the ‘A’ division. Averages for Teams of 719 or less, Singles of 179 or less, Doubles of 359 or less will be in the ‘B’ division.) Handicaps for both divisions will be 90% from 230. "
         },
         {
           "t": "There will be at least one prize for each four entries. ",
@@ -995,7 +1012,7 @@
           "bold": true
         },
         {
-          "t": ":  Team Event (3 games): $50 per person. Handicap Fees for D/S: $100 for Doubles and $50 for Singles. The entry fee for the optional scratch Doubles and Singles events will be additional $20 per person. No entry fees will be returned after acceptance of assigned schedule times. "
+          "t": ":  Team Event (3 games): $50 per person; optional scratch team at no additional fee. Handicap Fees for D/S: $100 for Doubles and $50 for Singles. The entry fee for the optional scratch Doubles and Singles events will be additional $20 per person. No entry fees will be returned after acceptance of assigned schedule times. "
         },
         {
           "t": "Incomplete entries and entries not received prior to the start of the tournament will be treated as walk in entries and will not have guaranteed squad times. ",

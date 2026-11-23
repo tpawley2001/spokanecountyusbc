@@ -116,13 +116,14 @@ function feeValues(form, values, due) {
 // The emailed copy is for printing: entries are drawn in black and flattened into
 // the page, since phone/Gmail previews and printers often drop live form fields.
 async function fillPdf(form, values) {
-  const { PDFDocument, StandardFonts } = require('pdf-lib');
+  const { PDFDocument, StandardFonts, PDFCheckBox, PDFTextField } = require('pdf-lib');
   const doc = await PDFDocument.load(fs.readFileSync(path.join(__dirname, form.pdf)));
   const font = await doc.embedFont(StandardFonts.Helvetica);
   const pdfForm = doc.getForm();
   for (const [name, v] of Object.entries(values)) {
-    let tf;
-    try { tf = pdfForm.getTextField(name); } catch { continue; }   // field missing on the PDF: skip
+    const tf = pdfForm.getFieldMaybe(name);
+    if (tf instanceof PDFCheckBox) { if (v) tf.check(); continue; }   // a real checkbox on the PDF (e.g. Scratch Team Yes)
+    if (!(tf instanceof PDFTextField)) continue;                      // field missing on the PDF: skip
     // 12pt, shrunk only as far as needed so a long value fits a narrow (or short) blank
     const w = tf.acroField.getWidgets()[0];
     const r = w ? w.getRectangle() : { width: Infinity, height: Infinity };
@@ -156,7 +157,7 @@ function emailBody(name, form, values, due, when) {
   const rows = Object.entries(form.fields).map(([k, f]) => [f.label, values[k] || '—']);
   const extra = addons(form, values).map(a => ` + $${a.amount} ${a.label}`).join('');
   const how = form.fee_items
-    ? feeLines(form, values).filter(l => l.n).map(l => `${l.short || l.label} ${l.n} x $${l.amount}`).join(', ')
+    ? feeLines(form, values).filter(l => l.n).map(l => l.amount ? `${l.short || l.label} ${l.n} x $${l.amount}` : `${l.short || l.label} (no additional fee)`).join(', ')
     : `$${entryFee(form)}/${form.fee_unit || 'person'}${extra}`;
   rows.push(['Entry fee due', `$${due.toFixed(2)} (${how})`]);
   const text = `${name} entry submitted online ${when}\n\n` +

@@ -822,6 +822,18 @@
   },
   {
    "page": 0,
+   "name": "scratch_team",
+   "label": "Scratch Team: no additional fee (Yes)",
+   "type": "checkbox",
+   "rect": [
+    709.6,
+    441.9,
+    716.5,
+    448.8
+   ]
+  },
+  {
+   "page": 0,
    "name": "fee_hdcp_dbls",
    "label": "Hdcp. doubles entry amount",
    "type": "text",

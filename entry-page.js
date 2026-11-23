@@ -87,6 +87,12 @@
         totalOut = el('span', { class: 'es-fee-amt' });
         sheet.append(el('div', { class: 'es-fees' },
           form.fee_items.map(i => {
+            if (i.check) {   // opt-in line with its own box instead of an amount (e.g. "Scratch Team: no additional fee [ ] Yes")
+              lineOuts.push(null);
+              const name = i.fields[0];
+              return el('p', { class: `es-fee-line${i.gap ? ' es-fee-gap' : ''}` }, el('label', { for: `f-${name}` }, i.label),
+                el('label', { class: 'es-fee-check', for: `f-${name}` }, input(name, form.fields[name]), i.check, el('span', { class: 'es-err', id: `e-${name}` })));
+            }
             const out = el('span', { class: 'es-fee-amt' });
             lineOuts.push(out);
             return el('p', { class: `es-fee-line${i.gap ? ' es-fee-gap' : ''}` }, el('span', {}, i.label), el('span', {}, '$ ', out));

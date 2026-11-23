@@ -373,6 +373,10 @@ footer {
 .es-fee-line > span:last-child { flex: 0 0 auto; white-space: nowrap; }
 .es-fee-amt { display: inline-block; min-width: 5rem; border-bottom: 1px solid #000; color: #0a2a8a; text-align: left; padding: 0 0.2rem; }
 .es-fee-total { font-weight: 700; font-size: 1.15rem; }
+.es-fee-check { flex: 0 0 auto; display: inline-flex; flex-wrap: wrap; align-items: center; gap: 0.35rem; min-width: 5.7rem; cursor: pointer; }
+.es-fee-check input[type=checkbox] { width: 1.1rem; height: 1.1rem; margin: 0; accent-color: var(--navy); }
+.es-fee-check .es-err { flex-basis: 100%; font-size: 0.72rem; }
+.es-fee-check .es-err:empty { display: none; }
 .es-rules-h { font-family: "Times New Roman", Tinos, "Liberation Serif", Times, serif; font-size: 1.3rem; font-weight: 700; text-align: center; margin: 1rem 0 0.2rem; }
 @media (max-width: 640px) {
   /* phones: each table row becomes a card, each cell shows its column name */
@@ -392,6 +396,7 @@ footer {
   .es-table td.es-td-check { flex-wrap: wrap; }
   .es-fees { padding: 0.6rem; font-size: 0.92rem; }
   .es-fee-amt { min-width: 3.6rem; }
+  .es-fee-check { min-width: 4.3rem; }
 }
 
 /* ── BVL collection sign-up (pages/bvl-signup.html): phone-first ── */
