@@ -1270,7 +1270,7 @@
        "style": "color:#1f3864;margin-top:0.6rem"
       },
       {
-       "text": "SCUSBC Tournament",
+       "text": "SCUSBC",
        "size": "sm",
        "serif": true,
        "center": true
@@ -1506,7 +1506,7 @@
    }
   ],
   "footer": [
-   "MAKE CHECKS PAYABLE TO: SCUSBC Tournament",
+   "MAKE CHECKS PAYABLE TO: SCUSBC",
    "MAIL COMPLETED ENTRY FORM AND FEES TO: Tina Blough, P.O. Box 112, Deer Park, WA 99006",
    "spokaneusbc.assoc.manager@gmail.com · (509) 795-1845 · www.spokanecountyusbc.org"
   ]
@@ -1516,6 +1516,6 @@
   "venmo": "Spokane-USBC",
   "paypal_qr": "images/pay/paypal-qr.svg",
   "venmo_qr": "images/pay/venmo-qr.svg",
-  "checks": "Or mail a check payable to SCUSBC Tournament to Tina Blough, P.O. Box 112, Deer Park, WA 99006. ($25 will be charged for any checks returned by the banks, credit unions, etc.)"
+  "checks": "Or mail a check payable to SCUSBC to Tina Blough, P.O. Box 112, Deer Park, WA 99006. ($25 will be charged for any checks returned by the banks, credit unions, etc.)"
  }
 }
