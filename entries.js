@@ -52,11 +52,14 @@ function validate(form, body) {
     values[name] = v;
   }
   // Per-bowler event picks (e.g. Hdcp/Scratch): a named bowler needs at least one,
-  // and an event can't be picked for a bowler with no name.
+  // and an event can't be picked for a bowler with no name. `name` may also be a
+  // list (e.g. any team bowler entered -> the team must pick Handicap and/or Scratch).
   for (const b of form.event_picks || []) {
+    const names = [].concat(b.name);
     const picked = b.events.some(n => values[n]);
-    if (values[b.name] && !picked) errors[b.events[0]] = b.error || 'Pick at least one event';
-    if (!values[b.name] && picked && !errors[b.name]) errors[b.name] = `${form.fields[b.name].label} is required`;
+    const named = names.some(n => values[n]);
+    if (named && !picked) errors[b.events[0]] = b.error || 'Pick at least one event';
+    if (!named && picked && !errors[names[0]]) errors[names[0]] = b.name_error || `${form.fields[names[0]].label} is required`;
   }
   // A field that only makes sense with another one (A/E box needs the bowler's name,
   // scratch needs the matching handicap event, a doubles box needs the partner's)

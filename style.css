@@ -378,6 +378,33 @@ footer {
 .es-fee-check .es-err { flex-basis: 100%; font-size: 0.72rem; }
 .es-fee-check .es-err:empty { display: none; }
 .es-rules-h { font-family: "Times New Roman", Tinos, "Liberation Serif", Times, serif; font-size: 1.3rem; font-weight: 700; text-align: center; margin: 1rem 0 0.2rem; }
+.es-i { font-style: italic; }
+/* table extras: grouped headings, heavier rule between pairs, event box at the right */
+.es-table th.es-th-group { border-bottom: 1px solid #000; }
+.es-table tr.es-sep td { border-top: 3px solid #000; }
+.es-with-side { display: flex; align-items: stretch; }
+.es-table-main { flex: 1 1 0; min-width: 0; }
+.es-with-side .es-table td { height: 2.6rem; }
+.es-side { flex: 0 0 var(--side-w, 22%); min-width: 0; border: 2px solid #000; border-left: 0; padding: 0.35rem 0.55rem; font-family: Arial, sans-serif; }
+.es-side .es-text { margin: 0; }
+.es-side .es-row { flex-direction: column; gap: 0.15rem; margin: 0.25rem 0 0.1rem; }
+.es-side .es-field { min-width: 0; font-size: 0.95rem; font-weight: 400; }
+.es-side .es-sm { font-size: 0.85rem; }
+/* boxes side by side (captain contact, mail-to, fee tally) */
+.es-boxes { display: flex; border: 1px solid #000; margin: 1rem 0 0.5rem; }
+.es-box { flex: 1 1 0; min-width: 0; padding: 0.5rem 0.6rem; }
+.es-box + .es-box { border-left: 1px solid #000; }
+.es-box .es-row { margin: 0.5rem 0 0; gap: 0.3rem 0.8rem; }
+.es-box .es-field { min-width: auto; font-size: 0.92rem; font-weight: 400; flex-wrap: nowrap; }
+.es-box .es-field input { width: 0; min-width: 2.5rem; }
+.es-box .es-fees { border: 0; padding: 0; margin: 0; max-width: none; }
+.es-tally { font-size: 0.8rem; }
+.es-tally .es-fee-line { display: grid; grid-template-columns: 7em 4.3em 1fr; gap: 0.25rem; margin: 0.3rem 0; align-items: end; }
+.es-tally .es-fee-line > span:last-child { white-space: normal; }
+.es-tally .es-fee-amt { min-width: 3.4em; }
+.es-tally .es-fee-total { font-size: 0.9rem; }
+.es-fee-before { text-align: center; margin: 0.4rem 0 0.1rem; }
+.es-fee-intro { margin: 0 0 0.4rem; line-height: 1.3; }
 @media (max-width: 640px) {
   /* phones: each table row becomes a card, each cell shows its column name */
   .es-table, .es-table thead, .es-table tbody, .es-table tr, .es-table th, .es-table td { display: block; width: auto; }
@@ -397,6 +424,14 @@ footer {
   .es-fees { padding: 0.6rem; font-size: 0.92rem; }
   .es-fee-amt { min-width: 3.6rem; }
   .es-fee-check { min-width: 4.3rem; }
+  .es-with-side { flex-direction: column; }
+  .es-with-side .es-table td { height: auto; }
+  .es-side { order: -1; border: 1.5px solid #000; margin-bottom: 0.6rem; padding: 0.4rem 0.6rem; }
+  .es-table tr.es-sep td { border-top: 0; }
+  .es-table tr.es-sep { margin-top: 1rem; }
+  .es-boxes { flex-direction: column; }
+  .es-box + .es-box { border-left: 0; border-top: 1px solid #000; }
+  .es-box .es-field { min-width: 100%; }
 }
 
 /* ── BVL collection sign-up (pages/bvl-signup.html): phone-first ── */

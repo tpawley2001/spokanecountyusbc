@@ -27,11 +27,12 @@
     return el('input', attrs);
   }
 
-  // Styled text: a plain string, or runs [{t, bold, red, blue, u}]
+  // Styled text: a plain string, or runs [{t, bold, red, blue, u, i, style}]
   function spans(text) {
     if (typeof text === 'string') return text;
-    return text.map(s => el('span', { class: [s.red && 'es-red', s.blue && 'es-blue', s.bold && 'es-bold', s.u && 'es-u'].filter(Boolean).join(' ') }, s.t));
+    return text.map(s => el('span', { class: [s.red && 'es-red', s.blue && 'es-blue', s.bold && 'es-bold', s.u && 'es-u', s.i && 'es-i'].filter(Boolean).join(' '), style: s.style || false }, s.t));
   }
+  const plain = text => typeof text === 'string' ? text : text.map(s => s.t).join('');
 
   // Rules: numbered items (string or styled runs), with {heading} section titles
   // and unnumbered {text} paragraphs; numbering carries on across sections.
@@ -50,24 +51,42 @@
   }
 
   // A ruled table like the paper's (bowler grids, captain box). cols: [{head: [lines],
-  // field (an input in the header cell), cell (label for the cell on phones), bold, w (%)}];
-  // rows: [{n (row number), cells: [field | {label, field} | null]}].
-  function table(t, fields) {
+  // field (an input in the header cell), cell (label for the cell on phones), bold, w (%),
+  // group (a heading over this and the following columns with the same group)}];
+  // rows: [{n (row number), sep (heavier rule above), cells: [field | {label, field, span, cell} | null]}].
+  // side: blocks drawn in a column at the right of the table (event box), sidew its width (%).
+  function table(t, fields, block) {
     const cell = (c, col, n) => {
       const spec = typeof c === 'string' ? { field: c } : c;
       if (!spec) return el('td', { class: 'es-empty' });
       const f = fields[spec.field];
-      return el('td', { class: f.type === 'check' ? 'es-td-check' : '', 'data-label': col.cell ?? (col.head || []).join(' ') },
-        el('label', { for: `f-${spec.field}` }, n ? el('span', { class: 'es-n' }, n) : null, spec.label ? el('span', { class: 'es-label' }, spec.label) : null,
+      return el('td', { class: f.type === 'check' ? 'es-td-check' : '', colspan: spec.span || false,
+        'data-label': spec.cell ?? col.cell ?? (col.head || []).map(plain).join(' ') },
+        el('label', { for: `f-${spec.field}` }, n ? el('span', { class: 'es-n' }, n) : null, spec.label ? el('span', { class: 'es-label' }, spans(spec.label)) : null,
           input(spec.field, f)),
         el('span', { class: 'es-err', id: `e-${spec.field}` }));
     };
-    return el('div', { class: 'es-table-wrap' }, el('table', { class: 'es-table' },
+    const th = (c, attrs) => el('th', { class: [c.field && 'es-th-field', c.bold && 'es-bold'].filter(Boolean).join(' '), ...attrs },
+      el('span', {}, (c.head || []).map((h, i) => [i ? el('br') : null, spans(h)])),
+      c.field ? [input(c.field, fields[c.field]), el('span', { class: 'es-err', id: `e-${c.field}` })] : null);
+    let head;
+    if (t.cols.some(c => c.group)) {   // two header rows: group headings, then the grouped columns' own heads
+      const top = [], sub = [];
+      t.cols.forEach((c, i) => {
+        if (!c.group) { top.push(th(c, { rowspan: 2 })); return; }
+        if (i && JSON.stringify(t.cols[i - 1].group) === JSON.stringify(c.group)) top[top.length - 1].colSpan++;
+        else top.push(el('th', { colspan: 1, class: 'es-th-group' }, el('span', {}, [].concat(c.group).map((h, k) => [k ? el('br') : null, spans(h)]))));
+        sub.push(th(c));
+      });
+      head = [el('tr', {}, top), el('tr', {}, sub)];
+    } else head = el('tr', {}, t.cols.map(c => th(c)));
+    const tbl = el('table', { class: 'es-table' },
       el('colgroup', {}, t.cols.map(c => el('col', { style: c.w ? `width:${c.w}%` : false }))),
-      el('thead', {}, el('tr', {}, t.cols.map(c => el('th', { class: [c.field && 'es-th-field', c.bold && 'es-bold'].filter(Boolean).join(' ') },
-        el('span', {}, (c.head || []).map((h, i) => [i ? el('br') : null, h])),
-        c.field ? [input(c.field, fields[c.field]), el('span', { class: 'es-err', id: `e-${c.field}` })] : null)))),
-      el('tbody', {}, t.rows.map(r => el('tr', {}, r.cells.map((c, i) => cell(c, t.cols[i], i === 0 ? r.n : null)))))));
+      el('thead', {}, head),
+      el('tbody', {}, t.rows.map(r => el('tr', { class: r.sep ? 'es-sep' : false }, r.cells.map((c, i) => cell(c, t.cols[i], i === 0 ? r.n : null))))));
+    if (!t.side) return el('div', { class: 'es-table-wrap' }, tbl);
+    return el('div', { class: 'es-table-wrap es-with-side', style: t.sidew ? `--side-w:${t.sidew}%` : false }, el('div', { class: 'es-table-main' }, tbl),
+      el('div', { class: 'es-side' }, t.side.map(block)));
   }
 
   function render(form) {
@@ -76,38 +95,48 @@
     let totalOut = null;
     const lineOuts = [];   // per-line amounts of a fee box (form.fee_items)
     const look = b => [b.black && 'es-black', b.serif && 'es-serif', b.u && 'es-u', b.center && 'es-center-text'].filter(Boolean).join(' ');
-    for (const b of form.sheet) {
-      if (b.logos) sheet.append(el('div', { class: 'es-logos' }, b.logos.map(l => el('img', { src: l.src, alt: l.alt }))));
-      else if (b.title) sheet.append(el('h1', { class: `es-title ${look(b)}` }, b.title.map((t, i) => [i ? el('br') : null, t])));
-      else if (b.subtitle) sheet.append(el('p', { class: `es-subtitle ${look(b)}` }, b.subtitle.map((t, i) => [i ? el('br') : null, t])));
-      else if (b.text) sheet.append(el('p', { class: `es-text es-${b.size || 'md'} ${look(b)}` }, spans(b.text)));
-      else if (b.heading) sheet.append(el('h2', { class: 'es-heading' }, b.heading));
-      else if (b.table) sheet.append(table(b.table, form.fields));
-      else if (b.fees) {
+    const block = b => {
+      if (b.logos) return el('div', { class: 'es-logos' }, b.logos.map(l => el('img', { src: l.src, alt: l.alt })));
+      if (b.title) return el('h1', { class: `es-title ${look(b)}`, style: b.style || false }, b.title.map((t, i) => [i ? el('br') : null, t]));
+      if (b.subtitle) return el('p', { class: `es-subtitle ${look(b)}`, style: b.style || false }, b.subtitle.map((t, i) => [i ? el('br') : null, t]));
+      if (b.text) return el('p', { class: `es-text es-${b.size || 'md'} ${look(b)}`, style: b.style || false }, spans(b.text));
+      if (b.heading) return el('h2', { class: 'es-heading' }, b.heading);
+      if (b.table) return table(b.table, form.fields, block);
+      // boxes side by side (stacked on phones), like the paper's bottom row: [{w (%), blocks}]
+      if (b.boxes) return el('div', { class: 'es-boxes' }, b.boxes.map(x => el('div', { class: 'es-box', style: x.w ? `flex-basis:${x.w}%` : false }, x.blocks.map(block))));
+      if (b.fees) {
         totalOut = el('span', { class: 'es-fee-amt' });
-        sheet.append(el('div', { class: 'es-fees' },
+        const tally = form.fee_items.some(i => i.rate);   // paper-style tally: rate | $ amount | what it covers
+        return el('div', { class: `es-fees${tally ? ' es-tally' : ''}` },
+          b.intro ? el('p', { class: 'es-fee-intro' }, spans(b.intro)) : null,
           form.fee_items.map(i => {
+            const before = i.before ? el('p', { class: 'es-fee-before' }, i.before) : null;
             if (i.check) {   // opt-in line with its own box instead of an amount (e.g. "Scratch Team: no additional fee [ ] Yes")
               lineOuts.push(null);
               const name = i.fields[0];
-              return el('p', { class: `es-fee-line${i.gap ? ' es-fee-gap' : ''}` }, el('label', { for: `f-${name}` }, i.label),
-                el('label', { class: 'es-fee-check', for: `f-${name}` }, input(name, form.fields[name]), i.check, el('span', { class: 'es-err', id: `e-${name}` })));
+              return [before, el('p', { class: `es-fee-line${i.gap ? ' es-fee-gap' : ''}` }, el('label', { for: `f-${name}` }, i.label),
+                el('label', { class: 'es-fee-check', for: `f-${name}` }, input(name, form.fields[name]), i.check, el('span', { class: 'es-err', id: `e-${name}` })))];
             }
             const out = el('span', { class: 'es-fee-amt' });
             lineOuts.push(out);
-            return el('p', { class: `es-fee-line${i.gap ? ' es-fee-gap' : ''}` }, el('span', {}, i.label), el('span', {}, '$ ', out));
+            if (tally) return [before, el('p', { class: 'es-fee-line' }, el('span', {}, i.rate || ''), el('span', {}, '$ ', out), el('span', {}, i.label))];
+            return [before, el('p', { class: `es-fee-line${i.gap ? ' es-fee-gap' : ''}` }, el('span', {}, i.label), el('span', {}, '$ ', out))];
           }),
-          el('p', { class: 'es-fee-line es-fee-gap es-fee-total' }, el('span', {}, b.fees), el('span', {}, '$ ', totalOut))));
+          tally ? el('p', { class: 'es-fee-line es-fee-total' }, el('span', {}), el('span', {}, '$ ', totalOut), el('span', {}, b.fees))
+            : el('p', { class: 'es-fee-line es-fee-gap es-fee-total' }, el('span', {}, b.fees), el('span', {}, '$ ', totalOut)));
       }
-      else if (b.row) sheet.append(el('div', { class: `es-row${b.center ? ' es-center' : ''}` },
+      // fields on a line; `before` puts a checkbox ahead of its label ("[ ] Handicap")
+      if (b.row) return el('div', { class: `es-row${b.center ? ' es-center' : ''}${b.tight ? ' es-tight' : ''}` },
         b.row.map(c => el('label', { class: `es-field${form.fields[c.field].type === 'check' ? ' es-check' : ''}`, style: `flex-grow:${c.grow || 1}`, for: `f-${c.field}` },
-          el('span', { class: 'es-label' }, c.label), input(c.field, form.fields[c.field]),
-          el('span', { class: 'es-err', id: `e-${c.field}` })))));
-      else if (b.total) {
+          c.before ? input(c.field, form.fields[c.field]) : null, el('span', { class: 'es-label' }, spans(c.label)), c.before ? null : input(c.field, form.fields[c.field]),
+          el('span', { class: 'es-err', id: `e-${c.field}` }))));
+      if (b.total) {
         totalOut = el('span', { class: 'es-amount' }, '0.00');
-        sheet.append(el('p', { class: 'es-total' }, `${b.total} $`, totalOut, el('span', { class: 'es-note' }, ` ${b.note || ''}`)));
+        return el('p', { class: 'es-total' }, `${b.total} $`, totalOut, el('span', { class: 'es-note' }, ` ${b.note || ''}`));
       }
-    }
+      return null;
+    };
+    for (const b of form.sheet) { const n = block(b); if (n) sheet.append(n); }
     // honeypot for bots: hidden from people and screen readers
     sheet.append(el('div', { class: 'es-hp', 'aria-hidden': 'true' }, el('input', { name: 'website', tabindex: '-1', autocomplete: 'off' })));
 
@@ -118,7 +147,7 @@
     const rules = form.rules ? el('div', { class: 'entry-sheet es-rules' },
       el('h2', { class: 'es-heading es-center-text' }, form.rules.title),
       ruleList(form.rules.items),
-      form.rules.footer ? el('p', { class: 'es-text es-sm es-bold' }, form.rules.footer) : null) : null;
+      form.rules.footer ? el('p', { class: 'es-text es-sm es-bold' }, [].concat(form.rules.footer).map((l, i) => [i ? el('br') : null, l])) : null) : null;
 
     const pdfLink = form.pdf_url ? el('p', { class: 'es-alt' }, 'Prefer paper? ', el('a', { href: form.pdf_url, target: '_blank', rel: 'noopener' }, 'Download the PDF entry form'), ' and mail or email it in.') : null;
     root.replaceChildren(...[el('p', { class: 'es-back' }, el('a', { href: 'tournaments.html' }, '← Tournaments')), formEl, pdfLink, rules].filter(Boolean));
