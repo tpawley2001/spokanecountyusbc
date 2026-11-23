@@ -175,7 +175,8 @@
       "center": "North Bowl",
       "type": "Team",
       "type_color": "blue",
-      "entry_form": ""
+      "entry_form": "forms/open-championship-entry.pdf",
+      "online_form": "open-championship"
     },
     {
       "name": "SCUSBC Open Championships (Doubles & Singles Only)",
@@ -183,7 +184,8 @@
       "center": "North Bowl",
       "type": "All-Events",
       "type_color": "green",
-      "entry_form": ""
+      "entry_form": "forms/open-championship-entry.pdf",
+      "online_form": "open-championship"
     },
     {
       "name": "SCUSBC Women's Championships",

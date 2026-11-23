@@ -27,17 +27,72 @@
     return el('input', attrs);
   }
 
+  // Styled text: a plain string, or runs [{t, bold, red, blue, u}]
+  function spans(text) {
+    if (typeof text === 'string') return text;
+    return text.map(s => el('span', { class: [s.red && 'es-red', s.blue && 'es-blue', s.bold && 'es-bold', s.u && 'es-u'].filter(Boolean).join(' ') }, s.t));
+  }
+
+  // Rules: numbered items (string or styled runs), with {heading} section titles
+  // and unnumbered {text} paragraphs; numbering carries on across sections.
+  function ruleList(items) {
+    const out = [];
+    let ol = null, n = 0;
+    for (const r of items) {
+      if (r.heading) { out.push(el('h3', { class: 'es-rules-h' }, r.heading)); ol = null; }
+      else if (r.text) { out.push(el('p', { class: 'es-text es-md' }, spans(r.text))); ol = null; }
+      else {
+        if (!ol) { ol = el('ol', { start: n + 1 }); out.push(ol); }
+        ol.append(el('li', {}, spans(r))); n++;
+      }
+    }
+    return out;
+  }
+
+  // A ruled table like the paper's (bowler grids, captain box). cols: [{head: [lines],
+  // field (an input in the header cell), cell (label for the cell on phones), bold, w (%)}];
+  // rows: [{n (row number), cells: [field | {label, field} | null]}].
+  function table(t, fields) {
+    const cell = (c, col, n) => {
+      const spec = typeof c === 'string' ? { field: c } : c;
+      if (!spec) return el('td', { class: 'es-empty' });
+      const f = fields[spec.field];
+      return el('td', { class: f.type === 'check' ? 'es-td-check' : '', 'data-label': col.cell ?? (col.head || []).join(' ') },
+        el('label', { for: `f-${spec.field}` }, n ? el('span', { class: 'es-n' }, n) : null, spec.label ? el('span', { class: 'es-label' }, spec.label) : null,
+          input(spec.field, f)),
+        el('span', { class: 'es-err', id: `e-${spec.field}` }));
+    };
+    return el('div', { class: 'es-table-wrap' }, el('table', { class: 'es-table' },
+      el('colgroup', {}, t.cols.map(c => el('col', { style: c.w ? `width:${c.w}%` : false }))),
+      el('thead', {}, el('tr', {}, t.cols.map(c => el('th', { class: [c.field && 'es-th-field', c.bold && 'es-bold'].filter(Boolean).join(' ') },
+        el('span', {}, (c.head || []).map((h, i) => [i ? el('br') : null, h])),
+        c.field ? [input(c.field, fields[c.field]), el('span', { class: 'es-err', id: `e-${c.field}` })] : null)))),
+      el('tbody', {}, t.rows.map(r => el('tr', {}, r.cells.map((c, i) => cell(c, t.cols[i], i === 0 ? r.n : null)))))));
+  }
+
   function render(form) {
     document.title = `${form.tournament} Entry Form | Spokane County USBC`;
     const sheet = el('div', { class: 'entry-sheet' });
     let totalOut = null;
+    const lineOuts = [];   // per-line amounts of a fee box (form.fee_items)
+    const look = b => [b.black && 'es-black', b.serif && 'es-serif', b.u && 'es-u', b.center && 'es-center-text'].filter(Boolean).join(' ');
     for (const b of form.sheet) {
       if (b.logos) sheet.append(el('div', { class: 'es-logos' }, b.logos.map(l => el('img', { src: l.src, alt: l.alt }))));
-      else if (b.title) sheet.append(el('h1', { class: 'es-title' }, b.title.map((t, i) => [i ? el('br') : null, t])));
-      else if (b.subtitle) sheet.append(el('p', { class: 'es-subtitle' }, b.subtitle.map((t, i) => [i ? el('br') : null, t])));
-      else if (b.text) sheet.append(el('p', { class: `es-text es-${b.size || 'md'}` },
-        b.text.map(s => el('span', { class: [s.red && 'es-red', s.blue && 'es-blue', s.bold && 'es-bold'].filter(Boolean).join(' ') }, s.t))));
+      else if (b.title) sheet.append(el('h1', { class: `es-title ${look(b)}` }, b.title.map((t, i) => [i ? el('br') : null, t])));
+      else if (b.subtitle) sheet.append(el('p', { class: `es-subtitle ${look(b)}` }, b.subtitle.map((t, i) => [i ? el('br') : null, t])));
+      else if (b.text) sheet.append(el('p', { class: `es-text es-${b.size || 'md'} ${look(b)}` }, spans(b.text)));
       else if (b.heading) sheet.append(el('h2', { class: 'es-heading' }, b.heading));
+      else if (b.table) sheet.append(table(b.table, form.fields));
+      else if (b.fees) {
+        totalOut = el('span', { class: 'es-fee-amt' });
+        sheet.append(el('div', { class: 'es-fees' },
+          form.fee_items.map(i => {
+            const out = el('span', { class: 'es-fee-amt' });
+            lineOuts.push(out);
+            return el('p', { class: `es-fee-line${i.gap ? ' es-fee-gap' : ''}` }, el('span', {}, i.label), el('span', {}, '$ ', out));
+          }),
+          el('p', { class: 'es-fee-line es-fee-gap es-fee-total' }, el('span', {}, b.fees), el('span', {}, '$ ', totalOut))));
+      }
       else if (b.row) sheet.append(el('div', { class: `es-row${b.center ? ' es-center' : ''}` },
         b.row.map(c => el('label', { class: `es-field${form.fields[c.field].type === 'check' ? ' es-check' : ''}`, style: `flex-grow:${c.grow || 1}`, for: `f-${c.field}` },
           el('span', { class: 'es-label' }, c.label), input(c.field, form.fields[c.field]),
@@ -56,7 +111,7 @@
 
     const rules = form.rules ? el('div', { class: 'entry-sheet es-rules' },
       el('h2', { class: 'es-heading es-center-text' }, form.rules.title),
-      el('ol', {}, form.rules.items.map(r => el('li', {}, r))),
+      ruleList(form.rules.items),
       form.rules.footer ? el('p', { class: 'es-text es-sm es-bold' }, form.rules.footer) : null) : null;
 
     const pdfLink = form.pdf_url ? el('p', { class: 'es-alt' }, 'Prefer paper? ', el('a', { href: form.pdf_url, target: '_blank', rel: 'noopener' }, 'Download the PDF entry form'), ' and mail or email it in.') : null;
@@ -66,6 +121,16 @@
     const people = form.fee_people_fields || [];
     const updateTotal = () => {
       if (!totalOut) return;
+      if (form.fee_items) {
+        let total = 0;
+        form.fee_items.forEach((item, k) => {
+          const sum = item.amount * item.fields.filter(f => formEl.elements[f] && valueOf(formEl.elements[f]).trim()).length;
+          total += sum;
+          if (lineOuts[k]) lineOuts[k].textContent = sum ? sum.toFixed(2) : '';
+        });
+        totalOut.textContent = total.toFixed(2);
+        return;
+      }
       const n = people.filter(p => formEl.elements[p] && valueOf(formEl.elements[p]).trim()).length;
       const extra = n ? (form.fee_addons || []).filter(a => !(a.unless && formEl.elements[a.unless] && valueOf(formEl.elements[a.unless]))).reduce((sum, a) => sum + a.amount, 0) : 0;
       totalOut.textContent = (n * (form.fee_per_person || 0) + extra).toFixed(2);

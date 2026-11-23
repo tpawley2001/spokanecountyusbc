@@ -1,0 +1,1135 @@
+{
+  "tournament": "SCUSBC Open Championships",
+  "pdf": "forms/open-championship-entry.pdf",
+  "fee_items": [
+    {
+      "label": "Team Entry: $50 each bowler",
+      "short": "Team entry",
+      "amount": 50,
+      "fields": [
+        "team1_name",
+        "team2_name",
+        "team3_name",
+        "team4_name"
+      ],
+      "pdf_field": "fee_team"
+    },
+    {
+      "label": "Handicap A/E: $10 each bowler",
+      "short": "Handicap A/E",
+      "amount": 10,
+      "fields": [
+        "team1_hdcp_ae",
+        "team2_hdcp_ae",
+        "team3_hdcp_ae",
+        "team4_hdcp_ae"
+      ],
+      "pdf_field": "fee_hdcp_ae"
+    },
+    {
+      "label": "Scratch A/E: $10 each bowler",
+      "short": "Scratch A/E",
+      "amount": 10,
+      "fields": [
+        "team1_scratch_ae",
+        "team2_scratch_ae",
+        "team3_scratch_ae",
+        "team4_scratch_ae"
+      ],
+      "pdf_field": "fee_scratch_ae"
+    },
+    {
+      "label": "Hdcp. Doubles Entry: $50 each bowler",
+      "short": "Hdcp doubles",
+      "amount": 50,
+      "fields": [
+        "ds1_hdcp_dbls",
+        "ds2_hdcp_dbls",
+        "ds3_hdcp_dbls",
+        "ds4_hdcp_dbls"
+      ],
+      "pdf_field": "fee_hdcp_dbls",
+      "gap": true
+    },
+    {
+      "label": "Hdcp. Singles Entry: $50 each bowler",
+      "short": "Hdcp singles",
+      "amount": 50,
+      "fields": [
+        "ds1_hdcp_sgls",
+        "ds2_hdcp_sgls",
+        "ds3_hdcp_sgls",
+        "ds4_hdcp_sgls"
+      ],
+      "pdf_field": "fee_hdcp_sgls"
+    },
+    {
+      "label": "Scratch Doubles Entry: $20 each bowler",
+      "short": "Scratch doubles",
+      "amount": 20,
+      "fields": [
+        "ds1_scratch_dbls",
+        "ds2_scratch_dbls",
+        "ds3_scratch_dbls",
+        "ds4_scratch_dbls"
+      ],
+      "pdf_field": "fee_scratch_dbls"
+    },
+    {
+      "label": "Scratch Singles Entry: $20 each bowler",
+      "short": "Scratch singles",
+      "amount": 20,
+      "fields": [
+        "ds1_scratch_sgls",
+        "ds2_scratch_sgls",
+        "ds3_scratch_sgls",
+        "ds4_scratch_sgls"
+      ],
+      "pdf_field": "fee_scratch_sgls"
+    }
+  ],
+  "fee_pdf": {
+    "total": "total_remitted"
+  },
+  "require_one": {
+    "fields": [
+      "team1_name",
+      "team2_name",
+      "team3_name",
+      "team4_name",
+      "ds1_name",
+      "ds2_name",
+      "ds3_name",
+      "ds4_name"
+    ],
+    "error": "Enter at least one bowler"
+  },
+  "event_picks": [
+    {
+      "name": "team_name",
+      "events": [
+        "team1_name",
+        "team2_name",
+        "team3_name",
+        "team4_name"
+      ],
+      "error": "Enter the team bowlers"
+    },
+    {
+      "name": "ds1_name",
+      "events": [
+        "ds1_hdcp_dbls",
+        "ds1_hdcp_sgls",
+        "ds1_scratch_dbls",
+        "ds1_scratch_sgls"
+      ],
+      "error": "Pick Hdcp Dbls, Hdcp Sgls or both"
+    },
+    {
+      "name": "ds2_name",
+      "events": [
+        "ds2_hdcp_dbls",
+        "ds2_hdcp_sgls",
+        "ds2_scratch_dbls",
+        "ds2_scratch_sgls"
+      ],
+      "error": "Pick Hdcp Dbls, Hdcp Sgls or both"
+    },
+    {
+      "name": "ds3_name",
+      "events": [
+        "ds3_hdcp_dbls",
+        "ds3_hdcp_sgls",
+        "ds3_scratch_dbls",
+        "ds3_scratch_sgls"
+      ],
+      "error": "Pick Hdcp Dbls, Hdcp Sgls or both"
+    },
+    {
+      "name": "ds4_name",
+      "events": [
+        "ds4_hdcp_dbls",
+        "ds4_hdcp_sgls",
+        "ds4_scratch_dbls",
+        "ds4_scratch_sgls"
+      ],
+      "error": "Pick Hdcp Dbls, Hdcp Sgls or both"
+    }
+  ],
+  "needs": [
+    {
+      "field": "team1_hdcp_ae",
+      "needs": "team1_name"
+    },
+    {
+      "field": "team1_scratch_ae",
+      "needs": "team1_name"
+    },
+    {
+      "field": "team2_hdcp_ae",
+      "needs": "team2_name"
+    },
+    {
+      "field": "team2_scratch_ae",
+      "needs": "team2_name"
+    },
+    {
+      "field": "team3_hdcp_ae",
+      "needs": "team3_name"
+    },
+    {
+      "field": "team3_scratch_ae",
+      "needs": "team3_name"
+    },
+    {
+      "field": "team4_hdcp_ae",
+      "needs": "team4_name"
+    },
+    {
+      "field": "team4_scratch_ae",
+      "needs": "team4_name"
+    },
+    {
+      "field": "ds1_scratch_dbls",
+      "needs": "ds1_hdcp_dbls",
+      "error": "Scratch doubles needs Hdcp doubles"
+    },
+    {
+      "field": "ds1_scratch_sgls",
+      "needs": "ds1_hdcp_sgls",
+      "error": "Scratch singles needs Hdcp singles"
+    },
+    {
+      "field": "ds2_scratch_dbls",
+      "needs": "ds2_hdcp_dbls",
+      "error": "Scratch doubles needs Hdcp doubles"
+    },
+    {
+      "field": "ds2_scratch_sgls",
+      "needs": "ds2_hdcp_sgls",
+      "error": "Scratch singles needs Hdcp singles"
+    },
+    {
+      "field": "ds3_scratch_dbls",
+      "needs": "ds3_hdcp_dbls",
+      "error": "Scratch doubles needs Hdcp doubles"
+    },
+    {
+      "field": "ds3_scratch_sgls",
+      "needs": "ds3_hdcp_sgls",
+      "error": "Scratch singles needs Hdcp singles"
+    },
+    {
+      "field": "ds4_scratch_dbls",
+      "needs": "ds4_hdcp_dbls",
+      "error": "Scratch doubles needs Hdcp doubles"
+    },
+    {
+      "field": "ds4_scratch_sgls",
+      "needs": "ds4_hdcp_sgls",
+      "error": "Scratch singles needs Hdcp singles"
+    },
+    {
+      "field": "ds1_hdcp_dbls",
+      "needs": "ds2_hdcp_dbls",
+      "error": "Doubles needs both bowlers"
+    },
+    {
+      "field": "ds2_hdcp_dbls",
+      "needs": "ds1_hdcp_dbls",
+      "error": "Doubles needs both bowlers"
+    },
+    {
+      "field": "ds3_hdcp_dbls",
+      "needs": "ds4_hdcp_dbls",
+      "error": "Doubles needs both bowlers"
+    },
+    {
+      "field": "ds4_hdcp_dbls",
+      "needs": "ds3_hdcp_dbls",
+      "error": "Doubles needs both bowlers"
+    }
+  ],
+  "fields": {
+    "team_name": {
+      "label": "Team name",
+      "max": 60
+    },
+    "team1_name": {
+      "label": "Team bowler 1",
+      "max": 60
+    },
+    "team1_usbc": {
+      "label": "Team bowler 1 USBC number",
+      "max": 20
+    },
+    "team1_avg": {
+      "label": "Team bowler 1 highest 2025-26 avg.",
+      "type": "average"
+    },
+    "team1_jan_avg": {
+      "label": "Team bowler 1 Jan. 1 2027 average",
+      "type": "average"
+    },
+    "team1_hdcp_ae": {
+      "label": "Team bowler 1 Hdcp A/E",
+      "type": "check"
+    },
+    "team1_scratch_ae": {
+      "label": "Team bowler 1 Scratch A/E",
+      "type": "check"
+    },
+    "team2_name": {
+      "label": "Team bowler 2",
+      "max": 60
+    },
+    "team2_usbc": {
+      "label": "Team bowler 2 USBC number",
+      "max": 20
+    },
+    "team2_avg": {
+      "label": "Team bowler 2 highest 2025-26 avg.",
+      "type": "average"
+    },
+    "team2_jan_avg": {
+      "label": "Team bowler 2 Jan. 1 2027 average",
+      "type": "average"
+    },
+    "team2_hdcp_ae": {
+      "label": "Team bowler 2 Hdcp A/E",
+      "type": "check"
+    },
+    "team2_scratch_ae": {
+      "label": "Team bowler 2 Scratch A/E",
+      "type": "check"
+    },
+    "team3_name": {
+      "label": "Team bowler 3",
+      "max": 60
+    },
+    "team3_usbc": {
+      "label": "Team bowler 3 USBC number",
+      "max": 20
+    },
+    "team3_avg": {
+      "label": "Team bowler 3 highest 2025-26 avg.",
+      "type": "average"
+    },
+    "team3_jan_avg": {
+      "label": "Team bowler 3 Jan. 1 2027 average",
+      "type": "average"
+    },
+    "team3_hdcp_ae": {
+      "label": "Team bowler 3 Hdcp A/E",
+      "type": "check"
+    },
+    "team3_scratch_ae": {
+      "label": "Team bowler 3 Scratch A/E",
+      "type": "check"
+    },
+    "team4_name": {
+      "label": "Team bowler 4",
+      "max": 60
+    },
+    "team4_usbc": {
+      "label": "Team bowler 4 USBC number",
+      "max": 20
+    },
+    "team4_avg": {
+      "label": "Team bowler 4 highest 2025-26 avg.",
+      "type": "average"
+    },
+    "team4_jan_avg": {
+      "label": "Team bowler 4 Jan. 1 2027 average",
+      "type": "average"
+    },
+    "team4_hdcp_ae": {
+      "label": "Team bowler 4 Hdcp A/E",
+      "type": "check"
+    },
+    "team4_scratch_ae": {
+      "label": "Team bowler 4 Scratch A/E",
+      "type": "check"
+    },
+    "ds1_name": {
+      "label": "D/S pair 1 bowler 1",
+      "max": 60
+    },
+    "ds1_usbc": {
+      "label": "D/S pair 1 bowler 1 USBC number",
+      "max": 20
+    },
+    "ds1_avg": {
+      "label": "D/S pair 1 bowler 1 highest 2025-26 avg.",
+      "type": "average"
+    },
+    "ds1_jan_avg": {
+      "label": "D/S pair 1 bowler 1 Jan 1 2027 average",
+      "type": "average"
+    },
+    "ds1_hdcp_dbls": {
+      "label": "D/S pair 1 bowler 1 Hdcp doubles",
+      "type": "check"
+    },
+    "ds1_hdcp_sgls": {
+      "label": "D/S pair 1 bowler 1 Hdcp singles",
+      "type": "check"
+    },
+    "ds1_scratch_dbls": {
+      "label": "D/S pair 1 bowler 1 Scratch doubles",
+      "type": "check"
+    },
+    "ds1_scratch_sgls": {
+      "label": "D/S pair 1 bowler 1 Scratch singles",
+      "type": "check"
+    },
+    "ds2_name": {
+      "label": "D/S pair 1 bowler 2",
+      "max": 60
+    },
+    "ds2_usbc": {
+      "label": "D/S pair 1 bowler 2 USBC number",
+      "max": 20
+    },
+    "ds2_avg": {
+      "label": "D/S pair 1 bowler 2 highest 2025-26 avg.",
+      "type": "average"
+    },
+    "ds2_jan_avg": {
+      "label": "D/S pair 1 bowler 2 Jan 1 2027 average",
+      "type": "average"
+    },
+    "ds2_hdcp_dbls": {
+      "label": "D/S pair 1 bowler 2 Hdcp doubles",
+      "type": "check"
+    },
+    "ds2_hdcp_sgls": {
+      "label": "D/S pair 1 bowler 2 Hdcp singles",
+      "type": "check"
+    },
+    "ds2_scratch_dbls": {
+      "label": "D/S pair 1 bowler 2 Scratch doubles",
+      "type": "check"
+    },
+    "ds2_scratch_sgls": {
+      "label": "D/S pair 1 bowler 2 Scratch singles",
+      "type": "check"
+    },
+    "ds3_name": {
+      "label": "D/S pair 2 bowler 1",
+      "max": 60
+    },
+    "ds3_usbc": {
+      "label": "D/S pair 2 bowler 1 USBC number",
+      "max": 20
+    },
+    "ds3_avg": {
+      "label": "D/S pair 2 bowler 1 highest 2025-26 avg.",
+      "type": "average"
+    },
+    "ds3_jan_avg": {
+      "label": "D/S pair 2 bowler 1 Jan 1 2027 average",
+      "type": "average"
+    },
+    "ds3_hdcp_dbls": {
+      "label": "D/S pair 2 bowler 1 Hdcp doubles",
+      "type": "check"
+    },
+    "ds3_hdcp_sgls": {
+      "label": "D/S pair 2 bowler 1 Hdcp singles",
+      "type": "check"
+    },
+    "ds3_scratch_dbls": {
+      "label": "D/S pair 2 bowler 1 Scratch doubles",
+      "type": "check"
+    },
+    "ds3_scratch_sgls": {
+      "label": "D/S pair 2 bowler 1 Scratch singles",
+      "type": "check"
+    },
+    "ds4_name": {
+      "label": "D/S pair 2 bowler 2",
+      "max": 60
+    },
+    "ds4_usbc": {
+      "label": "D/S pair 2 bowler 2 USBC number",
+      "max": 20
+    },
+    "ds4_avg": {
+      "label": "D/S pair 2 bowler 2 highest 2025-26 avg.",
+      "type": "average"
+    },
+    "ds4_jan_avg": {
+      "label": "D/S pair 2 bowler 2 Jan 1 2027 average",
+      "type": "average"
+    },
+    "ds4_hdcp_dbls": {
+      "label": "D/S pair 2 bowler 2 Hdcp doubles",
+      "type": "check"
+    },
+    "ds4_hdcp_sgls": {
+      "label": "D/S pair 2 bowler 2 Hdcp singles",
+      "type": "check"
+    },
+    "ds4_scratch_dbls": {
+      "label": "D/S pair 2 bowler 2 Scratch doubles",
+      "type": "check"
+    },
+    "ds4_scratch_sgls": {
+      "label": "D/S pair 2 bowler 2 Scratch singles",
+      "type": "check"
+    },
+    "contact_name": {
+      "label": "Team captain",
+      "required": true,
+      "max": 60
+    },
+    "tm_reserved": {
+      "label": "Team event date/time reserved",
+      "max": 40
+    },
+    "contact_email": {
+      "label": "Email",
+      "type": "email",
+      "required": true,
+      "max": 100
+    },
+    "ds_reserved": {
+      "label": "D/S date/time reserved",
+      "max": 40
+    }
+  },
+  "sheet": [
+    {
+      "logos": [
+        {
+          "src": "images/entry/scusbc-logo.png",
+          "alt": "Spokane County USBC"
+        }
+      ]
+    },
+    {
+      "title": [
+        "Spokane County USBC presents:",
+        "86th ANNUAL OPEN CHAMPIONSHIP Tournament"
+      ],
+      "black": true,
+      "serif": true
+    },
+    {
+      "subtitle": [
+        "March 13 & 14, 2027 at North Bowl"
+      ],
+      "serif": true,
+      "u": true
+    },
+    {
+      "text": [
+        {
+          "t": "Team Event at North Bowl",
+          "bold": true,
+          "u": true
+        }
+      ],
+      "size": "lg",
+      "serif": true,
+      "center": true
+    },
+    {
+      "text": [
+        {
+          "t": "March 13   10 am",
+          "bold": true
+        }
+      ],
+      "serif": true,
+      "center": true
+    },
+    {
+      "text": [
+        {
+          "t": "D/S Squad at North Bowl",
+          "bold": true,
+          "u": true
+        }
+      ],
+      "size": "lg",
+      "serif": true,
+      "center": true
+    },
+    {
+      "text": [
+        {
+          "t": "March 14   10 am",
+          "bold": true
+        }
+      ],
+      "serif": true,
+      "center": true
+    },
+    {
+      "text": [
+        {
+          "t": "$50.00 entry fee per person",
+          "bold": true
+        }
+      ],
+      "size": "lg",
+      "center": true
+    },
+    {
+      "text": [
+        {
+          "t": "Limited to first 18 prepaid Teams – ",
+          "bold": true
+        },
+        {
+          "t": "Enter early to guarantee your spot",
+          "bold": true,
+          "red": true
+        }
+      ],
+      "center": true
+    },
+    {
+      "table": {
+        "cols": [
+          {
+            "head": [
+              "Team Name"
+            ],
+            "field": "team_name",
+            "cell": "First and Last Name",
+            "w": 30
+          },
+          {
+            "head": [
+              "USBC",
+              "Number"
+            ],
+            "cell": "USBC Number",
+            "w": 15
+          },
+          {
+            "head": [
+              "Highest",
+              "2025-26 Avg."
+            ],
+            "cell": "Highest 2025-26 Avg.",
+            "w": 11
+          },
+          {
+            "head": [
+              "Jan. 1 2027",
+              "Average"
+            ],
+            "cell": "Jan. 1 2027 Average",
+            "w": 11
+          },
+          {
+            "head": [
+              "Team Event: 3 games",
+              "March 13 at 10 am"
+            ],
+            "bold": true,
+            "w": 17
+          },
+          {
+            "head": [
+              "Hdcp",
+              "A/E"
+            ],
+            "cell": "Hdcp A/E",
+            "w": 8
+          },
+          {
+            "head": [
+              "Scratch",
+              "A/E"
+            ],
+            "cell": "Scratch A/E",
+            "w": 8
+          }
+        ],
+        "rows": [
+          {
+            "n": "1",
+            "cells": [
+              "team1_name",
+              "team1_usbc",
+              "team1_avg",
+              "team1_jan_avg",
+              null,
+              "team1_hdcp_ae",
+              "team1_scratch_ae"
+            ]
+          },
+          {
+            "n": "2",
+            "cells": [
+              "team2_name",
+              "team2_usbc",
+              "team2_avg",
+              "team2_jan_avg",
+              null,
+              "team2_hdcp_ae",
+              "team2_scratch_ae"
+            ]
+          },
+          {
+            "n": "3",
+            "cells": [
+              "team3_name",
+              "team3_usbc",
+              "team3_avg",
+              "team3_jan_avg",
+              null,
+              "team3_hdcp_ae",
+              "team3_scratch_ae"
+            ]
+          },
+          {
+            "n": "4",
+            "cells": [
+              "team4_name",
+              "team4_usbc",
+              "team4_avg",
+              "team4_jan_avg",
+              null,
+              "team4_hdcp_ae",
+              "team4_scratch_ae"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "text": [
+        {
+          "t": "$50.00 entry fee per person per event",
+          "bold": true
+        }
+      ],
+      "size": "lg",
+      "center": true
+    },
+    {
+      "table": {
+        "cols": [
+          {
+            "head": [
+              "Doubles and Singles Entry",
+              "First and Last Name"
+            ],
+            "cell": "First and Last Name",
+            "w": 31
+          },
+          {
+            "head": [
+              "USBC",
+              "Number"
+            ],
+            "cell": "USBC Number",
+            "w": 14
+          },
+          {
+            "head": [
+              "Highest",
+              "2025-26 Avg."
+            ],
+            "cell": "Highest 2025-26 Avg.",
+            "w": 11
+          },
+          {
+            "head": [
+              "Jan 1 2027",
+              "Average"
+            ],
+            "cell": "Jan 1 2027 Average",
+            "w": 11
+          },
+          {
+            "head": [
+              "Hdcp",
+              "Dbls."
+            ],
+            "cell": "Hdcp Dbls.",
+            "w": 8.25
+          },
+          {
+            "head": [
+              "Hdcp",
+              "Sgls"
+            ],
+            "cell": "Hdcp Sgls",
+            "w": 8.25
+          },
+          {
+            "head": [
+              "Scratch",
+              "Dbls"
+            ],
+            "cell": "Scratch Dbls",
+            "w": 8.25
+          },
+          {
+            "head": [
+              "Scratch",
+              "Sgls."
+            ],
+            "cell": "Scratch Sgls.",
+            "w": 8.25
+          }
+        ],
+        "rows": [
+          {
+            "n": "1",
+            "cells": [
+              "ds1_name",
+              "ds1_usbc",
+              "ds1_avg",
+              "ds1_jan_avg",
+              "ds1_hdcp_dbls",
+              "ds1_hdcp_sgls",
+              "ds1_scratch_dbls",
+              "ds1_scratch_sgls"
+            ]
+          },
+          {
+            "n": "2",
+            "cells": [
+              "ds2_name",
+              "ds2_usbc",
+              "ds2_avg",
+              "ds2_jan_avg",
+              "ds2_hdcp_dbls",
+              "ds2_hdcp_sgls",
+              "ds2_scratch_dbls",
+              "ds2_scratch_sgls"
+            ]
+          },
+          {
+            "n": "1",
+            "cells": [
+              "ds3_name",
+              "ds3_usbc",
+              "ds3_avg",
+              "ds3_jan_avg",
+              "ds3_hdcp_dbls",
+              "ds3_hdcp_sgls",
+              "ds3_scratch_dbls",
+              "ds3_scratch_sgls"
+            ]
+          },
+          {
+            "n": "2",
+            "cells": [
+              "ds4_name",
+              "ds4_usbc",
+              "ds4_avg",
+              "ds4_jan_avg",
+              "ds4_hdcp_dbls",
+              "ds4_hdcp_sgls",
+              "ds4_scratch_dbls",
+              "ds4_scratch_sgls"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "text": [
+        {
+          "t": "Optional Events",
+          "bold": true,
+          "red": true
+        }
+      ],
+      "size": "lg",
+      "center": true
+    },
+    {
+      "text": [
+        {
+          "t": "Scratch Doubles and Singles"
+        }
+      ],
+      "center": true
+    },
+    {
+      "text": [
+        {
+          "t": "(Based on your handicap scores)"
+        }
+      ],
+      "size": "sm",
+      "center": true
+    },
+    {
+      "text": [
+        {
+          "t": "Scratch and Handicap All Events"
+        }
+      ],
+      "center": true
+    },
+    {
+      "text": [
+        {
+          "t": "(Based on your Team, Doubles and Singles scores)"
+        }
+      ],
+      "size": "sm",
+      "center": true
+    },
+    {
+      "table": {
+        "cols": [
+          {
+            "head": [
+              "Please Print  or Type"
+            ],
+            "cell": "",
+            "w": 55
+          },
+          {
+            "head": [
+              "Date/Time Reserved"
+            ],
+            "cell": "",
+            "w": 45
+          }
+        ],
+        "rows": [
+          {
+            "cells": [
+              {
+                "label": "Team Captain:",
+                "field": "contact_name"
+              },
+              {
+                "label": "Tm:",
+                "field": "tm_reserved"
+              }
+            ]
+          },
+          {
+            "cells": [
+              {
+                "label": "Email:",
+                "field": "contact_email"
+              },
+              {
+                "label": "D/S",
+                "field": "ds_reserved"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "text": [
+        {
+          "t": "Make Reservations by emailing the tournament director:",
+          "bold": true,
+          "red": true
+        }
+      ],
+      "serif": true
+    },
+    {
+      "text": [
+        {
+          "t": "spokaneusbc.assoc.manager@gmail.com",
+          "bold": true,
+          "red": true
+        }
+      ],
+      "serif": true
+    },
+    {
+      "fees": "Total Amount Remitted"
+    }
+  ],
+  "rules": {
+    "title": "Spokane County USBC Open Championship Rules",
+    "items": [
+      {
+        "heading": "Tournament Events"
+      },
+      [
+        {
+          "t": "This Tournament will have two divisions. (Averages for Singles of 180 and over, Doubles of 360 and over will be in the ‘A’ division. Averages for Singles of 179 or less, Doubles of 359 or less will be in the ‘B’ division.) Handicaps for both divisions will be 90% from 230. "
+        },
+        {
+          "t": "There will be at least one prize for each four entries. ",
+          "bold": true
+        },
+        {
+          "t": "No trophies will be awarded."
+        }
+      ],
+      [
+        {
+          "t": "Optional scratch prize lists will be offered in all of the events. Bowlers must enter the corresponding handicap event to be eligible to enter the optional scratch events. "
+        },
+        {
+          "t": "There will be at least one prize for each four entries in these events. ",
+          "bold": true
+        },
+        {
+          "t": "No trophies will be awarded. Optional Scratch and Handicap A/E will be offered based on the combined score of all 3 events bowled. "
+        },
+        {
+          "t": "There will be at least one prize for each ten entries in the all events category.",
+          "bold": true
+        }
+      ],
+      {
+        "heading": "Tournament Fees"
+      },
+      [
+        {
+          "t": "Handicap Entry Fees",
+          "bold": true
+        },
+        {
+          "t": ":  Team Event (3 games): $50 per person. Handicap Fees for D/S: $100 for Doubles and $50 for Singles. The entry fee for the optional scratch Doubles and Singles events will be additional $20 per person. No entry fees will be returned after acceptance of assigned schedule times. "
+        },
+        {
+          "t": "Incomplete entries and entries not received prior to the start of the tournament will be treated as walk in entries and will not have guaranteed squad times. ",
+          "bold": true
+        },
+        {
+          "t": "Walk in entries will be accepted up to the start of the last squad subject to lane availability. (Squad times are reserved for prepaid entries.)"
+        }
+      ],
+      {
+        "heading": "Tournament Participation"
+      },
+      "No more than one professional bowler will be allowed to bowl on a 4-person team. Not more than one professional bowler will be permitted on a doubles team. A professional bowler is defined as a bowler who holds a current membership card in the Professional Bowlers Association.",
+      [
+        {
+          "t": "All participants must be "
+        },
+        {
+          "t": "adult ",
+          "bold": true
+        },
+        {
+          "t": "members of the United States Bowling Congress (USBC). "
+        },
+        {
+          "t": "Members from another association must pay local membership dues ($10) and provide verified averages from their association",
+          "bold": true
+        },
+        {
+          "t": ". Non-USBC members may establish eligibility by purchase of a USBC membership."
+        }
+      ],
+      [
+        {
+          "t": "Substitutes: ",
+          "bold": true
+        },
+        {
+          "t": "In case of emergency after a game has started, a substitute, if one is available, shall be allowed in doubles events only. The combined scores are to count in this event. If no substitute is available, only the actual score of the frames bowled shall count. A substitute shall take the place of the original entrant in the lineup."
+        }
+      ],
+      {
+        "heading": "Tournament Averages"
+      },
+      [
+        {
+          "t": "Bowlers will use their highest certified league average based on a minimum of 21 games for the 2025-26 season "
+        },
+        {
+          "t": "(Rule 319a1a). ",
+          "bold": true
+        },
+        {
+          "t": "If no average last year, use highest certified league average for the 2024-25 season based on a minimum of 21 games. If no winter league average for the 2024-25 or 2025-26 seasons, use the highest certified league average, 21 games or more as of January 1, 2027. If no winter league average for the 2024-25 season, the 2025-26 season or January 1, 2027 season, use highest winter 21 game average from the previous five years starting with the most current year. A 2026 summer league average will be accepted only if no other average is available. All others bowl scratch. NOTE: "
+        },
+        {
+          "t": "Non-SCUSBC members are encouraged to bring average verification documents.",
+          "bold": true,
+          "red": true
+        }
+      ],
+      [
+        {
+          "t": "Any bowler who has only a 2025-26 certified average from a non-standard league will have their average rerated based on the USBC Sport league adjustment chart",
+          "bold": true
+        },
+        {
+          "t": ". If the bowler has both a non- standard and a standard league average, and their re-rated average is higher than their standard average, the bowler must use the rerated average.",
+          "bold": true,
+          "red": true
+        }
+      ],
+      [
+        {
+          "t": "The Tournament Manager or an authorized representative may adjust an entrant’s average upward prior to bowling. ",
+          "bold": true
+        },
+        {
+          "t": "The entrant will be notified of any rerating and, if the entrant chooses not to bowl with the adjusted average, their entry fee will be refunded. Such adjustment may be appealed to the USBC within 15 days of the date of bowling or prior to the payment of prizes, whichever comes first. (Rule 319c)"
+        }
+      ],
+      {
+        "heading": "Tournament Rules"
+      },
+      "It shall be each bowler’s responsibility to verify the accuracy of their average in handicap or classified tournaments, whether originally submitted by the bowler, their team captain, or others. Failure to use the proper average or make a correction by the completion of the first game of a series shall disqualify score if submitted average is lower than actual or base prize winnings on submitted average if it is higher per USBC Rule 319a3.",
+      [
+        {
+          "t": "USBC Rule 319d does not apply. (Reporting of prize winnings) USBC Rule 319e 1-2 does not apply. (Average Adjustment rule). "
+        },
+        {
+          "t": "All other USBC rules shall apply.",
+          "bold": true
+        }
+      ],
+      [
+        {
+          "t": "The maximum handicap game score is capped at 300 (Rule 327d).",
+          "bold": true
+        }
+      ],
+      [
+        {
+          "t": "Paid Entries must be received by March 1, 2027 to guarantee your requested squad time(s) in this tournament.",
+          "bold": true
+        }
+      ],
+      [
+        {
+          "t": "Suggested attire should be neat, clean and proper fitting.",
+          "bold": true
+        }
+      ],
+      [
+        {
+          "t": "$25 will be charged for any checks returned by the banks, credit unions, etc.",
+          "bold": true
+        }
+      ],
+      {
+        "text": [
+          {
+            "t": "If the tournament, or squads in the tournament, are cancelled due to unforeseen circumstances, the entry fees for bowlers scheduled in the cancelled squad(s) will be refunded.",
+            "bold": true
+          }
+        ]
+      }
+    ],
+    "footer": "Mail Entries to: Tina Blough, P.O. Box 112, Deer Park, WA 99006 · Make Checks Payable to: SCUSBC Tournament · spokaneusbc.assoc.manager@gmail.com · (509) 795-1845 · www.spokanecountyusbc.org"
+  },
+  "payment": {
+    "paypal": "SCUSBC",
+    "venmo": "Spokane-USBC",
+    "paypal_qr": "images/pay/paypal-qr.svg",
+    "venmo_qr": "images/pay/venmo-qr.svg",
+    "checks": "Or mail a check payable to SCUSBC Tournament to Tina Blough, P.O. Box 112, Deer Park, WA 99006. ($25 will be charged for any checks returned by the banks, credit unions, etc.)"
+  }
+}

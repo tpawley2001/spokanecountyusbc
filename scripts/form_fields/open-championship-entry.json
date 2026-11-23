@@ -1,0 +1,889 @@
+{
+ "source": "open-championship-entry.pdf",
+ "fields": [
+  {
+   "page": 0,
+   "name": "team_name",
+   "label": "Team name",
+   "type": "text",
+   "rect": [
+    66,
+    218.5,
+    180.5,
+    239.5
+   ]
+  },
+  {
+   "page": 0,
+   "name": "team1_name",
+   "label": "Team bowler 1 name",
+   "type": "text",
+   "rect": [
+    37,
+    241.4,
+    180.5,
+    255.3
+   ]
+  },
+  {
+   "page": 0,
+   "name": "team1_usbc",
+   "label": "Team bowler 1 USBC number",
+   "type": "text",
+   "rect": [
+    183,
+    241.4,
+    251,
+    255.3
+   ],
+   "maxlen": 20
+  },
+  {
+   "page": 0,
+   "name": "team1_avg",
+   "label": "Team bowler 1 highest 2025-26 average",
+   "type": "text",
+   "rect": [
+    253.5,
+    241.4,
+    296.8,
+    255.3
+   ],
+   "maxlen": 3
+  },
+  {
+   "page": 0,
+   "name": "team1_jan_avg",
+   "label": "Team bowler 1 Jan. 1 2027 average",
+   "type": "text",
+   "rect": [
+    299,
+    241.4,
+    340.3,
+    255.3
+   ],
+   "maxlen": 3
+  },
+  {
+   "page": 0,
+   "name": "team1_hdcp_ae",
+   "label": "Team bowler 1 handicap all events (X)",
+   "type": "text",
+   "rect": [
+    426,
+    241.4,
+    449.8,
+    255.3
+   ],
+   "maxlen": 1
+  },
+  {
+   "page": 0,
+   "name": "team1_scratch_ae",
+   "label": "Team bowler 1 scratch all events (X)",
+   "type": "text",
+   "rect": [
+    452,
+    241.4,
+    477,
+    255.3
+   ],
+   "maxlen": 1
+  },
+  {
+   "page": 0,
+   "name": "team2_name",
+   "label": "Team bowler 2 name",
+   "type": "text",
+   "rect": [
+    37,
+    257.3,
+    180.5,
+    271.2
+   ]
+  },
+  {
+   "page": 0,
+   "name": "team2_usbc",
+   "label": "Team bowler 2 USBC number",
+   "type": "text",
+   "rect": [
+    183,
+    257.3,
+    251,
+    271.2
+   ],
+   "maxlen": 20
+  },
+  {
+   "page": 0,
+   "name": "team2_avg",
+   "label": "Team bowler 2 highest 2025-26 average",
+   "type": "text",
+   "rect": [
+    253.5,
+    257.3,
+    296.8,
+    271.2
+   ],
+   "maxlen": 3
+  },
+  {
+   "page": 0,
+   "name": "team2_jan_avg",
+   "label": "Team bowler 2 Jan. 1 2027 average",
+   "type": "text",
+   "rect": [
+    299,
+    257.3,
+    340.3,
+    271.2
+   ],
+   "maxlen": 3
+  },
+  {
+   "page": 0,
+   "name": "team2_hdcp_ae",
+   "label": "Team bowler 2 handicap all events (X)",
+   "type": "text",
+   "rect": [
+    426,
+    257.3,
+    449.8,
+    271.2
+   ],
+   "maxlen": 1
+  },
+  {
+   "page": 0,
+   "name": "team2_scratch_ae",
+   "label": "Team bowler 2 scratch all events (X)",
+   "type": "text",
+   "rect": [
+    452,
+    257.3,
+    477,
+    271.2
+   ],
+   "maxlen": 1
+  },
+  {
+   "page": 0,
+   "name": "team3_name",
+   "label": "Team bowler 3 name",
+   "type": "text",
+   "rect": [
+    37,
+    273.2,
+    180.5,
+    287.1
+   ]
+  },
+  {
+   "page": 0,
+   "name": "team3_usbc",
+   "label": "Team bowler 3 USBC number",
+   "type": "text",
+   "rect": [
+    183,
+    273.2,
+    251,
+    287.1
+   ],
+   "maxlen": 20
+  },
+  {
+   "page": 0,
+   "name": "team3_avg",
+   "label": "Team bowler 3 highest 2025-26 average",
+   "type": "text",
+   "rect": [
+    253.5,
+    273.2,
+    296.8,
+    287.1
+   ],
+   "maxlen": 3
+  },
+  {
+   "page": 0,
+   "name": "team3_jan_avg",
+   "label": "Team bowler 3 Jan. 1 2027 average",
+   "type": "text",
+   "rect": [
+    299,
+    273.2,
+    340.3,
+    287.1
+   ],
+   "maxlen": 3
+  },
+  {
+   "page": 0,
+   "name": "team3_hdcp_ae",
+   "label": "Team bowler 3 handicap all events (X)",
+   "type": "text",
+   "rect": [
+    426,
+    273.2,
+    449.8,
+    287.1
+   ],
+   "maxlen": 1
+  },
+  {
+   "page": 0,
+   "name": "team3_scratch_ae",
+   "label": "Team bowler 3 scratch all events (X)",
+   "type": "text",
+   "rect": [
+    452,
+    273.2,
+    477,
+    287.1
+   ],
+   "maxlen": 1
+  },
+  {
+   "page": 0,
+   "name": "team4_name",
+   "label": "Team bowler 4 name",
+   "type": "text",
+   "rect": [
+    37,
+    289.1,
+    180.5,
+    306.8
+   ]
+  },
+  {
+   "page": 0,
+   "name": "team4_usbc",
+   "label": "Team bowler 4 USBC number",
+   "type": "text",
+   "rect": [
+    183,
+    289.1,
+    251,
+    306.8
+   ],
+   "maxlen": 20
+  },
+  {
+   "page": 0,
+   "name": "team4_avg",
+   "label": "Team bowler 4 highest 2025-26 average",
+   "type": "text",
+   "rect": [
+    253.5,
+    289.1,
+    296.8,
+    306.8
+   ],
+   "maxlen": 3
+  },
+  {
+   "page": 0,
+   "name": "team4_jan_avg",
+   "label": "Team bowler 4 Jan. 1 2027 average",
+   "type": "text",
+   "rect": [
+    299,
+    289.1,
+    340.3,
+    306.8
+   ],
+   "maxlen": 3
+  },
+  {
+   "page": 0,
+   "name": "team4_hdcp_ae",
+   "label": "Team bowler 4 handicap all events (X)",
+   "type": "text",
+   "rect": [
+    426,
+    289.1,
+    449.8,
+    306.8
+   ],
+   "maxlen": 1
+  },
+  {
+   "page": 0,
+   "name": "team4_scratch_ae",
+   "label": "Team bowler 4 scratch all events (X)",
+   "type": "text",
+   "rect": [
+    452,
+    289.1,
+    477,
+    306.8
+   ],
+   "maxlen": 1
+  },
+  {
+   "page": 0,
+   "name": "ds1_name",
+   "label": "Doubles/singles pair 1, bowler 1 name",
+   "type": "text",
+   "rect": [
+    37,
+    357.1,
+    180.5,
+    371.9
+   ]
+  },
+  {
+   "page": 0,
+   "name": "ds1_usbc",
+   "label": "Doubles/singles pair 1, bowler 1 USBC number",
+   "type": "text",
+   "rect": [
+    183,
+    357.1,
+    251.5,
+    371.9
+   ],
+   "maxlen": 20
+  },
+  {
+   "page": 0,
+   "name": "ds1_avg",
+   "label": "Doubles/singles pair 1, bowler 1 highest 2025-26 average",
+   "type": "text",
+   "rect": [
+    253.5,
+    357.1,
+    297,
+    371.9
+   ],
+   "maxlen": 3
+  },
+  {
+   "page": 0,
+   "name": "ds1_jan_avg",
+   "label": "Doubles/singles pair 1, bowler 1 Jan 1 2027 average",
+   "type": "text",
+   "rect": [
+    299,
+    357.1,
+    341,
+    371.9
+   ],
+   "maxlen": 3
+  },
+  {
+   "page": 0,
+   "name": "ds1_hdcp_dbls",
+   "label": "Doubles/singles pair 1, bowler 1 handicap doubles (X)",
+   "type": "text",
+   "rect": [
+    343,
+    357.1,
+    364,
+    371.9
+   ],
+   "maxlen": 1
+  },
+  {
+   "page": 0,
+   "name": "ds1_hdcp_sgls",
+   "label": "Doubles/singles pair 1, bowler 1 handicap singles (X)",
+   "type": "text",
+   "rect": [
+    365.8,
+    357.1,
+    386.6,
+    371.9
+   ],
+   "maxlen": 1
+  },
+  {
+   "page": 0,
+   "name": "ds1_scratch_dbls",
+   "label": "Doubles/singles pair 1, bowler 1 scratch doubles (X)",
+   "type": "text",
+   "rect": [
+    388.3,
+    357.1,
+    408.4,
+    371.9
+   ],
+   "maxlen": 1
+  },
+  {
+   "page": 0,
+   "name": "ds1_scratch_sgls",
+   "label": "Doubles/singles pair 1, bowler 1 scratch singles (X)",
+   "type": "text",
+   "rect": [
+    410.3,
+    357.1,
+    434,
+    371.9
+   ],
+   "maxlen": 1
+  },
+  {
+   "page": 0,
+   "name": "ds2_name",
+   "label": "Doubles/singles pair 1, bowler 2 name",
+   "type": "text",
+   "rect": [
+    37,
+    373.9,
+    180.5,
+    389.9
+   ]
+  },
+  {
+   "page": 0,
+   "name": "ds2_usbc",
+   "label": "Doubles/singles pair 1, bowler 2 USBC number",
+   "type": "text",
+   "rect": [
+    183,
+    373.9,
+    251.5,
+    389.9
+   ],
+   "maxlen": 20
+  },
+  {
+   "page": 0,
+   "name": "ds2_avg",
+   "label": "Doubles/singles pair 1, bowler 2 highest 2025-26 average",
+   "type": "text",
+   "rect": [
+    253.5,
+    373.9,
+    297,
+    389.9
+   ],
+   "maxlen": 3
+  },
+  {
+   "page": 0,
+   "name": "ds2_jan_avg",
+   "label": "Doubles/singles pair 1, bowler 2 Jan 1 2027 average",
+   "type": "text",
+   "rect": [
+    299,
+    373.9,
+    341,
+    389.9
+   ],
+   "maxlen": 3
+  },
+  {
+   "page": 0,
+   "name": "ds2_hdcp_dbls",
+   "label": "Doubles/singles pair 1, bowler 2 handicap doubles (X)",
+   "type": "text",
+   "rect": [
+    343,
+    373.9,
+    364,
+    389.9
+   ],
+   "maxlen": 1
+  },
+  {
+   "page": 0,
+   "name": "ds2_hdcp_sgls",
+   "label": "Doubles/singles pair 1, bowler 2 handicap singles (X)",
+   "type": "text",
+   "rect": [
+    365.8,
+    373.9,
+    386.6,
+    389.9
+   ],
+   "maxlen": 1
+  },
+  {
+   "page": 0,
+   "name": "ds2_scratch_dbls",
+   "label": "Doubles/singles pair 1, bowler 2 scratch doubles (X)",
+   "type": "text",
+   "rect": [
+    388.3,
+    373.9,
+    408.4,
+    389.9
+   ],
+   "maxlen": 1
+  },
+  {
+   "page": 0,
+   "name": "ds2_scratch_sgls",
+   "label": "Doubles/singles pair 1, bowler 2 scratch singles (X)",
+   "type": "text",
+   "rect": [
+    410.3,
+    373.9,
+    434,
+    389.9
+   ],
+   "maxlen": 1
+  },
+  {
+   "page": 0,
+   "name": "ds3_name",
+   "label": "Doubles/singles pair 2, bowler 1 name",
+   "type": "text",
+   "rect": [
+    37,
+    391.9,
+    180.5,
+    405.3
+   ]
+  },
+  {
+   "page": 0,
+   "name": "ds3_usbc",
+   "label": "Doubles/singles pair 2, bowler 1 USBC number",
+   "type": "text",
+   "rect": [
+    183,
+    391.9,
+    251.5,
+    405.3
+   ],
+   "maxlen": 20
+  },
+  {
+   "page": 0,
+   "name": "ds3_avg",
+   "label": "Doubles/singles pair 2, bowler 1 highest 2025-26 average",
+   "type": "text",
+   "rect": [
+    253.5,
+    391.9,
+    297,
+    405.3
+   ],
+   "maxlen": 3
+  },
+  {
+   "page": 0,
+   "name": "ds3_jan_avg",
+   "label": "Doubles/singles pair 2, bowler 1 Jan 1 2027 average",
+   "type": "text",
+   "rect": [
+    299,
+    391.9,
+    341,
+    405.3
+   ],
+   "maxlen": 3
+  },
+  {
+   "page": 0,
+   "name": "ds3_hdcp_dbls",
+   "label": "Doubles/singles pair 2, bowler 1 handicap doubles (X)",
+   "type": "text",
+   "rect": [
+    343,
+    391.9,
+    364,
+    405.3
+   ],
+   "maxlen": 1
+  },
+  {
+   "page": 0,
+   "name": "ds3_hdcp_sgls",
+   "label": "Doubles/singles pair 2, bowler 1 handicap singles (X)",
+   "type": "text",
+   "rect": [
+    365.8,
+    391.9,
+    386.6,
+    405.3
+   ],
+   "maxlen": 1
+  },
+  {
+   "page": 0,
+   "name": "ds3_scratch_dbls",
+   "label": "Doubles/singles pair 2, bowler 1 scratch doubles (X)",
+   "type": "text",
+   "rect": [
+    388.3,
+    391.9,
+    408.4,
+    405.3
+   ],
+   "maxlen": 1
+  },
+  {
+   "page": 0,
+   "name": "ds3_scratch_sgls",
+   "label": "Doubles/singles pair 2, bowler 1 scratch singles (X)",
+   "type": "text",
+   "rect": [
+    410.3,
+    391.9,
+    434,
+    405.3
+   ],
+   "maxlen": 1
+  },
+  {
+   "page": 0,
+   "name": "ds4_name",
+   "label": "Doubles/singles pair 2, bowler 2 name",
+   "type": "text",
+   "rect": [
+    37,
+    409.6,
+    180.5,
+    424.2
+   ]
+  },
+  {
+   "page": 0,
+   "name": "ds4_usbc",
+   "label": "Doubles/singles pair 2, bowler 2 USBC number",
+   "type": "text",
+   "rect": [
+    183,
+    409.6,
+    251.5,
+    424.2
+   ],
+   "maxlen": 20
+  },
+  {
+   "page": 0,
+   "name": "ds4_avg",
+   "label": "Doubles/singles pair 2, bowler 2 highest 2025-26 average",
+   "type": "text",
+   "rect": [
+    253.5,
+    409.6,
+    297,
+    424.2
+   ],
+   "maxlen": 3
+  },
+  {
+   "page": 0,
+   "name": "ds4_jan_avg",
+   "label": "Doubles/singles pair 2, bowler 2 Jan 1 2027 average",
+   "type": "text",
+   "rect": [
+    299,
+    409.6,
+    341,
+    424.2
+   ],
+   "maxlen": 3
+  },
+  {
+   "page": 0,
+   "name": "ds4_hdcp_dbls",
+   "label": "Doubles/singles pair 2, bowler 2 handicap doubles (X)",
+   "type": "text",
+   "rect": [
+    343,
+    409.6,
+    364,
+    424.2
+   ],
+   "maxlen": 1
+  },
+  {
+   "page": 0,
+   "name": "ds4_hdcp_sgls",
+   "label": "Doubles/singles pair 2, bowler 2 handicap singles (X)",
+   "type": "text",
+   "rect": [
+    365.8,
+    409.6,
+    386.6,
+    424.2
+   ],
+   "maxlen": 1
+  },
+  {
+   "page": 0,
+   "name": "ds4_scratch_dbls",
+   "label": "Doubles/singles pair 2, bowler 2 scratch doubles (X)",
+   "type": "text",
+   "rect": [
+    388.3,
+    409.6,
+    408.4,
+    424.2
+   ],
+   "maxlen": 1
+  },
+  {
+   "page": 0,
+   "name": "ds4_scratch_sgls",
+   "label": "Doubles/singles pair 2, bowler 2 scratch singles (X)",
+   "type": "text",
+   "rect": [
+    410.3,
+    409.6,
+    434,
+    424.2
+   ],
+   "maxlen": 1
+  },
+  {
+   "page": 0,
+   "name": "contact_name",
+   "label": "Team captain",
+   "type": "text",
+   "rect": [
+    81,
+    450.5,
+    253,
+    467
+   ]
+  },
+  {
+   "page": 0,
+   "name": "tm_reserved",
+   "label": "Team event date/time reserved",
+   "type": "text",
+   "rect": [
+    286,
+    450.5,
+    477,
+    467
+   ]
+  },
+  {
+   "page": 0,
+   "name": "contact_email",
+   "label": "Team captain email",
+   "type": "text",
+   "rect": [
+    54,
+    469,
+    253,
+    487
+   ]
+  },
+  {
+   "page": 0,
+   "name": "ds_reserved",
+   "label": "D/S date/time reserved",
+   "type": "text",
+   "rect": [
+    286,
+    469,
+    477,
+    487
+   ]
+  },
+  {
+   "page": 0,
+   "name": "fee_team",
+   "label": "Team entry amount",
+   "type": "text",
+   "rect": [
+    715,
+    406.1,
+    762,
+    418.1
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 0,
+   "name": "fee_hdcp_ae",
+   "label": "Handicap A/E amount",
+   "type": "text",
+   "rect": [
+    715,
+    417.8,
+    762,
+    429.8
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 0,
+   "name": "fee_scratch_ae",
+   "label": "Scratch A/E amount",
+   "type": "text",
+   "rect": [
+    715,
+    429.5,
+    762,
+    441.5
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 0,
+   "name": "fee_hdcp_dbls",
+   "label": "Hdcp. doubles entry amount",
+   "type": "text",
+   "rect": [
+    715,
+    449.5,
+    762,
+    461.5
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 0,
+   "name": "fee_hdcp_sgls",
+   "label": "Hdcp. singles entry amount",
+   "type": "text",
+   "rect": [
+    715,
+    461.6,
+    762,
+    473.6
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 0,
+   "name": "fee_scratch_dbls",
+   "label": "Scratch doubles entry amount",
+   "type": "text",
+   "rect": [
+    715,
+    473.2,
+    762,
+    485.2
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 0,
+   "name": "fee_scratch_sgls",
+   "label": "Scratch singles entry amount",
+   "type": "text",
+   "rect": [
+    715,
+    484.9,
+    762,
+    496.9
+   ],
+   "fontsize": 9
+  },
+  {
+   "page": 0,
+   "name": "total_remitted",
+   "label": "Total amount remitted",
+   "type": "text",
+   "rect": [
+    715,
+    504.1,
+    762,
+    516.1
+   ],
+   "fontsize": 9
+  }
+ ]
+}

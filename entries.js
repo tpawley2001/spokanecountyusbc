@@ -26,11 +26,12 @@ function loadForm(slug) {
 }
 
 // Tournament name shown in the subject: the site's tournament list wins, so a
-// rename in the admin panel carries through; the form's own name is the fallback.
+// rename in the admin panel carries through; the form's own name is the fallback,
+// and is also used when one form serves several rows (e.g. Open team + D/S days).
 function tournamentName(slug, form, readData) {
   try {
-    const t = (readData().tournaments || []).find(t => t.online_form === slug);
-    if (t && t.name) return t.name;
+    const ts = (readData().tournaments || []).filter(t => t.online_form === slug);
+    if (ts.length === 1 && ts[0].name) return ts[0].name;
   } catch {}
   return form.tournament;
 }
@@ -57,6 +58,11 @@ function validate(form, body) {
     if (values[b.name] && !picked) errors[b.events[0]] = b.error || 'Pick at least one event';
     if (!values[b.name] && picked && !errors[b.name]) errors[b.name] = `${form.fields[b.name].label} is required`;
   }
+  // A field that only makes sense with another one (A/E box needs the bowler's name,
+  // scratch needs the matching handicap event, a doubles box needs the partner's)
+  for (const r of form.needs || []) {
+    if (values[r.field] && !values[r.needs] && !errors[r.needs]) errors[r.needs] = r.error || `${form.fields[r.needs].label} is required`;
+  }
   // At least one of several optional fields (e.g. any bowler, doubles or singles)
   const one = form.require_one;
   if (one && !one.fields.some(n => values[n]) && !errors[one.fields[0]]) errors[one.fields[0]] = one.error || 'Required';
@@ -77,7 +83,17 @@ function addons(form, values) {
   return (form.fee_addons || []).filter(a => !(a.unless && values[a.unless]));
 }
 
+// Per-line fees (fee_items: [{label, amount, fields, pdf_field}]): each filled
+// name or ticked box in a line's fields adds that line's amount.
+function feeLines(form, values) {
+  return (form.fee_items || []).map(i => {
+    const n = i.fields.filter(f => values[f]).length;
+    return { ...i, n, sum: n * i.amount };
+  });
+}
+
 function amountDue(form, values) {
+  if (form.fee_items) return feeLines(form, values).reduce((sum, l) => sum + l.sum, 0);
   const people = (form.fee_people_fields || []).filter(n => values[n]).length;
   if (!people) return 0;
   return people * entryFee(form) + addons(form, values).reduce((sum, a) => sum + a.amount, 0);
@@ -87,6 +103,11 @@ function amountDue(form, values) {
 function feeValues(form, values, due) {
   const p = form.fee_pdf;
   if (!p) return {};
+  if (form.fee_items) {   // the PDF prints its own "$" before each blank
+    const out = { [p.total]: due.toFixed(2) };
+    for (const l of feeLines(form, values)) if (l.pdf_field && l.n) out[l.pdf_field] = l.sum.toFixed(2);
+    return out;
+  }
   const out = { [p.entry]: `$${entryFee(form).toFixed(2)}`, [p.total]: `$${due.toFixed(2)}` };
   for (const a of form.fee_addons || []) if (a.pdf_field) out[a.pdf_field] = addons(form, values).includes(a) ? `$${a.amount.toFixed(2)}` : 'Paid';
   return out;
@@ -134,7 +155,10 @@ const htmlEsc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').repl
 function emailBody(name, form, values, due, when) {
   const rows = Object.entries(form.fields).map(([k, f]) => [f.label, values[k] || '—']);
   const extra = addons(form, values).map(a => ` + $${a.amount} ${a.label}`).join('');
-  rows.push(['Entry fee due', `$${due.toFixed(2)} ($${entryFee(form)}/${form.fee_unit || 'person'}${extra})`]);
+  const how = form.fee_items
+    ? feeLines(form, values).filter(l => l.n).map(l => `${l.short || l.label} ${l.n} x $${l.amount}`).join(', ')
+    : `$${entryFee(form)}/${form.fee_unit || 'person'}${extra}`;
+  rows.push(['Entry fee due', `$${due.toFixed(2)} (${how})`]);
   const text = `${name} entry submitted online ${when}\n\n` +
     rows.map(([l, v]) => `${l}: ${v}`).join('\n') +
     `\n\nThe completed entry form is attached as a printable PDF. Reply to this email to reach the contact.\n`;

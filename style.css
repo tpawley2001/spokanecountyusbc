@@ -343,6 +343,56 @@ footer {
 .es-pay-opt { display: flex; flex-direction: column; align-items: center; gap: 0.6rem; }
 .es-qr { width: 150px; height: 150px; }
 .es-done .btn { margin-top: 0.75rem; }
+/* paper look options + ruled tables and fee box (Open Championship) */
+.es-title.es-black, .es-black { color: #000; }
+.es-serif { font-family: "Times New Roman", Tinos, "Liberation Serif", Times, serif; }
+.es-u { text-decoration: underline; }
+.es-table-wrap { margin: 0.6rem 0 1rem; }
+.es-table { width: 100%; border-collapse: collapse; border: 2px solid #000; table-layout: fixed; font-family: "Arial Narrow", Arial, sans-serif; }
+.es-table th, .es-table td { border: 1px solid #000; padding: 0.2rem 0.3rem; vertical-align: bottom; }
+.es-table thead { background: #fff; color: #000; }
+.es-table th { font-size: 0.8rem; font-weight: 400; text-align: center; line-height: 1.3; vertical-align: top; letter-spacing: 0; padding: 0.2rem 0.15rem; }
+.es-table tr:nth-child(even) td { background: #fff; }
+.es-table th.es-th-field input { border-bottom: 1px solid #000; }
+.es-table th.es-bold { font-weight: 700; }
+.es-table th.es-th-field { text-align: left; }
+.es-table th.es-th-field > span:first-child { display: block; }
+.es-table label { display: flex; align-items: flex-end; gap: 0.3rem; font-size: 0.85rem; }
+.es-table td.es-td-check label { justify-content: center; }
+.es-table .es-n { font-size: 0.75rem; }
+.es-table input { flex: 1; width: 100%; min-width: 0; border: 0; background: #fafcff; font: inherit; font-size: 1rem;
+  color: #0a2a8a; padding: 0.15rem 0.2rem; font-family: Calibri, Carlito, Arial, sans-serif; }
+.es-table input:focus { outline: none; background: #eef4ff; }
+.es-table input[type=checkbox] { flex: 0 0 auto; width: 1.2rem; height: 1.2rem; accent-color: var(--navy); }
+.es-table input.es-invalid { background: #fff2f2; outline: 1.5px solid #f00; }
+.es-table .es-err { display: block; font-size: 0.72rem; line-height: 1.2; }
+.es-table .es-err:empty { display: none; }
+.es-fees { border: 1px solid #000; max-width: 430px; margin: 1.25rem auto 0.5rem; padding: 0.75rem 1rem; font-size: 1rem; }
+.es-fee-line { display: flex; justify-content: space-between; gap: 1rem; margin: 0.1rem 0; }
+.es-fee-gap { margin-top: 0.9rem; }
+.es-fee-line > span:last-child { flex: 0 0 auto; white-space: nowrap; }
+.es-fee-amt { display: inline-block; min-width: 5rem; border-bottom: 1px solid #000; color: #0a2a8a; text-align: left; padding: 0 0.2rem; }
+.es-fee-total { font-weight: 700; font-size: 1.15rem; }
+.es-rules-h { font-family: "Times New Roman", Tinos, "Liberation Serif", Times, serif; font-size: 1.3rem; font-weight: 700; text-align: center; margin: 1rem 0 0.2rem; }
+@media (max-width: 640px) {
+  /* phones: each table row becomes a card, each cell shows its column name */
+  .es-table, .es-table thead, .es-table tbody, .es-table tr, .es-table th, .es-table td { display: block; width: auto; }
+  .es-table colgroup, .es-table thead th:not(.es-th-field) { display: none; }
+  .es-table { border: 0; }
+  .es-table thead tr { border: 0; }
+  .es-table th.es-th-field { border: 1.5px solid #000; padding: 0.4rem 0.5rem; margin-bottom: 0.5rem; font-size: 0.95rem; }
+  .es-table tr { border: 1.5px solid #000; margin-bottom: 0.6rem; }
+  .es-table td { border: 0; border-bottom: 1px solid #ccc; padding: 0.3rem 0.5rem; }
+  .es-table td:last-child { border-bottom: 0; }
+  .es-table td.es-empty { display: none; }
+  .es-table td::before { content: attr(data-label); display: block; font-size: 0.75rem; color: #444; }
+  .es-table td.es-td-check { display: flex; align-items: center; justify-content: space-between; }
+  .es-table td.es-td-check::before { display: inline; font-size: 0.9rem; color: #000; }
+  .es-table td.es-td-check .es-err { flex-basis: 100%; }
+  .es-table td.es-td-check { flex-wrap: wrap; }
+  .es-fees { padding: 0.6rem; font-size: 0.92rem; }
+  .es-fee-amt { min-width: 3.6rem; }
+}
 
 /* ── BVL collection sign-up (pages/bvl-signup.html): phone-first ── */
 .bvl-body { background: var(--light-bg); padding-bottom: env(safe-area-inset-bottom); }
